@@ -27,5 +27,11 @@ assert ui.count('xoom-remote-ram')==1
 s=s.replace(needle,insert+needle,1)
 s=s.replace('"test_status":"MATCHED RUNTIME AND LEGACY TOOL COMPATIBILITY PACKAGED; OFFLINE ONLY; UNFLASHED",',
 '"test_status":"MATCHED RUNTIME AND RAM-ONLY SCREENSHOT SHORTCUT COMPILED; OFFLINE AND UNFLASHED",')
+# Normalize the older builder's privacy guard without copying private literals.
+lines=s.splitlines(keepends=True)
+match=[i for i,line in enumerate(lines) if line.startswith("assert not any(bad in shell for bad in [")]
+assert len(match)==1
+lines[match[0]]='assert not any(bad in shell for bad in [b"192.168.",b"10.0.",b"172.16.",b"service.adb.tcp.port",b"adb tcpip"])\\n'
+s=''.join(lines)
 dst.write_text(s)
 print(dst)
