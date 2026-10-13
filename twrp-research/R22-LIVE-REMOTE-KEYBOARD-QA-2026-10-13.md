@@ -1,5 +1,8 @@
 # R22 USB ADB remote keyboard QA — 2026-10-13
 
+> **LATER VERIFIED RESULT:** The Enter-key failure below was a **remote input injection false negative**. See [R22a live QA](R22A-LIVE-QA-AND-INIT-SERVICE-FIX-2026-10-13.md): an atomic press/release injector made both field transitions pass on the installed R22; no native Enter patch is needed.
+
+
 **Hardware:** Motorola Xoom MZ600, running verified R22 recovery image SHA256 `c6bdb680cabcbdba2abf045b4e7fc2f8f55c14bc808f1f95d33de2650a855622`.
 **Scope:** Read-only screen captures, and calibrated short-press touch events via temporary recovery RAM only. No flash, Wi-Fi connection, or SD/Android partition operations.
 

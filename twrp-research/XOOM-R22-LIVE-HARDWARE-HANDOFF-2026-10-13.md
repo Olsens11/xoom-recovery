@@ -1,5 +1,8 @@
 # MOTOROLA XOOM MZ600 — LIVE R22 RECOVERY TEST HANDOFF
 
+> **NEWER VERIFIED CONTINUATION (2026-10-13):** This document captures the earlier stopping point. See [R22a live QA / init service fix](R22A-LIVE-QA-AND-INIT-SERVICE-FIX-2026-10-13.md) for the *current* hardware state. Native SSID→password Enter and password→hide-keyboard **both passed** after correcting the remote touchscreen injector to use one atomic press/release stream. The unrelated Wi-Fi start failure was traced to legacy init rejecting the hyphenated service name. A minimally changed **R22a offline image was built and archive-diff audited but has NOT been flashed**. Installed R22 remains unchanged; user approval is required before any new p6 write. The benign test SSID was cleared and keyboard hidden.
+
+
 **Updated:** October 13, 2026, at the point the previous ChatGPT conversation reached its length limit.  
 **Project:** Motorola Xoom MZ600 custom TWRP 3.1.1 recovery with a standalone Wi-Fi feature, eventual **authenticated wireless ADB**, and optional remote diagnostics.  
 **Current milestone:** **R22 HAS BEEN SUCCESSFULLY FLASHED, READ-BACK VERIFIED, AND BOOTED ON THE REAL XOOM.** USB ADB, GUI, header Network button, Network page, touchscreen field focus, and physical two-stage Back behavior have been confirmed. **Wi-Fi association/DHCP has not yet been tested on R22.**  
