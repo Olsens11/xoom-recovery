@@ -1,5 +1,5 @@
 diff --git a/gui/action.cpp b/gui/action.cpp
-index a395158..998ae82 100644
+index a395158..9a67908 100644
 --- a/gui/action.cpp
 +++ b/gui/action.cpp
 @@ -34,6 +34,7 @@
@@ -18,7 +18,7 @@ index a395158..998ae82 100644
  		ADD_ACTION(clear);
  		ADD_ACTION(mount);
  		ADD_ACTION(unmount);
-@@ -1331,6 +1333,90 @@ int GUIAction::htcdumlockreflashrecovery(std::string arg __unused)
+@@ -1331,6 +1333,101 @@ int GUIAction::htcdumlockreflashrecovery(std::string arg __unused)
  	return 0;
  }
  
@@ -57,14 +57,25 @@ index a395158..998ae82 100644
 +        if (!valid) {
 +            DataManager::SetValue("xoom_n2_profile_status", "INVALID_PASSWORD");
 +        } else {
-+            // Recovery RAM only. Existing parent must be root:wifi 0710;
-+            // inspect/init parent separately before enabling this action.
++            // Recovery RAM only; create/verify the root-owned parent on first use.
 +            const char *temporary = "/tmp/xoom-network/.wifi-gui.tmp";
 +            const char *destination = "/tmp/xoom-network/wifi.conf";
 +            // Regenerate the temporary file after a previous interrupted attempt.
 +            // This is a RAM-only, fixed path under a root-owned directory.
-+            unlink(temporary);
-+            int fd = open(temporary, O_WRONLY | O_CREAT | O_EXCL | O_NOFOLLOW, 0600);
++            // First connection must work before xoom-net-control has started.
++            // Never follow a preexisting symlink or trust an unowned directory.
++            mkdir("/tmp/xoom-network", 0710);
++            struct stat directory_info;
++            bool safe_directory =
++                lstat("/tmp/xoom-network", &directory_info) == 0 &&
++                S_ISDIR(directory_info.st_mode) && directory_info.st_uid == 0 &&
++                chown("/tmp/xoom-network", 0, 1010) == 0 &&
++                chmod("/tmp/xoom-network", 0710) == 0;
++            int fd = -1;
++            if (safe_directory) {
++                unlink(temporary);
++                fd = open(temporary, O_WRONLY | O_CREAT | O_EXCL | O_NOFOLLOW, 0600);
++            }
 +            if (fd >= 0) {
 +                std::string config = "ctrl_interface=DIR=/tmp/wpa_ctrl\n"
 +                    "update_config=0\nap_scan=1\nnetwork={\n    ssid=" + encoded_ssid +
