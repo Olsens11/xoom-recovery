@@ -1,0 +1,18 @@
+{
+  "image_sha256": "cb8a906feb9524d1bb960fe7954acb25eb17caa054712421cf8b127be94b754a",
+  "image_bytes": 11372544,
+  "within_recovery_partition": true,
+  "original_kernel_unchanged": true,
+  "original_usb_adb_untouched": true,
+  "init_worker_explicitly_disabled": true,
+  "init_worker_oneshot": true,
+  "network_back_only_on_keypress": true,
+  "keyboard_hidden_by_default": true,
+  "no_credentials_in_image": true,
+  "remote_tcp_adb_disabled": true,
+  "control_index_pages": 79,
+  "control_index_controls": 224,
+  "control_index_safe_guarded": true,
+  "hardware_boot_test": "PENDING; R21 STILL INSTALLED",
+  "real_wpa2_and_dhcp_test": "PENDING"
+}

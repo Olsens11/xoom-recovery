@@ -1,0 +1,66 @@
+# Motorola Xoom MZ600 — N2 R22 offline release and control index
+
+**Prepared:** 2026-10-13. **Installed on hardware:** **NO**. R21 is still installed on the Xoom; the Surface Book is sleeping and its USB ADB connection unavailable. These are offline tests only. Do not misrepresent the R22 build as hardware-booted or Wi-Fi-connected.
+
+## R22 candidate
+
+- Private image: `/home/ps2/xoom-phase1/private/xoom-twrp311-network-n2-r22-network-back-UNFLASHED.img`
+- Size: **11,372,544 bytes**. Recovery partition limit: **12,582,912 bytes**.
+- Final SHA256: `cb8a906feb9524d1bb960fe7954acb25eb17caa054712421cf8b127be94b754a`
+- Original known-working kernel unchanged; original `init`, USB `adbd`, USB init and fstab unchanged.
+- Built with desktop Android 7.1 TWRP native source, then repacked against known-good Xoom kernel and baseline recovery ramdisk.
+- 30 ELF executable/dependency audits, **0 issues**.
+- `audit-n2-r22-image.py` passes image, native Back action registration, disabled init worker, no embedded credentials, wireless ADB disabled, and control-index hash/safety checks.
+
+## Incorporates live R21 RAM fixes and logical improvements
+
+1. **Network** heading and Advanced button both omit the redundant `(Xoom)`.
+2. Preserve non-overlapping, visually validated R20/R21 right-side button layout and raised SSID/password labels.
+3. Keep the native R21 two-field input focus rules; tapping SSID/password opens their keyboard; Enter on SSID switches to password; Enter on password closes keyboard **without connecting**. This behavior is still not completely hardware-verified.
+4. **Fix critical R21 Back bug**: eliminate two condition-based `GUIAction` Back handlers that autonomously navigated to Advanced on a variable-change. Instead, use one unconditional Back action registered as `xoomnetworkback`. Native handler checks keyboard visibility only when physically activated; first Back hides keyboard, next Back navigates to Advanced. Compiled successfully; awaiting hardware testing.
+5. Default TWRP screen timeout to **0** so it will not lock during remote testing after reboot (previous RAM-only setting reset to 60s on reboot). It remains user-configurable in Settings.
+6. Replace unreliable shell-background Wi-Fi worker (stuck at `QUEUED` during R21 tests; direct foreground `worker` reached WPA2 handshake) with an **Android init-managed disabled one-shot worker**. `xoom-net-control start` explicitly requests `ctl.start xoom-n2-wifi-worker`, checks worker startup within six seconds, and reports `WORKER_LAUNCH_FAILED` if necessary. `stop` can request `ctl.stop`. No auto Wi-Fi on boot. Actual association/DHCP still needs hardware testing with a correctly derived WPA key.
+7. Root, unauthenticated TCP ADB remains **disabled**. An authenticated wireless ADB server or secure Pi bridge remains an independent future milestone, not an implied feature of R22.
+
+## Screen-by-screen control index (new)
+
+The reproducible `index-n2-r22-controls.py` reads the **assembled R22 image** (not an out-of-date XML copy) to emit:
+
+- `xoom-n2-r22-control-index.json` — **79 pages, 224 controls**, including global page-template buttons, keyboard layouts 1–4, conditions, action functions, screen touch rectangles, and centers.
+- `xoom-control-locate.py` — **read-only** CLI for exact-name lookup; it never sends a tap.
+- Theme resolution **1920×1200**, physical display **1280×800**. Index includes raw qtouch min/max learned from live R21 read-only ioctl, for the separate driver translation stage.
+- The image SHA256 plus individual theme XML SHA256 hashes are stored in the index, so a remote helper can refuse stale coordinates after updates.
+- A whitelist allows only non-overlapping plain safe page-navigation actions. Any input, destructive operation, condition, uncertain size, overlay or overlapping rectangle requires live state confirmation, never unattended tapping.
+
+### Example lookup (all centers in actual 1280×800 screen pixels)
+
+| Page | Control | Center (x, y) | Constraint |
+|---|---|---|---|
+| `main2` | Advanced | (336, 656) | safe-navigation reference |
+| `advanced` | Network | (944, 656) | shares region with conditional HTC Dumlock and Inject TWRP buttons; check runtime variables/visibility first |
+| `xoom_network` | SSID input | (328, 235) | input; keyboard state and focus validation required |
+| `xoom_network` | Password input | (328, 331) | input; never reveal or log secret |
+| `xoom_network` | Connect | (792, 352) | not auto-tappable; explicit connection only |
+| `xoom_network` | Disconnect | (1080, 352) | command; explicit operation only |
+| `xoom_network` | Network Status | (792, 480) | safe-navigation reference |
+| `xoom_network` | Wireless ADB | (1080, 480) | navigates to warning page; **does not enable any listener** |
+
+Try:
+```bash
+python3 twrp-research/xoom-control-locate.py --page advanced --control Network
+python3 twrp-research/xoom-control-locate.py --page xoom_network --control "Network Status" --safe-only
+python3 twrp-research/xoom-control-locate.py --keyboard layout1 --key e
+```
+
+**Remote-control protocol:** for future navigation confirm live page, runtime conditional visibility/overlays, keyboard state, recovery/theme checksum and screen-on state **before** using recorded coordinates. The separate calibrated touchscreen injector must never emit `ABS_MT_TRACKING_ID=-1`, which previously corrupted TWRP's physical-touch release mode. Key typing is still not reliable. Avoid screenshots on every ordinary known navigation step once the current screen is confirmed, but continue to capture screenshots for new screens, ambiguous overlays or unexpectedly failed actions.
+
+## Next hardware test (after Surface Book wakes)
+
+1. Verify Surface Book USB ADB and take first screenshot of installed R21. Do not touch internal partitions or SD.
+2. Use known recovery-only ADB flash workflow **only after explicit approval for R22**; preserve R21 and pre-N2 recovery rollback images, verify SHA before and after write, then `adb reboot recovery`.
+3. Verify first boot, USB ADB, screenshot, **default timeout 0**, and physical touch.
+4. Navigate Network; confirm Back closes keyboard without leaving, second Back returns to Advanced; verify Enter sequence and no automatic Connect.
+5. Test init-managed Wi-Fi worker and WPA2 with a correctly derived key; verify `wpa_state=COMPLETED`, DHCP address/gateway and functional connection. Do not log credentials.
+6. Establish authenticated remote control later; never expose unauthenticated recovery-root ADB over TCP.
+
+**Rollback and data integrity:** No R22 flash performed; the Xoom remains on R21. No Android /system, /data, /cache, or microSD writes. Keep existing verified recovery images and original p6 backup available.
