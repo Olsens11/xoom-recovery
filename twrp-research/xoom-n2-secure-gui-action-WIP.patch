@@ -1,5 +1,5 @@
 diff --git a/gui/action.cpp b/gui/action.cpp
-index a395158..9a67908 100644
+index a395158..8a09e47 100644
 --- a/gui/action.cpp
 +++ b/gui/action.cpp
 @@ -34,6 +34,7 @@
@@ -18,7 +18,54 @@ index a395158..9a67908 100644
  		ADD_ACTION(clear);
  		ADD_ACTION(mount);
  		ADD_ACTION(unmount);
-@@ -1331,6 +1333,101 @@ int GUIAction::htcdumlockreflashrecovery(std::string arg __unused)
+@@ -933,7 +935,7 @@ int GUIAction::getpartitiondetails(std::string arg)
+ 	return 0;
+ }
+ 
+-int GUIAction::screenshot(std::string arg __unused)
++int GUIAction::screenshot(std::string arg)
+ {
+ 	time_t tm;
+ 	char path[256];
+@@ -941,25 +943,33 @@ int GUIAction::screenshot(std::string arg __unused)
+ 	uid_t uid = AID_MEDIA_RW;
+ 	gid_t gid = AID_MEDIA_RW;
+ 
++	const bool remote_ram_capture = (arg == "xoom-remote-ram");
+ 	const std::string storage = DataManager::GetCurrentStoragePath();
+-	if (PartitionManager.Is_Mounted_By_Path(storage)) {
++	if (remote_ram_capture) {
++		uid = 0;
++		gid = 0;
++		strcpy(path, "/tmp/xoom-remote/");
++	} else if (PartitionManager.Is_Mounted_By_Path(storage)) {
+ 		snprintf(path, sizeof(path), "%s/Pictures/Screenshots/", storage.c_str());
+ 	} else {
+ 		strcpy(path, "/tmp/");
+ 	}
+ 
+-	if (!TWFunc::Create_Dir_Recursive(path, 0775, uid, gid))
++	if (!TWFunc::Create_Dir_Recursive(path, remote_ram_capture ? 0700 : 0775, uid, gid))
+ 		return 0;
+ 
+ 	tm = time(NULL);
+ 	path_len = strlen(path);
+ 
+ 	// Screenshot_2014-01-01-18-21-38.png
+-	strftime(path+path_len, sizeof(path)-path_len, "Screenshot_%Y-%m-%d-%H-%M-%S.png", localtime(&tm));
++	if (remote_ram_capture)
++		strcpy(path+path_len, "capture.png");
++	else
++		strftime(path+path_len, sizeof(path)-path_len, "Screenshot_%Y-%m-%d-%H-%M-%S.png", localtime(&tm));
+ 
+ 	int res = gr_save_screenshot(path);
+ 	if (res == 0) {
+-		chmod(path, 0666);
++		chmod(path, remote_ram_capture ? 0600 : 0666);
+ 		chown(path, uid, gid);
+ 
+ 		gui_msg(Msg("screenshot_saved=Screenshot was saved to {1}")(path));
+@@ -1331,6 +1341,101 @@ int GUIAction::htcdumlockreflashrecovery(std::string arg __unused)
  	return 0;
  }
  
