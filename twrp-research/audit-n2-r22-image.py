@@ -62,7 +62,29 @@ for name,page in data["pages"].items():
             assert len(c["actions"])==1 and c["actions"][0]["function"]=="page"
         if re.search(r"wipe|format|install|flash|restore|backup|partition|mount|reboot|shutdown",c["label"],re.I):
             assert not c["auto_tap_allowed"],(name,c["label"])
-assert [x for x in data["pages"]["advanced"]["controls"] if x["label"]=="Network"][0]["risk"]=="requires_runtime_overlap_check"
+# Network has its own header touch target, outside status indicators and
+# the legacy bottom-row conditional HTC/Inject TWRP buttons.
+advanced_net=[x for x in data["pages"]["advanced"]["controls"] if x["label"]=="Network"]
+assert len(advanced_net)==1
+assert advanced_net[0]["risk"]=="safe_navigation" and advanced_net[0]["auto_tap_allowed"]
+assert advanced_net[0]["bbox"]=={"x":944,"y":43,"w":272,"h":75,"center":[1080,80]}
+assert not advanced_net[0]["overlaps_with"]
+assert advanced_net[0]["theme_style"]=="xoom_header_network"
+assert advanced_net[0]["bbox"]["y"]>=32 and advanced_net[0]["bbox"]["y"]+advanced_net[0]["bbox"]["h"]<128
+# Dedicated asset/style rather than a raised main-button graphic; text remains
+# native UI font, highlight available on actual button press.
+styles=[x for x in theme.findall("./styles/style") if x.get("name")=="xoom_header_network"]
+assert len(styles)==1
+assert styles[0].find("font").get("resource")=="font_m"
+assert styles[0].find("font").get("color")=="%text_color%"
+assert styles[0].find("highlight") is not None
+assert styles[0].find("image").get("resource")=="xoom_header_network"
+assert len([x for x in ui.findall("./resources/image") if x.get("name")=="xoom_header_network"])==1
+asset=files["twres/images/xoom_header_network.png"]
+assert asset[:8]==bytes((137,80,78,71,13,10,26,10))
+assert struct.unpack_from(">II",asset,16)==(408,112)
+assert asset== (R/"twrp-research/xoom-header-network-tab.png").read_bytes()
+
 assert [x for x in data["pages"]["xoom_network"]["controls"] if x["label"]=="Network Status"][0]["bbox"]["center"]==[792,480]
 assert data["keyboards"]["xoom_network_keyboardtemplate"]["layouts"]["layout1"]
 report={"image_sha256":hashlib.sha256(img).hexdigest(),
@@ -76,6 +98,8 @@ report={"image_sha256":hashlib.sha256(img).hexdigest(),
         "control_index_pages":len(data["pages"]),
         "control_index_controls":sum(len(v["controls"]) for v in data["pages"].values()),
         "control_index_safe_guarded":True,
+        "advanced_network_header_isolated":True,
+        "advanced_network_header_style_validated":True,
         "hardware_boot_test":"PENDING; R21 STILL INSTALLED",
         "real_wpa2_and_dhcp_test":"PENDING"}
 dst=R/"twrp-research/xoom-n2-r22-release-gate.json"

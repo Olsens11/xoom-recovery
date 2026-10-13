@@ -1,6 +1,6 @@
 {
-  "image_sha256": "cb8a906feb9524d1bb960fe7954acb25eb17caa054712421cf8b127be94b754a",
-  "image_bytes": 11372544,
+  "image_sha256": "7d2222dfb8954608921b0d303cb42a497255fd7e8e43a45ed9e10c60a24407ab",
+  "image_bytes": 11376640,
   "within_recovery_partition": true,
   "original_kernel_unchanged": true,
   "original_usb_adb_untouched": true,
@@ -13,6 +13,8 @@
   "control_index_pages": 79,
   "control_index_controls": 224,
   "control_index_safe_guarded": true,
+  "advanced_network_header_isolated": true,
+  "advanced_network_header_style_validated": true,
   "hardware_boot_test": "PENDING; R21 STILL INSTALLED",
   "real_wpa2_and_dhcp_test": "PENDING"
 }

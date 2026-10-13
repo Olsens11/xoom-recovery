@@ -56,6 +56,18 @@ assert b"disabled" in init_worker and b"oneshot" in init_worker
 assert b"twres/landscape.xml" in byname and b"sbin/sh" in byname and b"sbin/busybox" in byname
 
 theme=byname[b"twres/landscape.xml"].payload.decode("utf-8")
+# Use a dedicated header-tab style. The caption is rendered by TWRP's native
+# font with a translucent image so it belongs to the cyan title/navigation band.
+assert theme.count("</styles>")==1
+header_style="""
+        <style name="xoom_header_network">
+            <highlight color="#FFFFFF26"/>
+            <font resource="font_m" color="%text_color%"/>
+            <image resource="xoom_header_network"/>
+        </style>
+"""
+theme=theme.replace("</styles>",header_style+"</styles>",1)
+
 assert len(theme)>100000
 advanced=theme.find('<page name="advanced">')
 advanced_end=theme.find('<page name="partsdcardsel">',advanced)
@@ -63,9 +75,10 @@ assert 0<advanced<advanced_end
 seg=theme[advanced:advanced_end]
 anchor='\t\t\t<action>\n\t\t\t\t<touch key="home"/>'
 assert seg.count(anchor)==1
-new_button='''\t\t\t<!-- Xoom N2: Advanced screen, bottom-right unused slot on MZ600. -->
-\t\t\t<button style="main_button">
-\t\t\t\t<placement x="%center_x%" y="%row15a_y%"/>
+new_button='''\t\t\t<!-- Xoom N2: integrated Network header tab, deliberately outside
+\t\t\t     the status strip and old HTC feature-button slot. -->
+\t\t\t<button style="xoom_header_network">
+\t\t\t\t<placement x="%col2_x_right%" y="64"/>
 \t\t\t\t<text>Network</text>
 \t\t\t\t<action function="page">xoom_network</action>
 \t\t\t</button>
@@ -217,6 +230,12 @@ assert theme.count('Sync Time via Wi-Fi')==1
 assert theme.count('/sbin/xoom-time-sync')==1
 ET.fromstring(theme)
 root=ET.fromstring(theme)
+assert len([x for x in root.findall("./styles/style") if x.get("name")=="xoom_header_network"])==1
+advanced_node=root.find(".//page[@name='advanced']")
+tab=[x for x in advanced_node.findall("button") if (x.findtext("text") or "")=="Network"]
+assert len(tab)==1 and tab[0].get("style")=="xoom_header_network"
+assert tab[0].find("placement").get("y")=="64"
+
 pages=[p.attrib.get("name") for p in root.iter("page")]
 assert len(pages)==len(set(pages))
 assert "xoom_network" in pages and "xoom_network_status" in pages
@@ -226,6 +245,12 @@ assert len([a for a in root.iter("action") if a.attrib.get("function")=="cmd" an
 # A 2-kB TrueType font maps ASCII C/D/P to connected/off/connecting icons.
 # TWRP's DataManager reads property.xoom.n2.wifi.icon on GUIText update.
 ui=byname[b"twres/ui.xml"].payload.decode("utf-8")
+# The PNG is a rounded, understated cyan-header tab, not a normal main button.
+header_ref='\t\t<image name="logo" filename="logo" retainaspect="1"/>'
+assert ui.count(header_ref)==1
+ui=ui.replace(header_ref,header_ref+'\n'
+    '\t\t<image name="xoom_header_network" filename="xoom_header_network"/>',1)
+
 assert len(ui)>30000
 font_ref='\t\t<font name="font_s" filename="RobotoCondensed-Regular.ttf" size="28"/>'
 assert ui.count(font_ref)==1
@@ -281,6 +306,9 @@ template=template.replace('<keyboard>','<keyboard>\n'
 assert ui.count('\n\t</templates>')==1
 ui=ui.replace('\n\t</templates>','\n'+template+'\n\t</templates>',1)
 ui_root=ET.fromstring(ui)
+assert len([x for x in ui_root.findall("./resources/image")
+    if x.get("name")=="xoom_header_network" and x.get("filename")=="xoom_header_network"])==1
+
 assert len([a for a in ui_root.iter("font") if a.get("name")=="xoom_wifi_font"])==1
 assert any((a.text or "")=='%property.xoom.n2.wifi.icon%' for a in ui_root.iter("text"))
 assert "fileexists" not in header
@@ -331,6 +359,11 @@ def extra(name,payload,mode,is_dir=False):
  extras.append(e)
 for path in to_add_dirs:
  extra(path,b"",stat.S_IFDIR|0o755,True)
+header_asset=(RESEARCH/"xoom-header-network-tab.png").read_bytes()
+assert header_asset.startswith(bytes((137,80,78,71,13,10,26,10)))
+import struct as _hdrstruct
+assert _hdrstruct.unpack_from(">II",header_asset,16)==(408,112)
+extra("twres/images/xoom_header_network.png",header_asset,stat.S_IFREG|0o644)
 extra(scriptname.decode(),shell,stat.S_IFREG|0o750)
 storage_script=RESEARCH/"xoom-net-sd-n2.sh"
 storage_data=storage_script.read_bytes()
@@ -437,6 +470,8 @@ assert set(recovered)==set(byname)|{e.name for e in extras}
 assert recovered[b"init.recovery.service.rc"].payload==new_init_service
 assert recovered[b"twres/landscape.xml"].payload==new_theme
 assert recovered[b"twres/ui.xml"].payload==new_ui
+assert recovered[b"twres/images/xoom_header_network.png"].payload==header_asset
+
 assert recovered[b"sbin/recovery"].payload==elf
 for e in extras:assert recovered[e.name].payload==e.payload
 for name,e in byname.items():

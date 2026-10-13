@@ -1,8 +1,8 @@
 {
   "build": "N2-R22",
-  "recovery_image_sha256": "cb8a906feb9524d1bb960fe7954acb25eb17caa054712421cf8b127be94b754a",
-  "theme_sha256": "bbdbaf172b1be5442fdc50eda1b5fb66b8e352a5aac0263c46621f6383ef50b0",
-  "ui_sha256": "4ad8ec56a69aad25abd74aecf179adedd2788cfa1921b0a040441d92a50dea28",
+  "recovery_image_sha256": "7d2222dfb8954608921b0d303cb42a497255fd7e8e43a45ed9e10c60a24407ab",
+  "theme_sha256": "bad130be46fb261ea277d5b410ea33830b58a8fa8cd34371be3468e6823c8c3b",
+  "ui_sha256": "96de7fd819cae6d51cc8313e746f64b6325b454a8fe71717f40561e2a2d466ea",
   "theme_resolution": [
     1920,
     1200
@@ -4798,8 +4798,7 @@
           "risk": "manual_review",
           "auto_tap_allowed": false,
           "overlaps_with": [
-            "inject_twrp_8",
-            "network_9"
+            "inject_twrp_8"
           ]
         },
         {
@@ -4858,8 +4857,7 @@
           "risk": "destructive_or_sensitive",
           "auto_tap_allowed": false,
           "overlaps_with": [
-            "htc_dumlock_7",
-            "network_9"
+            "htc_dumlock_7"
           ]
         },
         {
@@ -4867,15 +4865,15 @@
           "label": "Network",
           "type": "button",
           "theme_origin": "page",
-          "theme_style": "main_button",
+          "theme_style": "xoom_header_network",
           "bbox": {
-            "x": 640,
-            "y": 592,
-            "w": 608,
-            "h": 128,
+            "x": 944,
+            "y": 43,
+            "w": 272,
+            "h": 75,
             "center": [
-              944,
-              656
+              1080,
+              80
             ]
           },
           "unresolved_reason": null,
@@ -4886,12 +4884,9 @@
             }
           ],
           "conditions": [],
-          "risk": "requires_runtime_overlap_check",
-          "auto_tap_allowed": false,
-          "overlaps_with": [
-            "htc_dumlock_7",
-            "inject_twrp_8"
-          ]
+          "risk": "safe_navigation",
+          "auto_tap_allowed": true,
+          "overlaps_with": []
         }
       ],
       "templates": [
