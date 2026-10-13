@@ -104,7 +104,7 @@ def main():
     if not args.serial:
         parser.error("--serial or XOOM_SERIAL must specify the authorized device")
     if args.action=="sync-test":sync(args.serial)
-    elif args.action=="tap":tap(args.serial,args.x,args.y)
+    elif args.action=="tap":raise RuntimeError("Remote touch DISABLED: legacy TWRP touch-release protocol is incompatible with injected tracking-ID release; use physical touch until corrected.")
     elif args.action=="capture":capture(args.serial,args.output)
 
 if __name__=="__main__":
