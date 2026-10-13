@@ -78,7 +78,7 @@ assert seg.count(anchor)==1
 new_button='''\t\t\t<!-- Xoom N2: integrated Network header tab, deliberately outside
 \t\t\t     the status strip and old HTC feature-button slot. -->
 \t\t\t<button style="xoom_header_network">
-\t\t\t\t<placement x="%col2_x_right%" y="64"/>
+\t\t\t\t<placement x="1212" y="64"/>
 \t\t\t\t<text>Network</text>
 \t\t\t\t<action function="page">xoom_network</action>
 \t\t\t</button>

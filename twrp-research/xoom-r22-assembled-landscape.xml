@@ -3489,7 +3489,7 @@
 			<!-- Xoom N2: integrated Network header tab, deliberately outside
 			     the status strip and old HTC feature-button slot. -->
 			<button style="xoom_header_network">
-				<placement x="%col2_x_right%" y="64"/>
+				<placement x="1212" y="64"/>
 				<text>Network</text>
 				<action function="page">xoom_network</action>
 			</button>

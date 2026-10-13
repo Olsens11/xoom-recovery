@@ -1,7 +1,7 @@
 {
   "build": "N2-R22",
-  "recovery_image_sha256": "7d2222dfb8954608921b0d303cb42a497255fd7e8e43a45ed9e10c60a24407ab",
-  "theme_sha256": "bad130be46fb261ea277d5b410ea33830b58a8fa8cd34371be3468e6823c8c3b",
+  "recovery_image_sha256": "c6bdb680cabcbdba2abf045b4e7fc2f8f55c14bc808f1f95d33de2650a855622",
+  "theme_sha256": "bf5e190a0d5438df60d262cdd84e110d96574e4dc4727e7d3bb5bd9b469fa10e",
   "ui_sha256": "96de7fd819cae6d51cc8313e746f64b6325b454a8fe71717f40561e2a2d466ea",
   "theme_resolution": [
     1920,
@@ -4867,12 +4867,12 @@
           "theme_origin": "page",
           "theme_style": "xoom_header_network",
           "bbox": {
-            "x": 944,
+            "x": 808,
             "y": 43,
             "w": 272,
             "h": 75,
             "center": [
-              1080,
+              944,
               80
             ]
           },

@@ -67,7 +67,7 @@ for name,page in data["pages"].items():
 advanced_net=[x for x in data["pages"]["advanced"]["controls"] if x["label"]=="Network"]
 assert len(advanced_net)==1
 assert advanced_net[0]["risk"]=="safe_navigation" and advanced_net[0]["auto_tap_allowed"]
-assert advanced_net[0]["bbox"]=={"x":944,"y":43,"w":272,"h":75,"center":[1080,80]}
+assert advanced_net[0]["bbox"]=={"x":808,"y":43,"w":272,"h":75,"center":[944,80]}
 assert not advanced_net[0]["overlaps_with"]
 assert advanced_net[0]["theme_style"]=="xoom_header_network"
 assert advanced_net[0]["bbox"]["y"]>=32 and advanced_net[0]["bbox"]["y"]+advanced_net[0]["bbox"]["h"]<128
