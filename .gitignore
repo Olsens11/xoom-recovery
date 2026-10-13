@@ -1,0 +1,39 @@
+# Private hardware backups, recovery images, extracted firmware and artifacts
+/private/
+/share/
+*.img
+*.bin
+*.zip
+*.tar
+*.tar.gz
+*.elf
+*.ELF
+*.so
+*.ttf
+*.png
+*.jpg
+*.jpeg
+*.log
+*.pcap
+*.key
+*.pem
+*.conf
+*wifi.conf*
+*.bak
+*.tmp
+__pycache__/
+*.pyc
+# Separate upstream checkouts have their own histories
+/twrp-research/TeamWin-recovery-7.1-src/
+/twrp-research/twrp_device_moto_wingray/
+/twrp-research/teamwin-original-wingray/
+/twrp-research/official-comparison/
+# All generated reports and vendor snapshots are reviewed separately
+/twrp-research/*-report.json
+/twrp-research/*-config.txt
+/twrp-research/afh*
+/twrp-research/private-*
+/twrp-research/known-working*
+/twrp-research/20[0-9][0-9]-*
+/twrp-research/eb4e*
+/twrp-research/android-tegra*
