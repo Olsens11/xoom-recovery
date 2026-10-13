@@ -1,0 +1,66 @@
+diff --git a/gui/input.cpp b/gui/input.cpp
+index 8dd981c..1210179 100644
+--- a/gui/input.cpp
++++ b/gui/input.cpp
+@@ -366,6 +366,21 @@ int GUIInput::NotifyTouch(TOUCH_STATE state, int x, int y)
+ 	if (!isConditionTrue())
+ 		return -1;
+ 
++	// Xoom N2: explicit focus for the two Network fields, independent of
++	// their declaration/render order. Do not change other recovery inputs.
++	// Only a real touch in a Network input opens the on-screen keyboard.
++	if ((mVariable == "xoom_n2_ssid" || mVariable == "xoom_n2_password") &&
++	    state == TOUCH_RELEASE && GetSelection(x, y) >= 0) {
++		PageManager::SetKeyBoardFocus(0);
++		PageManager::NotifyCharInput(0);
++		DataManager::SetValue("xoom_n2_focus_target", mVariable);
++		SetInputFocus(1);
++		DrawCursor = true;
++		HandleCursorByTouch(x);
++		mRendered = false;
++		DataManager::SetValue("xoom_n2_keyboard_visible", "1");
++		return 0;
++	}
+ 	if (!HasInputFocus) {
+ 		if (state != TOUCH_RELEASE)
+ 			return 0; // Only change focus if touch releases within the input box
+@@ -423,6 +438,19 @@ int GUIInput::NotifyVarChange(const std::string& varName, const std::string& val
+ {
+ 	GUIObject::NotifyVarChange(varName, value);
+ 
++	// Enter on the SSID field switches focus to password, without a page
++	// reload. Enter on password hides keyboard without connecting.
++	if (varName == "xoom_n2_focus_target" &&
++	    (mVariable == "xoom_n2_ssid" || mVariable == "xoom_n2_password")) {
++		const bool focused = (value == mVariable);
++		SetInputFocus(focused ? 1 : 0);
++		DrawCursor = focused;
++		mRendered = false;
++		if (focused)
++			HandleCursorByText();
++		return 0;
++	}
++
+ 	if (varName == mVariable) {
+ 		if (!isLocalChange) {
+ 			UpdateDisplayText();
+@@ -495,6 +523,19 @@ int GUIInput::NotifyKey(int key, bool down)
+ int GUIInput::NotifyCharInput(int key)
+ {
+ 	if (HasInputFocus) {
++		if (key == KEYBOARD_ACTION &&
++		    (mVariable == "xoom_n2_ssid" || mVariable == "xoom_n2_password")) {
++			if (mVariable == "xoom_n2_ssid") {
++				DataManager::SetValue("xoom_n2_focus_target", "xoom_n2_password");
++				DataManager::SetValue("xoom_n2_keyboard_visible", "1");
++			} else {
++				DataManager::SetValue("xoom_n2_focus_target", "");
++				DataManager::SetValue("xoom_n2_keyboard_visible", "0");
++			}
++			// Deliberately do not call the field's old <action function=page>
++			// or the network Connect action.
++			return 0;
++		}
+ 		if (key == KEYBOARD_BACKSPACE) {
+ 			//Backspace
+ 			if (mValue.size() > 0 && mCursorLocation != 0) {
