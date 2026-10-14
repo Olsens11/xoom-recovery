@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "id": "wifi-runtime",
+  "version": "0.2.0",
+  "device": "wingray",
+  "abi": "armeabi-32",
+  "base": "TWRP-3.1.1-0 N2",
+  "archive_path": "payload/system-runtime.tar.xz",
+  "archive_sha256": "286431b0c1ae6e8156e046c0814ec8dee70fd5ef91302b6cfaa0ed0a028d5c15",
+  "archive_size": 1591876,
+  "expanded_payload_bytes": 3689147,
+  "file_count": 29,
+  "depends_on": [
+    "core:sd-mount",
+    "core:verified-package-loader"
+  ],
+  "install_root": "ram-rootfs:/",
+  "execution": "none",
+  "services": [],
+  "status": "R22D2_TRUSTED_PIN_ONLY",
+  "files": [
+    {
+      "path": "system/bin/dhcpcd",
+      "sha256": "79056c49befbe511ca8931916572e81b769dbc390558347ea35ce5a3a75a8265",
+      "bytes": 67032,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/bin/linker",
+      "sha256": "3b07c38d9500574cffbbdfdb53279e3c5928e5ec77b91252b29c8f797fa450db",
+      "bytes": 63560,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/bin/wpa_cli",
+      "sha256": "58ced1d211f405e515c5ff6aff61425634a5373e7698c11c54cc3bf30bd73b4e",
+      "bytes": 61780,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/bin/wpa_supplicant",
+      "sha256": "c1984a0d803e5dbc2695a30bd1b1cecde356818068b4bf396008f8f35b644a30",
+      "bytes": 793480,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/bin/xoom-net-control-package",
+      "sha256": "59d9b65c43b3add554360d195d594caba0dc3126e3073d2a53eb08d0636e66be",
+      "bytes": 6967,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/bin/xoom_wpa_probe",
+      "sha256": "e0be1aada47d0b7714e9a6ea28beadf2e8c5dd17474aecf89dd71cb29dfe239c",
+      "bytes": 216052,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/etc/dhcpcd/dhcpcd-run-hooks",
+      "sha256": "a0ea7b29d70603f0a5ea550ba8d206ed901541914dd5b5f097bf02574f7f78ce",
+      "bytes": 762,
+      "mode": "0o755"
+    },
+    {
+      "path": "system/etc/dhcpcd/dhcpcd.conf",
+      "sha256": "9a53dd0e13ff98152ddc5bb3e2e99cc5705714e8a56155882092d0c65d56ab2f",
+      "bytes": 268,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/etc/wifi/bcm4329.cal",
+      "sha256": "94d030b06042157817309b46dc9ebbe3e98f7acaa876979b5a480bcfe897eab8",
+      "bytes": 1594,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libbinder.so",
+      "sha256": "760c5aa7a4c5c8631bfdf53d031ee06cfb78906f5fe77b0ea0b956e6bfc7062f",
+      "bytes": 177508,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libc.so",
+      "sha256": "5b84021eb0262ffea816764fcd6714f3a5e9b45c2975d430a1d43bee2744b9ab",
+      "bytes": 306404,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libcorkscrew.so",
+      "sha256": "67492b06ee484d1fa118abbdc10421163529ea7be6a6ed8b843d4f6ea4adcfaa",
+      "bytes": 13484,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libcrypto.so",
+      "sha256": "204814fde5fd0c198d1cbc073e231b0a70e377d3fb767b7e0d8dd00470ac1ccc",
+      "bytes": 953260,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libcutils.so",
+      "sha256": "e2d0bedd56f1fea66bd17d200da2731e6841c02d8895794950f361fd504e6a3b",
+      "bytes": 38192,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libdl.so",
+      "sha256": "ac64ea08844e22437d1a9936f7fe38dd1892a5b45c9717dc243a32f586fe849c",
+      "bytes": 9292,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libgccdemangle.so",
+      "sha256": "db917bd190b3aa0fa89b1a46ec5dcbcb17d4c009bde4b802d229711a4fb223de",
+      "bytes": 21696,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libhardware.so",
+      "sha256": "2bf64a6d0255ad2758f32c5aa2073352f130eaae65b21bfbe4a768545c4eaf3e",
+      "bytes": 5308,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libhardware_legacy.so",
+      "sha256": "3916149142770c49092dc1a08f988346e252365f86cbd68ec90ed7b0916641c2",
+      "bytes": 17684,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libkeystore_binder.so",
+      "sha256": "9860e7ba31a19baec9dc9cd26f2f38c167f54b0304b34ca276bee9624c656a30",
+      "bytes": 38172,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/liblog.so",
+      "sha256": "ca63e87ed89e4a4f6bfd14e8f9097d4b19afd1b8790c95c5e24002b189d8ca40",
+      "bytes": 13500,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libm.so",
+      "sha256": "fb8c8f0d39437366d17c918583ec5fba23660eef842df42bde762d86b18a3c1a",
+      "bytes": 103692,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libnetutils.so",
+      "sha256": "7a60696c3446acb4f8fc5b5e080cb8f163d4d55c404d551677e5fe3a2305ff23",
+      "bytes": 21684,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libselinux.so",
+      "sha256": "de2a708a82fd3feb1671b9c7beadba401dadea879e69636d8c6a0ebd8b7a4ea4",
+      "bytes": 46460,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libssl.so",
+      "sha256": "85fe0626271aea7e1952a4708c7e305ab5428c42134dfcd3003935e5eba80825",
+      "bytes": 249592,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libstdc++.so",
+      "sha256": "1b9e1f86c355435ef54426274e5ed1ebe817c1db56b698be144eb89ccf0878a0",
+      "bytes": 5300,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libutils.so",
+      "sha256": "602fcdbc0e2cebb30b47d285e9a9bcc0a8945a2555c26a20216d1f29fcb03e87",
+      "bytes": 87328,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libwpa_client.so",
+      "sha256": "3c9ed6c190f4a0d18198f5cbefd1b8b338d03b2c56baa1210e3edadc17d45e7c",
+      "bytes": 9392,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/lib/libz.so",
+      "sha256": "eb212d263ac9d22ac6e1f5f46110cdb8bb37c8dc9bda258c8f9f831151d27166",
+      "bytes": 95564,
+      "mode": "0o644"
+    },
+    {
+      "path": "system/vendor/firmware/fw_bcmdhd.bin",
+      "sha256": "5d4bdb6c56777e4a1eb27b08600a2782a76b563891dfd18afc163c8462d73834",
+      "bytes": 264140,
+      "mode": "0o644"
+    }
+  ]
+}
