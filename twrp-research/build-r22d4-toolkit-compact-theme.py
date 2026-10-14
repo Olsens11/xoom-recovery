@@ -119,12 +119,47 @@ for id,name,prefix,destination in packages[1:]:
  markup.append(button('Back to Toolkit',970,700,250,48,'page','xoom_toolkit'))
  markup.append('<action><touch key="back"/><action function="page">xoom_toolkit</action></action></page>')
 out=source[:begin]+'\n'.join(markup)+'\n'+source[end:]
+# Advanced's existing blue-header Network shortcut is the approved
+# placement for Toolkit. Remove its old lower-right (HTC-shared) tile.
+adv_begin=out.index('<page name="advanced">')
+adv_end=out.index('<page name="partsdcardsel">',adv_begin)
+advanced=out[adv_begin:adv_end]
+old_begin=advanced.index('<!-- Xoom N2: integrated Network header tab')
+old_end=advanced.index('</button>',advanced.index('<text>Toolkit</text>',old_begin))+len('</button>')
+old_section=advanced[old_begin:old_end]
+assert old_section.count('<button style="xoom_header_network">')==1
+assert old_section.count('<button style="main_button">')==1
+assert '<text>Network</text>' in old_section and '<text>Toolkit</text>' in old_section
+new_section='''<!-- Xoom R22d4c: single Toolkit entry in the established safe
+                 Advanced header button location (not the shared HTC tile). -->
+            <button style="xoom_header_network">
+                <placement x="1212" y="64"/>
+                <text>Toolkit</text>
+                <action function="page">xoom_toolkit</action>
+            </button>'''
+advanced=advanced.replace(old_section,new_section)
+assert advanced.count('>xoom_toolkit<')==1
+assert '<text>Network</text>' not in advanced
+assert '<condition var1="tw_show_dumlock" op="!=" var2="1"/>' not in advanced
+out=out[:adv_begin]+advanced+out[adv_end:]
 tree=ET.fromstring(out)
 pages=[n.attrib['name'] for n in tree.findall('.//page')]
 assert len(pages)==len(set(pages))
 assert 'xoom_toolkit' in pages and 'xoom_toolkit_help' in pages
 assert out.count('function="xoomtoolkit"')>=3 and out.count('function="xoomtoolkitexec"')>=5
 assert out.count('function="xoomtoolkitsave"')==1
+advanced_page=tree.find('.//page[@name="advanced"]')
+assert advanced_page is not None
+header_buttons=[b for b in advanced_page.findall('button')
+ if b.attrib.get('style')=='xoom_header_network']
+assert len(header_buttons)==1
+assert header_buttons[0].findtext('text')=='Toolkit'
+assert header_buttons[0].find('action').text=='xoom_toolkit'
+assert len([b for b in advanced_page.findall('button') if b.findtext('text')=='Toolkit'])==1
+wifi_open=[a for a in tree.find('.//page[@name="xoom_toolkit"]').findall('.//action')
+ if a.attrib.get('function')=='page' and a.text=='xoom_network']
+assert len(wifi_open)==1
+
 # Page must not invoke generic cmd/exec of untrusted SD content.
 page=out[out.index('<page name="xoom_toolkit">'):out.index('<page name="xoom_network">')]
 assert 'function="cmd"' not in page

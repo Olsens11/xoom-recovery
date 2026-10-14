@@ -20,6 +20,19 @@ assert ('xoomtoolkitexec','stop:wifi-runtime') in actions
 assert ('page','xoom_toolkit_help') in actions
 assert ('xoomtoolkitsave','') in actions
 assert ('page','xoom_network') in actions
+advanced=pages['advanced']
+header=[b for b in advanced.findall('button') if b.attrib.get('style')=='xoom_header_network']
+assert len(header)==1 and header[0].findtext('text')=='Toolkit'
+assert header[0].find('action').attrib['function']=='page'
+assert header[0].find('action').text=='xoom_toolkit'
+# Advanced no longer has either the old Network shortcut or shared-space
+# Toolkit tile; network entry is via Wi-Fi Runtime Open.
+assert len([b for b in advanced.findall('button') if b.findtext('text')=='Toolkit'])==1
+assert not any(a.attrib.get('function')=='page' and a.text=='xoom_network'
+               for a in advanced.findall('.//action'))
+assert len([a for a in manager.findall('.//action') if
+            a.attrib.get('function')=='page' and a.text=='xoom_network'])==1
+
 assert all('poc-insecure-wireless-adb' not in v for a,v in actions if a=='xoomtoolkitexec')
 assert sum(e.attrib.get('var1')=='xt_pkg_wifi_runtime_autoload' for e in manager.findall('.//condition'))>=1
 assert sum(e.attrib.get('var1')=='xt_pkg_network_diagnostics_autoload' for e in manager.findall('.//condition'))>=1

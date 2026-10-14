@@ -3616,17 +3616,10 @@
 				</actions>
 			</button>
 
-			<!-- Xoom N2: integrated Network header tab, deliberately outside
-			     the status strip and old HTC feature-button slot. -->
-			<button style="xoom_header_network">
-				<placement x="1212" y="64"/>
-				<text>Network</text>
-				<action function="page">xoom_network</action>
-			</button>
-
-            <button style="main_button">
-                <condition var1="tw_show_dumlock" op="!=" var2="1"/>
-                <placement x="%center_x%" y="%row15a_y%"/>
+			<!-- Xoom R22d4c: single Toolkit entry in the established safe
+                 Advanced header button location (not the shared HTC tile). -->
+            <button style="xoom_header_network">
+                <placement x="1212" y="64"/>
                 <text>Toolkit</text>
                 <action function="page">xoom_toolkit</action>
             </button>
