@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "network-diagnostics",
+  "version": "0.1.0",
+  "device": "wingray",
+  "abi": "shell",
+  "base": "TWRP-3.1.1-0 N2",
+  "archive_path": "payload/network-diagnostics.tar.xz",
+  "archive_sha256": "9c13359f83a8312b35868c19d97d656797bea3a8d8060955ba82241b6fa4b454",
+  "archive_size": 336,
+  "expanded_payload_bytes": 234,
+  "file_count": 1,
+  "depends_on": [
+    "core:sd-mount",
+    "core:verified-package-loader",
+    "wifi-runtime"
+  ],
+  "install_root": "ram-rootfs:/tmp/XoomToolkit",
+  "execution": "none",
+  "services": [],
+  "status": "OFFLINE_PREVIEW_NOT_INSTALLABLE_ON_R22C",
+  "files": [
+    {
+      "path": "toolkit/network-diagnostics/diag.sh",
+      "sha256": "cd521d38fc3d36102fcc70919f8c3fc114abd1bbbc7a2d360c4a62845c124c4a",
+      "bytes": 234,
+      "mode": "0o755"
+    }
+  ]
+}

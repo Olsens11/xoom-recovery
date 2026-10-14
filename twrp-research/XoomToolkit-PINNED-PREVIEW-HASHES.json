@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "purpose": "OFFLINE PROTOTYPE of hashes to embed in NEXT recovery only",
+  "R22C_INSTALLED_HAS_NO_PINS": true,
+  "packages": {
+    "wifi-runtime": {
+      "version": "0.1.0",
+      "archive_file": "XoomToolkit-WiFi-Runtime-0.1.0-PREVIEW.zip",
+      "zip_sha256": "b0ad627f26d9997dca1b68318a659f0fb955d28a8a89be106b983764b1ca2fc0",
+      "size": 1490316,
+      "file_count": 26,
+      "archive_sha256": "20f8fca1dc17fcff96cafea1129950d47e56d007255a077941277ec4fd4d565d"
+    },
+    "network-diagnostics": {
+      "version": "0.1.0",
+      "archive_file": "XoomToolkit-Network-Diagnostics-0.1.0-PREVIEW.zip",
+      "zip_sha256": "7b5c7a31b07d3bab00e3232b8d4a2e5819440ddc60eb234de5db9955dd275612",
+      "size": 1384,
+      "file_count": 1,
+      "archive_sha256": "9c13359f83a8312b35868c19d97d656797bea3a8d8060955ba82241b6fa4b454"
+    }
+  }
+}
