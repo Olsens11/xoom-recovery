@@ -1,5 +1,6 @@
 #include "xoom-toolkit.hpp"
 #include "data.hpp"
+#include "xoom-toolkit-manager.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -151,14 +152,17 @@ void XoomToolkit_LoadPreferences() {
     }
     for(size_t i=0;i<3;i++){
         setPref(std::string(kPackages[i].prefix)+"_autoload",values[2*i]);
-        setPref(std::string(kPackages[i].prefix)+"_autorun",values[2*i+1]);
+        setPref(std::string(kPackages[i].prefix)+"_autorun",
+                values[2*i] && values[2*i+1]);
     }
+    XoomToolkit_NormalizeAutostart();
     setPref("xoom_n2_save_to_sd",values[6]);
     setPref("xoom_n2_autoconnect_on_boot",values[7]);
     DataManager::SetValue(kStatus,"PREFERENCES_LOADED");
     publishBootFlags();
 }
 int XoomToolkit_SavePreferences() {
+    XoomToolkit_NormalizeAutostart();
     if(!isCard()){
         DataManager::SetValue(kStatus,"CARD_NOT_WRITABLE");return -1;
     }
