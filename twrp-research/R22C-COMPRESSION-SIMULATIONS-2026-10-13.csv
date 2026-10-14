@@ -1,0 +1,11 @@
+group,files,source_bytes,tar_xz_bytes,net_ramdisk_gzip_savings,estimated_image_size
+Wi-Fi runtime (all system/*),26,3465366,1487884,380356,10997760
+Wi-Fi libraries only,19,2213512,892820,237158,11141120
+Wi-Fi executable+firmware+configs,7,1251854,620720,118186,11259904
+TWRP translations,17,791063,108468,62426,11315200
+TWRP fonts,3,235288,115472,22049,11356160
+TWRP images,57,65595,49844,1962,11376640
+Legacy crypto compatibility,2,966856,397488,98134,11280384
+Large stock tools (static sample),6,731320,339120,70058,11307008
+Core sbin libraries (EARLY BOOT RISK),63,6238600,2187532,840191,10536960
+Core libraries + Wi-Fi (EARLY BOOT RISK),89,9703966,3573564,1317323,10059776

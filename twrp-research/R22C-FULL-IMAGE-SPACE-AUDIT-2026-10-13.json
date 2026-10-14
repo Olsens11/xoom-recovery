@@ -1,0 +1,382 @@
+{
+  "candidate": "xoom-twrp311-network-n2-r22c-profile-ui-UNFLASHED.img",
+  "image_sha256": "323faf7503894999ac5b49a609bd098d05d902a687ffe0298e6b4ff52f596fd3",
+  "image_bytes": 11378688,
+  "p6_limit_bytes": 12582912,
+  "free_bytes": 1204224,
+  "kernel_bytes": 3435708,
+  "compressed_ramdisk_bytes": 7938066,
+  "uncompressed_cpio_bytes": 15891968,
+  "cpio_entries": 489,
+  "groups": {
+    "Core/linked libraries": {
+      "entries": 64,
+      "uncompressed_bytes": 6870640
+    },
+    "Optional Wi-Fi runtime": {
+      "entries": 33,
+      "uncompressed_bytes": 3465366
+    },
+    "Core/stock utilities": {
+      "entries": 260,
+      "uncompressed_bytes": 2561551
+    },
+    "Legacy crypto compatibility": {
+      "entries": 2,
+      "uncompressed_bytes": 966856
+    },
+    "TWRP languages": {
+      "entries": 17,
+      "uncompressed_bytes": 791063
+    },
+    "Stock bundled SuperSU": {
+      "entries": 8,
+      "uncompressed_bytes": 330355
+    },
+    "TWRP UI/assets": {
+      "entries": 64,
+      "uncompressed_bytes": 285397
+    },
+    "TWRP fonts": {
+      "entries": 3,
+      "uncompressed_bytes": 235288
+    },
+    "Boot-critical init": {
+      "entries": 4,
+      "uncompressed_bytes": 184204
+    },
+    "Other boot/security": {
+      "entries": 30,
+      "uncompressed_bytes": 125546
+    },
+    "Xoom features": {
+      "entries": 4,
+      "uncompressed_bytes": 12511
+    }
+  },
+  "largest_entries": [
+    {
+      "path": "system/lib/libcrypto.so",
+      "bytes": 953260,
+      "category": "Optional Wi-Fi runtime",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "204814fde5fd0c198d1cbc073e231b0a70e377d3fb767b7e0d8dd00470ac1ccc"
+    },
+    {
+      "path": "sbin/legacy/libcrypto.so",
+      "bytes": 953260,
+      "category": "Legacy crypto compatibility",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "eb201a6c9214647f23a8880a415165990387561c1dff0d60f026d2ecf1ed48e8"
+    },
+    {
+      "path": "system/bin/wpa_supplicant",
+      "bytes": 793480,
+      "category": "Optional Wi-Fi runtime",
+      "kind": "regular",
+      "mode": "0o755",
+      "sha256": "c1984a0d803e5dbc2695a30bd1b1cecde356818068b4bf396008f8f35b644a30"
+    },
+    {
+      "path": "sbin/libc.so",
+      "bytes": 776576,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "80367a2dee6fa1159fcccdbe9734cb6f44686563130be7f3e4e792fa61b4f550"
+    },
+    {
+      "path": "sbin/libcrypto.so",
+      "bytes": 732268,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "b641de27f5b48668ff88d654b32bc0f0048fec7ad36cecca8ff5486cee529ce9"
+    },
+    {
+      "path": "sbin/linker",
+      "bytes": 632040,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "4c001b4ad78cea9a1afb86d752784107bf335dea99e45c613fb8de3bcf282c87"
+    },
+    {
+      "path": "sbin/busybox",
+      "bytes": 624480,
+      "category": "Core/stock utilities",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "9a8193c8abe6eba52ff459ee7ee61c163046bde947293ff8571fb46632c35701"
+    },
+    {
+      "path": "sbin/libc++.so",
+      "bytes": 575132,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "29937963be3ed1d3d92ce72d16e169c9bce16d9d9078d0bb601b3a32cb1f4027"
+    },
+    {
+      "path": "sbin/recovery",
+      "bytes": 534212,
+      "category": "Core/stock utilities",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "4849ff1400ff77a4a1576fb89548f4fa0da2ce64ee3833ab7b4f5bbdb08ad3d3"
+    },
+    {
+      "path": "sbin/sgdisk",
+      "bytes": 489732,
+      "category": "Core/stock utilities",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "9effe0d177809aeebed6b42b59a861a710119965ec5ed8909ea33e7c6e347520"
+    },
+    {
+      "path": "sbin/libft2.so",
+      "bytes": 448084,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "5d06c18ce6c7d46cda4708ca945ecd4aff9dd1321bdbc574578124b1bc82bbde"
+    },
+    {
+      "path": "sbin/libbinder.so",
+      "bytes": 366224,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "6758220759ec82f45216382d0dc0eb5db5570f1e51360bd90c8fae02dd8ead01"
+    },
+    {
+      "path": "system/lib/libc.so",
+      "bytes": 306404,
+      "category": "Optional Wi-Fi runtime",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "5b84021eb0262ffea816764fcd6714f3a5e9b45c2975d430a1d43bee2744b9ab"
+    },
+    {
+      "path": "system/vendor/firmware/fw_bcmdhd.bin",
+      "bytes": 264140,
+      "category": "Optional Wi-Fi runtime",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "5d4bdb6c56777e4a1eb27b08600a2782a76b563891dfd18afc163c8462d73834"
+    },
+    {
+      "path": "system/lib/libssl.so",
+      "bytes": 249592,
+      "category": "Optional Wi-Fi runtime",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "85fe0626271aea7e1952a4708c7e305ab5428c42134dfcd3003935e5eba80825"
+    },
+    {
+      "path": "sbin/libminuitwrp.so",
+      "bytes": 211824,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "ac4621b4f1f72723a87bd81bbfddbe24efc303f035a63ff1d3265cf1bef5008d"
+    },
+    {
+      "path": "sbin/libstlport.so",
+      "bytes": 210324,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "9c257be9c76b81b9fc7b74f70918b3688e05d995da58d71cb04729497048ca85"
+    },
+    {
+      "path": "sbin/adbd",
+      "bytes": 198836,
+      "category": "Core/stock utilities",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "4529a2c208b805d4638b68e3a1c7db1f4c803ca0335a11703e19608f6c00c812"
+    },
+    {
+      "path": "twres/landscape.xml",
+      "bytes": 180962,
+      "category": "TWRP UI/assets",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "656cb31d708331e751b0f7ea94a8aa7c8ddf41a49a847dec40b0ad3b671509b0"
+    },
+    {
+      "path": "init",
+      "bytes": 179456,
+      "category": "Boot-critical init",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "ca5988911a8957dea08859bbd958fe176172ce561db8883aaa2a53daab13fc7c"
+    },
+    {
+      "path": "system/lib/libbinder.so",
+      "bytes": 177508,
+      "category": "Optional Wi-Fi runtime",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "760c5aa7a4c5c8631bfdf53d031ee06cfb78906f5fe77b0ea0b956e6bfc7062f"
+    },
+    {
+      "path": "supersu/libsupol.so",
+      "bytes": 170232,
+      "category": "Stock bundled SuperSU",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "04f0be31cc20455bf4be9ac6bede3a7f20d343eea7880ac7eb2c797dd1a699c4"
+    },
+    {
+      "path": "sbin/libtwrpmtp.so",
+      "bytes": 149524,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "2ec0004e6aaa0acc32e5b080a3fde74991505ed0bf867a297e0f6fcab401e58b"
+    },
+    {
+      "path": "sbin/libpng.so",
+      "bytes": 149076,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "6567fc85bff0e380bcf395b71aa7afe2617cdb7358cc0b9f435aa4d1c98417d4"
+    },
+    {
+      "path": "sbin/libkeymaster1.so",
+      "bytes": 140972,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "6a2e2eaa338c74759e679b15dcd44619aef37007edbdf0a0bf3130a8c76119dc"
+    },
+    {
+      "path": "sbin/libm.so",
+      "bytes": 132780,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "7b7f195424815320ba0d4e17acf748be7f3ef523e5056a6a0fe1e527df4782c2"
+    },
+    {
+      "path": "twres/fonts/RobotoCondensed-Regular.ttf",
+      "bytes": 125332,
+      "category": "TWRP fonts",
+      "kind": "regular",
+      "mode": "0o644",
+      "sha256": "6dc7ba162db365941a23c68f8417eca8884c821ff6104a5a7f825ce090407b77"
+    },
+    {
+      "path": "sbin/libblkid.so",
+      "bytes": 124832,
+      "category": "Core/linked libraries",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "d2ca3dd855f10d8d77820aae57812c2c2bce9b005824e69a7143bcd4cc78c1d0"
+    },
+    {
+      "path": "sbin/e2fsck",
+      "bytes": 122568,
+      "category": "Core/stock utilities",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "73c123185c491984aa21ee09a5d9cc4a4c74784f57579d8b59df5dada6900fc4"
+    },
+    {
+      "path": "sbin/healthd",
+      "bytes": 120620,
+      "category": "Core/stock utilities",
+      "kind": "regular",
+      "mode": "0o750",
+      "sha256": "228c0ec991ba4671dabeaaeae4c99d4cd167c34487a982328c94e86f7887c766"
+    }
+  ],
+  "bundle_simulations": [
+    {
+      "group": "Wi-Fi runtime (all system/*)",
+      "files": 26,
+      "source_bytes": 3465366,
+      "tar_xz_bytes": 1487884,
+      "net_ramdisk_gzip_savings": 380356,
+      "estimated_image_size": 10997760
+    },
+    {
+      "group": "Wi-Fi libraries only",
+      "files": 19,
+      "source_bytes": 2213512,
+      "tar_xz_bytes": 892820,
+      "net_ramdisk_gzip_savings": 237158,
+      "estimated_image_size": 11141120
+    },
+    {
+      "group": "Wi-Fi executable+firmware+configs",
+      "files": 7,
+      "source_bytes": 1251854,
+      "tar_xz_bytes": 620720,
+      "net_ramdisk_gzip_savings": 118186,
+      "estimated_image_size": 11259904
+    },
+    {
+      "group": "TWRP translations",
+      "files": 17,
+      "source_bytes": 791063,
+      "tar_xz_bytes": 108468,
+      "net_ramdisk_gzip_savings": 62426,
+      "estimated_image_size": 11315200
+    },
+    {
+      "group": "TWRP fonts",
+      "files": 3,
+      "source_bytes": 235288,
+      "tar_xz_bytes": 115472,
+      "net_ramdisk_gzip_savings": 22049,
+      "estimated_image_size": 11356160
+    },
+    {
+      "group": "TWRP images",
+      "files": 57,
+      "source_bytes": 65595,
+      "tar_xz_bytes": 49844,
+      "net_ramdisk_gzip_savings": 1962,
+      "estimated_image_size": 11376640
+    },
+    {
+      "group": "Legacy crypto compatibility",
+      "files": 2,
+      "source_bytes": 966856,
+      "tar_xz_bytes": 397488,
+      "net_ramdisk_gzip_savings": 98134,
+      "estimated_image_size": 11280384
+    },
+    {
+      "group": "Large stock tools (static sample)",
+      "files": 6,
+      "source_bytes": 731320,
+      "tar_xz_bytes": 339120,
+      "net_ramdisk_gzip_savings": 70058,
+      "estimated_image_size": 11307008
+    },
+    {
+      "group": "Core sbin libraries (EARLY BOOT RISK)",
+      "files": 63,
+      "source_bytes": 6238600,
+      "tar_xz_bytes": 2187532,
+      "net_ramdisk_gzip_savings": 840191,
+      "estimated_image_size": 10536960
+    },
+    {
+      "group": "Core libraries + Wi-Fi (EARLY BOOT RISK)",
+      "files": 89,
+      "source_bytes": 9703966,
+      "tar_xz_bytes": 3573564,
+      "net_ramdisk_gzip_savings": 1317323,
+      "estimated_image_size": 10059776
+    }
+  ],
+  "caution": "Simulation does not include loader overhead, extraction runtime, trusted package verification, runtime paths or hardware validation."
+}

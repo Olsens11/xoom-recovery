@@ -1,5 +1,8 @@
 # R22c offline update and compressed-payload feasibility — 2026-10-13
 
+> **NEWER ON-DEVICE TESTS:** R22c was subsequently approved, flashed, readback-verified, booted and tested. Wi-Fi connect, DHCP, live status/icon, time sync, and a controlled reconnect passed. A watchdog process-buildup and lingering DHCP process on Disconnect remain open. See [R22c live hardware and full image audit](R22C-LIVE-WIFI-FULL-IMAGE-AUDIT-AND-TOOLKIT-PLAN-2026-10-13.md). This older note describes the pre-flash state only.
+
+
 **Installed hardware:** R22a, recovery p6; **not changed during this analysis**. USB ADB remains working. User permission is required before any future recovery flash.
 
 ## User-visible questions verified
