@@ -12,6 +12,7 @@ import xml.etree.ElementTree as ET
 HERE = Path(__file__).resolve().parent
 TIME = HERE / "XoomToolkit-Time-Sync-0.2.0-FUTURE-TWRP-page.xml"
 LOGS = HERE / "XoomToolkit-Recovery-Log-Collector-0.1.0-FUTURE-TWRP-page.xml"
+INSPECT = HERE / "XoomToolkit-Partition-Storage-Inspector-0.1.0-FUTURE-TWRP-page.xml"
 EXISTING = HERE / "XoomToolkit-Existing-Packages-Help-FUTURE-pages.xml"
 BUTTON = {"x":"1672","y":"34","w":"156","h":"69"}
 BLUE = "#1c75a8"
@@ -50,6 +51,22 @@ CONTENT = {
       ("PRIVACY", "The default report excludes raw Wi-Fi profiles and log lines."),
       ("", "Review the report before sending it to someone else."),
       ("IF IT FAILS", "Missing log sources are reported as unavailable."),
+    ],
+  },
+  "xoom_toolkit_details_partition_inspector": {
+    "title": "Partition & Storage Inspector Help",
+    "entries": [
+      ("PURPOSE", "Shows storage devices and partition layout without writing."),
+      ("REQUIRES", "A loaded module. No Wi-Fi connection is needed."),
+      ("CONTROLS", "Inspect Storage records sysfs and /proc metadata to RAM."),
+      ("", "Export Report to SD is a separate, explicit operation."),
+      ("DEVICES", "On this Xoom, mmcblk0 is expected SD; mmcblk1 is eMMC."),
+      ("", "Recovery p6 is only verified when its by-name link resolves."),
+      ("MOUNTS", "A direct-path mount match is reported; absence is uncertain."),
+      ("STARTUP", "Autoload loads the module; optional Autorun can inspect."),
+      ("SAFETY", "This package never opens /dev/block device contents."),
+      ("", "It cannot partition, format, mount, write, repair or flash."),
+      ("IF IT FAILS", "Missing or suspicious metadata is marked unknown."),
     ],
   },
   "xoom_network": {
@@ -191,4 +208,5 @@ def existing_fragments():
 if __name__=="__main__":
     update_fragment(TIME,"xoom_toolkit_details_time_sync")
     update_fragment(LOGS,"xoom_toolkit_details_log_collector")
+    update_fragment(INSPECT,"xoom_toolkit_details_partition_inspector")
     existing_fragments()

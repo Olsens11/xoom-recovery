@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "partition-storage-inspector",
+  "version": "0.1.0",
+  "device": "wingray",
+  "abi": "shell",
+  "base": "TWRP-3.1.1-0 N2",
+  "archive_path": "payload/partition-storage-inspector.tar.xz",
+  "archive_sha256": "e8f983d93e67a2713aca6f71e710a6b788cfe1a68a9ee5b5cbbbe30cc6ef49db",
+  "archive_size": 2388,
+  "expanded_payload_bytes": 5665,
+  "file_count": 1,
+  "depends_on": [
+    "core:sd-mount",
+    "core:verified-package-loader"
+  ],
+  "install_root": "ram-rootfs:/tmp/XoomToolkit",
+  "execution": "one-shot",
+  "services": [],
+  "actions": [
+    "inspect",
+    "status",
+    "export"
+  ],
+  "privacy": "sysfs/proc partition metadata only, no block-device reads",
+  "status": "OFFLINE_ONLY_NOT_PINNED_BY_R22D4C",
+  "files": [
+    {
+      "path": "toolkit/partition-inspector/inspect.sh",
+      "sha256": "c00d4be493c20dfd0c7e4fcbde886df297b4e7102f677d7dfa8b190031ebea71",
+      "bytes": 5665,
+      "mode": "0o750"
+    }
+  ]
+}

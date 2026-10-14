@@ -1,0 +1,8 @@
+{
+  "status": "FUTURE_VERIFIER_INPUT_NOT_INSTALLED",
+  "id": "partition-storage-inspector",
+  "version": "0.1.0",
+  "zip_file": "XoomToolkit-Partition-Storage-Inspector-0.1.0-OFFLINE-ONLY.zip",
+  "zip_sha256": "bddeaad287186130e0e42faf8fc32cc110070e3b0fddc4434c08f55e6071245f",
+  "inner_sha256": "e8f983d93e67a2713aca6f71e710a6b788cfe1a68a9ee5b5cbbbe30cc6ef49db"
+}

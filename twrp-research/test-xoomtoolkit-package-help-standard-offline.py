@@ -28,6 +28,7 @@ paths=[
   HERE/"XoomToolkit-Time-Sync-0.2.0-FUTURE-TWRP-page.xml",
   HERE/"XoomToolkit-Recovery-Log-Collector-0.1.0-FUTURE-TWRP-page.xml",
   HERE/"XoomToolkit-Existing-Packages-Help-FUTURE-pages.xml",
+  HERE/"XoomToolkit-Partition-Storage-Inspector-0.1.0-FUTURE-TWRP-page.xml",
 ]
 checked=set()
 for path in paths:
@@ -77,6 +78,7 @@ for path in paths:
 assert checked=={
     "xoom_toolkit_details_time_sync",
     "xoom_toolkit_details_log_collector",
+    "xoom_toolkit_details_partition_inspector",
     "xoom_network",
     "xoom_toolkit_details_diag",
     "xoom_toolkit_details_poc",
@@ -87,4 +89,4 @@ build=subprocess.run(["python3",str(HERE/"build-xoomtoolkit-package-help-future.
 assert build.returncode==0,(build.stdout,build.stderr)
 after={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
 assert before==after,"Generator is not idempotent"
-print("PACKAGE_HELP_UX_APPROVED_BUTTON_5_PAGES_NAVIGATION_REBUILD_PASS")
+print("PACKAGE_HELP_UX_APPROVED_BUTTON_6_PAGES_NAVIGATION_REBUILD_PASS")

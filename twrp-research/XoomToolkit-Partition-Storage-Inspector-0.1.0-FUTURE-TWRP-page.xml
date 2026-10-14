@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='utf-8'?>
+<future_toolkit_pages>
+  <page name="xoom_toolkit_details_partition_inspector">
+    <template name="page" />
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_toolkit_details_partition_inspector_help</action>
+    </button>
+    <text>
+      <placement x="81" y="187" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Partition &amp; Storage Inspector</text>
+    </text>
+    <text>
+      <placement x="81" y="272" />
+      <font resource="font_m" color="%accent_color%" />
+      <text>Read-only device, partition and mount metadata</text>
+    </text>
+    <text>
+      <placement x="81" y="365" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Status: %xt_partition_inspector_status%</text>
+    </text>
+    <text>
+      <placement x="81" y="435" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Internal eMMC: %xt_partition_emmc_capacity%</text>
+    </text>
+    <text>
+      <placement x="81" y="493" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Removable SD: %xt_partition_sd_capacity%</text>
+    </text>
+    <text>
+      <placement x="81" y="558" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Partitions observed: %xt_partition_count%</text>
+    </text>
+    <text>
+      <placement x="81" y="612" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Recovery by-name: %xt_partition_recovery_identity%</text>
+    </text>
+    <text>
+      <placement x="81" y="667" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Recovery p6 size: %xt_partition_p6_size%</text>
+    </text>
+    <button>
+      <placement x="81" y="755" w="410" h="72" />
+      <fill color="#216d99" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Inspect Storage</text>
+      <action function="xoomtoolkitexec">start:partition-storage-inspector</action>
+    </button>
+    <button>
+      <placement x="542" y="755" w="420" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Export Report to SD</text>
+      <action function="xoomtoolkitexec">export:partition-storage-inspector</action>
+    </button>
+    <button>
+      <placement x="1002" y="755" w="420" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Refresh Status</text>
+      <action function="xoomtoolkit">partition-inspector-refresh</action>
+    </button>
+    <button>
+      <placement x="1440" y="1050" w="370" h="68" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Back to Toolkit</text>
+      <action function="page">xoom_toolkit</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit</action>
+    </action>
+  </page>
+  <page name="xoom_toolkit_details_partition_inspector_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Partition &amp; Storage Inspector Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Shows storage devices and partition layout without writing.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>REQUIRES</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>A loaded module. No Wi-Fi connection is needed.</text>
+    </text>
+    <text>
+      <placement x="82" y="442" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Inspect Storage records sysfs and /proc metadata to RAM.</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Export Report to SD is a separate, explicit operation.</text>
+    </text>
+    <text>
+      <placement x="82" y="562" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>DEVICES</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>On this Xoom, mmcblk0 is expected SD; mmcblk1 is eMMC.</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Recovery p6 is only verified when its by-name link resolves.</text>
+    </text>
+    <text>
+      <placement x="82" y="682" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>MOUNTS</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>A direct-path mount match is reported; absence is uncertain.</text>
+    </text>
+    <text>
+      <placement x="82" y="742" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>STARTUP</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autoload loads the module; optional Autorun can inspect.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SAFETY</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>This package never opens /dev/block device contents.</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>It cannot partition, format, mount, write, repair or flash.</text>
+    </text>
+    <text>
+      <placement x="82" y="922" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>IF IT FAILS</text>
+    </text>
+    <text>
+      <placement x="578" y="922" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Missing or suspicious metadata is marked unknown.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_toolkit_details_partition_inspector</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit_details_partition_inspector</action>
+    </action>
+  </page>
+</future_toolkit_pages>
