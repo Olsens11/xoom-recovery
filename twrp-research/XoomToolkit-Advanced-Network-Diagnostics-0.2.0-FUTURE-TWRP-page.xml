@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<future_toolkit_pages>
+  <page name="xoom_toolkit_details_diag">
+    <template name="page" />
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_toolkit_details_diag_help</action>
+    </button>
+    <action>
+      <action function="xoomtoolkit">network-diag-refresh</action>
+    </action>
+    <text>
+      <placement x="81" y="187" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Network Diagnostics</text>
+    </text>
+    <text>
+      <placement x="81" y="274" />
+      <font resource="font_m" color="%accent_color%" />
+      <text>Recovery Wi-Fi, routing and DNS health</text>
+    </text>
+    <text>
+      <placement x="81" y="351" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Report: %xt_diag_status%   Wi-Fi: %xt_diag_wifi_state%</text>
+    </text>
+    <text>
+      <placement x="81" y="410" />
+      <font resource="font_m" color="%text_color%" />
+      <text>WPA authentication: %xt_diag_wpa_auth%</text>
+    </text>
+    <text>
+      <placement x="81" y="467" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Local IPv4: %xt_diag_ipv4%</text>
+    </text>
+    <text>
+      <placement x="81" y="524" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Default gateway: %xt_diag_gateway%</text>
+    </text>
+    <text>
+      <placement x="81" y="581" />
+      <font resource="font_m" color="%text_color%" />
+      <text>DNS server: %xt_diag_dns_server%   Proxy: %xt_diag_dns_proxy%</text>
+    </text>
+    <text>
+      <placement x="81" y="637" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Public ICMP: %xt_diag_probe_internet%</text>
+    </text>
+    <text>
+      <placement x="81" y="693" />
+      <font resource="font_m" color="%text_color%" />
+      <text>DNS A query: %xt_diag_probe_dns%</text>
+    </text>
+    <text>
+      <placement x="81" y="756" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Probe failures may indicate filtering, not necessarily a network fault.</text>
+    </text>
+    <button>
+      <placement x="81" y="840" w="350" h="72" />
+      <fill color="#216d99" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Inspect Network</text>
+      <action function="xoomtoolkitexec">start:network-diagnostics</action>
+    </button>
+    <button>
+      <placement x="463" y="840" w="350" h="72" />
+      <fill color="#216d99" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Test Connectivity</text>
+      <action function="xoomtoolkitexec">test:network-diagnostics</action>
+    </button>
+    <button>
+      <placement x="845" y="840" w="350" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Export Report</text>
+      <action function="xoomtoolkitexec">export:network-diagnostics</action>
+    </button>
+    <button>
+      <placement x="1227" y="840" w="350" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Refresh Status</text>
+      <action function="xoomtoolkit">network-diag-refresh</action>
+    </button>
+    <button>
+      <placement x="1440" y="1050" w="370" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Back to Toolkit</text>
+      <action function="page">xoom_toolkit</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit</action>
+    </action>
+  </page>
+  <page name="xoom_toolkit_details_diag_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Network Diagnostics Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Inspects recovery Wi-Fi, routing, DNS, and connection health.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>REQUIRES</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Wi-Fi Runtime must be loaded before Diagnostics can load.</text>
+    </text>
+    <text>
+      <placement x="82" y="442" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Inspect Network creates a passive status report in RAM.</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Test Connectivity makes bounded ping and DNS requests.</text>
+    </text>
+    <text>
+      <placement x="82" y="562" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>STARTUP</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autoload loads the module after the Wi-Fi dependency.</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autorun, if enabled, only runs the passive inspection.</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The module does not need to run as a permanent daemon.</text>
+    </text>
+    <text>
+      <placement x="82" y="742" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>IF IT FAILS</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Blocked ICMP or missing DNS tools do not prove an outage.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SAFETY</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>No recurring pollers, Wi-Fi setting changes, or raw credentials.</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Export Report copies the current summary to SD on request.</text>
+    </text>
+    <text>
+      <placement x="578" y="922" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The DNS test does not verify the Bionic DNS proxy itself.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_toolkit_details_diag</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit_details_diag</action>
+    </action>
+  </page>
+</future_toolkit_pages>

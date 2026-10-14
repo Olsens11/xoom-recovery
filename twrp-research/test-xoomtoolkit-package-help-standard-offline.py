@@ -28,6 +28,7 @@ paths=[
   HERE/"XoomToolkit-Time-Sync-0.2.0-FUTURE-TWRP-page.xml",
   HERE/"XoomToolkit-Recovery-Log-Collector-0.1.0-FUTURE-TWRP-page.xml",
   HERE/"XoomToolkit-Existing-Packages-Help-FUTURE-pages.xml",
+  HERE/"XoomToolkit-Advanced-Network-Diagnostics-0.2.0-FUTURE-TWRP-page.xml",
   HERE/"XoomToolkit-Partition-Storage-Inspector-0.1.0-FUTURE-TWRP-page.xml",
 ]
 checked=set()

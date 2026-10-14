@@ -1,0 +1,8 @@
+{
+  "status": "FUTURE_VERIFIER_INPUT_NOT_INSTALLED",
+  "id": "network-diagnostics",
+  "version": "0.2.0",
+  "zip_file": "XoomToolkit-Advanced-Network-Diagnostics-0.2.0-OFFLINE-ONLY.zip",
+  "zip_sha256": "be3811ef2c790088c177841e5d7794beae170816e2ddba0178aeade5873df5c0",
+  "inner_sha256": "2097104c83c583c71458c37a1dcdb54e71b66d78eb72856bcda48ebd47e5b128"
+}

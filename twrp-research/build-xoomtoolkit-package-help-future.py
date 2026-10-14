@@ -12,6 +12,7 @@ import xml.etree.ElementTree as ET
 HERE = Path(__file__).resolve().parent
 TIME = HERE / "XoomToolkit-Time-Sync-0.2.0-FUTURE-TWRP-page.xml"
 LOGS = HERE / "XoomToolkit-Recovery-Log-Collector-0.1.0-FUTURE-TWRP-page.xml"
+DIAG = HERE / "XoomToolkit-Advanced-Network-Diagnostics-0.2.0-FUTURE-TWRP-page.xml"
 INSPECT = HERE / "XoomToolkit-Partition-Storage-Inspector-0.1.0-FUTURE-TWRP-page.xml"
 EXISTING = HERE / "XoomToolkit-Existing-Packages-Help-FUTURE-pages.xml"
 BUTTON = {"x":"1672","y":"34","w":"156","h":"69"}
@@ -88,17 +89,17 @@ CONTENT = {
   "xoom_toolkit_details_diag": {
     "title": "Network Diagnostics Help",
     "entries": [
-      ("PURPOSE", "Reports network health without changing your Wi-Fi profile."),
+      ("PURPOSE", "Inspects recovery Wi-Fi, routing, DNS, and connection health."),
       ("REQUIRES", "Wi-Fi Runtime must be loaded before Diagnostics can load."),
-      ("CONTROLS", "Run diagnostics creates a bounded one-shot report."),
-      ("", "Review its result to investigate Wi-Fi or network issues."),
+      ("CONTROLS", "Inspect Network creates a passive status report in RAM."),
+      ("", "Test Connectivity makes bounded ping and DNS requests."),
       ("STARTUP", "Autoload loads the module after the Wi-Fi dependency."),
-      ("", "Autorun, if enabled, requests one diagnostic run on boot."),
+      ("", "Autorun, if enabled, only runs the passive inspection."),
       ("", "The module does not need to run as a permanent daemon."),
-      ("IF IT FAILS", "First confirm Wi-Fi Runtime loaded successfully."),
-      ("SAFETY", "This is separate from the Recovery Log Collector."),
-      ("", "It does not expose saved WPA passwords."),
-      ("", "Stop or unload dependent modules before unloading Wi-Fi."),
+      ("IF IT FAILS", "Blocked ICMP or missing DNS tools do not prove an outage."),
+      ("SAFETY", "No recurring pollers, Wi-Fi setting changes, or raw credentials."),
+      ("", "Export Report copies the current summary to SD on request."),
+      ("", "The DNS test does not verify the Bionic DNS proxy itself."),
     ],
   },
   "xoom_toolkit_details_poc": {
@@ -191,7 +192,7 @@ def update_fragment(path,key):
 def existing_fragments():
     root=ET.Element("future_toolkit_pages")
     root.append(ET.Comment("Add the matching Help button to each existing package Open page; R22d4c remains frozen."))
-    for key in ("xoom_network","xoom_toolkit_details_diag","xoom_toolkit_details_poc"):
+    for key in ("xoom_network","xoom_toolkit_details_poc"):
         detail=ET.SubElement(root,"help_button_injection",{"page":key})
         detail_button(detail,key)
         root.append(help_page(key))
@@ -208,5 +209,6 @@ def existing_fragments():
 if __name__=="__main__":
     update_fragment(TIME,"xoom_toolkit_details_time_sync")
     update_fragment(LOGS,"xoom_toolkit_details_log_collector")
+    update_fragment(DIAG,"xoom_toolkit_details_diag")
     update_fragment(INSPECT,"xoom_toolkit_details_partition_inspector")
     existing_fragments()
