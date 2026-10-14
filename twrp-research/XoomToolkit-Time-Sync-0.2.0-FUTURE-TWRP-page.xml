@@ -1,84 +1,197 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Future release *source fragment*, NOT part of frozen R22d4c.
-     Insert this <page> inside TWRP's <pages> in a new versioned theme.
-     The compact Toolkit 7-column row should supply its own Autoload,
-     Autorun, Start/Stop and Open actions. Time Sync is ONE-SHOT:
-     Start maps to Sync Now; no invented persistent Running daemon. -->
+<?xml version='1.0' encoding='utf-8'?>
 <future_toolkit_pages>
   <page name="xoom_toolkit_details_time_sync">
-    <template name="page"/>
-    <action><action function="xoomtoolkit">time-sync-refresh</action></action>
+    <template name="page" />
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_toolkit_details_time_sync_help</action>
+    </button>
+    <action>
+      <action function="xoomtoolkit">time-sync-refresh</action>
+    </action>
     <text>
-      <placement x="81" y="187"/>
-      <font resource="font_l" color="%text_color%"/>
+      <placement x="81" y="187" />
+      <font resource="font_l" color="%text_color%" />
       <text>Time Sync</text>
     </text>
     <text>
-      <placement x="81" y="270"/>
-      <font resource="font_m" color="%accent_color%"/>
+      <placement x="81" y="270" />
+      <font resource="font_m" color="%accent_color%" />
       <text>System Clock and Time Zone</text>
     </text>
     <text>
-      <placement x="81" y="355"/>
-      <font resource="font_m" color="%text_color%"/>
+      <placement x="81" y="355" />
+      <font resource="font_m" color="%text_color%" />
       <text>Selected time zone: %tw_time_zone%</text>
     </text>
     <text>
-      <placement x="81" y="414"/>
-      <font resource="font_m" color="%text_color%"/>
+      <placement x="81" y="414" />
+      <font resource="font_m" color="%text_color%" />
       <text>Local time at last refresh: %xt_timesync_local_time%</text>
     </text>
     <text>
-      <placement x="81" y="474"/>
-      <font resource="font_m" color="%text_color%"/>
+      <placement x="81" y="474" />
+      <font resource="font_m" color="%text_color%" />
       <text>Saved zone: %xt_timesync_timezone_status%</text>
     </text>
     <text>
-      <placement x="81" y="538"/>
-      <font resource="font_m" color="%text_color%"/>
+      <placement x="81" y="538" />
+      <font resource="font_m" color="%text_color%" />
       <text>Synchronization: %property.xoom.n2.time.sync%</text>
     </text>
     <text>
-      <placement x="81" y="610"/>
-      <font resource="font_s" color="%text_color%"/>
+      <placement x="81" y="610" />
+      <font resource="font_s" color="%text_color%" />
       <text>Autoload / Autorun are set on the Toolkit package row.</text>
     </text>
     <text>
-      <placement x="81" y="659"/>
-      <font resource="font_s" color="%text_color%"/>
+      <placement x="81" y="659" />
+      <font resource="font_s" color="%text_color%" />
       <text>When enabled, sync runs once after Wi-Fi connects each boot.</text>
     </text>
     <button>
-      <placement x="81" y="755" w="360" h="72"/>
-      <fill color="#216d99"/>
-      <font resource="font_m" color="#ffffff"/>
+      <placement x="81" y="755" w="360" h="72" />
+      <fill color="#216d99" />
+      <font resource="font_m" color="#ffffff" />
       <text>Sync Now</text>
       <action function="xoomtoolkitexec">start:time-sync</action>
     </button>
     <button>
-      <placement x="477" y="755" w="360" h="72"/>
-      <fill color="#264e7c"/>
-      <font resource="font_m" color="#ffffff"/>
+      <placement x="477" y="755" w="360" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
       <text>Change Time Zone</text>
       <action function="page">settings_timezone</action>
     </button>
     <button>
-      <placement x="874" y="755" w="315" h="72"/>
-      <fill color="#264e7c"/>
-      <font resource="font_m" color="#ffffff"/>
+      <placement x="874" y="755" w="315" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
       <text>Refresh Time</text>
       <action function="xoomtoolkit">time-sync-refresh</action>
     </button>
     <button>
-      <placement x="1440" y="1050" w="370" h="68"/>
-      <fill color="#264e7c"/>
-      <font resource="font_m" color="#ffffff"/>
+      <placement x="1440" y="1050" w="370" h="68" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
       <text>Back to Toolkit</text>
       <action function="page">xoom_toolkit</action>
     </button>
     <action>
-      <touch key="back"/>
+      <touch key="back" />
       <action function="page">xoom_toolkit</action>
+    </action>
+  </page>
+  <page name="xoom_toolkit_details_time_sync_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Time Sync Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Keeps the recovery clock accurate and displays local time.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>REQUIRES</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Time synchronization needs Wi-Fi and access to an NTP server.</text>
+    </text>
+    <text>
+      <placement x="82" y="442" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Sync Now makes a bounded NTP request; Refresh updates the time.</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Change Time Zone opens the existing TWRP settings picker.</text>
+    </text>
+    <text>
+      <placement x="82" y="562" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>TIME ZONE</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Save zone, quarter-hour offset and daylight-saving choice.</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The saved choice is restored even if Wi-Fi is unavailable.</text>
+    </text>
+    <text>
+      <placement x="82" y="682" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>AUTORUN</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autoload loads the module; Autorun syncs once after Wi-Fi is ready.</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>No permanent NTP daemon or connection polling is started.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>IF IT FAILS</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>If the network is offline, wait for Wi-Fi or use Sync Now.</text>
+    </text>
+    <text>
+      <placement x="82" y="862" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SAFETY</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>NTP sets UTC; the chosen zone sets the local clock display.</text>
+    </text>
+    <text>
+      <placement x="578" y="922" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>No Android partition or saved Wi-Fi profile is modified.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_toolkit_details_time_sync</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit_details_time_sync</action>
     </action>
   </page>
 </future_toolkit_pages>

@@ -37,7 +37,7 @@ with zipfile.ZipFile(zip_path) as z:
 xml=ET.parse(r/"XoomToolkit-Recovery-Log-Collector-0.1.0-FUTURE-TWRP-page.xml").getroot()
 assert xml.tag=="future_toolkit_pages"
 pages=xml.findall("page")
-assert len(pages)==1 and pages[0].get("name")=="xoom_toolkit_details_log_collector"
+assert len(pages)==2 and [p.get("name") for p in pages]==["xoom_toolkit_details_log_collector","xoom_toolkit_details_log_collector_help"]
 actions=[(a.get("function"),a.text) for a in xml.findall(".//action")]
 for required in [
     ("xoomtoolkitexec","start:recovery-log-collector"),

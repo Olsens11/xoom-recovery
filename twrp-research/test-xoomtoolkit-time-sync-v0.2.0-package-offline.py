@@ -47,7 +47,7 @@ theme=ET.parse(r/"XoomToolkit-Time-Sync-0.2.0-FUTURE-TWRP-page.xml")
 page=theme.getroot()
 assert page.tag=="future_toolkit_pages"
 pages=page.findall("page")
-assert len(pages)==1 and pages[0].get("name")=="xoom_toolkit_details_time_sync"
+assert len(pages)==2 and [p.get("name") for p in pages]==["xoom_toolkit_details_time_sync","xoom_toolkit_details_time_sync_help"]
 actions=[(a.attrib.get("function"),a.text) for a in page.findall(".//action")]
 for wanted in [("xoomtoolkitexec","start:time-sync"),
                ("page","settings_timezone"),

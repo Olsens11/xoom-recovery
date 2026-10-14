@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='utf-8'?>
+<future_toolkit_pages>
+  <!--Add the matching Help button to each existing package Open page; R22d4c remains frozen.-->
+  <help_button_injection page="xoom_network">
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_network_help</action>
+    </button>
+  </help_button_injection>
+  <page name="xoom_network_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Wi-Fi Runtime Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Enables recovery Wi-Fi for tools, diagnostics and time sync.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>REQUIRES</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The verified Wi-Fi Runtime module must be loaded.</text>
+    </text>
+    <text>
+      <placement x="82" y="442" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Use the Network screen to connect or disconnect Wi-Fi.</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The Network details show current status and IPv4 when available.</text>
+    </text>
+    <text>
+      <placement x="82" y="562" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>STARTUP</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autoload restores the runtime from the SD package.</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Network Autoconnect needs a previously saved Wi-Fi profile.</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autorun and Autoconnect are independent settings.</text>
+    </text>
+    <text>
+      <placement x="82" y="742" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>IF IT FAILS</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Check WPA authentication, DHCP and Network Diagnostics.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SAFETY</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Saved Wi-Fi profiles on FAT32 are not encrypted.</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Never export credentials as part of ordinary diagnostics.</text>
+    </text>
+    <text>
+      <placement x="578" y="922" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Wireless ADB is separate and is not enabled by Wi-Fi.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_network</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_network</action>
+    </action>
+  </page>
+  <help_button_injection page="xoom_toolkit_details_diag">
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_toolkit_details_diag_help</action>
+    </button>
+  </help_button_injection>
+  <page name="xoom_toolkit_details_diag_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Network Diagnostics Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Reports network health without changing your Wi-Fi profile.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>REQUIRES</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Wi-Fi Runtime must be loaded before Diagnostics can load.</text>
+    </text>
+    <text>
+      <placement x="82" y="442" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Run diagnostics creates a bounded one-shot report.</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Review its result to investigate Wi-Fi or network issues.</text>
+    </text>
+    <text>
+      <placement x="82" y="562" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>STARTUP</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autoload loads the module after the Wi-Fi dependency.</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autorun, if enabled, requests one diagnostic run on boot.</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The module does not need to run as a permanent daemon.</text>
+    </text>
+    <text>
+      <placement x="82" y="742" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>IF IT FAILS</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>First confirm Wi-Fi Runtime loaded successfully.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SAFETY</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>This is separate from the Recovery Log Collector.</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>It does not expose saved WPA passwords.</text>
+    </text>
+    <text>
+      <placement x="578" y="922" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Stop or unload dependent modules before unloading Wi-Fi.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_toolkit_details_diag</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit_details_diag</action>
+    </action>
+  </page>
+  <help_button_injection page="xoom_toolkit_details_poc">
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_toolkit_details_poc_help</action>
+    </button>
+  </help_button_injection>
+  <page name="xoom_toolkit_details_poc_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>Wireless ADB POC Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Explains the experimental wireless ADB placeholder.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>STATUS</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>This proof-of-concept is unavailable in R22d4c.</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>There is no wireless ADB listener in this package.</text>
+    </text>
+    <text>
+      <placement x="82" y="502" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>No Start or Stop action is available for this placeholder.</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>USB ADB remains managed by normal TWRP.</text>
+    </text>
+    <text>
+      <placement x="82" y="622" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SAFETY</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Unauthenticated TCP ADB can expose root access on the LAN.</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>It must require explicit approval and an obvious OFF control.</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Never enable it automatically or preserve it across reboots.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>FUTURE</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Temporary insecure ADB and authenticated ADB are distinct.</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Only a later tested recovery may offer these capabilities.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_toolkit_details_poc</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit_details_poc</action>
+    </action>
+  </page>
+</future_toolkit_pages>
