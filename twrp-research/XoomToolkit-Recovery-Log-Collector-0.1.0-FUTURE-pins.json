@@ -1,0 +1,8 @@
+{
+  "status": "FUTURE_VERIFIER_INPUT_NOT_INSTALLED",
+  "id": "recovery-log-collector",
+  "version": "0.1.0",
+  "zip_file": "XoomToolkit-Recovery-Log-Collector-0.1.0-OFFLINE-ONLY.zip",
+  "zip_sha256": "b53b208e9e0a51fa5b5b06c8cc05ac18fab7ba247d84b97ea7ce14900d38ffb2",
+  "inner_sha256": "828b4e061b8b3740056152972b0e0ab9a7040de525c49f552b913637d9732303"
+}

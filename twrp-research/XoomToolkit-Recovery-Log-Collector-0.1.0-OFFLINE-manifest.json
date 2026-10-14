@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "recovery-log-collector",
+  "version": "0.1.0",
+  "device": "wingray",
+  "abi": "shell",
+  "base": "TWRP-3.1.1-0 N2",
+  "archive_path": "payload/recovery-log-collector.tar.xz",
+  "archive_sha256": "828b4e061b8b3740056152972b0e0ab9a7040de525c49f552b913637d9732303",
+  "archive_size": 2404,
+  "expanded_payload_bytes": 6213,
+  "file_count": 1,
+  "depends_on": [
+    "core:sd-mount",
+    "core:verified-package-loader"
+  ],
+  "install_root": "ram-rootfs:/tmp/XoomToolkit",
+  "execution": "one-shot",
+  "services": [],
+  "actions": [
+    "collect",
+    "status",
+    "export"
+  ],
+  "privacy": "allowlisted statuses and aggregate counts only",
+  "status": "OFFLINE_ONLY_NOT_PINNED_BY_R22D4C",
+  "files": [
+    {
+      "path": "toolkit/log-collector/collect.sh",
+      "sha256": "ea8bb7470e7983aa2f4bee2ab8ed2a923fd2d33d0d829fda546742ebdcfe2997",
+      "bytes": 6213,
+      "mode": "0o750"
+    }
+  ]
+}
