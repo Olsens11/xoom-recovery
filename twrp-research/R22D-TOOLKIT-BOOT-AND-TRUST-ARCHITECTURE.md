@@ -1,5 +1,7 @@
 # XoomToolkit R22d: module split, boot ordering, hash pins, and GUI implementation plan
 
+> **SUPERSEDED BY V2 UI CLARIFICATION:** Package controls are now always the generic **Autoload** and **Autorun** pair for every package. The two Wi-Fi-specific preferences (**Save credentials to SD** and **Autoconnect at recovery boot**) reside on the **Network** page. See [current v2 requirements](XOOMTOOLKIT-V2-TOGGLES-AND-USB-ADB-HASH-BYPASS.md). The older five-toggle grouping below is historical and must not be implemented verbatim.
+
 **Status:** V1 feature selection AGREED IN PRINCIPLE; two package ZIP previews and offline boot planner built, **14 automated tests PASS**. Early microSD mount hook passed a live RAM-only hardware test. **No new recovery image has been compiled or flashed; installed R22c remains unchanged.** All tool packages remain in SD `staging`, intentionally non-autoloading.
 
 ## 1. Feature-by-feature split

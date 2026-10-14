@@ -1,5 +1,7 @@
 # XoomToolkit: five independent startup/preferences controls
 
+> **SUPERSEDED BY V2 UI CLARIFICATION:** Package controls are now always the generic **Autoload** and **Autorun** pair for every package. The two Wi-Fi-specific preferences (**Save credentials to SD** and **Autoconnect at recovery boot**) reside on the **Network** page. See [current v2 requirements](XOOMTOOLKIT-V2-TOGGLES-AND-USB-ADB-HASH-BYPASS.md). The older five-toggle grouping below is historical and must not be implemented verbatim.
+
 **Status:** User-requested design requirements for future Toolkit Manager. **NOT IMPLEMENTED in R22c.** No insecure wireless ADB listener should be enabled by this document or by merely writing preferences.
 
 ## Five controls
