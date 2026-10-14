@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "sftp-server",
+  "version": "0.1.0",
+  "device": "wingray",
+  "abi": "armv7-android25",
+  "base": "TWRP-3.1.1-0 N2",
+  "execution": "init-managed-daemon",
+  "archive_path": "payload/sftp-server.tar.xz",
+  "archive_sha256": "688a79660880407e2ce2581b064d7a85a70e54737e53b8dcae14bc4469a1342a",
+  "archive_size": 105540,
+  "expanded_payload_bytes": 257948,
+  "file_count": 3,
+  "install_root": "ram-rootfs:/tmp/XoomToolkit",
+  "depends_on": [
+    "core:sd-mount",
+    "core:verified-package-loader",
+    "wifi-runtime",
+    "recovery:libssh-libssl-libcrypto-libz-libcutils"
+  ],
+  "services": [
+    "xoomsftp",
+    "xoomsftpautostart",
+    "xoomsftpdisconnect"
+  ],
+  "actions": [
+    "start",
+    "auto",
+    "stop",
+    "network-lost",
+    "status",
+    "check"
+  ],
+  "port": 2222,
+  "authentication": "ssh-ed25519-public-key-only",
+  "shell_access": "forbidden-by-ForceCommand",
+  "autostart": "if explicitly enabled, after Wi-Fi and valid key",
+  "status": "OFFLINE_ONLY_NOT_PINNED_BY_R22D4C",
+  "files": [
+    {
+      "path": "toolkit/sftp-server/sftp.sh",
+      "sha256": "77bd473f58f0cf118bed1df4ef93eee0b3b47ddf60258aaa890edff7ea7df7bc",
+      "bytes": 8008,
+      "mode": "0o750"
+    },
+    {
+      "path": "toolkit/sftp-server/sshd",
+      "sha256": "a82e169163500e05591d60b047f12c09f86f473add5fbecb7ce04ce0808d9dd7",
+      "bytes": 194992,
+      "mode": "0o750"
+    },
+    {
+      "path": "toolkit/sftp-server/ssh-keygen",
+      "sha256": "e94684a53e38d83d78f567a05a3bccedcfae0a35b5ebecf73042981b461864cf",
+      "bytes": 54948,
+      "mode": "0o750"
+    }
+  ]
+}

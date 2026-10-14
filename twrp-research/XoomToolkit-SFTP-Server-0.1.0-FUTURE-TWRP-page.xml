@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='utf-8'?>
+<future_toolkit_pages>
+  <page name="xoom_toolkit_details_sftp">
+    <template name="page" />
+    <button>
+      <placement x="1672" y="34" w="156" h="69" />
+      <fill color="#1c75a8" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Help</text>
+      <action function="page">xoom_toolkit_details_sftp_help</action>
+    </button>
+    <text>
+      <placement x="81" y="187" />
+      <font resource="font_l" color="%text_color%" />
+      <text>SFTP Network File Transfer</text>
+    </text>
+    <text>
+      <placement x="81" y="269" />
+      <font resource="font_m" color="%accent_color%" />
+      <text>Encrypted file transfer with SSH public-key authentication</text>
+    </text>
+    <text>
+      <placement x="81" y="356" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Server: %property.init.svc.xoomsftp%   Status: %property.xoom.toolkit.sftp.status%</text>
+    </text>
+    <text>
+      <placement x="81" y="419" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Connection: sftp -P 2222 root@&lt;Xoom-WiFi-IP&gt;</text>
+    </text>
+    <text>
+      <placement x="81" y="485" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Client key: /external_sd/XoomToolkit/config/sftp-authorized-keys</text>
+    </text>
+    <text>
+      <placement x="81" y="560" />
+      <font resource="font_m" color="%text_color%" />
+      <text>Start requires Wi-Fi and one valid SSH Ed25519 client public key.</text>
+    </text>
+    <text>
+      <placement x="81" y="627" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Autoload + Autorun: automatically start after recovery Wi-Fi is ready.</text>
+    </text>
+    <text>
+      <placement x="81" y="686" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Stop is reversible: press Start again in the same recovery session.</text>
+    </text>
+    <text>
+      <placement x="81" y="748" />
+      <font resource="font_s" color="%text_color%" />
+      <text>Authenticated SFTP only. Root file access is NOT confined to the SD folder.</text>
+    </text>
+    <button>
+      <placement x="81" y="848" w="414" h="72" />
+      <fill color="#216d99" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Start SFTP</text>
+      <action function="xoomtoolkitexec">start:sftp-server</action>
+    </button>
+    <button>
+      <placement x="520" y="848" w="414" h="72" />
+      <fill color="#923b3b" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Stop SFTP</text>
+      <action function="xoomtoolkitexec">stop:sftp-server</action>
+    </button>
+    <button>
+      <placement x="960" y="848" w="414" h="72" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Refresh Status</text>
+      <action function="xoomtoolkit">sftp-refresh</action>
+    </button>
+    <button>
+      <placement x="1440" y="1050" w="370" h="68" />
+      <fill color="#264e7c" />
+      <font resource="font_m" color="#ffffff" />
+      <text>Back to Toolkit</text>
+      <action function="page">xoom_toolkit</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit</action>
+    </action>
+  </page>
+  <page name="xoom_toolkit_details_sftp_help">
+    <template name="page" />
+    <text>
+      <placement x="81" y="192" />
+      <font resource="font_l" color="%text_color%" />
+      <text>SFTP Network File Transfer Help</text>
+    </text>
+    <text>
+      <placement x="82" y="322" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>PURPOSE</text>
+    </text>
+    <text>
+      <placement x="578" y="322" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Encrypted file transfers using ordinary SFTP/SSH clients.</text>
+    </text>
+    <text>
+      <placement x="82" y="382" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>REQUIRES</text>
+    </text>
+    <text>
+      <placement x="578" y="382" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Loaded package, trusted Wi-Fi, and an SSH Ed25519 public key.</text>
+    </text>
+    <text>
+      <placement x="82" y="442" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>KEY SETUP</text>
+    </text>
+    <text>
+      <placement x="578" y="442" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Copy ONE client public key to the SD config directory:</text>
+    </text>
+    <text>
+      <placement x="578" y="502" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>XoomToolkit/config/sftp-authorized-keys</text>
+    </text>
+    <text>
+      <placement x="82" y="562" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONNECT</text>
+    </text>
+    <text>
+      <placement x="578" y="562" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Use SFTP port 2222, username root, and its matching key.</text>
+    </text>
+    <text>
+      <placement x="578" y="622" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>No passwords, ordinary SSH shell, or port forwarding allowed.</text>
+    </text>
+    <text>
+      <placement x="82" y="682" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>STARTUP</text>
+    </text>
+    <text>
+      <placement x="578" y="682" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Autoload loads the package; Autorun starts after Wi-Fi.</text>
+    </text>
+    <text>
+      <placement x="82" y="742" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>CONTROLS</text>
+    </text>
+    <text>
+      <placement x="578" y="742" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Stop disables SFTP now; Start enables it again immediately.</text>
+    </text>
+    <text>
+      <placement x="82" y="802" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>SECURITY</text>
+    </text>
+    <text>
+      <placement x="578" y="802" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>SFTP root can browse outside the starting SD directory.</text>
+    </text>
+    <text>
+      <placement x="578" y="862" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>The SD card stores a sensitive persistent SSH server host key.</text>
+    </text>
+    <text>
+      <placement x="82" y="922" />
+      <font resource="font_s" color="%accent_color%" />
+      <text>IF IT FAILS</text>
+    </text>
+    <text>
+      <placement x="578" y="922" />
+      <font resource="font_s" color="#d0dce9" />
+      <text>Check Wi-Fi, client key, host key and SFTP status.</text>
+    </text>
+    <button>
+      <placement x="1455" y="1053" w="375" h="69" />
+      <fill color="#264e7c" />
+      <font resource="font_s" color="#ffffff" />
+      <text>Back to Package</text>
+      <action function="page">xoom_toolkit_details_sftp</action>
+    </button>
+    <action>
+      <touch key="back" />
+      <action function="page">xoom_toolkit_details_sftp</action>
+    </action>
+  </page>
+</future_toolkit_pages>

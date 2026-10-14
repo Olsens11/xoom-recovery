@@ -1,0 +1,10 @@
+{
+  "status": "FUTURE_VERIFIER_INPUT_NOT_INSTALLED",
+  "id": "sftp-server",
+  "version": "0.1.0",
+  "zip_file": "XoomToolkit-SFTP-Server-0.1.0-OFFLINE-ONLY.zip",
+  "zip_sha256": "3b1db255389e56507e11a775142ca725445da464762f6791fe82037e0115860b",
+  "inner_sha256": "688a79660880407e2ce2581b064d7a85a70e54737e53b8dcae14bc4469a1342a",
+  "arm_sshd_sha256": "a82e169163500e05591d60b047f12c09f86f473add5fbecb7ce04ce0808d9dd7",
+  "arm_keygen_sha256": "e94684a53e38d83d78f567a05a3bccedcfae0a35b5ebecf73042981b461864cf"
+}

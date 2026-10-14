@@ -1,0 +1,23 @@
+# Next separately versioned Xoom recovery ONLY; not installed in R22d4c.
+# Requires verified SFTP package loaded to RAM and trusted UI action wiring.
+service xoomsftp /tmp/XoomToolkit/toolkit/sftp-server/sshd -D -e -f /tmp/xoom-toolkit/sftp/sshd_config
+    class core
+    disabled
+    user root
+    group root
+    oneshot
+    setenv LD_LIBRARY_PATH /sbin:/system/lib
+
+service xoomsftpautostart /sbin/sh /tmp/XoomToolkit/toolkit/sftp-server/sftp.sh auto
+    class core
+    disabled
+    user root
+    group root
+    oneshot
+
+service xoomsftpdisconnect /sbin/sh /tmp/XoomToolkit/toolkit/sftp-server/sftp.sh network-lost
+    class core
+    disabled
+    user root
+    group root
+    oneshot

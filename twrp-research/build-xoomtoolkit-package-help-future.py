@@ -13,6 +13,7 @@ HERE = Path(__file__).resolve().parent
 TIME = HERE / "XoomToolkit-Time-Sync-0.2.0-FUTURE-TWRP-page.xml"
 LOGS = HERE / "XoomToolkit-Recovery-Log-Collector-0.1.0-FUTURE-TWRP-page.xml"
 DIAG = HERE / "XoomToolkit-Advanced-Network-Diagnostics-0.2.0-FUTURE-TWRP-page.xml"
+SFTP = HERE / "XoomToolkit-SFTP-Server-0.1.0-FUTURE-TWRP-page.xml"
 INSPECT = HERE / "XoomToolkit-Partition-Storage-Inspector-0.1.0-FUTURE-TWRP-page.xml"
 EXISTING = HERE / "XoomToolkit-Existing-Packages-Help-FUTURE-pages.xml"
 BUTTON = {"x":"1672","y":"34","w":"156","h":"69"}
@@ -52,6 +53,22 @@ CONTENT = {
       ("PRIVACY", "The default report excludes raw Wi-Fi profiles and log lines."),
       ("", "Review the report before sending it to someone else."),
       ("IF IT FAILS", "Missing log sources are reported as unavailable."),
+    ],
+  },
+  "xoom_toolkit_details_sftp": {
+    "title": "SFTP Network File Transfer Help",
+    "entries": [
+      ("PURPOSE", "Encrypted file transfers using ordinary SFTP/SSH clients."),
+      ("REQUIRES", "Loaded package, trusted Wi-Fi, and an SSH Ed25519 public key."),
+      ("KEY SETUP", "Copy ONE client public key to the SD config directory:"),
+      ("", "XoomToolkit/config/sftp-authorized-keys"),
+      ("CONNECT", "Use SFTP port 2222, username root, and its matching key."),
+      ("", "No passwords, ordinary SSH shell, or port forwarding allowed."),
+      ("STARTUP", "Autoload loads the package; Autorun starts after Wi-Fi."),
+      ("CONTROLS", "Stop disables SFTP now; Start enables it again immediately."),
+      ("SECURITY", "SFTP root can browse outside the starting SD directory."),
+      ("", "The SD card stores a sensitive persistent SSH server host key."),
+      ("IF IT FAILS", "Check Wi-Fi, client key, host key and SFTP status."),
     ],
   },
   "xoom_toolkit_details_partition_inspector": {
@@ -210,5 +227,6 @@ if __name__=="__main__":
     update_fragment(TIME,"xoom_toolkit_details_time_sync")
     update_fragment(LOGS,"xoom_toolkit_details_log_collector")
     update_fragment(DIAG,"xoom_toolkit_details_diag")
+    update_fragment(SFTP,"xoom_toolkit_details_sftp")
     update_fragment(INSPECT,"xoom_toolkit_details_partition_inspector")
     existing_fragments()
