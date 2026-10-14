@@ -7,12 +7,6 @@ The companion report `twrp-research/OPENSSH-10.6P1-FEATURE-AUDIT-AND-RESTORATION
 
 A matching copy sits alongside the experimental package build files in `private/sftp-modern-dev/`; another matching copy is in the desktop WSL source workspace `/home/xoomdev/xoom-modern-openssh-10.6p1/`. This is build documentation, **not a new packaged payload**: the experimental ZIP, manifest, hash pins and frozen R22d4c image remain unchanged.
 
-## Companion feature audit and restoration plan
-
-See [OpenSSH 10.6p1 — Disabled Features & Restoration Assessment](OPENSSH-10.6P1-FEATURE-AUDIT-AND-RESTORATION-PLAN-2026-10-14.md) for the actual `configure` exclusions, SFTP-only runtime restrictions, Android compatibility gaps, benefits, relative implementation difficulty, and prioritized restoration plan. A local copy of the same report is stored beside the private 0.2.0 package build files on the Pi and in the desktop WSL build workspace.
-
-This document is **build documentation only**; the pinned experimental 0.2.0 ZIP and R22d4c recovery were not modified by the audit.
-
 ## Outcome and release boundaries
 OpenSSH Portable **10.6p1** was fetched as the official portable tarball, SHA-256 verified against OpenSSH's announced checksum, ported to the Xoom's Android 7.1-era Bionic toolchain and successfully compiled into FIVE distinct **32-bit ARM** dynamically linked executables: `sshd`, `sshd-session`, `sshd-auth`, `ssh-keygen` and `sftp-server`. The source is isolated from the AOSP 7.1.2 vendor OpenSSH 7.1p2 tree. Existing SFTP v0.1.0 remains intact as a fallback, with package ZIP SHA256 `3b1db255389e56507e11a775142ca725445da464762f6791fe82037e0115860b`.
 

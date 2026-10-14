@@ -1,8 +1,8 @@
 # OpenSSH 10.6p1 for Xoom — Disabled Features & Restoration Assessment
 
-**Audit date:** 2026-10-14
-**Package:** XoomToolkit SFTP Modern **0.2.0**, experimental ARM/Bionic port
-**Status:** Design/build audit only. ARM cross-build and isolated controller tests have passed; actual server execution, authentication and file transfer on the Xoom **have not been demonstrated**.
+- **Audit date:** 2026-10-14
+- **Package:** XoomToolkit SFTP Modern **0.2.0**, experimental ARM/Bionic port
+- **Status:** Design/build audit only. ARM cross-build and isolated controller tests have passed; actual server execution, authentication and file transfer on the Xoom **have not been demonstrated**.
 
 This is the feature and capability audit requested after the first OpenSSH 10.6p1 Xoom ARM build. It belongs with the **build sources and integration handoff**, not inside the recovery's runtime ZIP. No installed device or frozen R22d4c image is changed by this report.
 
