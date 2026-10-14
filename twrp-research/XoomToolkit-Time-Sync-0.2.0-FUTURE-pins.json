@@ -1,0 +1,8 @@
+{
+  "status": "FUTURE_VERIFIER_INPUT_NOT_INSTALLED",
+  "id": "time-sync",
+  "version": "0.2.0",
+  "zip_file": "XoomToolkit-Time-Sync-0.2.0-OFFLINE-ONLY.zip",
+  "zip_sha256": "cb6eec52013cf538e38d18100ca34656de19a5c61b3220bc1506be4c49e1c127",
+  "inner_sha256": "9b6f921449b65c1d8b3d4c211646a8ecc0468195d68881e2e7c2e7d0e8bc4671"
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "time-sync",
+  "version": "0.2.0",
+  "device": "wingray",
+  "abi": "shell",
+  "base": "TWRP-3.1.1-0 N2",
+  "archive_path": "payload/time-sync.tar.xz",
+  "archive_sha256": "9b6f921449b65c1d8b3d4c211646a8ecc0468195d68881e2e7c2e7d0e8bc4671",
+  "archive_size": 1560,
+  "expanded_payload_bytes": 3058,
+  "file_count": 1,
+  "depends_on": [
+    "core:sd-mount",
+    "core:verified-package-loader",
+    "wifi-runtime"
+  ],
+  "install_root": "ram-rootfs:/tmp/XoomToolkit",
+  "execution": "one-shot",
+  "services": [],
+  "entrypoint": "/tmp/XoomToolkit/toolkit/time-sync/sync.sh",
+  "actions": [
+    "sync",
+    "auto",
+    "status"
+  ],
+  "autorun": "one-shot after WIFI_READY event; not a polling daemon",
+  "status": "OFFLINE_ONLY_NOT_PINNED_BY_R22D4C",
+  "files": [
+    {
+      "path": "toolkit/time-sync/sync.sh",
+      "sha256": "99f9683eec0a8033aad65099942be0f4c1c64178b8eb8290aa7146ce643a2d8b",
+      "bytes": 3058,
+      "mode": "0o750"
+    }
+  ]
+}
