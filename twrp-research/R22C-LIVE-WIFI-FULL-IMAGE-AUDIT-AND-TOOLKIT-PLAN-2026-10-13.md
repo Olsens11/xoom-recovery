@@ -28,6 +28,12 @@ The original R22a candidate/backups remain intact. USB ADB returned after recove
 
 **Do not flash another recovery image without new user approval.** Next hardware iteration should fix the watchdog/Disconnect cleanup first, preserve existing USB recovery and session-only operation, then regress Wi-Fi, NTP, Network Status, button/keyboard, and optional SD handling.
 
+### Watchdog mitigation RAM-only experiment (after the hardware report above)
+
+A finite **8 iterations × 2 seconds** RAM-only watchdog ran on the live, connected Xoom. It used shell builtin `read` of `/sys/class/net/wlan0/carrier`, a builtin `test` of `/tmp/xoom-network/.wifi-ready`, and BusyBox `sleep`, with `setprop` **only on a state change**. The connection remained `WIFI_READY`, the connected indicator stayed `C`, and the count of stuck `modprobe -- personality-8` processes was **zero both during and after** the test. This is promising evidence that eliminating repeated property queries/updates will resolve the indicator's process buildup, but **the state-transition/loss branch has not been exercised** and this is **NOT** a hardware-proven permanent replacement.
+
+The older finite experiment that called `setprop` each interval did generate many transient helpers. Do not reinstall the old background watchdog for unattended operation until transition-safe replacement tests pass. The currently installed R22c has its watchdog stopped via a RAM flag; the core connection and USB ADB continue running.
+
 ## B. Full R22c image inventory
 
 The reproducible script `twrp-research/audit-r22c-image-space.py` reads the private, unflashed R22c candidate image, decodes the Android boot header and gzip `newc` CPIO, inventories **all 489 entries**, and models separately compressed modules as `tar.xz` packed inside the still-gzip boot ramdisk. It writes:
