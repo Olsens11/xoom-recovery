@@ -1,5 +1,8 @@
 # Motorola Xoom MZ600 — R22 live QA and R22a init-worker correction
 
+> **LATEST INSTALL OUTCOME:** This records the *pre-flash* state. R22a was subsequently approved, flashed to recovery p6, readback-verified, rebooted, and its renamed init-managed Wi-Fi worker passed a live no-profile smoke test. See [R22a installed and verified](R22A-INSTALLED-AND-WORKER-VERIFIED-2026-10-13.md) for the current project state.
+
+
 **Date:** 2026-10-13 (after R22 live hardware handoff)
 **Repository:** `Olsens11/xoom-recovery`, branch `main`
 **Hardware:** MZ600 / wingray, USB ADB serial `02804102421f7517`; Surface Book 2 via Desktop Commander.
