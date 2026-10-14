@@ -34,6 +34,8 @@ A finite **8 iterations × 2 seconds** RAM-only watchdog ran on the live, connec
 
 The older finite experiment that called `setprop` each interval did generate many transient helpers. Do not reinstall the old background watchdog for unattended operation until transition-safe replacement tests pass. The currently installed R22c has its watchdog stopped via a RAM flag; the core connection and USB ADB continue running.
 
+**Further verification / qualification:** TWRP `/tmp/recovery.log` explicitly records the GUI button's `Running command: '/sbin/xoom-time-sync'` followed by `process ended with RC=0` (lines 552–553), proving the on-screen action genuinely ran. Separately, one later transient sample returned 29 `modprobe -- personality-8` helpers even **after** the original indicator was stopped, while subsequent rechecks returned zero. Some bursts therefore may be triggered by other concurrent command activity, not just the watchdog. The repeated-indicator correlation is strong, but **its precise low-level cause is not yet definitively proven**; do not call the process issue solved. Current Wi-Fi stays connected.
+
 ## B. Full R22c image inventory
 
 The reproducible script `twrp-research/audit-r22c-image-space.py` reads the private, unflashed R22c candidate image, decodes the Android boot header and gzip `newc` CPIO, inventories **all 489 entries**, and models separately compressed modules as `tar.xz` packed inside the still-gzip boot ramdisk. It writes:
