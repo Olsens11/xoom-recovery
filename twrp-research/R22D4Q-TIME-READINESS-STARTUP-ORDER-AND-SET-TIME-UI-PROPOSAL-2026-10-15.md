@@ -1,4 +1,6 @@
 # R22d4q — Time-dependent package readiness, boot ordering, and SET TIME status (proposal)
+> **SUPERSEDED / DEFERRED, 2026-10-15:** The user chose a much simpler current R22d4q approach: Wi-Fi priority, Time Sync next, a shared successful-sync flag, and a visibly labeled recovery-session uptime when not synced. General-purpose per-package blocking, SET TIME statuses, startup synchronization wait/gate coordination, and manual/SD history manager are **NOT** part of this release unless an actual need emerges. See [current minimal-time policy](R22D4Q-MINIMAL-TIME-SYNC-AND-RECOVERY-UPTIME-POLICY-2026-10-15.md). The text below remains a speculative design archive, not implementation instructions.
+
 
 **Status: DISCUSSION PROPOSAL / NOT YET USER-APPROVED FOR IMPLEMENTATION.** Recorded 2026-10-15 in the Round 2 clock-design discussion. **No code/build/flash/settings changes.** Installed recovery stays R22d4p.
 
