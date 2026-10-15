@@ -24,7 +24,7 @@
 | Package | Round 1 state | Confirmed hardware evidence to date | Bugs | Feature/update ideas |
 |---|---|---|---|---|
 | Wi-Fi Runtime | PARTIAL | R22d4p Wi-Fi startup RUNNING, `WIFI_READY`, DNS running, progress `100 WIFI_AUTORUN_FINISHED` | None confirmed | Persisted hostname in Network Identity screen, DHCP announcement as part of Wi-Fi Autorun/manual connect (planned next package development round) |
-| Network Diagnostics | PARTIAL | R22d4p Autoload reached `LOADED`, `100 RAM_READY` | None confirmed | Explore richer, actionable diagnostics after tests |
+| Network Diagnostics | MAIN PATH PASS; FAILURE PATHS UNTESTED | GUI passive Run, bounded Active Test, SD Export verified; [detailed report](QA-PACKAGE-NETWORK-DIAGNOSTICS-0.2.0-R22D4P-2026-10-15.md) | DNS server unreported so direct DNS test skipped (investigate); shared 1970 timestamp and missing export confirmation | Better DNS proxy/resolver diagnostics, readable in-UI reports, network comparison |
 | Time Sync | PARTIAL | R22d4o and R22d4p GUI batch unload/reload PASS; R22d4o Run reported COMPLETE and back to LOADED | None confirmed | Better sync result/time-source reporting to evaluate |
 | Recovery Log Collector | PARTIAL | R22d4o GUI load displayed 88%→LOADED, then GUI unload returned UNLOADED | None confirmed | Review log collection/export UX |
 | Partition & Storage Inspector | MAIN PATH PASS; NEGATIVE PATHS NOT TESTED | GUI load/run/SD export SHA check/unload passed on R22d4p; [detailed report](QA-PACKAGE-PARTITION-INSPECTOR-0.1.0-R22D4P-2026-10-15.md) | XT-PART-001 misleading unsynced 1970 timestamps; XT-PART-002 detail page lacks export feedback; XT-PART-003 slow operation observation | Read-only report viewer, alias-aware mount report, comparison/export history |
