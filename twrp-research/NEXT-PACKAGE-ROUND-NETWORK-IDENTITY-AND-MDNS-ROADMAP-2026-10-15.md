@@ -5,6 +5,10 @@
 **Status: Roadmap only. Not implemented, installed, flashed, enabled, or tested.**
 Recorded 2026-10-15 after user confirmed: "Let's earmark [mDNS] for our next package development round and continue as you suggested."
 
+## Device-specific generated hostname — measured feasibility, choice still pending
+
+The user favors a recognizable `xoom-recovery` prefix and considering a short device-unique suffix. [Live Xoom serial-hash benchmark](QA-NETWORK-IDENTITY-SERIAL-HASH-BENCHMARK-XOOM-2026-10-15.md) successfully produced `xoom-recovery-185be4` using SHA-256(serial)[:6], with **1.01 seconds end-to-end wall time under elevated load**. The repeated benchmark revealed excessive process-launch/compatibility overhead, including kernel `personality-8` module requests, and was stopped. A one-time hash appears feasible but not necessarily preferable to simply appending the last six serial characters. **No identifier-source or suffix policy finalized; hostname and SD settings remain unchanged.** Never hash repeatedly for reconnections or UI updates.
+
 ## Sequence and ownership
 1. **Current work first:** Complete R22d4p Toolkit hardware QA (Storage & Access tab, normal/safe module operations, dependency and error-handling tests) before adding features. Preserve present recovery, Wi-Fi service, saved settings, and exact ZIP pins.
 2. **R22d4q UI polish when appropriate:** Vertically center the left selected count and right two-line dynamic status group in the existing compact footer **without changing its height or footer button positions**. Consider correcting historical `R22d4o` diagnostic log labels. Maintain [canonical Toolkit touch-coordinate index](TOOLKIT-TOUCH-COORDINATE-INDEX.md) whenever rows, tabs, or controls move; remote automated taps remain human-paced (at least 750 ms between completed touch commands; verify checkbox/selection count before batch action).
