@@ -53,6 +53,12 @@
 - Other per-package feature suggestions appear in their own reports: in-TWRP read-only report viewers, diagnostics summaries, SFTP status, time provenance, Wi-Fi lease details and restricted SFTP file-sharing mode.
 - Reference [hostname/mDNS roadmap](NEXT-PACKAGE-ROUND-NETWORK-IDENTITY-AND-MDNS-ROADMAP-2026-10-15.md). Do not blend these feature additions into Round 2 bug remediation without user agreement.
 
+## R22d4q clock design decision, made during Round 2 review (2026-10-15)
+- Preserve TWRP/kernel native timekeeping. A lightweight Clock Manager tracks **UNSET (1970), ESTIMATED (last-known SD or manual), SYNCED (successful current-boot NTP)** and uses standard clock setting interfaces; no alternate clock engine.
+- Keep core manual clock entry offline, and leave packages loadable; gate only individual time-critical actions. Offline reports may run with UNSET timestamp provenance.
+- Capture same-boot monotonic event timestamps so a later NTP sync can **retroactively compute corrected UTC timestamps** from `sync_utc - (sync_elapsed - event_elapsed)`. Preserve original records and explicitly prohibit deriving precise across-reboot time without trusted elapsed-time evidence.
+- Read the [accepted clock/confidence and retrocorrection design](R22D4Q-CLOCK-TIME-CONFIDENCE-AND-SAME-BOOT-RETROCORRECTION-DECISION-2026-10-15.md). This is agreed design direction, **not implemented or flashed**.
+
 ## Proposed Round 2 change-control steps — NOT YET EXECUTED
 1. **Review with user:** Confirm severity priorities and which cross-package issues to combine; make design choices for timestamp validity and UI status, keep security redesign as separate track.
 2. **Stage offline patch candidate:** choose next revision (R22d4q if appropriate), include specifically approved common UI fixes and footer centering, update code/log identities and related script behavior with minimal diff. Do not alter pinned ZIPs without appropriate new version/hashes.
