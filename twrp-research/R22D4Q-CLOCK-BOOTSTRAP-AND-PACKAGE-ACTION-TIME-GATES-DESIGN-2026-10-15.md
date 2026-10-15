@@ -1,3 +1,5 @@
+> **SUPERSEDED CLOCK ARCHITECTURE (2026-10-15):** User chose to preserve TWRP/kernel timekeeping, use three states UNSET / ESTIMATED / SYNCED, and enable non-destructive same-boot retroactive timestamp correction after a valid synchronization. See the [current decision record](R22D4Q-CLOCK-TIME-CONFIDENCE-AND-SAME-BOOT-RETROCORRECTION-DECISION-2026-10-15.md). Historical alternatives below are retained for context, not active implementation requirements.
+
 # R22d4q proposal — clock bootstrap, confidence levels, and action-specific time gates
 
 **Status:** Proposed design for user review (2026-10-15). **NOT implemented, compiled, installed, or flashed.** Installed Xoom recovery remains R22d4p. This document records the user's idea that time-dependent packages show **SET TIME** and restrict execution according to the precision they need, while recovery must remain accessible offline.
