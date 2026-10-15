@@ -1,6 +1,8 @@
 # Xoom Toolkit — package-by-package functional QA and deferred remediation
 
-**Established 2026-10-15. Active recovery: R22d4p. User-directed workflow: test every existing package, document bugs + future feature/update ideas as part of each package report, and only after the testing round is complete run a SEPARATE, prioritized bug-fix round.**
+**2026-10-15 STATUS: Round 1 main-path QA COMPLETED AT SAFE SCOPE; seven per-package reports committed; user review of findings pending. R22d4p remains installed. NO Round 2 bug fixes begun.**
+
+See the [consolidated seven-package results and proposed separate Round 2 plan](TOOLKIT-ROUND1-SEVEN-PACKAGE-QA-RESULTS-AND-ROUND2-BUGFIX-PLAN-2026-10-15.md). Six main package flows passed; Private Wireless ADB POC was assessed safely without starting its insecure server. Untested negative/security paths remain explicitly open.
 
 ## Governing process
 
