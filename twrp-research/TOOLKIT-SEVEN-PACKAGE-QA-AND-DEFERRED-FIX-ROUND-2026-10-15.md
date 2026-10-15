@@ -27,7 +27,7 @@
 | Network Diagnostics | PARTIAL | R22d4p Autoload reached `LOADED`, `100 RAM_READY` | None confirmed | Explore richer, actionable diagnostics after tests |
 | Time Sync | PARTIAL | R22d4o and R22d4p GUI batch unload/reload PASS; R22d4o Run reported COMPLETE and back to LOADED | None confirmed | Better sync result/time-source reporting to evaluate |
 | Recovery Log Collector | PARTIAL | R22d4o GUI load displayed 88%→LOADED, then GUI unload returned UNLOADED | None confirmed | Review log collection/export UX |
-| Partition & Storage Inspector | NOT YET TESTED | No independent live functional evidence yet | None confirmed | Review safe visibility, export |
+| Partition & Storage Inspector | MAIN PATH PASS; NEGATIVE PATHS NOT TESTED | GUI load/run/SD export SHA check/unload passed on R22d4p; [detailed report](QA-PACKAGE-PARTITION-INSPECTOR-0.1.0-R22D4P-2026-10-15.md) | XT-PART-001 misleading unsynced 1970 timestamps; XT-PART-002 detail page lacks export feedback; XT-PART-003 slow operation observation | Read-only report viewer, alias-aware mount report, comparison/export history |
 | Private Wireless ADB POC | SAFETY-SCOPED / NOT RUN | Default disabled, Autoload OFF | None confirmed | Standard pairing/interoperability long-term goal; no unauthorized insecure daemon test |
 | Modern SFTP | PARTIAL | Existing pinned ZIP verified on R22d4n, default disabled, not yet functional Start/Stop test in current pass | None confirmed | Advertise only while running via future optional mDNS package |
 
