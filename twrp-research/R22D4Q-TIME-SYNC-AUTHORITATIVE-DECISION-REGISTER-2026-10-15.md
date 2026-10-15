@@ -1,11 +1,13 @@
 # R22d4q Time Sync — authoritative decision register
+> **LATEST CORRECTION — 2026-10-15:** Last-known clock restoration from SD was **REJECTED**, not deferred. The agreed invalid-clock fallback derives the current system clock from **00:00:00 UTC+0 on 1970-01-01 at recorded Linux boot start, plus elapsed time since that Linux startup**, displayed in **24-hour format**. SD remains the authoritative store for **user preferences only**. Refer to section A.1 and section C below. Historical notes suggesting prior-clock checkpoints are rejected explorations.
+
 
 **Status:** Design discussion frozen as of 2026-10-15 for scope clarity. This is the **canonical source of truth about user-agreed design direction**, not proof that code works. **No feature implementation, new package release, preference change or recovery flash authorized by this document.** Installed device remains R22d4p; Time Sync 0.2.1 currently Autoload ON / Autorun OFF. Earlier notes and audits contain brainstorming and superseded alternatives; do not use them as implementation instructions without checking this register.
 
 ## A. Agreed direction / explicit user choices
 These are requirements at the intended-behavior level. Technical mechanism remains subject to source/hardware validation.
 
-1. **Keep existing Linux/TWRP clock machinery.** Do not introduce a second independent timekeeping system or replace Linux's clock. User proposed the **unsynced invalid-year-1970 clock be initialized once to midnight in UTC+0** so time of day behaves like recovery-session elapsed time, with year 1970 remaining the signal it is *not* correct calendar time. This is **conditional on validating safety and exact TWRP behavior**, and **must never reset an already valid clock**. One-time adjustment is distinct from rewriting low-level clock implementation.
+1. **Keep existing Linux/TWRP clock machinery. Agreed fallback: boot-relative 1970 UTC clock.** If the Linux clock is invalid/default and has not been synced or legitimately set, initialize the existing system wall clock once to **1970-01-01 00:00:00 UTC plus the elapsed time since the recorded current Linux boot start** (so its *time of day* would have read 00:00:00 at Linux startup, not at the later Toolkit/GUI startup). Use **UTC+0, 24-hour display** while unsynced. It then advances normally. Date/year 1970 identify it as an *unsynchronized elapsed-time representation*, not a recovered historical clock. **Never overwrite an already valid/explicitly set wall clock.** Exact implementation must still be checked on TWRP/Linux hardware; that engineering safety check is **not a reopening of the agreed behavior**.
 2. **Unsynced display UTC+0, synced display user preference.** While the time is not successfully synchronized, effective displayed timezone is UTC+0. When a network time sync succeeds, restore the user's saved preferred timezone (including DST/offset) and user-selected time-related display preferences as supported. Temporary backend overrides must not become the saved preferences. The Linux epoch remains UTC.
 3. **The Toolkit external SD is authoritative for custom preferences promised to persist.** Do **not** rely on TWRP's built-in persistence on this Xoom because time/timezone have not survived recovery sessions in observed behavior. User-committed timezone, DST/offset and other actually exposed time preferences are to be saved under `/external_sd/XoomToolkit/`. Frontend user actions, not generic backend variable changes, must initiate saves.
 4. **Put as much implementation and documentation as practical in the Time Sync package.** Minimal necessary recovery/UI integration is acceptable for functionality a package cannot supply alone, such as capturing user-initiated settings changes or an early display adjustment. Do not add a separate **Time Sync launch hook**: the existing Toolkit boot worker handles startup.
@@ -17,7 +19,7 @@ These are requirements at the intended-behavior level. Technical mechanism remai
 
 ## B. Still proposals, not final user-approved implementation decisions
 These are legitimate design/engineering questions from the discussion, **not** settled mandates:
-- Exact method and timing to reset an invalid clock to 1970 midnight; whether that breaks Bionic/TWRP/timeouts, whether a monotonic-display-only fallback is required, how to handle 24h rollover and genuine RTC/manual-set values.
+- **Engineering validation of agreed fallback**, not a new product choice: reliably calculate `1970-01-01T00:00:00Z + time_since_recorded_Linux_boot` at the moment of adjustment, choose the kernel clock/boot-start API, verify timezone/24-hour formatting and 24h date rollover, and ensure it cannot interfere with TWRP/Bionic or overwrite already valid/manual time. If direct wall-clock adjustment fails safety tests, **ask the user before changing the agreed fallback design**.
 - How a shell Time Sync module updates TWRP **GUI-process** effective timezone and 12/24h display without polluting saved TWRP values; legacy tzdata warnings make this unverified.
 - Exact event dispatch implementation (Wi-Fi callback, existing manager, generation counter, serialized/asynchronous worker), deduplication, initial-ready race and rapid reconnect during a running NTP job. Only observed behavior is agreed, not the mechanism.
 - How the GUI presents permanent Autoload/Autorun on the Time Sync row, manual Run, Unload, missing Time Sync ZIP or missing SD; consider safety and user expectations.
@@ -31,7 +33,7 @@ These are legitimate design/engineering questions from the discussion, **not** s
 
 ## C. Explicitly deferred / NOT part of R22d4q Time Sync scope
 - Retroactive correction of previously generated timestamps or exports.
-- Reading, storing and restoring last-known calendar time from SD or earlier sessions, or using prior times to validate current time.
+- **REJECTED/DISMISSED — NOT merely deferred:** reading, storing, restoring or estimating the clock from previous system times on SD, or treating prior-session timestamps as the fallback. The agreed fallback uses **only the current Linux boot's recorded start and elapsed uptime**, UTC+0, 00:00 at Linux start (24-hour format). SD stores **user time-related preferences**, **not past system times**. Do not reintroduce old-time restoration in a future implementation plan without an explicit new user request.
 - Full multi-level UNSET/ESTIMATED/SYNCED clock-confidence manager and cross-package readiness bus.
 - Generic **SET TIME / SYNC TIME** package states and time-based Load/Run/Start blocking, unless a concrete new need is reviewed separately.
 - Periodic network polling, permanent background NTP loops, a large new service/daemon or arbitrary Wi-Fi-readiness timeout.
@@ -44,7 +46,7 @@ These are legitimate design/engineering questions from the discussion, **not** s
 - The native GUI displayed a timezone mismatch after UTC was corrected; Bionic complained about tzdata. Exact timezone apply behavior is NOT fixed/verified.
 - All relevant current-package ZIPs are pinned by hashes; Time Sync Autorun on boot and connection-triggered automatic sync have **not** been tested/implemented.
 
-**Not yet implemented/tested:** temporary 1970 midnight adjustment, UTC+0 native GUI override, reliable SD timezone preference saving, boot order under changed flags, permanent Time Sync flags, Wi-Fi transition callback/event, public new sync flag, fresh ZIPs or corrected offline report exports.
+**Not yet implemented/tested:** the agreed **current-Linux-boot-relative** 1970 00:00 UTC+0 / 24-hour fallback, native GUI effective-zone/display override, reliable SD **user preference** saving, boot order under changed flags, permanent Time Sync flags, Wi-Fi transition callback/event, public new sync flag, fresh ZIPs or corrected offline report exports. Prior system timestamp restoration is **rejected**.
 
 **Availability:** During this review the authorized Remote Desktop Commander development hosts were offline. Upstream TeamWin `android-7.1` source confirms a front-end `GUIAction::setguitimezone` user action and `DataManager` time variables, but custom installed R22d4p binary and SD persistence wiring still require direct inspection.
 
