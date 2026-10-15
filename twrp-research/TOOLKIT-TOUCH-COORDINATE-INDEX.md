@@ -77,3 +77,25 @@ Vertically center both left-side selected-count text and right-side two-line dyn
 **Default for remote automated interaction:** after a calibrated tap process has **completed**, wait at least **750 ms** before injecting the next tap (a conservative three-refresh-cycle allowance, not an experimentally determined requirement). Before **Load Selected/Unload Selected**, capture the current screen and verify the intended checkbox state **and** selected-count text, rather than relying on a successful command exit alone. If not updated, wait another refresh and capture again; only retap after inspecting state to avoid unintentionally toggling off a valid selection. Never fire the next operation while an existing TWRP threaded action is still working. Wait for backend completion and verify package status after each batch. Keep this pacing step in every future remote-testing script, coordinate index, and handoff.
 
 **Priority:** parked for later only if evidence of ordinary physical-touch failures emerges. No recovery timing or GUI changes planned on this basis.
+
+## 2026-10-15 R22d4p Round 1 hardware coordinate confirmation
+
+**Theme remains identical to R22d4o; no package rows were added, removed, or moved.** The canonical physical coordinate grid above remains valid. The following taps were **actually exercised on Xoom hardware**, with GUI screenshots and backend corroboration in [Round 1 package QA summary](TOOLKIT-ROUND1-SEVEN-PACKAGE-QA-RESULTS-AND-ROUND2-BUGFIX-PLAN-2026-10-15.md):
+
+| Package / navigation | Verified tap center (physical x,y) | Result |
+|---|---|---|
+| Network & Tools tab | (320,153) | Switch between both toolkit package tabs |
+| Storage & Access tab | (960,153) | Switch to second package table |
+| Wi-Fi Runtime Stop/Start | (1025,280) | Stop drove WIFI_STOPPED; Start restored WIFI_READY over USB-monitored WLAN |
+| Wi-Fi Runtime Open | (1166,280) | Opened general Network page |
+| Network Diagnostics Run/Open | (1025,338) / (1166,338) | Passive inspection / detail page |
+| Time Sync Run | (1025,397) | NTP sync completed, returned to LOADED |
+| Log Collector Select/Run/Open | (83,455) / (1025,455) / (1166,455) | Select, sanitized report, detail/export page |
+| Partition Inspector Select/Run/Open | (83,280) / (1025,280) / (1166,280) | Second tab, read-only report and detail/export page |
+| Private Wireless ADB POC Open ONLY | (1166,338) | Read warning without loading or exposing TCP 5555; insecure Start deliberately NOT tested |
+| Modern SFTP Select / Start-Stop | (83,397) / (1025,397) | Verified Load, keyed Start/Stop, port closure and Unload |
+| Load Selected / Unload Selected | (446,703) / (640,703) | Multiple modules exercised successfully |
+
+**Touch safety rule retained:** 750ms or more between completed automated taps, screenshot-check selection and `N selected` before batch action, never issue overlapping TWRP threaded operations. This is a test-tool precaution, not a demonstrated human-visible refresh defect.
+
+**R22d4q deferred layout requirement:** vertically center both footer status-text groups within the existing compact footer, leaving the button hitboxes and row grid intact. If any future revision changes the package table or widget locations, update this index in the **same code change** and reverify safe tap targets on device. Preserve keyboard input/Help/Back mapping separately as needed.
