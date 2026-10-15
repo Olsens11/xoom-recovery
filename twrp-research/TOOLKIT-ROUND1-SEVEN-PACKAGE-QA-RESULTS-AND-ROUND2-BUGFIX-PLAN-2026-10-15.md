@@ -1,4 +1,6 @@
 # Xoom Toolkit R22d4p — Round 1 final QA results and proposed separate Round 2 fix plan
+> **Round 2 timing-design update (2026-10-15):** User deferred retroactive timestamp correction to a future release. Proposed R22d4q approach instead is [SET TIME/SYNC TIME package readiness after load, explicit Wi-Fi-first/Time Sync-second startup completion handshake, no arbitrary post-sync delay](R22D4Q-TIME-READINESS-STARTUP-ORDER-AND-SET-TIME-UI-PROPOSAL-2026-10-15.md). The decision on changing saved Time Sync Autorun defaults is still open. No implementation or flashing has occurred.
+
 **2026-10-15 | Round 1 hardware assessment completed at approved safety scope. Round 2 code changes NOT STARTED.**
 
 ## Ground rules and preserved state
