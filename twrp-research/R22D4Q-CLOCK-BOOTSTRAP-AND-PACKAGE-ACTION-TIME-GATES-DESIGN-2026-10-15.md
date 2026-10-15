@@ -1,4 +1,6 @@
 > **SUPERSEDED CLOCK ARCHITECTURE (2026-10-15):** User chose to preserve TWRP/kernel timekeeping, use three states UNSET / ESTIMATED / SYNCED, and enable non-destructive same-boot retroactive timestamp correction after a valid synchronization. See the [current decision record](R22D4Q-CLOCK-TIME-CONFIDENCE-AND-SAME-BOOT-RETROCORRECTION-DECISION-2026-10-15.md). Historical alternatives below are retained for context, not active implementation requirements.
+> **REJECTED IDEA, DO NOT IMPLEMENT (2026-10-15):** All proposals below for loading, restoring, estimating or validating current calendar/system time from **previous sessions' timestamps on SD** are **explicitly dismissed by the user**, not held for a later release. The agreed fallback is the Linux wall clock initialized (only if invalid) to **1970-01-01 00:00:00 UTC + elapsed time since THIS Linux boot started**, with temporary **UTC+0 and 24-hour display** until NTP success. SD is only for user's persistent time *preferences*. The remaining historical text is kept solely as a record of rejected brainstorming. See [canonical decisions](R22D4Q-TIME-SYNC-AUTHORITATIVE-DECISION-REGISTER-2026-10-15.md).
+
 
 # R22d4q proposal — clock bootstrap, confidence levels, and action-specific time gates
 
