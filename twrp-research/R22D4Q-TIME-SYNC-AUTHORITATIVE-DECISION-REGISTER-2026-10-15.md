@@ -1,0 +1,58 @@
+# R22d4q Time Sync — authoritative decision register
+
+**Status:** Design discussion frozen as of 2026-10-15 for scope clarity. This is the **canonical source of truth about user-agreed design direction**, not proof that code works. **No feature implementation, new package release, preference change or recovery flash authorized by this document.** Installed device remains R22d4p; Time Sync 0.2.1 currently Autoload ON / Autorun OFF. Earlier notes and audits contain brainstorming and superseded alternatives; do not use them as implementation instructions without checking this register.
+
+## A. Agreed direction / explicit user choices
+These are requirements at the intended-behavior level. Technical mechanism remains subject to source/hardware validation.
+
+1. **Keep existing Linux/TWRP clock machinery.** Do not introduce a second independent timekeeping system or replace Linux's clock. User proposed the **unsynced invalid-year-1970 clock be initialized once to midnight in UTC+0** so time of day behaves like recovery-session elapsed time, with year 1970 remaining the signal it is *not* correct calendar time. This is **conditional on validating safety and exact TWRP behavior**, and **must never reset an already valid clock**. One-time adjustment is distinct from rewriting low-level clock implementation.
+2. **Unsynced display UTC+0, synced display user preference.** While the time is not successfully synchronized, effective displayed timezone is UTC+0. When a network time sync succeeds, restore the user's saved preferred timezone (including DST/offset) and user-selected time-related display preferences as supported. Temporary backend overrides must not become the saved preferences. The Linux epoch remains UTC.
+3. **The Toolkit external SD is authoritative for custom preferences promised to persist.** Do **not** rely on TWRP's built-in persistence on this Xoom because time/timezone have not survived recovery sessions in observed behavior. User-committed timezone, DST/offset and other actually exposed time preferences are to be saved under `/external_sd/XoomToolkit/`. Frontend user actions, not generic backend variable changes, must initiate saves.
+4. **Put as much implementation and documentation as practical in the Time Sync package.** Minimal necessary recovery/UI integration is acceptable for functionality a package cannot supply alone, such as capturing user-initiated settings changes or an early display adjustment. Do not add a separate **Time Sync launch hook**: the existing Toolkit boot worker handles startup.
+5. **Time Sync's Autoload and Autorun are permanently enabled for the proposed new recovery.** Existing R22d4p flags must not be changed in place during planning. Permanent flags do not mean Time Sync is allowed to block basic recovery availability or produce unsafe side effects when package/SD/network are absent.
+6. **Wi-Fi is started/attempted first; Time Sync loads and runs next.** Wi-Fi itself has no time requirement. If Wi-Fi is not loaded, disabled at boot or cannot connect, Time Sync **does not wait on a timer**. It stays in offline/fallback mode and recovery carries on.
+7. **Network-event-driven sync:** Whenever Wi-Fi establishes a real **new connection** and declares `WIFI_READY` — whether at boot, after a manual Wi-Fi start, or after a reconnect — Time Sync should attempt to synchronize again. Mere repeated readings of the same READY state must not count as another connection. No arbitrary delay or polling required to await Wi-Fi. The **actual NTP transaction can and must have a bounded timeout** so network failure does not hang the system.
+8. **Publish a simple, public current-session synchronization success signal** that other packages can read after actual successful OS-clock adjustment/verification. The tentative name is `xoom.time.synced`, with `0` at a fresh boot and `1` after success. Exact interface/property name is **not approved/frozen**. Do not declare success merely because Wi-Fi is ready or clock year looks plausible.
+9. **Offline is fully supported.** No time-related restriction on loading, starting, stopping or using existing Toolkit packages solely because no network time is available. Error/fallback state must be explicit and recovery must remain useful without Wi-Fi.
+
+## B. Still proposals, not final user-approved implementation decisions
+These are legitimate design/engineering questions from the discussion, **not** settled mandates:
+- Exact method and timing to reset an invalid clock to 1970 midnight; whether that breaks Bionic/TWRP/timeouts, whether a monotonic-display-only fallback is required, how to handle 24h rollover and genuine RTC/manual-set values.
+- How a shell Time Sync module updates TWRP **GUI-process** effective timezone and 12/24h display without polluting saved TWRP values; legacy tzdata warnings make this unverified.
+- Exact event dispatch implementation (Wi-Fi callback, existing manager, generation counter, serialized/asynchronous worker), deduplication, initial-ready race and rapid reconnect during a running NTP job. Only observed behavior is agreed, not the mechanism.
+- How the GUI presents permanent Autoload/Autorun on the Time Sync row, manual Run, Unload, missing Time Sync ZIP or missing SD; consider safety and user expectations.
+- Exact configuration filename/format, atomic file replacement strategy, save-error UI, and **first-use handling when no user-preference file exists**. Crucially **do not silently assume stock TWRP defaults are a deliberate user choice**.
+- Exact user-facing handling if a timezone preference is changed while still unsynced; whether to display it immediately or temporarily keep UTC+0 until sync.
+- Exact choice of NTP server/fallbacks and network-time trust, what qualifies as success and how to handle a later failed refresh after an earlier successful sync. The intended successful-this-session flag is agreed; staleness/security semantics need specifying if a real package requires them.
+- Whether every currently timestamped report must switch to unsynced session-relative filenames/data in R22d4q; individual affected packages or a shared formatter may need separate **versioned pinned ZIPs**. Do not promise this issue fixed by changing Time Sync alone.
+- Whether we should auto-sync once at startup if Wi-Fi was READY before Time Sync finished loading; general goal is clear (do not miss a connection), mechanism and ordering test pending.
+- Package ownership boundaries for the early temporary UTC fallback if Time Sync ZIP is missing or cannot load.
+- Which settings beyond TZ, DST/offset, 12/24h are in fact exposed and supportable in this customized recovery; implementation must inventory actual controls.
+
+## C. Explicitly deferred / NOT part of R22d4q Time Sync scope
+- Retroactive correction of previously generated timestamps or exports.
+- Reading, storing and restoring last-known calendar time from SD or earlier sessions, or using prior times to validate current time.
+- Full multi-level UNSET/ESTIMATED/SYNCED clock-confidence manager and cross-package readiness bus.
+- Generic **SET TIME / SYNC TIME** package states and time-based Load/Run/Start blocking, unless a concrete new need is reviewed separately.
+- Periodic network polling, permanent background NTP loops, a large new service/daemon or arbitrary Wi-Fi-readiness timeout.
+- Persistent network hostname and optional mDNS/DNS-SD package (separate future feature round).
+
+## D. Reality check / verified versus untested
+**Hardware-verified on R22d4p:**
+- Wi-Fi Runtime's normal autostart and Stop→Start restored `xoom.n2.wifi.status=WIFI_READY`.
+- Time Sync 0.2.1 **manually run**, when Wi-Fi was READY, corrected a 1970 UTC clock to the correct date (within about two seconds of Windows UTC).
+- The native GUI displayed a timezone mismatch after UTC was corrected; Bionic complained about tzdata. Exact timezone apply behavior is NOT fixed/verified.
+- All relevant current-package ZIPs are pinned by hashes; Time Sync Autorun on boot and connection-triggered automatic sync have **not** been tested/implemented.
+
+**Not yet implemented/tested:** temporary 1970 midnight adjustment, UTC+0 native GUI override, reliable SD timezone preference saving, boot order under changed flags, permanent Time Sync flags, Wi-Fi transition callback/event, public new sync flag, fresh ZIPs or corrected offline report exports.
+
+**Availability:** During this review the authorized Remote Desktop Commander development hosts were offline. Upstream TeamWin `android-7.1` source confirms a front-end `GUIAction::setguitimezone` user action and `DataManager` time variables, but custom installed R22d4p binary and SD persistence wiring still require direct inspection.
+
+## E. Document hierarchy and change control
+1. **THIS DECISION REGISTER**: approved design direction versus unresolved questions versus deferred work. Supersedes contradictory or more speculative instructions in prior conversation notes.
+2. [Time Sync responsibilities and Wi-Fi event contract](R22D4Q-TIME-SYNC-PACKAGE-RESPONSIBILITIES-AND-SD-PREFERENCES-SPEC-2026-10-15.md): working technical proposal only, not automatically approved.
+3. [Minimal Time Sync and temporary UTC policy](R22D4Q-MINIMAL-TIME-SYNC-AND-RECOVERY-UPTIME-POLICY-2026-10-15.md): brainstorming and candidate code boundaries only.
+4. [Design audit and implementation gaps](R22D4Q-TIME-SYNC-DESIGN-AUDIT-AND-REMAINING-DECISIONS-2026-10-15.md): QA questions and risk analysis, not new user decisions.
+5. [Deferred multi-state clock and retrocorrection research](R22D4Q-CLOCK-TIME-CONFIDENCE-AND-SAME-BOOT-RETROCORRECTION-DECISION-2026-10-15.md) and [deferred package readiness proposal](R22D4Q-TIME-READINESS-STARTUP-ORDER-AND-SET-TIME-UI-PROPOSAL-2026-10-15.md): historical ideas, not current release requirements.
+
+**Before implementing:** propose a narrowly scoped plan for G1–G5 in the design audit, explicitly identify any additional user choices, review exact R22d4p source/ABI, stage offline code/tests, then request separate authorization before recovery flash. User agreement with the direction **does not** imply permission to install or enable changes on the live Xoom.
