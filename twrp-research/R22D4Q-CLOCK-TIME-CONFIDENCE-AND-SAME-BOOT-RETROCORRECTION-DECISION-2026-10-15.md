@@ -1,4 +1,6 @@
 # R22d4q Clock Manager — accepted direction: preserve TWRP timekeeping, track source, retrocorrect same-boot timestamps
+> **FURTHER SCOPE REDUCTION, 2026-10-15:** Preserve TWRP's timekeeping as is. For current R22d4q, implement only Wi-Fi-first/Time Sync-second priority, global success signal after verified NTP, and visibly labeled recovery-session uptime when sync unavailable. **Do not implement** 3-state coordinator, SD time-restoration, manual-setting additions, package gating or retroactive timestamp correction now. See [current minimal-time policy](R22D4Q-MINIMAL-TIME-SYNC-AND-RECOVERY-UPTIME-POLICY-2026-10-15.md). Earlier ideas below are retained solely for future research.
+
 > **2026-10-15 SCOPE UPDATE:** Retroactive timestamp correction is explicitly **DEFERRED TO A FUTURE UPDATE**; it is not part of R22d4q. Preserve the method below as research only. The active proposal for this release is [deterministic Wi-Fi→Time Sync sequencing and per-package SET TIME readiness](R22D4Q-TIME-READINESS-STARTUP-ORDER-AND-SET-TIME-UI-PROPOSAL-2026-10-15.md). Existing Linux/TWRP clock remains intact; UNSET/ESTIMATED/SYNCED provenance remains in scope.
 
 
