@@ -69,3 +69,11 @@ Vertically center both left-side selected-count text and right-side two-line dyn
 
 - Installed recovery before R22d4p flash: R22d4o. R22d4o remote QA confirmed Time Sync and Log Collector batch load/unload, Time Sync Run, Save Preferences, State loading %, and footer feedback.
 - R22d4p modifies **native recovery and two boot worker scripts only**, not Toolkit `landscape.xml`. The coordinate index therefore applies unchanged to R22d4p.
+
+## Automation pacing — avoid machine-fast consecutive taps (2026-10-15)
+
+**Testing-only guideline; not a confirmed TWRP bug.** The Toolkit's visual/state refresh is throttled to approximately **250 ms** while its page is open, and the proven calibrated touch script uses a **150 ms press**. During R22d4p hardware QA, one closely sequenced select-then-unload attempt reached the batch handler with **0 selected**; a subsequent screenshot confirmed the checkbox was unchecked. Retrying with a screenshot verifying **1 selected** made the unload and reload pass. This does **not** prove a refresh-rate race; an occasionally missed synthetic tap is also possible. A human-paced tap sequence is not considered problematic, and the recovery's 250 ms refresh rate should **not** be modified just for this observation.
+
+**Default for remote automated interaction:** after a calibrated tap process has **completed**, wait at least **750 ms** before injecting the next tap (a conservative three-refresh-cycle allowance, not an experimentally determined requirement). Before **Load Selected/Unload Selected**, capture the current screen and verify the intended checkbox state **and** selected-count text, rather than relying on a successful command exit alone. If not updated, wait another refresh and capture again; only retap after inspecting state to avoid unintentionally toggling off a valid selection. Never fire the next operation while an existing TWRP threaded action is still working. Wait for backend completion and verify package status after each batch. Keep this pacing step in every future remote-testing script, coordinate index, and handoff.
+
+**Priority:** parked for later only if evidence of ordinary physical-touch failures emerges. No recovery timing or GUI changes planned on this basis.
