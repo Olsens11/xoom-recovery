@@ -1,4 +1,6 @@
 # Next Xoom Toolkit package-development round — Network Identity and mDNS
+> **DISCUSSION HANDOFF (2026-10-15):** Time Sync feature behavior is finalized in [R22d4q Time Sync final handoff](R22D4Q-TIME-SYNC-FINAL-DESIGN-HANDOFF-2026-10-15.md); its implementation/testing remain pending. The user now moves to **Network Identity / Recovery Hostname** discussion, then to separate optional mDNS. This is design planning, not deployment. The older prerequisite about remaining QA was recorded before this design discussion and does not block discussing the new feature.
+
 
 **Status: Roadmap only. Not implemented, installed, flashed, enabled, or tested.**
 Recorded 2026-10-15 after user confirmed: "Let's earmark [mDNS] for our next package development round and continue as you suggested."
