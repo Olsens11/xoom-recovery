@@ -1,4 +1,6 @@
 # Network Identity — real Xoom serial-hash feasibility check (2026-10-15)
+> **DESIGN DECISION AFTER BENCHMARK (2026-10-15):** User approved the **all-16-serial-nibble lightweight XOR/multiply mixer** (FNV-1a-style 32-bit state; output low 24 bits) and the `xoom-recovery-` prefix with six lowercase hex characters as the generated default hostname. Sample from this Xoom: `xoom-recovery-87d89c`. This is network identification/obfuscation, **not a security boundary or guarantee of uniqueness**. The benchmark itself is read-only; the hostname has NOT been changed, and no implementation has been authorized. Any historical 'proposal pending' wording below records the state *at test time* and is superseded by this decision. See [Network Identity roadmap](NEXT-PACKAGE-ROUND-NETWORK-IDENTITY-AND-MDNS-ROADMAP-2026-10-15.md).
+
 
 **Scope:** Read-only Xoom recovery shell benchmark via USB ADB from Surface Book 2; no recovery flash, package change, hostname change, persistent settings write or SD write. Installed R22d4p unchanged. User asked whether generating a short hashed, device-specific default hostname on hardware would impose unnecessary processing/time cost.
 
