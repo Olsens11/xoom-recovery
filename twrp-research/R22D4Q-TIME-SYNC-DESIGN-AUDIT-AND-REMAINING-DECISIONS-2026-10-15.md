@@ -1,4 +1,6 @@
 # R22d4q Time Sync design audit — coherence, gaps, minimum implementation contract
+> **DECISION HIERARCHY / 2026-10-15:** The [authoritative Time Sync decision register](R22D4Q-TIME-SYNC-AUTHORITATIVE-DECISION-REGISTER-2026-10-15.md) distinguishes **AGREED user direction**, **UNRESOLVED proposals** and **DEFERRED research**. This document includes exploratory or older design text and must **not** be taken as a fully approved implementation checklist. On conflict, follow the decision register; no implementation or flash has occurred.
+
 
 **Date:** 2026-10-15. **Status: ARCHITECTURE COHERENT; NOT IMPLEMENTATION-READY WITHOUT THE ITEMS BELOW.** Documentation/source-review only. No changes to the installed R22d4p, package hashes, boot preferences or recovery partition.
 
