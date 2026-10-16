@@ -79,3 +79,12 @@ Original `boot-preferences.json` saved on Surface and SD as `boot-preferences.pr
 
 **Disposition:** Complete interactive SSH support in R22d4q is **hardware-qualified** for shell editing, terminal resizing, history, interrupts, full-screen editor, and normal exit. Preserve the release as the working baseline; avoid changing PTY/node initialization without a demonstrated new defect.
 
+
+## Zero-setup interactive SSH usability check — 2026-10-16
+
+**PASS; no server-side correction needed for terminal sizing or cursor handling.** Following the full interactive/PTY/vi qualification above, verified a fresh login using a normal local PTY with default 24×80 dimensions and the unmodified, ordinary OpenSSH client invocation **without** `-tt`, `stty`, explicit terminal resizing, or any special remote initialization. The Xoom automatically presented the BusyBox root `~ #` prompt; `stty size` returned `24 80`; a subsequent shell command executed successfully; ordinary `exit` produced clean status 0. QA harness on Pi: `/home/ps2/xoom-phase1/private/ssh-adb-20261016/qa_plain_ssh_default.py` (uses pexpect with its default terminal dimensions).
+
+**Important distinction:** Remote Desktop Commander's bare noninteractive process runner has **no terminal** attached to stdin (`stty -a` reports inappropriate ioctl, and `ssh` correctly reports “Pseudo-terminal will not be allocated because stdin is not a terminal”). That is not an SSH server failure or a reason to override the shell/PTY implementation. OpenSSH's `-tt` flag or explicit commands remain legitimate for headless scripted diagnostics, but **not required for normal interactive clients**. BusyBox ash's `ESC[6n` cursor-position query is handled automatically by real terminal emulators.
+
+**Operator experience:** from a normal terminal on a host with an approved Ed25519 private key, `ssh -p 2222 root@XOOM_IP` is sufficient. No `stty`, terminal resize, or `-tt` workaround belongs in the standard Help/README. Remaining friction, if desired in a future separate migration, is the nonstandard port 2222 versus default SSH port 22. Changing that would require deliberately updating the server package, pinned ZIPs/recovery image, client known-host fingerprints keyed by port, Help, and rollback—not a silent edit to the proven release. Keep current port and working system untouched unless that migration is chosen.
+
