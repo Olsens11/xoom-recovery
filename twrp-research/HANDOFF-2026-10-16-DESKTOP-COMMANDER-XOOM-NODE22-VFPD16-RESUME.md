@@ -293,3 +293,12 @@ Keep separately recorded stopgaps, their scope and the future owner:
 - **HTTPS behavior:** default HTTPS with resolver `single-request`, not forced IPv4, valid certificate `authorized:true`, mismatched cert rejected. Actual Supabase device OAuth, remote transport, token protections and reconnection are still pending.
 
 [Proof/runbook](XOOM-NODE24-RAM-ONLY-DNS-HTTPS-WORKAROUND-AND-QA-2026-10-16.md) · [Wi-Fi Runtime future fix](WIFI-RUNTIME-FUTURE-GLIBC-RESOLVER-SUPPORT-2026-10-16.md). No recovery/ZIP reflash or permanently deployed new service.
+
+
+## **2026-10-16 authenticated Xoom native Desktop Commander breakthrough — read first**
+
+[Exact RAM-only agent build, USB ADB test and current results](XOOM-DIRECT-DESKTOP-COMMANDER-REMOTE-AGENT-RAM-QA-2026-10-16.md).
+
+**PHYSICAL DEVICE / PROVIDER PASS:** A 1.7MB experimental esbuild bundle of the actual official Desktop Commander 0.3.0 remote transport (upstream git `f508e52`) runs through Debian Node 24 / glibc 2.43 directly on the Xoom. Only build-time experimental alterations are telemetry no-op and suppression of the accidental double main invocation of imported `device.ts`; the PKCE OAuth / Supabase / MCP transport logic remains original. A RAM-only wrapper starts a minimal stdio MCP child and returns `initialize`, `tools/list`, `get_device_info` locally. Temporary DNS (`single-request`), synchronized UTC, CA bundle and no-GUI `xdg-open` placeholder were necessary (all documented as temporary and with future package ownership).
+
+User completed actual provider browser pairing: device **941e6e17-58de-4b63-abbb-174057f897df**, currently called `localhost`, subscribed to remote realtime and ONLINE. **ChatGPT `list_devices` exposed this as a fourth connected device and `ping({deviceId:...})` returned `pong 2026-10-16T18:54:00.359Z` from the device.** This is actual direct cloud roundtrip, *not* a Pi/Surface proxy. A standard `get_config` call reached the device but correctly errored Unknown tool because child exposes only `get_device_info`. **NEXT GATE:** prove a normal child MCP tool invoked via ChatGPT, then bounded reconnect/cleanup and packaging decisions. Do not claim full tool set or boot persistence yet. `--no-persist-session` and bounded RAM-only runner are in use; no production ZIP changes.
