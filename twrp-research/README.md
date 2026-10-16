@@ -13,6 +13,7 @@ On the physical Xoom in **R22d4q recovery**, Debian ARMhf Node 24.21.0 executed 
 | Area | Authoritative record |
 |---|---|
 | Desktop Commander **25 upstream MCP tools**: full source audit, shared implementation backends and prioritized **Xoom-native inspect/edit/run/test loop** | [Tool audit and first implementation priority](DESKTOP-COMMANDER-0.3.0-25-TOOL-AUDIT-XOOM-PRIORITIES-2026-10-16.md) |
+| First experimental Xoom-native MCP tools (scoped read/write/edit tests on physical hardware, process backend incomplete) | [Scratch tool v0.1 hardware QA](DESKTOP-COMMANDER-XOOM-SCRATCH-TOOLS-V01-HARDWARE-QA-2026-10-16.md) |
 | Actual cloud registration, browser pairing, parent and child MCP calls, transient process restart and measured RSS | [Direct Desktop Commander agent RAM-only QA](XOOM-DIRECT-DESKTOP-COMMANDER-REMOTE-AGENT-RAM-QA-2026-10-16.md) |
 | Hardware CPU/SIGILL, VFPv3-D16, Node 22 custom compiler investigations, proven Debian Node24 glibc runtime | [Node feasibility technical handoff](HANDOFF-2026-10-16-DESKTOP-COMMANDER-XOOM-NODE22-VFPD16-RESUME.md) |
 | Temporary `/etc/hosts`, `/etc/resolv.conf`, `single-request`, Time Sync, CA bundle, correct TLS accept/reject behavior | [RAM-only DNS / HTTPS test and recovery procedure](XOOM-NODE24-RAM-ONLY-DNS-HTTPS-WORKAROUND-AND-QA-2026-10-16.md) |
