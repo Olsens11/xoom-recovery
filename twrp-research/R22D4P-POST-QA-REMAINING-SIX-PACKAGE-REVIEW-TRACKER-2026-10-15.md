@@ -1,5 +1,5 @@
 # R22d4p — Remaining six deployed-package post-QA review tracker
-> **LATEST WI-FI CONCURRENCY DECISION (2026-10-16):** Generic Toolkit event/resource supervisor **DEFERRED**. Initial package fix design uses only lightweight Wi-Fi connection-transition hooks and bounded single-flight post-connect work; no resident manager, general event bus, or polling loop. See section below.\n
+> **LATEST WI-FI CONCURRENCY DECISION (2026-10-16):** Generic Toolkit event/resource supervisor **DEFERRED**. Initial package fix design uses only lightweight Wi-Fi connection-transition hooks and bounded single-flight post-connect work; no resident manager, general event bus, or polling loop. See section below.
 > **LATEST CROSS-CHAT HANDOFF (2026-10-16):** [Full continuity handoff for remaining deployed-package QA reviews, settled Time Sync, and parked Network Identity/mDNS](HANDOFF-2026-10-16-POST-QA-REVIEW-RESUME-AND-DEFERRED-FEATURES.md). Latest user favors the familiar Wi-Fi status summary **Running / Connected / Connected, no Internet**, with three separate internal health layers. **Periodic internet rechecks are NOT yet approved**; automatic bounded verification after each genuine new Wi-Fi connection IS agreed. Continue Wi-Fi Runtime QA update discussion next; no code/device changes.
 
 
