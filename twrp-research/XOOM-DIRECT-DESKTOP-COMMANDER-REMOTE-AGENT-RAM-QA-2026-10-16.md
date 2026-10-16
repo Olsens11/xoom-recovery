@@ -1,4 +1,7 @@
-# Motorola Xoom — actual official Desktop Commander remote agent, RAM-only proof and pending authorization
+# Motorola Xoom — Direct Desktop Commander authenticated remote agent, full MCP cloud round-trip (RAM-only PASS)
+
+> **AUTHORITATIVE SUCCESS MILESTONE (2026-10-16):** [Physical Motorola Xoom independent ChatGPT/Desktop Commander connection — fully proven](MILESTONE-2026-10-16-XOOM-INDEPENDENT-CHATGPT-DESKTOP-COMMANDER-PROVEN.md). The provider authenticated an independent Xoom, ChatGPT called it, and a **local MCP child** generated and returned a read-only tool response. This is RAM-only experimental proof, **not** a permanent Toolkit release. Where the dated chronology below says “pairing pending,” “child tool pending,” or “not connected yet,” that was an *earlier checkpoint* and has been superseded by the documented successful later tests.
+
 **Date:** 2026-10-16. **Baseline:** Xoom MZ600 / wingray, R22d4q TWRP; Surface Book 2 USB ADB serial `02804102421f7517`.  
 **Project goal:** Xoom appears directly as its own ChatGPT-connected Desktop Commander device, without Pi/Surface as a runtime proxy.
 
