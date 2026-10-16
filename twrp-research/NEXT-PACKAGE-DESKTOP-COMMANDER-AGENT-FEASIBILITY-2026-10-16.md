@@ -36,3 +36,20 @@ Desktop Commander `start_process` often lacks a local TTY. Running bare `ssh` in
 
 ## Separate pending work
 A **port 22** migration of SFTP and SSH Server has been requested. In a RAM-only hardware check, a second temporary sshd instance on port 22 accepted the Pi's authorized Ed25519 key and returned root `id`, while primary port 2222 remained available. However, **persistent port-22 package/recovery migration was not completed** as of this note. Do not claim the SSH port changed or modify existing known-host entries without deliberate pinning and validation.
+
+## NEON compatibility roadmap — user-approved investigation direction (2026-10-16)
+
+**Prospective workaround, NOT an implemented fix:** The Xoom's Tegra 2 has ARMv7/VFPv3 but **no NEON vector execution unit**. Modern stock Node.js ARMv7 Linux binaries declare `Tag_Advanced_SIMD_arch: NEONv1`, and a RAM-only Node 22 test on Xoom exited `Illegal instruction`. This does **not** yet prove the particular faulting instruction is NEON; kernel-instruction/API compatibility is a second independent obstacle. Do not claim the agent runs or that this is solved.
+
+**User's proposed optimization:** Rather than emulate an entire ARM processor, **map targeted NEON-dependent functions or instruction sequences to compatible native ARMv7/VFPv3 software routines**. Best form: replace NEON use at source/build level with scalar fallbacks when rebuilding Node/V8 and any native dependencies, avoiding per-instruction runtime interception. If a small number of unavoidable instructions remain, a targeted replacement dispatch/callout may be considered. This is prospective and requires a measured list of actual offending instructions, preserved condition flags/register semantics, and benchmarking. A kernel upgrade cannot create Tegra 2 NEON hardware; upgrading for syscall compatibility is a separate high-risk investigation. Fully generic NEON emulation is the last resort due to JIT/dynamic-code and performance costs.
+
+**Preferred evaluation order:**
+1. Precisely capture the first illegal instruction, address, code mapping, and whether it is NEON, another ARM ISA extension, or a kernel/libc compatibility issue. Do not assume fault class from `SIGILL` alone.
+2. Review supported Node/V8 `arm` target flags and embedded native modules for an ARMv7 **no-NEON VFPv3** build, including **JIT-emitted code**, which static ELF binary rewrites alone do not cover.
+3. Prototype a minimally functional no-NEON build/runtime isolated on the Pi, then test **only via /tmp on the Xoom** with bounded resource use; benchmark memory and responsiveness.
+4. Where scalar build falls short, inspect specific NEON operations and implement equivalent ARMv7/VFPv3 routines at defined call sites, with correctness tests. Avoid global SIGILL traps as a first approach.
+5. Separately test older kernel compatibility (Xoom `2.6.39` vs official Node binaries declaring Linux `4.4+`) and the Desktop Commander agent's current dependency requirement; choose a native minimal agent if full Node becomes unjustifiably invasive.
+
+**Evidence recorded Oct 16:** Xoom ARMv7 CPU flags include VFPv3/VFPv3-D16 but no NEON; kernel `2.6.39.4`; ~735 MB RAM; stock Node 22.22.3 ARMv7 binary (`node-v22.22.3-linux-armv7l`, targeted Linux >= 4.4, NEONv1, glibc 2.28 symbol requirement) reached execution under separately staged glibc libraries but stopped with `Illegal instruction`. Basic glibc `true` did execute in Xoom RAM. Node 18.20.8 ARMv7 also advertises NEON and Linux 4.4. The 0.3.0 npm Desktop Commander package declares **Node >=22.12.0**, though older 0.2.52 declares Node >=18. Real agent uses OAuth, Supabase Realtime, PostgreSQL-backed remote calls, and a local MCP executor; these are further dependencies independent of the CPU ISA.
+
+**No production changes:** All experiments isolated under `/tmp/xoom-dc-runtime-qa` on the device and `/home/ps2/xoom-phase1/private/desktop-commander-agent-feasibility` on the Pi. Do not enable agent, weaken SSH/ADB, replace recovery or change Time Sync based on this experiment.
