@@ -1,4 +1,7 @@
 # Xoom Toolkit — deferred reusable platform capabilities and NEON Lite research
+
+> **AUTHORITATIVE SUCCESS MILESTONE (2026-10-16):** [Physical Motorola Xoom independent ChatGPT/Desktop Commander connection — fully proven](MILESTONE-2026-10-16-XOOM-INDEPENDENT-CHATGPT-DESKTOP-COMMANDER-PROVEN.md). The provider authenticated an independent Xoom, ChatGPT called it, and a **local MCP child** generated and returned a read-only tool response. This is RAM-only experimental proof, **not** a permanent Toolkit release. Where the dated chronology below says “pairing pending,” “child tool pending,” or “not connected yet,” that was an *earlier checkpoint* and has been superseded by the documented successful later tests.
+
 **2026-10-16. STATUS: IDEAS / FUTURE PACKAGE CANDIDATES ONLY. No new packages, binaries, installs, or recovery changes authorized or implemented.**
 
 ## Why this document exists
@@ -45,7 +48,7 @@ A candidate earns a separate Toolkit package **only** when at least the followin
 
 ## Do not let this defer current mainline work
 
-**Current active objective (2026-10-16):** Make the Xoom itself appear as a **direct, separately connected Desktop Commander device**, using physical Xoom Node 24/glibc compatibility already demonstrated. Steps:
+**Original active objective (completed as a RAM-only proof on 2026-10-16):** Make the Xoom itself appear as a **direct, separately connected Desktop Commander device**, using physical Xoom Node 24/glibc compatibility. See the verified milestone above; no permanent package was released. Steps:
 
 1. Reuse proven **RAM-only** Node 24 and its recorded temporary DNS (`single-request`), one-shot Time Sync, and CA trust setup. Do not install these workarounds as production packages during proof of concept.
 2. Establish a **minimal stdio MCP child** with genuine `initialize`, `listTools` and a safe test tool, and examine its compatibility with the official Remote Desktop Commander transport. Respect normal authenticated browser/device-code pairing with explicit user involvement; no token shortcuts.
