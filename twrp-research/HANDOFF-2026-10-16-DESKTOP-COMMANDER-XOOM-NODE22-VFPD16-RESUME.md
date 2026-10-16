@@ -1,5 +1,8 @@
 # Xoom Desktop Commander Agent — technical handoff and exact continuation plan
 
+> **DESIGN SCOPE CONTROL:** Shared platform candidates (ARMv7 Linux runtime, CA trust store, secure sessions, optional reusable MCP framework) and exploratory **NEON Lite** are recorded in [deferred shared capabilities](DEFERRED-SHARED-PLATFORM-CAPABILITIES-AND-NEON-LITE-2026-10-16.md). No new packages are authorized or required for our current proof. **Immediate next step:** minimal Xoom MCP stdio child + authenticated official Desktop Commander direct transport using the *already-working RAM-only* Node 24/DNS/clock/CA test setup. Preserve SSH/USB ADB rollback.
+
+
 > **CROSS-PROJECT WORKAROUND/PACKAGE OWNERSHIP TRACKER:** [Temporary workarounds → permanent package improvements (2026-10-16)](TEMPORARY-WORKAROUNDS-TO-PERMANENT-PACKAGE-FIXES-REGISTER-2026-10-16.md). Every experimental RAM-only fix is mapped to its proper package and is explicitly marked **NOT shipped** until independent future release QA.
 **As of:** 2026-10-16  
 **Project:** `Olsens11/xoom-recovery`, Motorola Xoom MZ600 / wingray / R22d4q TWRP 3.1.1-0  
