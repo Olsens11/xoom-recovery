@@ -59,3 +59,10 @@ G. **Hardware and release tests:** cold boot Wi-Fi slow/off; 30-sec delayed fall
 - **Time Sync feature discussion CLOSED, candidate R22d4q behavior frozen**. Implementation is NOT started by this declaration. Unexpected hardware limitation -> present concrete evidence and a minimal adjustment for user agreement.
 - **Next design topic: Network Identity/Recovery Hostname**, integrated into Wi-Fi Runtime and the existing Network page, using an explicitly saved hostname on SD, applying to the real recovery kernel hostname and optionally advertising it on DHCP. **Not a separate hostname ZIP**.
 - **After that:** optional independently packaged, default-off **mDNS & Service Discovery** for `<hostname>.local` and discovery of actually running approved services; see [Network Identity / mDNS roadmap](NEXT-PACKAGE-ROUND-NETWORK-IDENTITY-AND-MDNS-ROADMAP-2026-10-15.md).
+
+
+## 2026-10-16: Existing Time Sync 0.2.1 used as *temporary TLS test prerequisite* (no design change)
+
+In Desktop Commander native runtime feasibility testing, Xoom boot clock showed **1970-01-08**. Operator used `/sbin/xoom-toolkit-manager start time-sync` through Surface USB ADB; existing package reported `time-sync COMPLETE` and `/tmp/xoom-toolkit/time-sync/status` = **SYNCED**. Xoom UTC advanced to **2026-10-16T17:56:36Z**. This made genuine TLS certificate date checking possible. No Time Sync package code, Autoload/Autorun flag, SD preferences or recovery image was changed.
+
+**Future requirement already approved above remains outstanding:** early uptime fallback and Wi-Fi-ready event-triggered nonblocking NTP sync from Time Sync, a trustworthy SYNCED/UNSYNCED state and clock UI. This successful one-shot is **not** evidence the new boot/reconnect behavior is installed. DNS /etc provisioning belongs to Wi-Fi Runtime; CA bundle handling belongs to the remote agent/runtime integration. [Isolated HTTPS/DNS QA](XOOM-NODE24-RAM-ONLY-DNS-HTTPS-WORKAROUND-AND-QA-2026-10-16.md).
