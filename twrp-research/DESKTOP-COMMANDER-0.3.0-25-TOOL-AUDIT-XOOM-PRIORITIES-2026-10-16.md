@@ -8,6 +8,52 @@
 
 **Grounding:** Physical proof and limits: [October 16 landmark direct ChatGPT–Xoom milestone](MILESTONE-2026-10-16-XOOM-INDEPENDENT-CHATGPT-DESKTOP-COMMANDER-PROVEN.md). See [temporary workarounds → permanent owner register](TEMPORARY-WORKAROUNDS-TO-PERMANENT-PACKAGE-FIXES-REGISTER-2026-10-16.md).
 
+## **User-directed priority shift: enable a self-hosted Xoom development loop first (2026-10-16)**
+
+**Decision recorded:** The most useful tools are the ones ChatGPT can invoke **inside the Xoom itself** to inspect, build, edit, test, diagnose and iterate on the remaining recovery project. We should unlock that loop *before* spending effort on low-leverage tool parity (PDF, feedback, usage) or full production autostart. A temporary authenticated agent is already physically proven; the next stage is **tools**, not revisiting the Node/transport feasibility work. The ordering below supersedes any reading of "Wave B writes after every Wave A tool."
+
+### Exact first 10 tools, ordered for compounding utility
+
+| Rank | MCP tool | Why it changes our development workflow | Earliest acceptance test |
+|---:|---|---|---|
+| **1** | `start_process` | ChatGPT can run bounded test scripts and inspect services **on the Xoom**, without ADB relaying commands through Surface | Execute a harmless allowlisted BusyBox/Node diagnostic in isolated RAM with strict timeout |
+| **2** | `read_process_output` | Retrieve the actual test results/logs, including a long-running test | Read a bounded output chunk; verify completion, exit code and timeout |
+| **3** | `read_file` | Inspect logs, shell scripts, manifests, config notes without an intermediary | Read a harmless RAM test file; reject secret/out-of-scope paths |
+| **4** | `list_directory` | Discover the Xoom's working files and package layout | List scoped `/tmp/xoom-dc-runtime-qa`, with bounded recursion and symlink rules |
+| **5** | `write_file` | Push a **new test script directly onto Xoom** without Surface USB ADB | Create harmless new text file in one scratch directory; verify atomicity and overwrite policy |
+| **6** | `edit_block` | Patch a test implementation in-place and immediately rerun it | Exact-match patch of scratch test file; reject conflicting/ambiguous patches |
+| **7** | `list_sessions` | Track running hardware experiments across ChatGPT calls | List the process launched in rank 1 and stable session identifier |
+| **8** | `force_terminate` | Safely stop a test that stalls or misbehaves | Stop **only an agent-owned test session**, preserving SSH, Wi-Fi and recovery |
+| **9** | `get_file_info` | Verify results, sizes, timestamps and permissions of generated binaries/scripts | Report accurate metadata for scratch file |
+| **10** | `get_config` | Confirm which runtime, paths, policy and scope our remote child is *actually* using | Return real, redacted configuration; prior POC `get_config` shim does **not** count |
+
+**Closely following:** `create_directory` (scratch setup), `read_multiple_files` (batch log/source inspection), `interact_with_process` (stdin/REPL), `list_processes` (service diagnostics), `move_file` (staging) and `kill_process` (restricted high-risk global PID control). These need not be artificially delayed if implementation of the first ten naturally provides them, but the **self-hosted test/edit/run/inspect loop** must guide priorities.
+
+### Milestone: the first complete self-hosted iteration
+
+From this ChatGPT connector, **target the Xoom's own Desktop Commander device**, not the Pi or Surface, and successfully perform all of these in one bounded RAM-only session:
+
+1. `list_directory` and `read_file` inspect a known harmless file in `/tmp/xoom-dc-runtime-qa/`.
+2. `write_file` creates a new nonsecret test script in a dedicated private scratch subdirectory; `edit_block` makes a clearly verified change to that script.
+3. `start_process` launches the script via Xoom's staged loader or its normal `/sbin/sh`/BusyBox; `read_process_output` retrieves the real answer and exit status.
+4. `list_sessions`/ `force_terminate` manage a deliberately bounded longer test without killing critical services.
+5. `read_file` reopens the result, and (optionally) `get_file_info` confirms provenance.
+6. The official remote agent and local tool subprocess remain responsive throughout; USB ADB and SSH stay intact. At least one full path is observed through actual ChatGPT → Desktop Commander → Xoom child → ChatGPT. Log resource consumption and cleanup.
+
+**Success criterion:** We can carry out a meaningful incremental Xoom code/test/debug cycle from this conversation **without manually invoking Surface ADB for routine operations**. Surface USB ADB remains a fallback for recovery, bad process behavior, auth expiration, and regression testing.
+
+### Required boundaries for a root recovery device
+
+- The remote MCP child runs in a highly privileged recovery context. **Do not expose arbitrary root shell or root filesystem writes simply to gain convenience.** For the first hardware pass use a narrow sandboxed command launcher or tightly scoped allowlist, fixed scratch directory, restricted environment, timeouts/output caps, and tool-specific authorization. Exact permissions for later broader administration require explicit review. A Node `allowedDirectories` check alone does **not** confine an unrestricted shell command.
+- Enforce path normalization and real-path/symlink containment to prevent escaped access to saved credentials, SSH keys, sensitive profiles or partitions. Scratch scripts/binaries can be treated as nonsecret, disposable test artifacts.
+- Test unsupported features honestly. For example, an initial `read_file` may be text-only; `edit_block` may initially support exact-matches but must not falsely advertise fuzzy edit parity.
+- Keep **temporarily proven** DNS, Time Sync, CA trust, Node loader and authorized transport as-is during tool QA; don't gate this first development loop on permanent dependency package upgrades or speculative shared runtimes.
+- Use the first ten tools as the **implementation priority set**, not a claim they are presently deployed. The existing v0.0.2 Xoom MCP child is still only the small read-only proof from the 2026-10-16 milestone.
+
+### Why this ranking beats finishing entire categories first
+
+The read/write/fs tools share one file engine, and the start/output/session tools share one process engine. Deliver them **as two coherent backends**, tested in small increments. That yields immediate development leverage and incidentally unlocks several more of the 25 with minimal extra plumbing. Search's four tools and rich Office/PDF formats can wait until the machine can already investigate and improve itself safely. Long-term authentication persistence/dependency orchestration remains important, but it no longer blocks the next experimental RAM-only tool proof.
+
 ## 1. Tool inventory, relative value and shared implementation requirements
 
 **Proposed work waves:** **A** = first useful, restricted recovery agent; **B** = extend to controlled mutations; **C** = shared search/index; **D** = specialized/deferred. These are convenience groupings, not independent dependencies: security/config policy comes first, and parts of multiple waves may be implemented together when their underlying code is shared. Every tool must return its actual capability/limitations through MCP; do not advertise full upstream functionality before testing.
@@ -62,11 +108,11 @@ The 25 names reduce to a small number of *shared foundations*. Build and test fo
 
 **Precondition / Gate 0 — safety and environment (not a new feature wave).** Formalize allowed paths, command authorization, tool schema compatibility, MAX output lengths, client/device identity and per-process sandbox choices before enabling filesystem modification or arbitrary commands. Preserve live USB ADB and root SSH. Don't assume merely storing the OAuth refresh material on `/external_sd` or an attached USB device makes it confidential. Determine removable-storage mount order and token-at-rest protection separately.
 
-**Gate 1A — truthful, read-only recovery introspection.** Implement/test `get_config` with redaction, `list_directory`, `get_file_info`, text-only `read_file` and `read_multiple_files`, `list_processes` using the existing RAM launch, with real ChatGPT cloud calls and regression of current Wi-Fi/SSH. This batch shares filesystem policy and /proc interfaces. Test invalid paths, symlink escapes, read-only media and large logs.
+**Gate 1A — initial introspection for self-hosted development.** Implement/test `get_config` with redaction, `list_directory`, `get_file_info`, text-only `read_file` and `read_multiple_files`, `list_processes` using the existing RAM launch, with real ChatGPT cloud calls and regression of current Wi-Fi/SSH. This batch shares filesystem policy and /proc interfaces. Test invalid paths, symlink escapes, read-only media and large logs.
 
-**Gate 1B — working supervised command channel.** Add `start_process`, `read_process_output`, `interact_with_process`, `force_terminate`, `list_sessions` as one coherent cluster; test controlled/safe commands in test directories, stdin/stdout boundaries, timeouts, process tree termination, power/connection loss. `start_process` can be the **most valuable single tool** but is also the highest-risk permission in root TWRP. The official cloud agent already supervises the local MCP child; child process sessions have their own lifecycle and need tests.
+**Gate 1B — supervised command channel (our highest individual tool value).** Add `start_process`, `read_process_output`, `interact_with_process`, `force_terminate`, `list_sessions` as one coherent cluster; test controlled/safe commands in test directories, stdin/stdout boundaries, timeouts, process tree termination, power/connection loss. `start_process` can be the **most valuable single tool** but is also the highest-risk permission in root TWRP. The official cloud agent already supervises the local MCP child; child process sessions have their own lifecycle and need tests.
 
-**Gate 2 — controlled modification.** Add `create_directory`, `write_file`, `move_file`, `edit_block`, scoped `kill_process` with explicit confirmations/policies and write-safe directories. Source sharing means implementing core fs only once, then exposing safe variants; avoid unrestricted SD and partition modifications.
+**Gate 2 — controlled modification (pull `write_file` and exact `edit_block` forward early for the self-hosted loop).** Add `create_directory`, `write_file`, `move_file`, `edit_block`, scoped `kill_process` with explicit confirmations/policies and write-safe directories. Source sharing means implementing core fs only once, then exposing safe variants; avoid unrestricted SD and partition modifications.
 
 **Gate 3 — search engine.** Verify an ARM-compatible ripgrep or design an explicit lightweight alternative, then ship `start_search`, `get_more_search_results`, `stop_search`, `list_searches` together with bounded search session resources. Add DOCX/Excel search only after heavy-file support is separately justified.
 
