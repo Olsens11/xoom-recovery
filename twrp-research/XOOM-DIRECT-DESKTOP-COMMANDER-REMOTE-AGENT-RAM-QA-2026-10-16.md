@@ -48,3 +48,41 @@ This supersedes the prior *pairing pending* status above:
 - Scope stays **direct Desktop Commander proof and controlled MCP child QA**. Generic Linux runtime, CA trust, more robust NEON Lite and standalone headless-browser handling remain logged as deferred reuse candidates, NOT next builds.
 
 **Current authoritative status:** CORE DIRECT CLOUD CONNECTION **PASS**. Ordinary cloud-to-local-MCP tool **still pending**. This is an important distinction in any status or handoff.
+
+
+## 2026-10-16 18:58 UTC — **Full ChatGPT-to-child MCP round trip PASS**
+
+**Expanded test child in RAM only:** Surface rewrote `xoom-mcp-poc-server.js` to version `0.0.2` adding a specifically labeled **experimental read-only `get_config`** tool in addition to `get_device_info`. This is a *minimal proof response*, not real production Desktop Commander server configuration or arbitrary filesystem/shell tool. Staged it to the existing Xoom RAM path using USB ADB.
+
+**Official child recovery proven:** Identified the actual Xoom parent/child with `/proc/<pid>/cmdline` (parent Node PID 10297, existing child PID 10510); sent SIGTERM **only to the verified old child**. Official agent immediately logged: local MCP stdio closed → marked device offline → automatically started replacement stdio child → `Connected to Desktop Commander MCP` → **device online again**, without browser reauthorization or process restart. New child PID 11531.
+
+**Actual ChatGPT MCP child-tool call succeeded:** ChatGPT invoked `mcp__Remote_Desktop_Commander__get_config` scoped to Xoom registered device `941e6e17-58de-4b63-abbb-174057f897df`. The result, labeled executed on **localhost/Xoom**, was:
+
+~~~json
+{
+  "version": "POC-0.0.2",
+  "allowedDirectories": ["/tmp/xoom-dc-runtime-qa"],
+  "systemInfo": {
+    "experiment": "Xoom RAM-only MCP PoC",
+    "device": "Motorola Xoom",
+    "runtime": "v24.21.0",
+    "architecture": "arm",
+    "platform": "linux",
+    "hostname": "localhost",
+    "utc": "2026-10-16T18:58:43.083Z",
+    "pid": 11531
+  },
+  "notice": "EXPERIMENTAL read-only proof; not production Desktop Commander configuration"
+}
+~~~
+
+**This establishes the full end-to-end path** ChatGPT → hosted Desktop Commander → **Xoom official remote agent** → **Xoom local stdio MCP server tool execution** → hosted result → ChatGPT. Former handoff statement “cloud→child tool pending” is now superseded. This device-hosted response is a genuine runtime artifact, not a hardcoded simulator from the Surface or Pi. Only RAM code updated; no production packages.
+
+**RAM usage snapshot** via `/proc/<pid>/status` while online:
+- Official parent Node agent PID 10297: `VmRSS 65336 kB`, `VmSize 217624 kB`, 11 threads.
+- Minimal child Node PID 11531: `VmRSS 27340 kB`, `VmSize 160116 kB`, 7 threads.
+- Combined measured **~92,676 kB (~90.5 MiB) RSS**, excluding shared-memory double counting, kernel network infrastructure and other recovery modules. This is a one-point reference, **not** an endurance/peak memory measurement.
+
+**After restart:** Existing Wi-Fi Runtime **RUNNING**, SSH/SFTP server **RUNNING**, ADB to SSH Link **LOADED**. USB ADB remained available. The no-persist RAM agent is still bounded and is **not** a released autostart service.
+
+**Next goals shift from feasibility to engineering quality:** sustained runtime/peak RSS, token persistence strategy and security, provider device identity (currently localhost), disconnect/reconnect and Wi-Fi loss handling, proper MCP tool permissions, private system-root access policy, Linux userspace runtime packaging and dependencies, safe autoload/autorun and rollback, and a real separate versioned Toolkit package only after explicit scope/release approval. Shared-platform proposals (Linux runtime, CA trust, NEON Lite) remain deferred as directed.
