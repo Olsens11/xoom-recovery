@@ -90,3 +90,5 @@ A session-manager update (source remains `xoom-scratch-mcp-v01.js` but `get_conf
 `XOOM_SCRATCH_MCP_READY`, `Connected to Desktop Commander MCP`, `Connected to Remote MCP`, and first-party device verification requested successfully at **2026-10-16 20:31:29 UTC**. **Do not commit transient pairing code or claim this new session is authorized until subsequent proof.** Provider pairing must be completed explicitly by the user through its browser. Standard DNS/clock/CA RAM workarounds and previous production recovery access remained unchanged; no flash/persistent autostart.
 
 **Next:** Once user authorizes, test normal ChatGPT-device-scoped calls for these actual new tools, first `get_config`/`list_directory`/`read_file`, then a harmless scratch file `write_file`+`edit_block`, then fixed `start_process`/`read_process_output` and bounded `list_sessions`/`force_terminate`. Confirm no secret leakage and independently check recovery service states. Do not perform broad system writes or arbitrary root shell commands in this phase.
+
+undefined
