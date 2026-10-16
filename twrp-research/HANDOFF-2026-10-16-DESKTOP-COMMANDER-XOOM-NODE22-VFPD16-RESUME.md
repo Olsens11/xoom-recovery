@@ -274,3 +274,17 @@ RESOLVER_FILES_REMOVED
 **Interpretation:** Missing traditional GNU/Linux resolver config fully explains the demonstrated `localhost`/external DNS failure for this Node/glibc test. **No kernel upgrade, NODE fix, compiler rebuild, or NEON Lite required for DNS resolution**. Device has working numeric network connectivity. The specific DNS addresses in output are transient and not a permanent configuration requirement.
 
 **Next (not performed):** Decide in the planned networking-package review which component owns generating `/etc/hosts`, providing DHCP-learned DNS servers to `/etc/resolv.conf`, updating them upon Wi-Fi connection changes, supporting legitimate hostname/mDNS functionality, and cleaning up on stop/disconnect. Keep distinct states: Wi-Fi runtime RUNNING, Wi-Fi association/IP CONNECTED, Internet REACHABLE. Treat resolver provisioning as likely networking infrastructure responsibility, **not a Desktop Commander-specific patch** and not yet an implemented permanent feature. Follow up with external HTTPS/TLS certificate validation and accurate clock handling before cloud auth. No package changes until their own design and recovery regression QA.
+
+
+## 2026-10-16: Current networking/security feasibility milestone and explicit stopgap inventory
+
+**Hardware PASS:** Debian ARMhf Node 24.21.0 with VFPv3-D16 works on actual Xoom, including Maglev and TurboFan compiling optimized JS, Node promises/timers/crypto/async filesystem, TCP/UDP, glibc DNS with **temporary standard /etc files**, and **default auto-family outbound HTTPS with valid real TLS certificate** and wrong-host rejection (`ERR_TLS_CERT_ALTNAME_INVALID`). **These results do not mean a persistent Node package or connected Desktop Commander agent exists.**
+
+Keep separately recorded stopgaps, their scope and the future owner:
+- **Node runtime:** Debian prebuilt `node` and glibc 2.43 libraries isolated in Xoom `/tmp`, patching Debian hardcoded undici/acorn paths to `/tmp/n24` — future Desktop Commander/Node runtime package design, *not* Wi-Fi Runtime. NEON Lite remains a named *unneeded so far* fallback.
+- **DNS:** volatile `/etc/hosts` and `/etc/resolv.conf`, with DHCP-confirmed DNS server and `options single-request` — future **Wi-Fi Runtime** resolver infrastructure. Tested `single-request-reopen` too; full automatic DHCP configuration and lifecycle cleanup **not implemented**.
+- **Clock:** one-shot existing **Time Sync 0.2.1** run to set accurate UTC, leaving Autorun OFF — future **Time Sync** previously approved Wi-Fi-ready/NTP boot workflow; not yet in installed package.
+- **CA trust:** Mozilla curl.se CA bundle staged in `/tmp`; Node TLS uses explicit `NODE_EXTRA_CA_CERTS` and `SSL_CERT_FILE` while keeping certificate validation ON — future **Node/remote-agent trust provisioning and maintenance** (coordinate with Time Sync), not a task for Wi-Fi Runtime.
+- **HTTPS behavior:** default HTTPS with resolver `single-request`, not forced IPv4, valid certificate `authorized:true`, mismatched cert rejected. Actual Supabase device OAuth, remote transport, token protections and reconnection are still pending.
+
+[Proof/runbook](XOOM-NODE24-RAM-ONLY-DNS-HTTPS-WORKAROUND-AND-QA-2026-10-16.md) · [Wi-Fi Runtime future fix](WIFI-RUNTIME-FUTURE-GLIBC-RESOLVER-SUPPORT-2026-10-16.md). No recovery/ZIP reflash or permanently deployed new service.
