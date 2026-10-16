@@ -86,3 +86,12 @@ The [v0.3 Xoom physical local-MCP hardware QA](DESKTOP-COMMANDER-XOOM-V03-UNPRIV
 - **XT-AGENT-EXEC-SECURITY-001 — unresolved hardening before cloud v0.3:** Script source is validated as a single flat UID2000 mode0600 `.js` under scratch, yet validation-to-exec races, symlink/rename adversaries, potentially unrestricted network access, memory/output/resource stress and model privilege bypass remain to review. Do **not** equate `--permission` with hostile-code confinement. Continue with local-only QA until deliberately approved to expose `run NAME.js` through the actual provider.
 
 No saved credentials, pinned Toolkit packages, flashed recovery, Wi-Fi Runtime DNS implementation, Time Sync design, or NEON Lite work changed in this continuation.
+
+
+### XT-AGENT-SCRATCH-EXEC-002 — v0.3.1 local hardware security milestone
+
+See [v0.3.1 physical QA and security limitations](DESKTOP-COMMANDER-XOOM-V031-SNAPSHOT-SECURITY-HARDWARE-QA-2026-10-16.md). The local child process now uses root-controlled, hash-reported, immutable execution snapshots (root:gid2000 mode0640) after fd/fstat checks of an original single-link UID/GID2000 mode0600 `.js` file. Bounded 32 KiB descriptor read, fatal UTF-8, NUL/surrogate rejection, output cap and cleanup all passed on actual Xoom; full v0.2 and v0.3 tests regressed cleanly. **Owner:** Desktop Commander internal process/filesystem engines; **Status:** RAM-only v0.3.1 local MCP QA PASS, **cloud v0.3.1 pending**, production not approved.
+
+**Security model correction:** Android's legacy kernel denies tested IPv4 TCP socket creation for UID2000/GID2000 (`EACCES`) but allows it in a temporary test-only UID2000/GID3003 process. Node `--permission` alone does **not** restrict those sockets. UID2000/GID2000 could connect to a controlled scratch AF_UNIX socket, and root's read-only /dev/socket listing showed some world-writable service sockets. No production service was contacted. **Do not claim this is a complete network/IPC sandbox; do not grant GID3003 to the runner.** Before cloud enabling arbitrary editable `run NAME.js` tool, review acceptable privileges, first-party authorization, and containment/security tradeoffs.
+
+No flash, new module, installed DNS resolution, secrets, or persistent autostart. Previous v0.2 direct cloud milestone remains the definitive live-cloud baseline.
