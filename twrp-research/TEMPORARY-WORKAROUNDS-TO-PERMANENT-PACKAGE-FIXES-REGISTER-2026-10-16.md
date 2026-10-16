@@ -65,3 +65,10 @@ Some temporary dependencies have a **future multi-application value** and should
 **Life-cycle:** currently explicit user-authenticated *server-side device registration* exists, even though local `--no-persist-session` stores no usable refresh token and temporary process is bounded. Revoke server-side device via provider controls if desired after testing. Check actual status before promising still online. Nothing was flashed or installed as an autorun service.
 
 **NEXT ON MAINLINE:** ordinary ChatGPT→cloud→local Xoom stdio MCP tool→cloud result; then reconnection, memory, explicit user-approved persistent secure packaging. The reusable-platform/NEON Lite parking lot remains a separate deferred backlog.
+
+
+### **XT-AGENT-ENDTOEND-001 — proof COMPLETE, production deferred (2026-10-16)**
+
+After actual provider browser approval and a successful device-scoped cloud `ping`, an updated **RAM-only minimal MCP child** implemented a bounded, read-only `get_config` test tool. The original Xoom official agent supervised its intentional child restart (brief OFFLINE→ONLINE), then ChatGPT's normal Desktop Commander `get_config` on device `941e6e17-58de-4b63-abbb-174057f897df` returned live ARM Node 24/Xoom data from the child PID 11531. **Full cloud→agent→stdio MCP child→cloud roundtrip is proven**. **No ordinary full Desktop Commander command/file tool, persistence or released module yet.** Snapshot two-process RSS ~90.5 MiB. See [full proof and temporary workaround runbook](XOOM-DIRECT-DESKTOP-COMMANDER-REMOTE-AGENT-RAM-QA-2026-10-16.md).
+
+**Temporary workarounds stay on this register:** glibc loader/shell shim, HOME scratch, headless `xdg-open` shim, DNS `single-request`/DHCP address manually staged, manually synced clock, CA bundle, telemetry-disabled one-file source build, no session persistence. Do **not** spin off generic NEON Lite/runtime/CA projects during present agent hardening. Every permanent support requirement needs separate package approval and hardware QA.
