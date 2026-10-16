@@ -1,5 +1,8 @@
 # Desktop Commander 0.3.0 — full 25-tool audit and proposed Xoom implementation waves
 
+> **FIRST SCRATCH TOOL HARDWARE QA (2026-10-16):** [Physical Xoom scoped file operations PASS; process runner still open](DESKTOP-COMMANDER-XOOM-SCRATCH-TOOLS-V01-HARDWARE-QA-2026-10-16.md). The v0.1 RAM MCP child proved `list_directory`, `read_file`, `write_file`, `get_file_info`, exact `edit_block` and safety rejections via local two-process stdio tests on real hardware. It has **not** yet passed process output/completion or been called through a new authenticated ChatGPT cloud session. Unprivileged subprocess execution as uid 2000 returned EACCES, so editable-script execution was not exposed as root. Do not interpret ten advertised experimental names as ten completed tools.
+
+
 **Created:** 2026-10-16. **Status:** SOURCE AUDIT COMPLETE; HARDWARE IMPLEMENTATION **NOT** STARTED. Priorities and module scope are **recommendations for review**, not a release authorization.  
 **Audited source:** Upstream `wonderwhy-er/DesktopCommanderMCP`, commit **`f508e524469c26f6366e17dbfd3ee5a69d112127`**, `src/version.ts` = **0.3.0**. Existing checkout `/home/ps2/xoom-phase1/private/desktop-commander-agent-feasibility/source/` on Pi.  
 **The exact counted interface:** `src/server.ts` → `ListToolsRequestSchema` → literal `allTools` definitions. **25 core MCP tools**, with one optional client-specific feedback omission for `desktop-commander-app`. This is the upstream/full-core inventory, **not** the Xoom's current RAM PoC child, which deliberately exposes only harmless probe tools.
