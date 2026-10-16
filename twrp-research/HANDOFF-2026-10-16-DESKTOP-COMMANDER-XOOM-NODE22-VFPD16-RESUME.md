@@ -248,3 +248,29 @@ Both Pi and desktop connect via **their existing authorized SSH identities**; th
 **Revised priorities:** The former single largest CPU/Node/V8 feasibility blocker is **demonstrably overcome for essential real workloads** by an existing Debian ARMhf build (VFPv3-D16). Continue considering custom Node22 GCC build (1,664 saved objects) as fallback, but **do not spend cycles finishing it for its own sake**. Keep **NEON Lite** as a named targeted NEON software compatibility *fallback*, not something currently required for Node. Focus next on (1) userspace hosts/DNS configuration without production recovery changes, (2) external network/TLS/time/CA trust, (3) authenticated official Desktop Commander remote transport and minimal stdio MCP server, (4) practical memory, disconnect/reconnect and secure token storage, and only then (5) package/autoload and rollback.
 
 **Test files:** Surface `C:\Users\olsen\XoomDev\r22d4q-ssh-adb\node24-xoom-qa.js` and `node24-xoom-network-qa.js`; Xoom RAM `/tmp/xoom-dc-runtime-qa/debian24/`. Debian packages and reproducible relocation patch remain in Pi private folder `/home/ps2/xoom-phase1/private/desktop-commander-agent-feasibility/debian-node24-armhf/`.
+
+
+## 2026-10-16: USB ADB physical DNS fix validation — **PASS, temporary only**
+
+**Result:** Solved the previously failing Node.js `dns.lookup('localhost')` and external hostname resolution **on the actual Xoom**, using a short-lived resolver configuration in recovery's **RAM-backed root filesystem**. Conducted **directly from Surface Book 2's USB ADB** (device serial `02804102421f7517`), not via the Pi's SSH channel. No production package, recovery image, kernel, ROM, stored Wi-Fi config, or persistent autostart values changed.
+
+**Baseline:** Xoom `/etc/hosts` and `/etc/resolv.conf` absent, though rootfs is a writable RAM rootfs; LAN default route is `192.168.0.1`; Pi's DHCP resolver is `192.168.0.1`; Xoom directly pinged `1.1.1.1` successfully. Node 24.21.0 in RAM previously reported `getaddrinfo EAI_AGAIN localhost` even as numeric TCP/UDP worked.
+
+**Executed:** Created local QA script on Surface at `C:\Users\olsen\XoomDev\r22d4q-ssh-adb\node24-temporary-dns-qa.sh`; uploaded through `adb push` into Xoom `/tmp/xoom-dc-runtime-qa/debian24/node24-temporary-dns-qa.sh`; ran `adb -s 02804102421f7517 shell /sbin/sh /tmp/xoom-dc-runtime-qa/debian24/node24-temporary-dns-qa.sh`. Script aborted if either original /etc file existed, installed a shell EXIT trap removing both temporary files, set `/etc/hosts` to `127.0.0.1 localhost` and `::1 localhost`, and `/etc/resolv.conf` to `nameserver 192.168.0.1` with bounded timeout/attempt options. Invoked the installed Debian ARMhf Node 24.21.0 from RAM via its staged glibc 2.43 loader and `--library-path` with a 25-second timeout, testing `dns.promises.lookup('localhost')`, `dns.promises.lookup('example.com',{family:4})`, and `dns.promises.resolve4('example.com')`.
+
+**Actual on-hardware terminal result, exit code 0, approximately 4.47 seconds:**
+
+```text
+TEMP_RESOLVER_CREATED
+LOCALHOST 127.0.0.1 4
+EXTERNAL_LOOKUP 172.66.147.243 4
+EXTERNAL_RESOLVE4 172.66.147.243,104.20.23.154
+DNS_QA_PASS
+RESOLVER_FILES_REMOVED
+```
+
+**Independent after-test USB ADB check:** `/etc/hosts` **absent**, `/etc/resolv.conf` **absent**, `/sbin/xoom-toolkit-manager status sftp-modern` **RUNNING**, `status poc-insecure-wireless-adb` **LOADED**. Therefore the test cleanup succeeded and established toolkit baseline was preserved.
+
+**Interpretation:** Missing traditional GNU/Linux resolver config fully explains the demonstrated `localhost`/external DNS failure for this Node/glibc test. **No kernel upgrade, NODE fix, compiler rebuild, or NEON Lite required for DNS resolution**. Device has working numeric network connectivity. The specific DNS addresses in output are transient and not a permanent configuration requirement.
+
+**Next (not performed):** Decide in the planned networking-package review which component owns generating `/etc/hosts`, providing DHCP-learned DNS servers to `/etc/resolv.conf`, updating them upon Wi-Fi connection changes, supporting legitimate hostname/mDNS functionality, and cleaning up on stop/disconnect. Keep distinct states: Wi-Fi runtime RUNNING, Wi-Fi association/IP CONNECTED, Internet REACHABLE. Treat resolver provisioning as likely networking infrastructure responsibility, **not a Desktop Commander-specific patch** and not yet an implemented permanent feature. Follow up with external HTTPS/TLS certificate validation and accurate clock handling before cloud auth. No package changes until their own design and recovery regression QA.
