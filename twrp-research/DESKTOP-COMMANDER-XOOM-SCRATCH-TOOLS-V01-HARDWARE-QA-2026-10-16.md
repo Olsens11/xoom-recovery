@@ -66,3 +66,27 @@ The original direct-ID-drop launcher produced `spawn /sbin/sh EACCES` followed b
 The 25-tool audit prioritizes tool leverage across categories, not completion of one entire category before another. The tested file tools let us eventually deploy/read/edit code *on Xoom*; a safe process runner is still the missing piece for a full self-hosted inspect→edit→execute→verify loop. Preserve the earlier independent cloud/MCP milestone as complete and separate from this new prototype.
 
 This initial pass establishes **real progress, not the entire loop**. Do not turn experimental tool counts or partial test output into a claimed release.
+
+
+## 2026-10-16 — v0.2 process/session milestone and new cloud test session
+
+**Supersedes the earlier "process backend incomplete" checkpoints above, which remain preserved as test history.** The first follow-up push that had previously been blocked was successfully repeated through Surface USB ADB. Physical Xoom two-Node-process QA then passed **all** initial file tools and a fixed read-only BusyBox diagnostic, after polling briefly for asynchronous output.
+
+A session-manager update (source remains `xoom-scratch-mcp-v01.js` but `get_config.version` reports `xoom-scratch-dev-v0.2`) corrected a completed-session slot leak: enforce **two active** sessions, keep at most **eight completed** history items, and use a tracked direct-child `SIGTERM` rather than a broad process-group kill for the fixed no-child BusyBox diagnostics. Added the explicit fixed command `diag wait` (BusyBox `sleep 8`) to test termination; arbitrary shell execution remains disabled.
+
+**Exact physical Xoom QA:**
+- `MCP_INITIALIZE_PASS`, `TOOLS_LIST_10_PASS`, `CONFIG_SCOPE_PASS`, `DIRECTORY_LIST_PASS`.
+- `WRITE_FILE_PASS`, `FILE_INFO_OWNERSHIP_PASS`, `READ_FILE_PASS`, `EDIT_BLOCK_PASS`, `READ_AFTER_EDIT_PASS`.
+- `OUTSIDE_SCRATCH_REJECTED_PASS`, `ARBITRARY_SCRIPT_REJECTED_PASS`.
+- `STATIC_DIAGNOSTIC_SPAWN_PASS`; `diag identity` PID 20187 exited 0 and generated `uid=0(root) gid=0(root)\n`; `STATIC_DIAGNOSTIC_OUTPUT_PASS`.
+- `SESSION_LIST_PASS`, `UNOWNED_PID_REJECTED_PASS`.
+- `LONG_TEST_STARTED_PASS`, `OWNED_TERMINATE_REQUESTED_PASS`; fixed `diag wait` PID 20288 exited after intentional **SIGTERM** with no timeout; `OWNED_TERMINATE_CONFIRMED_PASS`.
+- Four further `diag uptime` runs all passed separate launch and exit checks, followed by `SESSION_HISTORY_BOUNDED_PASS`.
+- **`XOOM_SCOPED_FILE_AND_DIAGNOSTIC_QA_PASS`**, harness exit code 0, total **6.72 seconds**.
+
+**Safety distinction:** File writes/edits are restricted to flat filenames in `/tmp/xoom-dc-runtime-qa/dc-scratch`, currently owner uid 2000, mode 0700; no privileged system-path edits. Process tools currently launch **only fixed read-only BusyBox argv** in root recovery context, under strict timeout and owned-PID constraints, **not editable scripts, an unrestricted shell, or uid 2000 processes**. The earlier verified `uid:2000` spawn `EACCES` is still unresolved and must not be worked around by running arbitrary editable files as root. The ten tool names are experimental API names, not yet complete upstream parity.
+
+**New cloud test started after local QA:** Surface wrote a new RAM-only `desktop-commander` executable wrapper pointing to `xoom-scratch-mcp-v01.js`, backing up the prior known-good wrapper within RAM. Launched previously proven official-source Remote Desktop Commander 0.3.0 agent with no-persist authentication and 720-second bounded runtime. Agent confirmed:
+`XOOM_SCRATCH_MCP_READY`, `Connected to Desktop Commander MCP`, `Connected to Remote MCP`, and first-party device verification requested successfully at **2026-10-16 20:31:29 UTC**. **Do not commit transient pairing code or claim this new session is authorized until subsequent proof.** Provider pairing must be completed explicitly by the user through its browser. Standard DNS/clock/CA RAM workarounds and previous production recovery access remained unchanged; no flash/persistent autostart.
+
+**Next:** Once user authorizes, test normal ChatGPT-device-scoped calls for these actual new tools, first `get_config`/`list_directory`/`read_file`, then a harmless scratch file `write_file`+`edit_block`, then fixed `start_process`/`read_process_output` and bounded `list_sessions`/`force_terminate`. Confirm no secret leakage and independently check recovery service states. Do not perform broad system writes or arbitrary root shell commands in this phase.
