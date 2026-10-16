@@ -1,5 +1,8 @@
 # Xoom Desktop Commander Agent — technical handoff and exact continuation plan
 
+> **AUTHORITATIVE SUCCESS MILESTONE (2026-10-16):** [Physical Motorola Xoom independent ChatGPT/Desktop Commander connection — fully proven](MILESTONE-2026-10-16-XOOM-INDEPENDENT-CHATGPT-DESKTOP-COMMANDER-PROVEN.md). The provider authenticated an independent Xoom, ChatGPT called it, and a **local MCP child** generated and returned a read-only tool response. This is RAM-only experimental proof, **not** a permanent Toolkit release. Where the dated chronology below says “pairing pending,” “child tool pending,” or “not connected yet,” that was an *earlier checkpoint* and has been superseded by the documented successful later tests.
+
+
 > **DESIGN SCOPE CONTROL:** Shared platform candidates (ARMv7 Linux runtime, CA trust store, secure sessions, optional reusable MCP framework) and exploratory **NEON Lite** are recorded in [deferred shared capabilities](DEFERRED-SHARED-PLATFORM-CAPABILITIES-AND-NEON-LITE-2026-10-16.md). No new packages are authorized or required for our current proof. **Immediate next step:** minimal Xoom MCP stdio child + authenticated official Desktop Commander direct transport using the *already-working RAM-only* Node 24/DNS/clock/CA test setup. Preserve SSH/USB ADB rollback.
 
 
