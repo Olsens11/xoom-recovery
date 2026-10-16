@@ -58,3 +58,24 @@ Original `boot-preferences.json` saved on Surface and SD as `boot-preferences.pr
 - Interface strings/docs were updated for both renamed packages and direct WLAN ADB warnings replaced with loopback/SSH instructions. Internal IDs intentionally retain old names for compatibility.
 - Optional ADB autorun remains OFF; users may opt to turn it on, but on-demand only is the chosen default.
 - Project-wide event supervisor remains deferred. Wi-Fi Runtime review already reached design disposition; return to **Network Diagnostics 0.2.0** review after this special SSH/ADB release.
+
+## Interactive SSH final qualification — 2026-10-16
+
+**STATUS: PASS — no recovery/package modification required.** The R22d4q OpenSSH 10.6p1 PTY correction and shell startup paths are sufficient for normal interactive sessions when the SSH client has a correctly initialized terminal.
+
+- From Pi, started standard `ssh -tt -p 2222 ... root@192.168.0.225` **without a remote command**; the Xoom presented an interactive `~ #` root BusyBox ash prompt and accepted multiple commands in the same session.
+- A generic remote command-runner with no valid terminal size initially produced `stty: standard input: No such file or directory`. Explicitly setting terminal dimensions with `stty rows 35 cols 90` fixed its size reporting. This was an **artificial-client condition**, not proof of a server defect.
+- A separate Python PTY-backed test on the Pi established a correctly sized actual local terminal, invoked unmodified system `ssh -tt` with the existing pinned host key and Ed25519 client key, and exercised a live interactive Xoom shell:
+  - `stty size` reported `30 100`;
+  - multiple entered shell commands executed successfully;
+  - Up-arrow recalled the prior history command and reran it;
+  - Ctrl+C interrupted a long-running `sleep`, and the shell accepted new commands afterward;
+  - a `SIGWINCH` terminal resize to 44 rows x 120 columns propagated correctly (`stty size` reported `44 120`);
+  - `exit` closed the session normally with client exit code 0, with no PTY failure or `stty` error.
+- Tested a **full-screen interactive editor**, not merely a prompt: opened BusyBox `vi` over the same SSH/PTY connection, entered text in insert mode, saved with `:wq`, verified the exact file contents via `cat`, deleted the RAM-only test file, and closed the SSH session normally. Editor screen switching and cursor-control sequences appeared as expected.
+- The `ESC[6n` bytes in a raw command-runner transcript are **a normal terminal cursor-position query** from BusyBox ash; terminal emulators answer them. They are not literal prompt text and do not require a recovery workaround.
+- After QA, manager reported `sftp-modern RUNNING`, `poc-insecure-wireless-adb LOADED`; TCP listeners remained `192.168.0.225:2222` (SSH) and `127.0.0.1:5037` (stock USB ADB), with **no TCP 5555 listener**. User-facing package Help screens already document normal SSH and SFTP commands, and the release includes the fixed PTY daemon.
+- QA scripts (private Pi workspace, non-secret test harnesses): `/home/ps2/xoom-phase1/private/ssh-adb-20261016/qa_interactive_ssh.py` and `qa_ssh_vi.py`. No reboot, reflashing, persistent configuration changes, package edits, or additional listeners were required.
+
+**Disposition:** Complete interactive SSH support in R22d4q is **hardware-qualified** for shell editing, terminal resizing, history, interrupts, full-screen editor, and normal exit. Preserve the release as the working baseline; avoid changing PTY/node initialization without a demonstrated new defect.
+
