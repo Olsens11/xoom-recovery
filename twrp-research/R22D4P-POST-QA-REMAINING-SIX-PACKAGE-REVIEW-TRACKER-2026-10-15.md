@@ -31,6 +31,14 @@ The user refined our earlier proposed split: **Wi-Fi Runtime running**, **Wi-Fi 
 
 **Internet-verification trigger decision settled:** run a bounded automatic check after each genuine new Wi-Fi connection. NEXT: agree what counts as internet available, how many independent signals to require, what to show on inconclusive/offline results, and how often to refresh if local association stays up but upstream connectivity changes.
 
+## Wi-Fi Runtime review — conventional user-facing status labels (2026-10-16)
+
+User direction: prefer the familiar overall status terminology **Running**, **Connected**, and **Connected, no Internet**. Interpret **Running** as Wi-Fi Runtime active but no established usable LAN association/IP; **Connected** as local Wi-Fi usable and internet verified; **Connected, no Internet** as local connection working but independently established external internet failure. These are **summary labels**, not a replacement for the previously agreed three independent internal states (Wi-Fi Runtime/process, local Wi-Fi/LAN link, and upstream internet).
+
+For honest behavior include transitional/inconclusive statuses such as **Starting**, **Connecting**, **Checking Internet**, or **Connected — Internet not verified** rather than labeling no internet on mere unchecked status or single failed endpoint. Runtime stopped/error and deliberate Wi-Fi off should have appropriate separate status. Keep LAN-only access available when internet is unavailable. Exactly how to positively establish internet failure is a future diagnostic design decision.
+
+**Periodic internet verification remains undecided:** user supplied a status-label preference, not affirmative approval for a five-minute background check. Previously AGREED automatic nonblocking verification on a *new* Wi-Fi connection still stands; periodic verification and interval need separate consideration and must not interfere with intentional operations.
+
 ## Shared triage that should not be fixed repeatedly
 - **Trustworthy timestamp provenance:** coordinate with agreed Time Sync mode, never treat arbitrary 1970 or just Wi-Fi READY as proof; offline diagnostic features stay available.
 - **UI action feedback:** common detail-page result/path and accurate run-state display across package reports; shared compact footer and diagnostic-prefix polish.
