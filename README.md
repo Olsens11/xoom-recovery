@@ -1,17 +1,35 @@
 # Motorola Xoom recovery engineering
 
-Development workspace for a custom TWRP 3.1.1 recovery for the Motorola Xoom MZ600 (Stingray family), focused on manually configured Wi-Fi, an on-screen network interface, optional removable-card persistence, and cautious wireless administration.
+Engineering workspace for a custom **TWRP 3.1.1-0 recovery** on the **Motorola Xoom MZ600**, focused on reliable recovery networking, a modular Xoom Toolkit, cautious remote administration, and experimentation with modern software on legacy hardware.
 
-**Status:** Working N1 is on the test device. N2 sources are experimental; revision 8 was built offline but has **not** been flashed. Later GUI/native-action drafts have **not** been built into a usable recovery.
+## Current verified milestones (October 16, 2026)
 
-## Workspace
+**Installed and hardware-tested recovery:** **R22d4q**, booted on the Xoom. Its existing Toolkit can provide Wi-Fi, authenticated SSH/SFTP and a separately controlled ADB-to-SSH link; the corresponding hardware/rollback qualification is documented below. Older N1/N2 and R22 draft documents in this repository are historical development stages, not the current installed status.
 
-The authoritative project workspace and all private data live on the Raspberry Pi at `/home/ps2/xoom-phase1/`. Ubuntu on the Windows desktop is an incremental compilation worker. Changes are synchronized through Git at engineering checkpoints. Device firmware, calibration, Wi-Fi credentials, original images, backups and release binaries are deliberately excluded from this public source repository.
+**New major breakthrough — independent ChatGPT connection:** On the physical Xoom, a RAM-only Debian ARMhf **Node.js 24.21.0** environment executed an experimental build of the actual **Desktop Commander 0.3.0 remote agent**. The user completed normal first-party browser device authorization; ChatGPT saw the Xoom as a separate fourth Desktop Commander device. Both a provider-originated **ping** and a full **ChatGPT → provider → Xoom agent → local MCP child → ChatGPT** tool call returned successfully. The local MCP child returned live ARM/Node/Xoom information. No PC or Pi proxied the ongoing remote session.
 
-## Development and safety
+**Status distinction:** This is a **physical hardware feasibility PASS**, **not a released or permanently installed Desktop Commander Toolkit package**. The test used an isolated RAM runtime, temporary DNS/CA/HOME/launcher fixes and a small read-only MCP child. Full desktop tools, persistent authentication, boot startup, secure permissions and endurance tests are not yet complete.
 
-No automatic partition flashing, formatting or modification is performed by the published development scripts. Flashing any custom recovery requires explicit approval, an established rollback path, correct device identification and an appropriate offline test report. Preserve USB ADB. Wireless root ADB is hazardous without authorization and must remain off by default; an experimental warning screen is not itself an authentication mechanism.
+### Read this first
 
-The upstream TWRP source is maintained separately; `twrp-research/xoom-n2-secure-gui-action-WIP.patch` contains the experimental native action changes. These changes still need compilation and security review.
+- **[Milestone: Motorola Xoom independently connected to ChatGPT through Desktop Commander — PROVEN](twrp-research/MILESTONE-2026-10-16-XOOM-INDEPENDENT-CHATGPT-DESKTOP-COMMANDER-PROVEN.md)** — authoritative achievement, experimental configuration, exact verification evidence and clear limits.
+- [Direct Desktop Commander agent hardware QA](twrp-research/XOOM-DIRECT-DESKTOP-COMMANDER-REMOTE-AGENT-RAM-QA-2026-10-16.md) — chronological on-device proof, authorization, process recovery, normal cloud `ping` and MCP child tool.
+- [Node/VFPv3-D16 feasibility history](twrp-research/HANDOFF-2026-10-16-DESKTOP-COMMANDER-XOOM-NODE22-VFPD16-RESUME.md) — original SIGILL, ARM compatibility work, source investigation and final hardware conclusion.
+- [R22d4q SSH/SFTP and ADB Link hardware qualification](twrp-research/R22D4Q-SSH-SFTP-ADB-LINK-POST-REBOOT-QA-2026-10-16.md) — the separately installed recovery baseline.
+- [Temporary workarounds → permanent package improvements](twrp-research/TEMPORARY-WORKAROUNDS-TO-PERMANENT-PACKAGE-FIXES-REGISTER-2026-10-16.md) — technical debt, package owners, deferred fixes.
+- [Deferred reusable platform proposals and NEON Lite](twrp-research/DEFERRED-SHARED-PLATFORM-CAPABILITIES-AND-NEON-LITE-2026-10-16.md) — future ideas only; not part of this completed proof.
+- [Research documentation index](twrp-research/README.md) — navigation among the newest documents and historical work.
 
-See `twrp-research/N2-BUILD-WORKSPACE-POLICY.md` and `twrp-research/N2-NETWORK-UX-REQUIREMENTS.md`.
+## Workspace and public/private boundaries
+
+The authoritative engineering and private artifact workspace is on the Raspberry Pi at `/home/ps2/xoom-phase1/`. The Windows desktop and Surface Book 2 support analysis, building and physical USB ADB testing. Research notes and non-secret scripts are synchronized to this Git repository at checkpoints.
+
+Firmware images, root recovery keys, calibration, saved Wi-Fi credentials, provider authentication/session tokens, private development files and sensitive backups are **not** published as part of this source documentation. Hashes and physical test evidence document the experiment without exposing the secrets.
+
+## Safety and development policy
+
+No published development documentation authorizes automatic partition flashing, formatting or disabling of security controls. Any future recovery or Toolkit deployment requires **explicit approval**, correct partition and device identification, verified payload integrity, physical regression QA and an independent rollback route.
+
+Preserve USB ADB and existing authenticated SSH/SFTP. Wireless root ADB must remain deliberately controlled; an experimental root service is not a production security design. Temporary RAM-only fixes **must not** be mistaken for implemented, pinned packages. Proposed reusable Linux runtime, shared trust-store or NEON Lite capabilities are deferred until they have an independently justified scope.
+
+For historical design/build policy see [N2 Build Workspace Policy](twrp-research/N2-BUILD-WORKSPACE-POLICY.md) and [N2 Network UX Requirements](twrp-research/N2-NETWORK-UX-REQUIREMENTS.md).
