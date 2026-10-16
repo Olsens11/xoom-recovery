@@ -1,0 +1,44 @@
+'use strict';
+const {spawn}=require('node:child_process'), readline=require('node:readline');
+const D='/tmp/xoom-dc-runtime-qa/debian24',ROOT='/tmp/xoom-dc-runtime-qa/dc-scratch';
+const child=spawn(D+'/ld-linux-armhf.so.3',['--library-path',D+'/usr/lib/arm-linux-gnueabihf',D+'/usr/bin/node','--max-old-space-size=64',D+'/xoom-scratch-mcp-v06-candidate.js'],{stdio:['pipe','pipe','pipe']});
+let seq=0;const pending=new Map();
+readline.createInterface({input:child.stdout}).on('line',l=>{try{let a=JSON.parse(l);const p=pending.get(a.id);if(p){pending.delete(a.id);p(a)}}catch(e){console.log('BAD_REPLY',e.message)}});
+child.stderr.on('data',b=>console.log('SERVER_LOG',b.toString().trim()));
+child.on('error',e=>console.log('CHILD_ERROR',e.message));
+function request(method,params){return new Promise((resolve,reject)=>{let id=++seq;let timer=setTimeout(()=>{pending.delete(id);reject(Error('Timeout '+method))},5000);pending.set(id,msg=>{clearTimeout(timer);resolve(msg)});child.stdin.write(JSON.stringify({jsonrpc:'2.0',id,method,params})+'\n')})}
+async function tool(name,args){let r=await request('tools/call',{name,arguments:args});if(r.error)throw Error(JSON.stringify(r.error));return {value:JSON.parse(r.result.content[0].text),isError:r.result.isError}}
+const eq=(cond,label)=>{if(!cond)throw Error('FAIL '+label);console.log(label+'_PASS')};
+(async()=>{
+ const a=await request('initialize',{protocolVersion:'2025-06-18',capabilities:{},clientInfo:{name:'xoom-v06-qa',version:'1'}});
+ eq(a.result.serverInfo.version==='0.6.0-local','V06_VERSION');
+ const l=await request('tools/list',{});
+ eq(l.result.tools.length===26,'V06_TOOLS_26');
+ const names=l.result.tools.map(x=>x.name);
+ eq(['set_config_value','write_pdf','track_ui_event','give_feedback_to_desktop_commander'].every(x=>names.includes(x)),'V06_FOUR_TOOLS_REGISTERED');
+ let r=await tool('get_config',{});
+ eq(r.value.preferences.telemetryEnabled===false,'V06_DEFAULT_TELEMETRY_OFF');
+ r=await tool('set_config_value',{key:'fileReadLineLimit',value:101});
+ eq(!r.isError&&r.value.value===101&&!r.value.persistent,'V06_BOUNDED_CONFIG_CHANGE');
+ r=await tool('set_config_value',{key:'allowedDirectories',value:['/']});eq(r.isError,'V06_CONFIG_PATH_POLICY_IMMUTABLE');
+ r=await tool('set_config_value',{key:'defaultShell',value:'/bin/sh'});eq(r.isError,'V06_CONFIG_SHELL_POLICY_IMMUTABLE');
+ r=await tool('set_config_value',{key:'telemetryEnabled',value:'true'});eq(r.isError,'V06_CONFIG_TYPE_ENFORCED');
+ r=await tool('track_ui_event',{event:'preview.test'});eq(!r.isError&&!r.value.recorded,'V06_TRACK_DISABLED_DEFAULT');
+ r=await tool('set_config_value',{key:'telemetryEnabled',value:true});eq(!r.isError,'V06_LOCAL_METRICS_OPT_IN');
+ r=await tool('track_ui_event',{event:'preview.test',component:'xoom-toolkit',params:{kind:'layout',index:1}});eq(!r.isError&&r.value.recorded&&!r.value.externalTelemetry,'V06_TRACK_LOCAL_ONLY');
+ r=await tool('track_ui_event',{event:'bad event!'});eq(r.isError,'V06_TRACK_INVALID_EVENT_REJECTED');
+ r=await tool('get_usage_stats',{});
+ eq(!r.isError&&r.value.uiEventCounts['preview.test']===1&&r.value.externalTelemetry===false,'V06_UI_AGGREGATES_WITHOUT_EXFIL');
+ r=await tool('give_feedback_to_desktop_commander',{});
+ eq(!r.isError&&r.value.url==='https://tally.so/r/mKqoKg'&&r.value.openedBrowser===false,'V06_OFFICIAL_FEEDBACK_LINK');
+ const content='# Xoom Layout Preview\n\nThis PDF verifies the physical Xoom renderer.\n- Interface\n- Configuration\n\nVERSION_V06';
+ r=await tool('write_pdf',{path:'v06-preview.pdf',content});
+ console.log('PDF_CREATION_RESULT',JSON.stringify(r));
+ eq(!r.isError&&r.value.file==='v06-preview.pdf'&&r.value.pages===1&&r.value.bytes>300,'V06_PDF_CREATED');
+ r=await tool('write_pdf',{path:'../outside.pdf',content:'no'});eq(r.isError,'V06_PDF_TRAVERSAL_REJECTED');
+ r=await tool('write_pdf',{path:'v06-unsupported.pdf',content:'bad \u2603 unicode'});eq(r.isError,'V06_PDF_UNSUPPORTED_UNICODE_REJECTED');
+ r=await tool('write_pdf',{path:'v06-unsupported.pdf',content:'safe',outputPath:'/tmp/other.pdf'});eq(r.isError,'V06_PDF_EDIT_PATH_REJECTED');
+ r=await tool('read_multiple_files',{paths:['v06-preview.pdf','smoke.txt']});
+ eq(!r.isError&&!r.value.files[0].ok&&r.value.files[1].ok,'V06_BINARY_PDF_NOT_EXPOSED_AS_UTF8');
+ console.log('XOOM_V06_26_TOOL_LOCAL_HARDWARE_QA_PASS');
+})().catch(e=>{console.error('V06_QA_FAIL',e.stack);process.exitCode=1}).finally(()=>{child.stdin.end();setTimeout(()=>child.kill(),250).unref()});
