@@ -33,3 +33,18 @@ Surface source scripts under `C:\Users\olsen\XoomDev\r22d4q-ssh-adb\`:
 - [Temporary workarounds → permanent package fixes](TEMPORARY-WORKAROUNDS-TO-PERMANENT-PACKAGE-FIXES-REGISTER-2026-10-16.md): Wi-Fi Runtime owns generalized glibc hosts/resolver and single-request; Time Sync owns boot/reconnect NTP; Desktop Commander proof currently owns headless browser UX, MCP launcher and remote pairing.
 - [Deferred shared platform package proposals and NEON Lite](DEFERRED-SHARED-PLATFORM-CAPABILITIES-AND-NEON-LITE-2026-10-16.md): reusable Linux runtime, CA trust infrastructure, generic MCP framework and future CPU compatibility need separate evidence, not implementation now.
 - Potential future **headless external-browser URL launcher** might help other CLI programs, but avoid creating a package merely to suppress xdg-open on this single test. The preferred generic behavior would print/copy an authorization URL and return an explicit no-browser status.
+
+
+## 2026-10-16 18:51–18:54 UTC — **FIRST AUTHENTICATED DIRECT CONNECTION AND CLOUD TOOL ROUND TRIP PASS**
+
+This supersedes the prior *pairing pending* status above:
+- User completed **first-party browser authorization** for the live one-time code. Do not save or publish the expired code.
+- Actual Xoom official agent: `Channel subscribed`, `Device marked as online`, `Presence tracked` and `Desktop Commander Remote is connected`. Registered independent device ID `941e6e17-58de-4b63-abbb-174057f897df`; device display name currently **localhost** because recovery's future network hostname implementation remains pending. Official agent version `0.3.0`.
+- ChatGPT's connected `list_devices` returned **four devices**, including online `localhost` at this exact provider-issued ID alongside the existing Surface, desktop and Pi.
+- ChatGPT invoked the provider remote **`ping`** tool explicitly scoped to the Xoom ID; the remote agent returned **`pong 2026-10-16T18:54:00.359Z`**, tagged **executed on device localhost**. **This proves actual ChatGPT → provider → physical Xoom remote agent → provider → ChatGPT request/response connectivity**.
+- ChatGPT also attempted a read-only `get_config` (a standard server tool name), which routed to this device but returned **MCP -32602 Unknown tool** exactly because the experimental local MCP child advertises only `get_device_info`. Do not count it as a successful child-tool execution. The direct cloud `ping` is handled by official parent remote transport, not our stdio child.
+- **Important remaining next subgoal:** make a normal stdio child MCP tool routable under a tool name that ChatGPT's connector can invoke, and prove success end-to-end. We have separately proven the physical stdio `get_device_info` child and real cloud `ping`, but not yet an integrated single request that traverses both.
+- No production installation, disk credential persistence or automatic boot start. The RAM-only agent uses `--no-persist-session`, server-side authorization can outlive local session and may be revoked from provider dashboard if desired. The temporary 720s test launcher is bounded and removes temporary /etc resolver files on normal exit. Do not confuse online in this experiment with persistent service across boot.
+- Scope stays **direct Desktop Commander proof and controlled MCP child QA**. Generic Linux runtime, CA trust, more robust NEON Lite and standalone headless-browser handling remain logged as deferred reuse candidates, NOT next builds.
+
+**Current authoritative status:** CORE DIRECT CLOUD CONNECTION **PASS**. Ordinary cloud-to-local-MCP tool **still pending**. This is an important distinction in any status or handoff.
