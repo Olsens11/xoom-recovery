@@ -28,3 +28,10 @@
 **Optional mDNS & Service Discovery**: user-owned network-friendly `<hostname>.local` resolution, standard RFC 6762/6763 collision and service discovery, only advertising actually active approved services (e.g. key-authenticated SFTP); separate default-OFF pinned package, compatible with Xoom ARM/legacy recovery. [Roadmap](NEXT-PACKAGE-ROUND-NETWORK-IDENTITY-AND-MDNS-ROADMAP-2026-10-15.md).
 
 **Change control:** The conclusion here closes *core feature design*, not implementation QA or unapproved edge-case policy. Do not mutate running recovery, pinned packages or SD settings based on this document alone.
+
+
+## 2026-10-16: Linux resolver requirement — separate from approved hostname identity
+
+In addition to the settled device hostname design above, physical Node 24/glibc testing exposed a new **Wi-Fi Runtime** responsibility: provision standard `/etc/hosts` and `/etc/resolv.conf` from real DHCP network information, with a tested `single-request` resolver option for A/AAAA query compatibility. The first RAM-only test restored localhost and external lookups; the extended test proved **default dual-stack HTTPS with strict TLS verification**, not just IPv4-only connections. This does **not** change or reopen any settled hostname identity preference behavior, and does not make the optional mDNS package or passive Network Diagnostics a DNS configuration owner.
+
+[Permanent-support design and QA backlog](WIFI-RUNTIME-FUTURE-GLIBC-RESOLVER-SUPPORT-2026-10-16.md) · [proven temporary workaround](XOOM-NODE24-RAM-ONLY-DNS-HTTPS-WORKAROUND-AND-QA-2026-10-16.md). **Documented only, not implemented.**
