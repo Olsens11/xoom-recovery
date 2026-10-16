@@ -1,4 +1,6 @@
 # R22d4p — Remaining six deployed-package post-QA review tracker
+> **LATEST CROSS-CHAT HANDOFF (2026-10-16):** [Full continuity handoff for remaining deployed-package QA reviews, settled Time Sync, and parked Network Identity/mDNS](HANDOFF-2026-10-16-POST-QA-REVIEW-RESUME-AND-DEFERRED-FEATURES.md). Latest user favors the familiar Wi-Fi status summary **Running / Connected / Connected, no Internet**, with three separate internal health layers. **Periodic internet rechecks are NOT yet approved**; automatic bounded verification after each genuine new Wi-Fi connection IS agreed. Continue Wi-Fi Runtime QA update discussion next; no code/device changes.
+
 
 **2026-10-15 | ACTIVE WORK:** Resume the original package-update *design reviews* after completing Time Sync discussion. This was explicitly requested by the user after we detoured into yet-to-be-built Network Identity/mDNS. Round-1 hardware QA on all seven packages is finished. **No code changes, new tests, new packages, running Xoom settings changes or flash are authorized by these reviews.** Discuss outstanding defects, improvements and future ideas for each deployed package; group shared changes; await an explicitly approved implementation plan.
 
