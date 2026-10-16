@@ -13,7 +13,7 @@
 
 | Queue | Existing package | Review status | Round-1 issues to discuss |
 |---|---|---|---|
-| **1 — NEXT** | **Wi-Fi Runtime 0.3.3** | Pending full review | XT-WIFI-001 DHCP `open_control` warning despite working connectivity; XT-WIFI-002 process READY vs actual `WIFI_READY` ambiguity; XT-WIFI-003 plaintext Wi-Fi secrets on FAT32 tradeoff; XT-WIFI-004 DNS server availability/actual resolution unknown. [QA report](QA-PACKAGE-WIFI-RUNTIME-0.3.3-R22D4P-2026-10-15.md) |
+| **1 — REVIEWED** | **Wi-Fi Runtime 0.3.3** | Design triage complete; investigations pending | XT-WIFI-001 DHCP `open_control` warning despite working connectivity; XT-WIFI-002 process READY vs actual `WIFI_READY` ambiguity; XT-WIFI-003 plaintext Wi-Fi secrets on FAT32 tradeoff; XT-WIFI-004 DNS server availability/actual resolution unknown. [QA report](QA-PACKAGE-WIFI-RUNTIME-0.3.3-R22D4P-2026-10-15.md) |
 | 2 | **Network Diagnostics 0.2.0** | Pending | XT-NETDIAG-001 DNS A test skipped; XT-NETDIAG-002 shared unsynced 1970 timestamps; XT-NETDIAG-003 export confirmation missing; XT-NETDIAG-004 unbenchmarked slowness. [QA report](QA-PACKAGE-NETWORK-DIAGNOSTICS-0.2.0-R22D4P-2026-10-15.md) |
 | 3 | **Recovery Log Collector 0.1.0** | Pending | XT-LOG-001 export feedback missing; XT-LOG-002 `module_wifi=LOADED` misleads about runtime RUNNING; XT-LOG-003 five other package statuses not covered; keep deliberate privacy limits. [QA report](QA-PACKAGE-RECOVERY-LOG-COLLECTOR-0.1.0-R22D4P-2026-10-15.md) |
 | 4 | **Partition & Storage Inspector 0.1.0** | Pending | XT-PART-001 unsynced timestamps; XT-PART-002 no export success/path feedback; XT-PART-003 speed only an observation; preserve read-only behavior. [QA report](QA-PACKAGE-PARTITION-INSPECTOR-0.1.0-R22D4P-2026-10-15.md) |
@@ -56,6 +56,26 @@ For honest behavior include transitional/inconclusive statuses such as **Startin
 - Apply this **small targeted Wi-Fi/Time Sync integration**, not a general event architecture, to the first fix plan. Keep implementation details (exact hook, process/worker counts, probe hosts, time budgets, cancellation API) as **ENGINEERING/QA TO VALIDATE**, not assumed hardware facts or consent to modify code/device.
 
 **Scope:** Documentation/review decision only. No packages, pins, source, recovery image, preferences, or live Xoom state changed. Resume XT-WIFI-004 DNS visibility/resolution, XT-WIFI-001 DHCP warning, and XT-WIFI-003 saved-secret tradeoff before leaving Wi-Fi Runtime review.
+
+## Wi-Fi Runtime 0.3.3 — user disposition of remaining QA findings (2026-10-16)
+
+**REVIEWED / INITIAL DIRECTION AGREED:** User accepted the targeted Wi-Fi Runtime triage, including continued optional plaintext Wi-Fi credential storage on FAT32 microSD with the existing explicit warning. Saving must remain optional; do **not** introduce new encryption/key management in the initial fix round.
+
+- **XT-WIFI-004 / XT-NETDIAG-001 — INVESTIGATE:** On-device verified gateway/public IPv4 reachability, but Network Diagnostics could not identify a DNS IPv4 server and skipped its DNS A test while the DNS proxy ran. Instrument DHCP-supplied DNS, effective configured resolver, proxy state and a genuine end-to-end name-resolution test. Repair only demonstrated propagation/visibility defects, without redesigning the working network stack.
+- **XT-WIFI-001 — INVESTIGATE, not yet confirmed bug:** `dhcpcd open_control: Permission denied` appeared despite successful WPA, DHCP and reconnect. Determine the specific control socket operation and actual consequences before changing privileges or permissions.
+- **XT-WIFI-003 — KEEP CURRENT BEHAVIOR:** Save credentials to SD remains explicit opt-in, plaintext warning remains visible, no unapproved re-encryption scheme.
+- **XT-WIFI-002 — AGREED DESIGN:** Runtime running, local Wi-Fi connected, and verified Internet availability remain separately tracked, with conventional truthful summary labels. One bounded post-connect check per genuine new connection; minimal single-flight helper direction, no new persistent supervisor or periodic Internet polling. Exact probe criteria, timeouts and UI are engineering/QA details not yet confirmed.
+- **Implementation still NOT authorized:** Review disposition permits planning only. Any update requires separately versioned trusted ZIPs, offline tests and approval for deployment. Move next to Network Diagnostics 0.2.0 after the special Wireless ADB check.
+
+## Special pre-work wireless ADB POC test — result and safety restoration (2026-10-16)
+
+User requested a targeted functional Wireless ADB trial before returning to the six-package reviews. **NOT FUNCTIONALLY PASSED.**
+
+- R22d4p on Xoom remained USB-ADB-accessible and `WIFI_READY` on 192.168.0.225. Windows desktop and Pi both confirmed LAN reachability. Official Android Platform-Tools 37.0.1 installed on desktop for a second independent client (Pi did not have adb installed).
+- Pinned POC `poc-insecure-wireless-adb 0.1.0` successfully VERIFIED and LOADED. A manual Toolkit Start action reported `START_FAILED` and subsequently `START_NOT_CONFIRMED`. Init briefly reported `xoomadbtcp=running`, but no listener was observed on TCP 5555. Desktop `adb connect 192.168.0.225:5555` reported connection refused. The manager command exiting with success despite the underlying START_FAILED marker also merits status propagation investigation.
+- Existing init service refers to the separate RAM-extracted binary and has a dedicated name; exact failure cause **not yet established**. Do not report secure pairing or functional wireless access. No secure authenticated TCP ADB was tested.
+- The short test was cleaned up: manager STOP and UNLOAD; final verified `init.svc.xoomadbtcp=stopped`, package `UNLOADED`, TCP 5555 **not listening**, original USB `init.svc.adbd=running`, `poc_adb_autoload=0`, `poc_adb_autorun=0`. No recovery flash, kernel modifications, permanent flag changes or Wi-Fi credential exposure.
+- **Follow-up:** inspect init/adbd startup failure offline and propose controlled future checks; do not leave unauthenticated root TCP exposed as an unattended fallback. Desktop is prepared with ADB but no actual wireless control path currently exists. Wireless ADB POC remains its own queue item for full design review.
 
 ## Shared triage that should not be fixed repeatedly
 - **Trustworthy timestamp provenance:** coordinate with agreed Time Sync mode, never treat arbitrary 1970 or just Wi-Fi READY as proof; offline diagnostic features stay available.
