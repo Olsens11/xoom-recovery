@@ -88,3 +88,20 @@ Original `boot-preferences.json` saved on Surface and SD as `boot-preferences.pr
 
 **Operator experience:** from a normal terminal on a host with an approved Ed25519 private key, `ssh -p 2222 root@XOOM_IP` is sufficient. No `stty`, terminal resize, or `-tt` workaround belongs in the standard Help/README. Remaining friction, if desired in a future separate migration, is the nonstandard port 2222 versus default SSH port 22. Changing that would require deliberately updating the server package, pinned ZIPs/recovery image, client known-host fingerprints keyed by port, Help, and rollback—not a silent edit to the proven release. Keep current port and working system untouched unless that migration is chosen.
 
+
+## Desktop Commander interactive SSH testing — reproduced and explained (2026-10-16)
+
+**This is a client execution-interface difference, not a remaining Xoom PTY bug.**
+
+The Desktop Commander `start_process` action frequently launches commands under a **noninteractive subprocess with stdin that is not a terminal**. On the Raspberry Pi, `stty -a` in such a subprocess returned `Inappropriate ioctl for device`. Normal `ssh -p 2222 ...` correctly printed **`Pseudo-terminal will not be allocated because stdin is not a terminal`**. An SSH server cannot reliably infer a nonexistent client terminal's rows/columns; attempts to drive remote BusyBox ash interactively through this interface can therefore show `stty: standard input: No such file or directory` and literal ANSI `ESC[6n` cursor-position queries. These reflect a *non-PTY local client / partial terminal emulator*, **not** an Xoom terminal incompatibility.
+
+**Practical recommended workflows**:
+1. **One-off commands directly from Desktop Commander:** use the already-connected Pi as a broker and issue `ssh -T -p 2222 -i ~/.ssh/xoom_recovery_access -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=~/.ssh/xoom_known_hosts root@XOOM_IP 'COMMAND'`. No interactive PTY is required for commands, files, status or starting/stopping Toolkit. Never pass arbitrary untrusted text as shell commands.
+2. **A real human interactive session:** open a normal Linux/macOS/Windows Terminal and run `ssh -p 2222 root@XOOM_IP` (port 22 migration is separate). OpenSSH automatically negotiates PTY, terminal dimensions, and window changes. No manual `stty`, no forced `-tt` necessary for this standard route.
+3. **Automated interactive QA *through* Desktop Commander:** create a **local** PTY on the Pi using `pty.openpty()` or `pexpect.spawn('ssh', ...)`; connect `ssh` stdin/stdout/stderr to that PTY, set a sane initial local terminal size, and handle cursor-position requests (`ESC[6n`) as a terminal emulator would. For resizing tests, send `SIGWINCH` after `TIOCSWINSZ`. This is test-harness behavior, **not Xoom setup**. Existing non-secret QA files `/home/ps2/xoom-phase1/private/ssh-adb-20261016/qa_plain_ssh_default.py`, `qa_interactive_ssh.py`, `qa_ssh_vi.py` demonstrate the methods.
+4. `ssh -tt` may force the Xoom to allocate a PTY when the invoking client has no one, but **does not itself create a proper local terminal**. If the client remains headless, terminal programs may still need a proper local PTY harness. Do not alter sshd's PTY implementation or Xoom shell startup to mask that.
+
+**Distinguish from the fixed genuine server bug:** the initial OpenSSH 10.6p1 Bionic build selected the BSD `/dev/pty*` fallback and returned `openpty: No such file or directory`; version 0.2.3 was rebuilt for Linux `/dev/ptmx` and `/dev/pts`, then passed actual PTY and interactive vi tests. No further PTY change is needed.
+
+**Current verified baseline:** Default `ssh` with a real 24x80 terminal passed prompt/command/size/exit. Full PTY-based QA passed Up-arrow history, Ctrl+C, resize from 30x100 to 44x120, interactive BusyBox vi save/exit. The remote SSH server remains independent of whether Desktop Commander is present.
+
