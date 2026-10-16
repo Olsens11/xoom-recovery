@@ -92,3 +92,16 @@ Fixing full shutdown requires building a *separate* experimental agent variant w
 - Future permanent dependency/secret/autostart work remains deferred to existing **Wi-Fi Runtime**, **Time Sync**, and consciously proposed shared runtime/CA packages; don't launch NEON Lite or reboot/flash recovery to solve these RAM tests.
 
 **Private source artifacts:** Do not publish the working JS files/bundles or any tokens without a separate review. This document records paths, checksums, commands and findings only. Neither source experiments nor the helper were made production dependencies.
+
+
+## 7. Separately built experimental offline-corrected agent — NO AUTH SESSION STARTED
+
+Following the standalone helper smoke test, a **second experimental official-agent bundle** was built in the private Pi scratch checkout, retaining the previous telemetry-only bundling shim, imported-device main-module suppression and official provider authentication code. One narrowly scoped source-build transform alters only the remote shutdown helper launch:
+
+1. Use the staged `$D/blocking-offline-update-xoom-poc.mjs` rather than the nonexistent `$D/scripts/blocking-offline-update.js`.
+2. Spawn `$D/ld-linux-armhf.so.3 --library-path $D/usr/lib/arm-linux-gnueabihf $D/usr/bin/node $D/blocking-offline-update-xoom-poc.mjs ...` rather than mistakenly spawning `process.execPath` (which is only the loader here).
+
+Private build script `/home/ps2/xoom-phase1/private/desktop-commander-agent-feasibility/remote-agent-ram-poc/build-agent-offline-xoom-poc.mjs`. Output `agent-remote-offline-poc.mjs`, **1,736,106 bytes**, SHA256 **`6b076df145ba2a43fd89cd7874ec51b7174c92c9dfd8fcdcbf04a7d05374ec10`**. Exact same SHA verified after staging to `/tmp/xoom-dc-runtime-qa/debian24/agent-remote-offline-poc.mjs` using authenticated Pi→Xoom SSH. The physical ARM Node `--help` invocation succeeded and exited without requesting a device code, establishing that this alternative bundle starts and parses arguments.
+
+**Not yet tested:** actual cloud authorization, helper authenticated network update, timeout interactions, status freshness, or whether the helper's 3-second shutdown budget is enough on Tegra 2. The official agent entry script still points to the original source-derived bundle and the actual cloud tool wrapper still points to v0.2. No user authentication, DNS workaround, or provider device registration was changed by preparing this build. **Do not silently promote the alternate bundle as proven.**
+
