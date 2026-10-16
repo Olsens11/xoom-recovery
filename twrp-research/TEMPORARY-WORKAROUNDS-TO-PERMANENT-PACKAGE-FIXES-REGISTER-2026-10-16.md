@@ -50,3 +50,18 @@ Some temporary dependencies have a **future multi-application value** and should
 - [Time Sync approved next design](R22D4Q-TIME-SYNC-FINAL-DESIGN-HANDOFF-2026-10-15.md)
 - [Network Identity approved design](NETWORK-IDENTITY-FINAL-DESIGN-HANDOFF-2026-10-15.md)
 - [Desktop Commander ARM/Node current handoff](HANDOFF-2026-10-16-DESKTOP-COMMANDER-XOOM-NODE22-VFPD16-RESUME.md)
+
+
+## **2026-10-16 direct-agent milestone and newly discovered generic launcher support**
+
+**XT-AGENT-DIRECT-001 — CORE REMOTE CONNECTION HARDWARE PASS (temporary):** User approved official Desktop Commander first-party device pairing; original remote transport 0.3.0 is live on Xoom, device `941e6e17-58de-4b63-abbb-174057f897df`, current display name `localhost`. ChatGPT reported Xoom as fourth remote device and a device-scoped official remote `ping` **returned a real pong**. This resolves direct authentication, cloud reachability and official parent-agent request/response feasibility. Does **not** resolve normal stdio child-tool routing (separate local `get_device_info` tests passed only locally); caller-visible standard `get_config` returned expected Unknown tool. See [direct-agent RAM-only detailed QA](XOOM-DIRECT-DESKTOP-COMMANDER-REMOTE-AGENT-RAM-QA-2026-10-16.md).
+
+**New temporary launcher adaptations (all installed in /tmp only, future packaging owner TBD):**
+- **XT-RUNTIME-EXEC-001:** Debian ARMhf Node ELF requires missing `/lib/ld-linux-armhf.so.3`; ordinary `execve(node)` fails. A private executable `/tmp/.../bin/desktop-commander` shell wrapper safely invokes staged loader and Node with library path. **Future owner:** agent-specific launcher unless another Linux userspace consumer justifies common shared-runtime package; don't modify system interpreter blindly.
+- **XT-AGENT-NOGUI-001:** First-party PKCE flow successfully fetched code, but automatic `xdg-open` on headless TWRP produced an unhandled ENOENT and killed the process. A RAM-only `xdg-open` shim returning failure allows official manual URL/code UI to proceed. **Future owner:** agent launcher/headless-browser UX first; generic shareable URL opener only if multiple real consumers need it.
+- **XT-AGENT-HOME-001:** Node `os.homedir()` failed absent POSIX user database and `HOME`; setting `HOME` to restricted RAM `/tmp/.../home` permits official config initialization. **Future owner:** agent/runtime process environment; review user/account/permissions if generalized.
+- **XT-AGENT-BUNDLE-001:** Official remote code required isolated esbuild packaging with telemetry capture no-op to break a bundled circular top-level await, plus one main-module detection adjustment to prevent double-start. **Future owner:** reproducible agent packaging; these do NOT change provider auth protocol. Full production upstream compatibility still needs validation.
+
+**Life-cycle:** currently explicit user-authenticated *server-side device registration* exists, even though local `--no-persist-session` stores no usable refresh token and temporary process is bounded. Revoke server-side device via provider controls if desired after testing. Check actual status before promising still online. Nothing was flashed or installed as an autorun service.
+
+**NEXT ON MAINLINE:** ordinary ChatGPT→cloud→local Xoom stdio MCP tool→cloud result; then reconnection, memory, explicit user-approved persistent secure packaging. The reusable-platform/NEON Lite parking lot remains a separate deferred backlog.
