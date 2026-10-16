@@ -1,5 +1,7 @@
 # Proposed Toolkit package: Desktop Commander Agent — feasibility and safer first step
 
+> **CURRENT AUTHORITATIVE RESUME HANDOFF (2026-10-16):** [HANDOFF-2026-10-16-DESKTOP-COMMANDER-XOOM-NODE22-VFPD16-RESUME.md](HANDOFF-2026-10-16-DESKTOP-COMMANDER-XOOM-NODE22-VFPD16-RESUME.md). This handoff consolidates the actual hardware SIGILL (`vldr d17` versus VFPv3-D16), the isolated cross-build's 1,664 saved ARM objects, completed kernel-ABI and emulation tests, Desktop Commander remote/MCP architecture findings, and exact safe build-resume steps. **There is not yet a linked custom Node executable or native Xoom agent.** The chronological notes below include earlier partial hypotheses; prefer the consolidated handoff when any status appears inconsistent.
+
 **2026-10-16. STATUS: EXPERIMENTAL IDEA / FEASIBILITY ONLY. NO PACKAGE DEPLOYED OR NATIVE AGENT INSTALLED.**
 **Project:** Motorola Xoom MZ600 (wingray), R22d4q custom TWRP recovery.
 **Purpose:** Make ChatGPT's connected Remote Desktop Commander able to access the Xoom directly as a recognized device, potentially removing the dependency on the Surface or Pi as an intermediary.
