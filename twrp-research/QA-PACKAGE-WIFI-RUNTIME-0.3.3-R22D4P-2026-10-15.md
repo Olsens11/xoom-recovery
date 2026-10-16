@@ -36,3 +36,10 @@ Screenshot files on Surface under `C:\Users\olsen\XoomDev\remote-tools\`: `qa-wi
 
 ## Untested / final state
 Negative cases (wrong saved profile, missing SD card, missing firmware, AP outage, DHCP failure, actual manual SSID/password entry, profile persistence after SD removal) remain NOT TESTED. No permanent settings or code altered. **Final Wi-Fi restored to WIFI_READY**, DNS service running, USB ADB connected, package RUNNING, Autoload+Autorun ON as before, same assigned LAN IP. No recovery flash.
+
+
+## **XT-WIFI-004 — Future Linux/glibc DNS resolver support (proven 2026-10-16; NOT shipped)**
+
+**Future update required.** Wi-Fi Runtime 0.3.3 provides working Wi-Fi/DHCP and Bionic DNS service but has no standard GNU/Linux `/etc/hosts` and `/etc/resolv.conf` in recovery. On actual Xoom, Debian ARMhf Node 24/glibc 2.43 failed `getaddrinfo` without these files. Temporary RAM-root hosts/resolv files with LAN DNS and `options single-request` restored **default dual-stack lookups, ordinary Node HTTPS, verified valid TLS server certificate, and rejection of a wrong-host certificate**. With no single-request option, default combined A+AAAA lookup failed `EAI_AGAIN` even while A-only and AAAA-only succeeded. `single-request-reopen` was also successful in targeted QA.
+
+**Future owner:** Wi-Fi Runtime, as part of a separately approved update. See [package-specific design and acceptance tests](WIFI-RUNTIME-FUTURE-GLIBC-RESOLVER-SUPPORT-2026-10-16.md) and [the temporary test procedure and evidence](XOOM-NODE24-RAM-ONLY-DNS-HTTPS-WORKAROUND-AND-QA-2026-10-16.md). Supply DHCP-provided DNS dynamically, preserve native Android/Bionic DNS, manage network changes and cleanup, and never hardcode test router `192.168.0.1`. This is not a confirmed existing Bionic DNS defect. **No package or recovery changes have occurred.**
