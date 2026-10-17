@@ -76,6 +76,10 @@ A profile is a *versioned, named policy object*, not a loose command string. Eac
 - Verify exact approved low-risk operation on physical Xoom with before/after measurements, rollback, least-privilege baseline regression, and standalone adversarial security suite.
 - Test supported ChatGPT cloud device permission path; do not use root fallback to evade independent platform action restrictions or authentication requirements.
 
+## Implementation milestone: v0.14 RAM preflight (October 17, 2026)
+
+A deliberately minimal gate is now implemented and physically tested in RAM on the Xoom. See the [v0.14 preflight hardware report](DESKTOP-COMMANDER-XOOM-V14-ONE-SHOT-PRIVILEGED-GATE-PREFLIGHT-HARDWARE-QA-2026-10-17.md) and [v0.14 source](desktop-commander-prototypes/v14/). It adds one **Xoom-specific** MCP tool `privileged_action` (27 advertised names total) supporting proposal, signed-authorization preflight, execution routing, cancellation and status, but allows only one fixed root-owned controller SHA256 diagnostic. The trust anchor is **absent by default**: a forged or unsigned conversation message cannot enable root access. Real root execution remains **disabled/not end-to-end tested** pending a trusted ChatGPT-user approval issuer and specific approval of the actual command. The QA briefly installed an ephemeral mock Ed25519 public key solely to test signed preflight, then removed it; **no actual root command was run via the new gate**. Inherited regression and 27-tool MCP contract passed. This advances the core protocol without adopting the larger profile/permanent-service design prematurely.
+
 ## Scope for first prototype
 **No enabled root execution yet.** First deliver proposal schema, read-only risk assessment, broker allowlist/policy and mock authorization token validator; negative tests in RAM. Once approved by user, select one genuinely needed *low-risk, reversible* protected action, validate it on hardware, and only then consider operational integration with Toolkit Manager.
 
