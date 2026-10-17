@@ -26,6 +26,28 @@ When an ordinary, unprivileged Desktop Commander operation cannot perform a legi
 - Keep UID2000 worker scratch-only. Do not silently reuse `start_process` as a privileged command channel; give proposed/approved executions a clear Xoom-specific, separately auditable interface and lifecycle.
 - The TWRP/R22d4q 2.6.39 kernel lacks modern isolation primitives; `node --permission` is not a complete Linux sandbox. Account for symlink/path TOCTOU, PID reuse, signal/process-tree failure, inherited file descriptors, namespace and mount behavior, and possible local socket access. For file changes, use fd-based checks and atomic operations where available; never claim perfect sandbox or zero risk.
 
+## Future extension: opt-in preapproved privileged command profiles
+
+**New design agreement, October 17, 2026:** After repeated real-world experience, users should be able to preapprove **specific safe root command profiles**, avoiding per-invocation user review for operations already assessed. This is a future feature **after** the one-shot approval gate and broker are independently tested. It is not approval for general-purpose unrestricted root execution.
+
+**Four authorization levels:** (0) normal unprivileged tools; (1) explicitly enabled, narrow preapproved privileged profiles; (2) target-specific one-shot reviewed root operations; (3) separate specialized elevated maintenance workflows requiring their own approval, or outright refusal for unsupported high-impact operations.
+
+A profile is a *versioned, named policy object*, not a loose command string. Each profile must include:
+- A human-readable purpose and tested justification for root instead of a regular tool.
+- Pinned executable identity and exact/validated argv grammar (no `sh -c`, scripts, unrestricted BusyBox dispatch, variable expansion or arbitrary interpreters), plus environment, cwd and runtime/output ceilings.
+- Allowed paths/devices, read/write intent and privacy constraints. Read-only must mean *side-effect free in the known context*: a utility with deceptive device or service side effects cannot be treated as diagnostic merely because its output is informative.
+- Preconditions checked **every execution**, including mount identity, target type/permissions, symlink/inode status, executable version/identity, device state and applicable risk thresholds. Drift or unfamiliar targets must fail closed to a new full review; no quiet auto-expansion.
+- What is logged to the user-facing Activity view, bounded/redacted output retention, explicit enable/disable controls, version, review date and expiration/review cadence.
+- A user-authorized profile activation, *prior to any automatic calls*. Subsequent operations fitting the unchanged profile can proceed without fresh per-call confirmation; commands outside the profile use the one-shot gate. Any profile revision or expanded scope needs explicit renewed approval.
+
+**Advancement criteria:** A successful one-time root command is not automatically promoted. Candidate profiles are nominated only after representative physical-hardware testing, failure/negative tests, clear lack of sensitive data exposure or destructive side effects, and an explicit user decision to enable the precise policy. Prefer low-impact **fixed read-only** diagnostics first; consider reversible targeted maintenance only after a higher bar. No blanket approval for `mount`, `dd`, flashing, recursive `chown/chmod`, writing boot partitions, persistent root services, or arbitrary shell execution.
+
+**Audit and revocation:** Each invocation records profile ID + pinned version/digest, specific argv and authorized targets (redacting secrets appropriately), preflight evidence, timestamps, result and bounded stderr/stdout summary. Users can pause/disable any profile immediately. On profile revocation, expiration, upgrade, uncertain environment, security alert, or loss of reliable audit storage, automatic elevated actions stop. No unconditional “trust this command forever.”
+
+**Important distinction from one-shot consent:** Level 1 is *standing explicit consent to a tightly bounded policy*, not approval minted by the model or inferred from previous success. Levels 2–3 retain individual, clearly presented approval. The independent broker enforces all levels and still honors host/platform policy blocks. The user never needs to approve routine unprivileged operations.
+
+**Preapproved-profile negative QA:** test missing/expired/revoked profile, unauthorized target, unexpected argv, executable replacement, symlink/path/mount drift, state change, tampered profile, conflicting simultaneous invocations, failed audit, denial of model-generated approval, and inability to cross from a low-risk profile into a high-impact root action.
+
 ## Mandatory negative and acceptance tests before enabling
 - No approval => no privileged mutation or execution.
 - Only malformed/unrecognized operation => deny; root shell, metacharacters, scripts, device-node targets, traversal, symlinks, unauthorized paths or flags => deny.
@@ -38,4 +60,4 @@ When an ordinary, unprivileged Desktop Commander operation cannot perform a legi
 ## Scope for first prototype
 **No enabled root execution yet.** First deliver proposal schema, read-only risk assessment, broker allowlist/policy and mock authorization token validator; negative tests in RAM. Once approved by user, select one genuinely needed *low-risk, reversible* protected action, validate it on hardware, and only then consider operational integration with Toolkit Manager.
 
-**Explicit user preference, 2026-10-17:** root access should be a last resort after other methods are attempted and rejected; only after an actual-command, target-specific risk audit presented to the user and explicit one-action approval; approval is not transferable and must not accidentally authorize destructive behavior.
+**Explicit user preference, 2026-10-17 (updated):** privileged access is a last resort when regular methods are inadequate. Initially, exact root operations need a specific risk audit and one-action approval. Later, repeatedly proven low-risk operations may become versioned, explicitly user-enabled, scoped privileged profiles that do **not** require repeat approval so long as each invocation remains inside the approved policy. No general unrestricted root access, inferred consent, or automatic promotion.
