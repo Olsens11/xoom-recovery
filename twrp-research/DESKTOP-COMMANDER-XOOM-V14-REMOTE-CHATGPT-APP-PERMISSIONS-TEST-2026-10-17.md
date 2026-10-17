@@ -1,0 +1,22 @@
+# Xoom v0.14 direct-cloud connectivity and native ChatGPT app-permission experiment
+
+**Date:** 2026-10-17. **Scope:** live, user-authorized experimental testing of the Xoom's Desktop Commander remote MCP device and ChatGPT's app-level confirmation settings. This is *not* a successful authenticated root-command approval bridge test.
+
+## Verified live remote facts
+
+- Official upstream-derived Desktop Commander remote agent was started on physical Motorola Xoom MZ600 in R22d4q TWRP via USB ADB/Surface and an isolated RAM-only v0.14 child. It used temporary `/etc/hosts` and `/etc/resolv.conf` via a cleanup-trapped launcher, real CA bundle, valid clock, and first-party device-code browser verification by user.
+- Existing Desktop Commander registered Xoom provider device ID `941e6e17-58de-4b63-abbb-174057f897df`, displayed as `localhost`; device appeared Online and native remote `ping` succeeded.
+- A **ChatGPT-initiated cloud `get_config`** returned real v0.14 controller version `xoom-scratch-dev-v0.14-LOCAL-ONLY`, 27 advertised child tool names, and `privilegedOneShotGate: {mode:'external-proof-required', enabled:false, actionCount:1, unrestrictedShell:false}`.
+- `list_directory` of private scratch succeeded, while `get_file_info` on root-owned runtime source outside scratch was denied with `Only paths within scratch, max four components`.
+- After user consent, **only Remote Desktop Commander plugin-specific permission** was temporarily changed from `Allow all actions` (`full_access`) to `Always ask` (`always_ask`). Under that setting a ChatGPT `get_config` request and a read-only fixed `start_process('diag identity')` both executed on the **actual Xoom**. The process reported `uid=0(root) gid=0(root)` and exit0. **No trustworthy approval event or signed attestation was exposed to these tool calls**, so they **do not establish** that a root-action-specific user approval reached or was enforced by the v0.14 broker. It is not established here what exact confirmation the ChatGPT client UI did/did not render to the user.
+- The app-specific permission was **restored** to its original `Allow all actions` and the setting was independently read back as `full_access`; no global permission changed.
+- With original permission restored, an additional harmless `start_process('id')` call was dispatched to the Xoom, but the local v0.14 child refused it with `Only owned Node development profiles or fixed diagnostics supported; no root shell`. This proves the effective restriction for this ordinary command is implemented in the **Xoom child**, not merely in the hosted Desktop Commander adapter. It does not establish what further host policies might apply to other commands or to a future expanded root executor.
+- Direct-cloud device remained **Online** at last independent provider listing. RAM-only launcher is time-bounded and not a persistent autostart package.
+
+## Key design conclusion
+
+The user's development priority is remote Xoom access **at least as useful as their other authorized computers**, with broad technical root capability on their own experimental tablet and appropriate consent for exceptional destructive operations. The Xoom recovery session already runs as root; the code voluntarily restricts its `start_process` command interface to fixed diagnostics and private UID2000 Node profiles. Avoid treating the current restriction as an OS limitation or claiming the platform permission setting created an action-bound authorization signature.
+
+The built-in ChatGPT app permission may be useful for broad confirmations, but the experiment did **not** demonstrate a securely bound one-time root approval that the Xoom broker could verify. The current v0.14 `privileged_action` phase tool is advertised by the Xoom child but not directly exposed through the existing ChatGPT Desktop Commander connector's published tool schema. A realistic next candidate is **a carefully reviewed, testable root development profile through the supported standard `start_process` interface** with explicit user-agreed dangerous-action checks, scope and bounded process lifecycle, rather than assuming the Xoom-specific tool can be invoked directly through the adapter. Do not misrepresent an in-chat DIL button that submits ordinary text as cryptographic host approval.
+
+**No arbitrary root operation was enabled or executed in this test.** The sole root process was the existing allowlisted read-only diagnostic. Original app-level setting was restored, recovery/install partitions unchanged, v0.13 rollback source preserved.
