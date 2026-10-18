@@ -39,3 +39,8 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 
 - [How the hierarchy becomes authoritative, and how newer evidence supersedes earlier claims](DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md).
 - [Evidence-source inventory](CROSS-MACHINE-SOURCE-MAP-2026-10-18.md); archived original documents remain preserved on the Pi.
+
+## Curated progress registers
+
+- [Recovery image decisions and revision timeline](recovery/REVISION-TIMELINE.md).
+- [Toolkit package selection and responsibility ledger](packages/SELECTED-BASELINES-AND-DECISIONS.md).

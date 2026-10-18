@@ -30,3 +30,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Exact image changes
 
 - [V6 → v6G recovered kernel and ramdisk component comparisons](versions/RECOVERY-IMAGE-COMPONENT-DIFFS-2026-10-18.md).
+
+## Curated revision progression
+
+- [Timeline of recovery revisions, architectural decisions and verified hardware turning points](REVISION-TIMELINE.md).
