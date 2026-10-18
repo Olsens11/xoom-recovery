@@ -1,5 +1,7 @@
 # Recovery revision timeline and architectural decisions
 
+**UI deferred request, October 18:** [Network tab follow-up](NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md) saved for appropriate next UI build: saved-profile SSID/password preload, all live Network Status fields restored, Autoconnect control moved to Wi-Fi Setup. **No code/UI build or flash yet.**
+
 **2026-10-18 current installed v6I physical QA:** The user flashed clean-name v6I; live 9,611,264-byte p6 image prefix SHA verified, full 12 MiB p6 archived and rehashed. TWRP/USB ADB pass. The clean Wi-Fi v0.5.2 ZIP on SD matches the new v6I trusted SHA, loaded automatically, WPA and DHCP BOUND PASS, DNS init daemon automatically RUNNING with 3/3 live socket queries plus Bionic-built BusyBox hostname ping success. **Installed recovery is now v6I**, replacing v6H as installed baseline; v6H preserved full-p6 rollback. Native DNS stop/restart stale-socket lifecycle remains UNTESTED, and full release is NOT claimed. [v6I physical first-boot QA](2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).
 
 **October 18, 2026 — v6I and Wi-Fi v0.5.2 clean-name coordination:** October 18 new clean-name v6I coordinated candidate assembled and staged after successful physical RAM DNS QA, 27/27 offline PASS. Previous one-file v6I draft preserved. Current flashed image still v6H; v6I has NOT been flashed. [Wi-Fi](../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) · [v6I](versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md)
