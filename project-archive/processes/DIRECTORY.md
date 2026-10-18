@@ -1,5 +1,7 @@
 # Engineering process reference library
 
+**October 18, 2026 — v6I and Wi-Fi v0.5.2 clean-name coordination:** [Artifact naming and qualification policy](ARTIFACT-NAMING-AND-STATUS.md) now separates status from stable names. [clean Wi-Fi 0.5.2 package](../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) and [coordinated clean v6I recovery](../recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md) passed independent 27/27 offline checks. **v6H remains physically installed; v0.5.2 is loaded under its original frozen filename**. New clean-name ZIP is staged on SD, new v6I image in RAM, both SHA verified; **v6I NOT FLASHED**.
+
 **Responsibility:** preserve methods generally standardized through Xoom recovery engineering and Toolkit QA so future agents can work consistently without rediscovering avoidable failures. This directory complements, but does not replace, the [authoritative project hierarchy](../DIRECTORY.md).
 
 **Status of these procedures:** documented **reference practices**, not immutable mandatory workflows. Some steps are proven on a specified historical image while others are recommended or proposed. Use judgment, validate applicability to the current revision, and record substantial departures and observed outcomes. Critical safety, explicit flash authorization, cryptographic integrity, secret-handling, rollback and the obligation to keep documentation current **remain mandatory**.

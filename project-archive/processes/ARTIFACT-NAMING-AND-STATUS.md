@@ -1,0 +1,7 @@
+# Artifact filenames versus qualification status
+
+**Decision October 18, 2026:** use stable, ordinary **version-identifying filenames**, such as `R22NEXT-V6I-Recovery.img` and `XoomToolkit-WiFi-Runtime-0.5.2.zip`. Experimental/deployment state belongs to the manifest, specific `DIRECTORY.md` and acceptance ledger, **not frozen warnings like `UNFLASHED`, `DO-NOT-FLASH`, `DO-NOT-INSTALL`, or `OFFLINE` embedded into filenames**. Earlier warning-named originals remain preserved for provenance, never silently overwritten.
+
+**Trust is not based on a nice filename.** The recovery verifier authorizes an exact filename plus outer ZIP SHA-256 **and** inner payload archive SHA. If repackaging changes *even just the manifest* but retains the identical payload, the outer digest changes while the inner digest stays the same; update the exact trusted `FILE`, `PIN`, and `--via-twrp` filename dispatch in the coordinated new recovery image. Confirm the `INNER` digest is unchanged and independently compare every other trusted package pin. Do not weaken verification or infer release from a `status` label alone.
+
+This decision was tested on [clean Wi-Fi v0.5.2 ZIP](../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) and [clean v6I image](../recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md), with 27/27 paired offline checks and on-device staged SHA verification. **Current installed recovery remains v6H**; staging is not a new flash. Permission/readback/cold-boot controls remain mandatory.

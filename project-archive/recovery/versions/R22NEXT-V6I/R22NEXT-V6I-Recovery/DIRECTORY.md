@@ -1,0 +1,16 @@
+# R22NEXT-V6I-Recovery.img — verified build and exact pins
+
+**Parent:** [R22next v6I revision group](../DIRECTORY.md).
+
+**Artifact:** `R22NEXT-V6I-Recovery.img`, **9,611,264 bytes**, SHA-256 **`043f539f5d84c8e9d0f1b588abed41fc6244a305b7426c745dbae8e072aef33f`**. Immutable copy: Pi `private/project-archive/artifacts/recovery/R22NEXT-V6I-Recovery.img`. Exact ancestor/installed v6H base SHA `d77ffeebe88e223b6d4b25c7b4809fb230f5daba8aba0c82889d8b6a7ec2695f`. **v6H still physically installed.**
+
+**Two (only two) changed ramdisk members versus v6H:**
+
+1. `init.recovery.service.rc` SHA-256 `ba8944259bc72bae199ff28f18e3373649d1306d484145ac09b112c30052f54c`: adds precisely `setenv LD_LIBRARY_PATH /system/lib` to `service xoomdns`. No other init/service settings changed. [Real v6H RAM wrapper test](../../../2026-10-18-V6H-DNS-RAM-QA-V6I-OFFLINE-CANDIDATE.md) proved init-owned proxy startup and three actual socket DNS cases; stale socket after init stop remains a separate lifecycle issue.
+2. `sbin/xoom-toolkit-verified-install` SHA-256 `b42150b0c6bd4960847f6e5cce31e4607f5e8e1b21a9fd5bb248cc3da0ee9a8a`: `wifi-runtime FILE=XoomToolkit-WiFi-Runtime-0.5.2.zip` with new outer `PIN=18a20f17bea70c9aec0dcff4eb8fbb5b66f4626a94cbd51d774228a7a6877862`. `INNER=ef0095de8ca9544df0b6865a6423ba17defe03a40e2c586e99f5371c5f4fa9ea` remains unchanged. The `--via-twrp` exact filename dispatch was changed to the same new filename. All seven other Toolkit package pins preserved, including Desktop Commander v0.16.0.
+
+**466 other non-trailer ramdisk members unchanged**: original network controller, trusted package system outside one record, GUI, recovery, USB ADB, boot init, kernel, Wi-Fi 0.5.2 inner payload, and Desktop Commander unchanged. Partition p6 size 12,582,912 bytes.
+
+**Independent 27/27 paired QA PASS**, including original ZIP integrity, 30 content hashes and modes, new manifest status, exactly two ramdisk member deltas, both filename references, new outer/unchanged inner pins, all other package pins and recovery critical files. Reviewed reproducible [build script](build_v6i_clean_filename_and_wifi_pins.py) and [independent verifier](verify_v6i_clean_names_paired.py); private audit logs under `private/network-foundation-next/development/v6i-clean-names-20261018/`.
+
+**Physical staging:** RAM path `/tmp/R22NEXT-V6I-Recovery.img` SHA-verified on Xoom, companion [Wi-Fi v0.5.2 renamed ZIP](../../../../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) staged on SD. Previous files were not overwritten. **Not flashed, not boot-tested and not released.** Before any write require specific approval for this hash, fresh live p6 verification/full rollback, exact-length readback before reboot, then unattended DNS/Toolkit QA.

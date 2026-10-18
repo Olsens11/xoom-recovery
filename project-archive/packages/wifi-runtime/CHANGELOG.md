@@ -1,5 +1,7 @@
 # wifi-runtime — revision history
 
+**October 18, 2026 — v6I and Wi-Fi v0.5.2 clean-name coordination:** Clean-name v0.5.2 ZIP staged, 1,614,287 bytes, SHA `18a20f17bea70c9aec0dcff4eb8fbb5b66f4626a94cbd51d774228a7a6877862`, new manifest status `HARDWARE_QA_CANDIDATE`; all 30 payload files identical. Companion v6I verifier updated; not yet installed through new image. [Wi-Fi](versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) · [v6I](../../recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md)
+
 **Current installed/loaded Wi-Fi Runtime: v0.5.2 on v6H; v0.5.1 is an archived fallback, not current.** The user performed the **v6H** recovery flash; physical p6 image-prefix SHA-256 independently verified, full p6 readback archived, USB ADB/TWRP 3.1.1-0 booted. Wi-Fi **v0.5.2** trusted Load and unattended WPA/DHCP BOUND/WIFI_READY with guarded recovery-RAM /data/misc **PASS**. Native `xoomdns` init service **FAIL/stopped**, despite the corrected proxy itself running with explicit `LD_LIBRARY_PATH=/system/lib` in a bounded physical test. This is a **partial hardware acceptance, NOT a fully released DNS/network stack**. Original v6G remains rollback. [v6H physical first-boot QA](../../recovery/2026-10-18-V6H-FIRST-BOOT-PHYSICAL-QA.md).
 
 ## Chronology and design decisions

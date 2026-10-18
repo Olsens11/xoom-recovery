@@ -1,5 +1,7 @@
 # Process library change history and interpretation
 
+**October 18, 2026 — v6I and Wi-Fi v0.5.2 clean-name coordination:** Retired warning-heavy naming for *new* candidate files; names are version-based and status in manifest/docs. Reviewed workflow requires both outer and inner trust pins, exact filename dispatcher and all other pins; no weakening. See artifact naming policy. [Wi-Fi](../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) · [v6I](../recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md)
+
 The process library is a **reference of historically standardized methods**, not a requirement that agents rigidly replicate past builders or test tooling. **Documentation maintenance and security, integrity, recovery-flash approval and secret-handling rules remain binding.**
 
 ## October 18, 2026 — initial reference handbook
