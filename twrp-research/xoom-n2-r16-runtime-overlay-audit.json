@@ -1,0 +1,181 @@
+{
+  "original": {
+    "sbin/recovery": {
+      "object_count": 46,
+      "missing_libraries": [],
+      "missing_symbol_count": 88,
+      "missing_symbols_by_consumer": {
+        "sbin/recovery": [
+          "_Z15adb_server_mainiii",
+          "_Z15set_misc_deviceNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE",
+          "_Z21update_binary_commandPKcP10ZipArchiveiiPNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEE",
+          "_Z23abupdate_binary_commandPKcP10ZipArchiveiiPNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEE",
+          "_Z24clear_bootloader_messagePNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE",
+          "_ZN10twrpSHA256C1Ev",
+          "_ZN7twadbbu10Write_TWFNENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEyb",
+          "_ZN7twadbbu11Write_TWIMGENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEy",
+          "__FD_SET_chk",
+          "__fread_chk",
+          "__fwrite_chk",
+          "__memchr_chk",
+          "__read_chk",
+          "__readlink_chk",
+          "__register_atfork",
+          "__strncpy_chk2",
+          "__write_chk",
+          "atof",
+          "mkfifo",
+          "signal",
+          "stderr",
+          "stdin",
+          "stdout",
+          "strtof"
+        ],
+        "libc++.so": [
+          "__ctype_get_mb_cur_max",
+          "__cxa_thread_atexit_impl",
+          "__fwrite_chk",
+          "__memchr_chk",
+          "__read_chk",
+          "__register_atfork",
+          "android_set_abort_message",
+          "freelocale",
+          "isdigit_l",
+          "islower_l",
+          "isupper_l",
+          "iswalpha_l",
+          "iswblank_l",
+          "iswcntrl_l",
+          "iswdigit_l",
+          "iswlower_l",
+          "iswprint_l",
+          "iswpunct_l",
+          "iswspace_l",
+          "iswupper_l",
+          "iswxdigit_l",
+          "isxdigit_l",
+          "localeconv",
+          "mbsnrtowcs",
+          "mbtowc",
+          "newlocale",
+          "stderr",
+          "stdin",
+          "stdout",
+          "strcoll_l",
+          "strftime_l",
+          "strtof",
+          "strtold",
+          "strtold_l",
+          "strtoll_l",
+          "strtoull_l",
+          "strxfrm_l",
+          "tolower_l",
+          "toupper_l",
+          "towlower_l",
+          "towupper_l",
+          "uselocale",
+          "wcscoll_l",
+          "wcsnrtombs",
+          "wcstof",
+          "wcstold",
+          "wcstoll",
+          "wcstoull",
+          "wcsxfrm_l"
+        ],
+        "libbase.so": [
+          "__memchr_chk",
+          "__read_chk",
+          "__register_atfork",
+          "__write_chk",
+          "android_set_abort_message",
+          "getprogname",
+          "stderr"
+        ],
+        "libe4crypt.so": [
+          "__memchr_chk",
+          "__read_chk",
+          "__register_atfork",
+          "add_key",
+          "e4crypt_is_native",
+          "keyctl_search",
+          "stderr"
+        ],
+        "libsoftkeymaster.so": [
+          "EVP_PKEY_assign_DSA",
+          "EVP_PKEY_assign_EC_KEY",
+          "EVP_PKEY_assign_RSA",
+          "__register_atfork",
+          "stderr"
+        ],
+        "libkeymaster_messages.so": [
+          "__register_atfork",
+          "stderr"
+        ],
+        "libprotobuf-cpp-lite.so": [
+          "__register_atfork",
+          "stderr"
+        ],
+        "libkeystore_binder.so": [
+          "_ZN7android10VectorImpl19reservedVectorImpl1Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl2Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl3Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl4Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl5Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl6Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl7Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl8Ev"
+        ],
+        "libbinder.so": [
+          "_ZN7android10VectorImpl19reservedVectorImpl1Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl2Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl3Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl4Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl5Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl6Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl7Ev",
+          "_ZN7android10VectorImpl19reservedVectorImpl8Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl1Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl2Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl3Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl4Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl5Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl6Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl7Ev",
+          "_ZN7android16SortedVectorImpl25reservedSortedVectorImpl8Ev"
+        ]
+      }
+    },
+    "sbin/adbd": {
+      "object_count": 1,
+      "missing_libraries": [],
+      "missing_symbol_count": 0,
+      "missing_symbols_by_consumer": {}
+    },
+    "init": {
+      "object_count": 1,
+      "missing_libraries": [],
+      "missing_symbol_count": 0,
+      "missing_symbols_by_consumer": {}
+    }
+  },
+  "matched_overlay": {
+    "sbin/recovery": {
+      "object_count": 51,
+      "missing_libraries": [],
+      "missing_symbol_count": 0,
+      "missing_symbols_by_consumer": {}
+    },
+    "sbin/adbd": {
+      "object_count": 1,
+      "missing_libraries": [],
+      "missing_symbol_count": 0,
+      "missing_symbols_by_consumer": {}
+    },
+    "init": {
+      "object_count": 1,
+      "missing_libraries": [],
+      "missing_symbol_count": 0,
+      "missing_symbols_by_consumer": {}
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "scanned": 1,
+  "issues": [],
+  "all_results": [
+    {
+      "executable": "sbin/twrpdec",
+      "elf_libraries": 9,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    }
+  ]
+}

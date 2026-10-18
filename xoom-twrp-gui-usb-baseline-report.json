@@ -1,0 +1,18 @@
+{
+  "name": "TWRP GUI + unchanged recovery USB ADB baseline",
+  "status": "UNFLASHED, UNTESTED ON DEVICE",
+  "based_on": "Phase0 verified recovery readback",
+  "source_sha256": "2A767E7108E835F22659CE3F6AF38E4A9A2C680B46FBC05AC4935C29A137DC58",
+  "kernel_sha256": "E0FD57F4ACF22E8FEFAA2A7B972A6B1D235465DEB18C4BBAEE2CBA335B6386E6",
+  "target_sha256": "B84E941B13518A093815FAB1A7FBF8D0425AD0EC87E9A4A2F256A29F0187D6DC",
+  "size_bytes": 6727680,
+  "unchanged_ramdisk_members": 335,
+  "changed_ramdisk_members": [
+    "init.rc"
+  ],
+  "recovery_service": "/sbin/recovery",
+  "wifi_auto_start": false,
+  "wifi_adb": false,
+  "original_twrp_gui_included": true,
+  "usb_adbd_service_unchanged": true
+}

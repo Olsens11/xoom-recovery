@@ -1,0 +1,14 @@
+{
+  "file": "twrp-3.1.1-wingray-noBigPart-20200714-linusdan.img",
+  "source": "https://androidfilehost.com/?fid=8889791610682892799",
+  "developer": "linusdan",
+  "published": "2020-07-15",
+  "status": "Unmodified upstream image; NOT YET TESTED ON MZ600",
+  "md5": "b6d72790273641471b0b465c7b0497ef",
+  "sha256": "0e8af5497a6ee3af9c98a0640457ea4f476f0dd3516e33979610eae3eb34134a",
+  "bytes": 7393280,
+  "recovery_partition_limit": 12582912,
+  "notes": "Boot header and filesystem layout match original MZ600 recovery; wifi-only boot cmdline matches proven baseline; different kernel and USB init.",
+  "rollback_twrp_sha256": "b84e941b13518a093815fab1a7fbf8d0425ad0ec87e9a4a2f256a29f0187d6dc",
+  "rollback_phase1b_sha256": "51e26899777cc45c818620f380a88b8630d381fe26f966387b1a6d01c25ff8f0"
+}

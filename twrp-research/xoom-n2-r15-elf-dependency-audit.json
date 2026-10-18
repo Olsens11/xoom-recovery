@@ -1,0 +1,530 @@
+{
+  "image": "xoom-twrp311-network-n2-r15-closure-UNFLASHED.img",
+  "nodes_visited": 46,
+  "present_in_image": 46,
+  "additional_libraries": {},
+  "unresolved": [],
+  "invalid": [],
+  "duplicate_providers": {
+    "libz.so": [
+      "sbin/libz.so",
+      "system/lib/libz.so"
+    ],
+    "libc.so": [
+      "sbin/libc.so",
+      "system/lib/libc.so"
+    ],
+    "libcutils.so": [
+      "sbin/libcutils.so",
+      "system/lib/libcutils.so"
+    ],
+    "libstdc++.so": [
+      "sbin/libstdc++.so",
+      "system/lib/libstdc++.so"
+    ],
+    "libcrypto.so": [
+      "sbin/libcrypto.so",
+      "system/lib/libcrypto.so"
+    ],
+    "libselinux.so": [
+      "sbin/libselinux.so",
+      "system/lib/libselinux.so"
+    ],
+    "libdl.so": [
+      "sbin/libdl.so",
+      "system/lib/libdl.so"
+    ],
+    "libm.so": [
+      "sbin/libm.so",
+      "system/lib/libm.so"
+    ],
+    "liblog.so": [
+      "sbin/liblog.so",
+      "system/lib/liblog.so"
+    ],
+    "libutils.so": [
+      "sbin/libutils.so",
+      "system/lib/libutils.so"
+    ],
+    "libhardware.so": [
+      "sbin/libhardware.so",
+      "system/lib/libhardware.so"
+    ],
+    "libcorkscrew.so": [
+      "sbin/libcorkscrew.so",
+      "system/lib/libcorkscrew.so"
+    ],
+    "libgccdemangle.so": [
+      "sbin/libgccdemangle.so",
+      "system/lib/libgccdemangle.so"
+    ]
+  },
+  "edges": {
+    "sbin/recovery": {
+      "location": "sbin/recovery",
+      "needed": [
+        "libaosprecovery.so",
+        "libz.so",
+        "libc.so",
+        "libcutils.so",
+        "libstdc++.so",
+        "libtar.so",
+        "libblkid.so",
+        "libminuitwrp.so",
+        "libminadbd.so",
+        "libmtdutils.so",
+        "libminzip.so",
+        "libtwadbbu.so",
+        "libbootloader_message.so",
+        "libcrecovery.so",
+        "libtwrpdigest.so",
+        "libc++.so",
+        "libcrypto.so",
+        "libbase.so",
+        "libsparse.so",
+        "libext4_utils.so",
+        "libselinux.so",
+        "libtwrpmtp.so",
+        "libcryptfslollipop.so",
+        "libgpt_twrp.so",
+        "libe4crypt.so",
+        "libopenaes.so",
+        "libdl.so",
+        "libm.so"
+      ]
+    },
+    "libaosprecovery.so": {
+      "location": "sbin/libaosprecovery.so",
+      "needed": [
+        "libc.so",
+        "liblog.so",
+        "libcutils.so",
+        "libmtdutils.so",
+        "libfusesideload.so",
+        "libselinux.so",
+        "libminzip.so",
+        "libstdc++.so",
+        "libstlport.so",
+        "libmincrypttwrp.so",
+        "libm.so"
+      ]
+    },
+    "libz.so": {
+      "location": "sbin/libz.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libc.so": {
+      "location": "sbin/libc.so",
+      "needed": [
+        "libdl.so"
+      ]
+    },
+    "libcutils.so": {
+      "location": "sbin/libcutils.so",
+      "needed": [
+        "liblog.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libstdc++.so": {
+      "location": "sbin/libstdc++.so",
+      "needed": [
+        "libc.so"
+      ]
+    },
+    "libtar.so": {
+      "location": "sbin/libtar.so",
+      "needed": [
+        "libz.so",
+        "libc.so",
+        "libselinux.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libblkid.so": {
+      "location": "sbin/libblkid.so",
+      "needed": [
+        "libc.so",
+        "libutil-linux.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libminuitwrp.so": {
+      "location": "sbin/libminuitwrp.so",
+      "needed": [
+        "libft2.so",
+        "libz.so",
+        "libc.so",
+        "libcutils.so",
+        "libpng.so",
+        "libutils.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libminadbd.so": {
+      "location": "sbin/libminadbd.so",
+      "needed": [
+        "libfusesideload.so",
+        "libcutils.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libmtdutils.so": {
+      "location": "sbin/libmtdutils.so",
+      "needed": [
+        "libcutils.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libminzip.so": {
+      "location": "sbin/libminzip.so",
+      "needed": [
+        "libselinux.so",
+        "libz.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libtwadbbu.so": {
+      "location": "sbin/libtwadbbu.so",
+      "needed": [
+        "libstlport.so",
+        "libz.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libbootloader_message.so": {
+      "location": "sbin/libbootloader_message.so",
+      "needed": [
+        "libstlport.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libcrecovery.so": {
+      "location": "sbin/libcrecovery.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libtwrpdigest.so": {
+      "location": "sbin/libtwrpdigest.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libstlport.so",
+        "libm.so"
+      ]
+    },
+    "libc++.so": {
+      "location": "system/lib/libc++.so",
+      "needed": [
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    "libcrypto.so": {
+      "location": "sbin/libcrypto.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so",
+        "libdl.so"
+      ]
+    },
+    "libbase.so": {
+      "location": "system/lib/libbase.so",
+      "needed": [
+        "liblog.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    "libsparse.so": {
+      "location": "sbin/libsparse.so",
+      "needed": [
+        "libz.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libext4_utils.so": {
+      "location": "sbin/libext4_utils.so",
+      "needed": [
+        "libselinux.so",
+        "libsparse.so",
+        "libz.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libselinux.so": {
+      "location": "sbin/libselinux.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libtwrpmtp.so": {
+      "location": "sbin/libtwrpmtp.so",
+      "needed": [
+        "libstlport.so",
+        "libz.so",
+        "libc.so",
+        "libusbhost.so",
+        "libstdc++.so",
+        "libdl.so",
+        "libcutils.so",
+        "libutils.so",
+        "libaosprecovery.so",
+        "libselinux.so",
+        "libm.so"
+      ]
+    },
+    "libcryptfslollipop.so": {
+      "location": "sbin/libcryptfslollipop.so",
+      "needed": [
+        "libcrypto.so",
+        "libhardware.so",
+        "libcutils.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libgpt_twrp.so": {
+      "location": "sbin/libgpt_twrp.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libe4crypt.so": {
+      "location": "system/lib/libe4crypt.so",
+      "needed": [
+        "libselinux.so",
+        "libc.so",
+        "libc++.so",
+        "libext4_utils.so",
+        "libsoftkeymaster.so",
+        "libbase.so",
+        "libcrypto.so",
+        "libcutils.so",
+        "libkeymaster_messages.so",
+        "libhardware.so",
+        "libprotobuf-cpp-lite.so",
+        "libdl.so",
+        "libm.so"
+      ]
+    },
+    "libopenaes.so": {
+      "location": "sbin/libopenaes.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libdl.so": {
+      "location": "sbin/libdl.so",
+      "needed": []
+    },
+    "libm.so": {
+      "location": "sbin/libm.so",
+      "needed": [
+        "libc.so"
+      ]
+    },
+    "liblog.so": {
+      "location": "sbin/liblog.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libfusesideload.so": {
+      "location": "sbin/libfusesideload.so",
+      "needed": [
+        "libcutils.so",
+        "libc.so",
+        "libmincrypttwrp.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libstlport.so": {
+      "location": "sbin/libstlport.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libmincrypttwrp.so": {
+      "location": "sbin/libmincrypttwrp.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libutil-linux.so": {
+      "location": "sbin/libutil-linux.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libft2.so": {
+      "location": "sbin/libft2.so",
+      "needed": [
+        "libpng.so",
+        "libz.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libpng.so": {
+      "location": "sbin/libpng.so",
+      "needed": [
+        "libz.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libutils.so": {
+      "location": "sbin/libutils.so",
+      "needed": [
+        "liblog.so",
+        "libcutils.so",
+        "libdl.so",
+        "libcorkscrew.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libusbhost.so": {
+      "location": "sbin/libusbhost.so",
+      "needed": [
+        "libcutils.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libhardware.so": {
+      "location": "sbin/libhardware.so",
+      "needed": [
+        "libcutils.so",
+        "liblog.so",
+        "libdl.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libsoftkeymaster.so": {
+      "location": "system/lib/libsoftkeymaster.so",
+      "needed": [
+        "libcrypto.so",
+        "liblog.so",
+        "libkeystore_binder.so",
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    "libkeymaster_messages.so": {
+      "location": "system/lib/libkeymaster_messages.so",
+      "needed": [
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    "libprotobuf-cpp-lite.so": {
+      "location": "system/lib/libprotobuf-cpp-lite.so",
+      "needed": [
+        "libc++.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    "libcorkscrew.so": {
+      "location": "sbin/libcorkscrew.so",
+      "needed": [
+        "libdl.so",
+        "libcutils.so",
+        "liblog.so",
+        "libgccdemangle.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libkeystore_binder.so": {
+      "location": "system/lib/libkeystore_binder.so",
+      "needed": [
+        "libbinder.so",
+        "libutils.so",
+        "liblog.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libgccdemangle.so": {
+      "location": "sbin/libgccdemangle.so",
+      "needed": [
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    },
+    "libbinder.so": {
+      "location": "system/lib/libbinder.so",
+      "needed": [
+        "liblog.so",
+        "libcutils.so",
+        "libutils.so",
+        "libc.so",
+        "libstdc++.so",
+        "libm.so"
+      ]
+    }
+  }
+}

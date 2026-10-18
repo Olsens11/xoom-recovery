@@ -1,0 +1,216 @@
+{
+  "scanned": 30,
+  "issues": [],
+  "all_results": [
+    {
+      "executable": "init",
+      "elf_libraries": 0,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/adbd",
+      "elf_libraries": 0,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/bu",
+      "elf_libraries": 9,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/busybox",
+      "elf_libraries": 6,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/dump_image",
+      "elf_libraries": 12,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/e2fsck",
+      "elf_libraries": 10,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/erase_image",
+      "elf_libraries": 12,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/exfat-fuse",
+      "elf_libraries": 5,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/fatlabel",
+      "elf_libraries": 4,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/flash_image",
+      "elf_libraries": 12,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/fsck.exfat",
+      "elf_libraries": 5,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/fsck.fat",
+      "elf_libraries": 4,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/healthd",
+      "elf_libraries": 0,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/linker",
+      "elf_libraries": 0,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/listxattr",
+      "elf_libraries": 4,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/make_ext4fs",
+      "elf_libraries": 16,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/mke2fs",
+      "elf_libraries": 10,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/mkexfatfs",
+      "elf_libraries": 5,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/mkfs.fat",
+      "elf_libraries": 4,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/openaes",
+      "elf_libraries": 6,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/pigz",
+      "elf_libraries": 5,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/reboot",
+      "elf_libraries": 7,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/recovery",
+      "elf_libraries": 50,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/resize2fs",
+      "elf_libraries": 9,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/sgdisk",
+      "elf_libraries": 0,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/simg2img",
+      "elf_libraries": 7,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/toolbox",
+      "elf_libraries": 11,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/tune2fs",
+      "elf_libraries": 9,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/twrp",
+      "elf_libraries": 4,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    },
+    {
+      "executable": "sbin/twrpdec-legacy",
+      "elf_libraries": 9,
+      "missing_library_names": [],
+      "unresolved_symbol_count": 0,
+      "unresolved_symbols": []
+    }
+  ]
+}
