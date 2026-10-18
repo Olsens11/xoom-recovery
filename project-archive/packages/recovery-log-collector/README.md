@@ -11,3 +11,7 @@ Retain dated hardware evidence of actual installations.
 | XoomToolkit-Recovery-Log-Collector-0.1.0-OFFLINE-ONLY.zip | 3463 | b53b208e9e0a51fa5b5b06c8cc05ac18fab7ba247d84b97ea7ce14900d38ffb2 | private/XoomToolkit-Recovery-Log-Collector-0.1.0-OFFLINE-ONLY.zip |
 
 Private immutable copies: private/project-archive/artifacts/recovery-log-collector/ . Public GitHub should contain only audited source and documentation, never automatic binary/credential uploads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.

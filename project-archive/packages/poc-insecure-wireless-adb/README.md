@@ -12,3 +12,7 @@ Developer only, fail-closed and default-off.
 | XoomToolkit-ADB-to-SSH-Link-0.2.0.zip | 342727 | 3e286b38da9747a8af29ed0d67a6547a5ed690bb9b43f62640afe5c6f0e0c483 | private/ssh-adb-20261016/XoomToolkit-ADB-to-SSH-Link-0.2.0.zip |
 
 Private immutable copies: private/project-archive/artifacts/poc-insecure-wireless-adb/ . Public GitHub should contain only audited source and documentation, never automatic binary/credential uploads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.

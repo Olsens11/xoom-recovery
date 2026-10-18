@@ -70,3 +70,7 @@ User confirms v6D was deliberately flashed. The frozen filename saying UNFLASHED
 | xoom-phase1c-autotcp-recovery.img | a9406162a7756b53e344b08e08df8ac828da2af9d38c1ea486597230b3578139 | xoom-phase1c-autotcp-recovery.img |
 | xoom-phase1d-autoadb-recovery.img | 9848407e48a80abe0d0a5d8d9916e334b2b211def4fea0451e4992130e5ebe5e | xoom-phase1d-autoadb-recovery.img |
 | xoom-twrp-gui-usb-baseline.img | b84e941b13518a093815fab1a7fbf8d0425ad0ec87e9a4a2f256a29f0187d6dc | xoom-twrp-gui-usb-baseline.img |
+
+## Cumulative source provenance
+
+The original native WSL build checkout, private Pi builders, Surface QA and exact full p6 snapshots are indexed in the [October 18 cross-machine source map](../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Use the physical [v6G QA checkpoint](2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md) for current observed status.

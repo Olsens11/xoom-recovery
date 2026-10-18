@@ -15,3 +15,7 @@ Every archived image or package ZIP has an individual versions/<series>/<artifac
 ## Latest hardware audit
 
 - Oct 18 v6D cold reboot: recovery USB ADB survived, but normal Wi-Fi autoload failed INNER_PIN_MISMATCH. See recovery/2026-10-18-V6D-COLD-BOOT-AND-VERIFIER-AUDIT.md. A prior manually/live-established Wi-Fi state must not be treated as a cold-boot pass.
+
+## Cumulative machine archive and reconciliation
+
+Read the [October 18 cross-machine source map](CROSS-MACHINE-SOURCE-MAP-2026-10-18.md) for the newly unified private Pi backup, source provenance per package and recovery, exact current partition readback, and GitHub publication safeguards.

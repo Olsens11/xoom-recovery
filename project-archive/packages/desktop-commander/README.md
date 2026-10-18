@@ -24,3 +24,7 @@ Private immutable copies: private/project-archive/artifacts/desktop-commander/ .
 - Neither DC package is yet registered in the recovery image verifier/Manager.
 
 Public GitHub lists metadata/source-history only. Do not upload private raw agent state, auth, Node binary sidecars or unpublished ZIP payloads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.

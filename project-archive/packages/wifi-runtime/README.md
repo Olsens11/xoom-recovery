@@ -36,3 +36,7 @@ This is NOT production-qualified as of Oct 18. See v6D live hardware and V6E har
 | XoomToolkit-WiFi-Runtime-0.4.0-STATIC-HOOK-PRE-WPA-CHECK.zip | 1622211 | 3b61341801197defd2ed9ea7a8f24e33915d660af2fe1b64de77d05b11e4b79a | private/wifi-runtime-v040-dev/XoomToolkit-WiFi-Runtime-0.4.0-STATIC-HOOK-PRE-WPA-CHECK.zip |
 
 Private immutable copies: private/project-archive/artifacts/wifi-runtime/ . Public GitHub should contain only audited source and documentation, never automatic binary/credential uploads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.

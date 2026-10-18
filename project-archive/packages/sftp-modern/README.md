@@ -15,3 +15,7 @@ Authoritative project entry as of Oct 18, 2026. Status is time-bound; verify phy
 | XoomToolkit-SFTP-and-SSH-Server-0.2.3.zip | 565699 | 743cdb5df2279ad870ad3ccec9f761de1d275e4e0b2356d2afde375fab947082 | private/ssh-adb-20261016/XoomToolkit-SFTP-and-SSH-Server-0.2.3.zip |
 
 Private immutable copies: private/project-archive/artifacts/sftp-modern/ . Public GitHub should contain only audited source and documentation, never automatic binary/credential uploads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.

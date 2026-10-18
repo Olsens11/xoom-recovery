@@ -12,3 +12,7 @@ Inspect/report only; not owner of resolver writes.
 | XoomToolkit-Network-Diagnostics-0.1.0-PREVIEW.zip | 1384 | 7b5c7a31b07d3bab00e3232b8d4a2e5819440ddc60eb234de5db9955dd275612 | private/XoomToolkit-Network-Diagnostics-0.1.0-PREVIEW.zip |
 
 Private immutable copies: private/project-archive/artifacts/network-diagnostics/ . Public GitHub should contain only audited source and documentation, never automatic binary/credential uploads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.

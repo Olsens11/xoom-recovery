@@ -13,3 +13,7 @@ Manual physical one-shot SYNCED was proven. Boot orchestration must be qualified
 | XoomToolkit-Time-Sync-0.2.1-32BIT-EPOCH-FIX-TEST.zip | 2793 | eb75233966306e3fb2f1000ff1a184307ff4a6d39b4f0a71e0a56349ec758165 | private/XoomToolkit-Time-Sync-0.2.1-32BIT-EPOCH-FIX-TEST.zip |
 
 Private immutable copies: private/project-archive/artifacts/time-sync/ . Public GitHub should contain only audited source and documentation, never automatic binary/credential uploads.
+
+## Cumulative source provenance
+
+The exact machine-specific source and QA archive locations, including newer hardware evidence and remaining reconciliation gates, are listed in the [October 18 cross-machine source map](../../CROSS-MACHINE-SOURCE-MAP-2026-10-18.md). Date-scoped files are historical records; read the latest verified checkpoint before treating an artifact as current.
