@@ -1,5 +1,7 @@
 # Wi-Fi Runtime 0.5.2 DNS sigaction — immutable offline ZIP
 
+**Current installed/loaded Wi-Fi Runtime: v0.5.2 on v6H; v0.5.1 is an archived fallback, not current.** The user performed the **v6H** recovery flash; physical p6 image-prefix SHA-256 independently verified, full p6 readback archived, USB ADB/TWRP 3.1.1-0 booted. Wi-Fi **v0.5.2** trusted Load and unattended WPA/DHCP BOUND/WIFI_READY with guarded recovery-RAM /data/misc **PASS**. Native `xoomdns` init service **FAIL/stopped**, despite the corrected proxy itself running with explicit `LD_LIBRARY_PATH=/system/lib` in a bounded physical test. This is a **partial hardware acceptance, NOT a fully released DNS/network stack**. Original v6G remains rollback. [v6H physical first-boot QA](../../../../../recovery/2026-10-18-V6H-FIRST-BOOT-PHYSICAL-QA.md).
+
 **Parent:** [v0.5.2 group](../DIRECTORY.md) · [Wi-Fi Runtime](../../../DIRECTORY.md).
 
 **Verification: OFFLINE BUILT + CROSS-BOUNDARY AUDITED (31/31 shared Wi-Fi/recovery checks). NOT INSTALLED. NOT RELEASED.** Recorded October 18, 2026.

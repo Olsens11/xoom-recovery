@@ -1,5 +1,7 @@
 # recovery / versions / R22NEXT-V6G / R22NEXT-V6G-WIFI-DESKTOP-AND-HOSTS-OFFLINE-UNFLASHED
 
+**v6G no longer installed; historical v6G flash/readback remain true and complete p6 v6G rollback is preserved.** The user performed the **v6H** recovery flash; physical p6 image-prefix SHA-256 independently verified, full p6 readback archived, USB ADB/TWRP 3.1.1-0 booted. Wi-Fi **v0.5.2** trusted Load and unattended WPA/DHCP BOUND/WIFI_READY with guarded recovery-RAM /data/misc **PASS**. Native `xoomdns` init service **FAIL/stopped**, despite the corrected proxy itself running with explicit `LD_LIBRARY_PATH=/system/lib` in a bounded physical test. This is a **partial hardware acceptance, NOT a fully released DNS/network stack**. Original v6G remains rollback. [v6H physical first-boot QA](../../../2026-10-18-V6H-FIRST-BOOT-PHYSICAL-QA.md).
+
 **Coordinated offline candidates — October 18, 2026:** [a separate v0.5.2 ZIP](../../../../packages/wifi-runtime/versions/v0.5.2/DIRECTORY.md) and [companion v6H recovery image](../../R22NEXT-V6H/DIRECTORY.md) were built and passed offline integration QA 31/31. They **do not supersede the actual installed v6G/v0.5.1 baseline** until explicitly flashed/loaded and verified; original frozen bytes and historical tests are unchanged.
 
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.

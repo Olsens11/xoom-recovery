@@ -1,5 +1,7 @@
 # R22next v6H — DHCP parent + Wi-Fi 0.5.2 coordinated image
 
+**Current installed recovery: v6H (verified first recovery boot), superseding v6G as installed baseline.** The user performed the **v6H** recovery flash; physical p6 image-prefix SHA-256 independently verified, full p6 readback archived, USB ADB/TWRP 3.1.1-0 booted. Wi-Fi **v0.5.2** trusted Load and unattended WPA/DHCP BOUND/WIFI_READY with guarded recovery-RAM /data/misc **PASS**. Native `xoomdns` init service **FAIL/stopped**, despite the corrected proxy itself running with explicit `LD_LIBRARY_PATH=/system/lib` in a bounded physical test. This is a **partial hardware acceptance, NOT a fully released DNS/network stack**. Original v6G remains rollback. [v6H physical first-boot QA](../../../2026-10-18-V6H-FIRST-BOOT-PHYSICAL-QA.md).
+
 **Parent:** [v6H group](../DIRECTORY.md) · [recovery overview](../../../DIRECTORY.md).
 
 **Status: OFFLINE CANDIDATE, NOT FLASHED, NOT RELEASED.** Date 2026-10-18.
