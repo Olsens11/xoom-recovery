@@ -1,0 +1,55 @@
+--- a/gui/objects.hpp
++++ b/gui/objects.hpp
+@@ -32,6 +32,7 @@
+ 
+ #include "../data.hpp"
+ #include "resources.hpp"
++#include "xoom-qr-matrix.hpp"
+ #include "pages.hpp"
+ #include "../partitions.hpp"
+ #include "placement.h"
+@@ -237,6 +238,19 @@
+ protected:
+ 	ImageResource* mImage;
+ 	ImageResource* mHighlightImage;
++};
++
++// Xoom custom pairing QR drawn from a bounded RAM-only PBM matrix.
++class GUIXoomQR : public GUIObject, public RenderObject
++{
++public:
++    GUIXoomQR(xml_node<>* node);
++    virtual int Render(void);
++    virtual int Update(void);
++private:
++    bool refresh();
++    xoomqr::Matrix mMatrix;
++    time_t mLastCheck;
+ };
+ 
+ // GUIFill - Used for fill colors
+--- a/gui/pages.cpp
++++ b/gui/pages.cpp
+@@ -350,6 +350,12 @@
+ 		else if (type == "image")
+ 		{
+ 			GUIImage* element = new GUIImage(child);
++			mObjects.push_back(element);
++			mRenders.push_back(element);
++		}
++		else if (type == "xoomqr")
++		{
++			GUIXoomQR* element = new GUIXoomQR(child);
+ 			mObjects.push_back(element);
+ 			mRenders.push_back(element);
+ 		}
+--- a/gui/Android.mk
++++ b/gui/Android.mk
+@@ -9,6 +9,7 @@
+     pages.cpp \
+     text.cpp \
+     image.cpp \
++    xoomqr.cpp \
+     action.cpp \
+     console.cpp \
+     fill.cpp \
