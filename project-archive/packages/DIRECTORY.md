@@ -1,5 +1,7 @@
 # packages
 
+**New DC v0.16.2 targeted QA (2026-10-18):** v0.16.2 targeted pinned builtins package staged on SD, 14/14 offline + physical A/B automatic shim restore/reuse PASS; agent still stops after Start. Original v0.16.0 is still trusted/loaded; v6I whitelist unchanged and no flash. [New candidate](desktop-commander/versions/v0.16.2/XoomToolkit-Desktop-Commander-0.16.2/DIRECTORY.md) [Physical A/B QA](desktop-commander/2026-10-18-DC-0162-PINNED-NODE-BUILTINS-AB-QA.md).
+
 **2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Current package readiness:** Time Sync v0.2.1 LOADED, clock within ~1 sec of Surface (but Autorun off/no NTP run); Desktop Commander v0.16.0 trust/load and RAM runtime/builtins PASS, agent durable Start FAIL, cloud not proven, Autoload off unchanged. Wi-Fi v0.5.2 stays healthy after guarded DNS restart. [Full physical lifecycle, clock and Desktop Commander QA](../recovery/2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md).
 
 **2026-10-18 current installed v6I physical QA:** The clean Wi-Fi v0.5.2 ZIP on SD matches the new v6I trusted SHA, loaded automatically, WPA and DHCP BOUND PASS, DNS init daemon automatically RUNNING with 3/3 live socket queries plus Bionic-built BusyBox hostname ping success.  **Installed recovery is now v6I**, replacing v6H as installed baseline; v6H preserved full-p6 rollback. Native DNS stop/restart stale-socket lifecycle remains UNTESTED, and full release is NOT claimed. [v6I physical first-boot QA](../recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).

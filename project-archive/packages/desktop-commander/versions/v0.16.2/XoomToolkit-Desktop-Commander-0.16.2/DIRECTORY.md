@@ -1,0 +1,4 @@
+# XoomToolkit-Desktop-Commander-0.16.2.zip — build and guarded RAM QA
+
+**Parent:** [Desktop Commander v0.16.2](../DIRECTORY.md).
+**ZIP:** `XoomToolkit-Desktop-Commander-0.16.2.zip`, 657,195 bytes, SHA-256 `68a45e59e2a472f13b25cdcb75fe45367934c91c1cc0eede15f05a7c08c5f2a1`. Immutable binary archived privately on Pi, staged on SD Xoom as **development candidate not yet trusted by installed recovery's whitelist**. Exact two payload deltas: changed `control.sh` `prepare` and new immutable bundled Node shims tar; agent, start/stop/status, sidecar unchanged. Independent offline **14/14 PASS**; controlled physical fresh-RAM missing-modules `prepare` **PASS**, repeat prepare **PASS**. Original Start still briefly reports STARTED then exits, status STOPPED **unchanged**. v0.16.0 original RAM restored. [Full physical A/B evidence and limitations](../../../2026-10-18-DC-0162-PINNED-NODE-BUILTINS-AB-QA.md) · [reproducible builder source](build_dc_v0162_pinned_node_builtins.py).
