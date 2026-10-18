@@ -11,3 +11,7 @@ GitHub publication pending: review for credentials, private code/rights, and rec
 ## Revision navigation
 
 Every archived image or package ZIP has an individual versions/<series>/<artifact>/README.md with exact digest, original source and a status/evidence warning. This is the first pass: source-to-version mapping and full QA lineage should be enriched from dated builders/tests before claiming a complete project release history.
+
+## Latest hardware audit
+
+- Oct 18 v6D cold reboot: recovery USB ADB survived, but normal Wi-Fi autoload failed INNER_PIN_MISMATCH. See recovery/2026-10-18-V6D-COLD-BOOT-AND-VERIFIER-AUDIT.md. A prior manually/live-established Wi-Fi state must not be treated as a cold-boot pass.
