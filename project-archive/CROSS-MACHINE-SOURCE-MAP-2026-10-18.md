@@ -38,3 +38,7 @@ These are locations and provenance leads, not a claim that each machine's source
 - After final source review and changelog reconciliation, the Xoom's proposed Git installation can use a versioned checkout and a Git client on its own SD card. No direct GitHub credentials or Git working tree have been installed on the Xoom yet.
 
 The private full inventory and restoration guide are at `/home/ps2/xoom-phase1/private/project-archive/README.md` and `CROSS-MACHINE-IMPORT-INDEX-2026-10-18.json`.
+
+## Source publication reconciliation update
+
+The follow-up conservative screen restored 51 previously missing non-sensitive historical source files to the GitHub repository, with 78 unique legacy files withheld privately for detailed review. The clean GitHub publication worktree remains current. See [legacy source status](LEGACY-PI-SOURCE-RECONCILIATION-2026-10-18.md). The old Pi `main` remains a preserved historical checkout, not the publishing checkout.

@@ -19,3 +19,7 @@ Every archived image or package ZIP has an individual versions/<series>/<artifac
 ## Cumulative machine archive and reconciliation
 
 Read the [October 18 cross-machine source map](CROSS-MACHINE-SOURCE-MAP-2026-10-18.md) for the newly unified private Pi backup, source provenance per package and recovery, exact current partition readback, and GitHub publication safeguards.
+
+## Legacy source reconciliation update — 2026-10-18
+
+51 conservatively screened historical Pi source files were restored to the public repository without modifying the old Pi checkout. The other 78 unique untracked files remain checksum-preserved in the private archive for closer review; 131 old untracked archive documents already matched GitHub exactly. See [the legacy source status](LEGACY-PI-SOURCE-RECONCILIATION-2026-10-18.md) for the distinction.
