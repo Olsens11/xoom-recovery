@@ -3,7 +3,9 @@
 #include <sys/stat.h>
 #include <ctime>
 #include "objects.hpp"
+extern "C" {
 #include "../minuitwrp/minui.h"
+}
 #include "xoom-qr-matrix.hpp"
 
 namespace {
