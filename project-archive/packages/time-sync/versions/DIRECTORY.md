@@ -1,5 +1,7 @@
 # packages / time-sync / versions
 
+**2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Live Time Sync v0.2.1:** package LOADED, `100 RAM_READY`, saved Autorun OFF. Physical Surface and Xoom Unix-UTC clocks compared within ~1 second on v6I. No NTP Start/Autorun execution was tested this round, and no settings were modified. Time prerequisite for TLS is currently adequate. [Full physical lifecycle, clock and Desktop Commander QA](../../../recovery/2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md).
+
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
 **Parent:** [up one directory](../DIRECTORY.md).
 

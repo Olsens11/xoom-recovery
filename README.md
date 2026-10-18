@@ -1,5 +1,7 @@
 # Current Motorola Xoom project status — October 18, 2026
 
+**2026-10-18 v6I post-boot QA:** guarded DNS service restart PASS after stale socket cleanup (automatic cleanup still FAIL); Time Sync clock aligned to Surface, Autorun off; Desktop Commander pinned package/runtime/builtins RAM-validated but agent exits after Start and cloud is unconfirmed. [Lifecycle and Desktop Commander QA](project-archive/recovery/2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md). [Deferred Network screen UI](project-archive/recovery/NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md).
+
 **Current verified hardware as of October 18, 2026:** clean-named v6I recovery **installed and booted**, Wi-Fi 0.5.2 auto-load, DHCP BOUND, init-owned native DNS service and 3/3 live socket lookups **PASS**. Full p6 readback archived; v6H retained for rollback. **Not full release; stop/restart and Desktop Commander remain unqualified.** [Hardware checkpoint](project-archive/recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md). Earlier candidate/unflashed notes below are historical only.
 
 **Latest prepared pair (not flashed):** [XoomToolkit-WiFi-Runtime-0.5.2.zip](project-archive/packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) and [R22NEXT-V6I-Recovery.img](project-archive/recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md) are archive-pinned and staged; 27/27 independent offline QA PASS. **Actual installed recovery still v6H**. New package outer SHA is trusted by v6I and unchanged inner payload SHA retained.

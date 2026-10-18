@@ -1,5 +1,7 @@
 # wifi-runtime — revision history
 
+**2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Live v6I Wi-Fi 0.5.2:** DNS proxy hash unchanged, WPA/DHCP persisted, native init Stop leaves stale unbound socket pathname; guarded unlink enables clean DNS restart and hostname ping. Packet/DHCP boot integration unaffected. Socket lifecycle fix pending; do not claim automatic cleanup PASS. [Physical QA evidence](../../recovery/2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md).
+
 **2026-10-18 current installed v6I physical QA:** The clean Wi-Fi v0.5.2 ZIP on SD matches the new v6I trusted SHA, loaded automatically, WPA and DHCP BOUND PASS, DNS init daemon automatically RUNNING with 3/3 live socket queries plus Bionic-built BusyBox hostname ping success. **Installed recovery is now v6I**, replacing v6H as installed baseline; v6H preserved full-p6 rollback. Native DNS stop/restart stale-socket lifecycle remains UNTESTED, and full release is NOT claimed. [v6I physical first-boot QA](../../recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).
 
 **October 18, 2026 — v6I and Wi-Fi v0.5.2 clean-name coordination:** Clean-name v0.5.2 ZIP staged, 1,614,287 bytes, SHA `18a20f17bea70c9aec0dcff4eb8fbb5b66f4626a94cbd51d774228a7a6877862`, new manifest status `HARDWARE_QA_CANDIDATE`; all 30 payload files identical. Companion v6I verifier updated; not yet installed through new image. [Wi-Fi](versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) · [v6I](../../recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md)
