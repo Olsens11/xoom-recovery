@@ -36,3 +36,7 @@ The [unreleased `sigaction` source and ARM binary](wifi-runtime/development/siga
 ## New evidence without selection change — 2026-10-18
 
 The [sigaction development proxy](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed **isolated RAM-only Xoom socket DNS 4/4 and SIGTERM cleanup**. The recovery [DHCP parent safety change](../recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed **host fixture 11/11**, not actual cold boot. Neither is a package or flashed image. Selected Wi-Fi v0.5.1 and Desktop Commander v0.16.0, installed v6G and their unresolved real production startup defects remain unchanged.
+
+## Offline successor candidate assembled — October 18
+
+**Latest built candidate:** [Wi-Fi v0.5.2](wifi-runtime/versions/v0.5.2/DIRECTORY.md) is SHA-pinned and offline-audited 31/31 together with v6H, but **not selected as the installed package**. Physical v6G continues using v0.5.1; Desktop Commander 0.16.0 selection is unchanged.

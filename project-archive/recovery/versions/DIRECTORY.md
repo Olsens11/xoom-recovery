@@ -1,5 +1,7 @@
 # recovery / versions
 
+**Coordinated offline candidates — October 18, 2026:** New [Wi-Fi v0.5.2 ZIP](../../packages/wifi-runtime/versions/v0.5.2/DIRECTORY.md) ([exact ZIP and hashes](../../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2-DNS-SIGACTION-OFFLINE-DO-NOT-INSTALL/DIRECTORY.md)) and [recovery v6H image](R22NEXT-V6H/DIRECTORY.md) ([exact image and hashes](R22NEXT-V6H/R22NEXT-V6H-DHCP-PARENT-WIFI-052-OFFLINE-DO-NOT-FLASH/DIRECTORY.md)) were **built and independently audited 31/31 PASS**, with one package component and two recovery ramdisk members changed. **v6G remains installed, Wi-Fi v0.5.1 remains its selected/loaded package, and Desktop Commander v0.16.0 remains unchanged.** New outputs are OFFLINE/NOT INSTALLED; no Xoom SD staging, flash or clean-boot qualification occurred.
+
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
 **Parent:** [up one directory](../DIRECTORY.md).
 
@@ -10,6 +12,7 @@ Series index for preserved recovery images: early boot and GUI exploration, R22 
 
 ## Child directories
 
+- [R22NEXT-V6H](R22NEXT-V6H/DIRECTORY.md) — newly preserved offline candidate group (NOT INSTALLED).
 - [R22N](R22N/DIRECTORY.md) — detailed contents and history.
 - [R22NEXT-V6](R22NEXT-V6/DIRECTORY.md) — detailed contents and history.
 - [R22NEXT-V6B](R22NEXT-V6B/DIRECTORY.md) — detailed contents and history.

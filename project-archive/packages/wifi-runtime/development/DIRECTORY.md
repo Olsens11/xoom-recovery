@@ -1,5 +1,7 @@
 # Wi-Fi Runtime — development candidates
 
+**Coordinated offline candidates — October 18, 2026:** This source branch informed [the newly built immutable offline artifact](../versions/v0.5.2/DIRECTORY.md). Its original physical RAM / host fixture test acceptance level is unchanged; the assembled ZIP/image remain uninstalled and unflashed.
+
 **Parent:** [Wi-Fi Runtime](../DIRECTORY.md) · [Project overview](../../../DIRECTORY.md)
 
 **Responsibility:** preserve reviewed, non-secret experimental source and test checkpoints before a new immutable Toolkit ZIP exists. These are engineering branches, **not released package versions** and not replacements for the selected v0.5.1.

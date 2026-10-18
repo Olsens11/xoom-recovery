@@ -23,3 +23,7 @@ Source logs and QA reports are original evidence of their own dates, not eternal
 - Follow-up to the initial ABI-only candidate: guarded QA variant using private DNS properties, independent RAM UNIX socket and synthetic DNS server passed **4/4 physical DNS cases**, SIGTERM cleanup, and unchanged production state. Private source/ELF/Surface witness hashes are in [the development record](development/sigaction-abi-20261018/DIRECTORY.md).
 - Corrected a test-harness false alarm: this legacy Xoom's ADB shell host exit code can be 0 for a failed on-device command, so postflight must inspect explicit outputs.
 - Selected Wi-Fi Runtime **v0.5.1 is unchanged**. No successor ZIP or recovery image has been built or installed; clean boot and actual production socket remain open.
+
+## October 18 — v0.5.2 immutable offline ZIP built
+
+- [New SHA-pinned ZIP](../../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2-DNS-SIGACTION-OFFLINE-DO-NOT-INSTALL/DIRECTORY.md) (1,614,328 bytes, outer SHA `deeb5675f413353d4cc16f266125512f1cbd8150bbedd55403f1b8e35d17ef74`), inner SHA `ef0095de8ca9544df0b6865a6423ba17defe03a40e2c586e99f5371c5f4fa9ea`; only DNS proxy changed. Independent paired recovery+ZIP QA **31/31 PASS**. Selected/installed v0.5.1 unchanged; NOT INSTALLED or released.

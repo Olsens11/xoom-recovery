@@ -1,5 +1,7 @@
 # DNS proxy `sigaction` ABI compatibility — development trial
 
+**Coordinated offline candidates — October 18, 2026:** This source branch informed [the newly built immutable offline artifact](../../versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2-DNS-SIGACTION-OFFLINE-DO-NOT-INSTALL/DIRECTORY.md). Its original physical RAM / host fixture test acceptance level is unchanged; the assembled ZIP/image remain uninstalled and unflashed.
+
 **Parent:** [Wi-Fi development candidates](../DIRECTORY.md) · [Wi-Fi module](../../DIRECTORY.md)
 
 **Status:** **HOST FUNCTIONAL QA 7/7 PASS + XOOM ARM DYNAMIC-LINKER SMOKE PASS**, **NOT A TESTED DNS SERVICE**, **NOT AN INSTALLABLE ZIP**, **NOT FLASHED**. Recorded October 18, 2026.

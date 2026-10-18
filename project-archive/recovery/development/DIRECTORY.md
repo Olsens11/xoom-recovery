@@ -1,5 +1,7 @@
 # Recovery development — not installed revisions
 
+**Coordinated offline candidates — October 18, 2026:** This source branch informed [the newly built immutable offline artifact](../versions/R22NEXT-V6H/DIRECTORY.md). Its original physical RAM / host fixture test acceptance level is unchanged; the assembled ZIP/image remain uninstalled and unflashed.
+
 **Parent:** [Recovery](../DIRECTORY.md). This folder records reviewed recovery-side source candidates that have **not** been assembled into approved, flashed, readback-verified recovery images. Actual immutable image revisions remain under [versions](../versions/DIRECTORY.md).
 
 ## Active engineering branch — October 18, 2026

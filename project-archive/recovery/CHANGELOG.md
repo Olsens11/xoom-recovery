@@ -15,3 +15,7 @@ A new version must preserve kernel, GUI, stock TWRP, USB ADB and verified rollba
 ## October 18 — RAM-parent guard candidate (offline only)
 
 An exact v6G-controller-derived source proposal adds fail-closed /data/misc initialization only if /data is an ordinary unmounted RAM-rootfs directory, with mount/submount, symlink, missing-mount-data and special-file safeguards. Host-only fixtures passed **11/11**; no image was rebuilt, flashed or cold-booted. [Review and exact source](development/guarded-dhcp-parent-20261018/DIRECTORY.md). Installed v6G remains unchanged.
+
+## October 18 — v6H immutable offline image assembled
+
+- [v6H recovery image](R22NEXT-V6H/R22NEXT-V6H-DHCP-PARENT-WIFI-052-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) (9,611,264 bytes, SHA `d77ffeebe88e223b6d4b25c7b4809fb230f5daba8aba0c82889d8b6a7ec2695f`) built against exact v6G. Only guarded controller and Wi-Fi v0.5.2 verifier pins changed; kernel/GUI/ADB and all other Toolkit package pins preserved. Independent paired QA **31/31 PASS**; **NOT FLASHED**. v6G remains installed.

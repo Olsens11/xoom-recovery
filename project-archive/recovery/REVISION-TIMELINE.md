@@ -35,3 +35,7 @@ A follow-on, separately approved image is required to make recovery-only DHCP di
 ## October 18 post-v6G development branches — not new revisions
 
 The [guarded DHCP parent initialization draft](development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed 11/11 offline fixtures, and an independent [DNS sigaction source branch](../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed four live isolated DNS QA requests and orderly socket cleanup. Neither is a new recovery image or a new trusted Wi-Fi Runtime release. **v6G remains installed and only partially qualified**; it still requires genuine unattended reboot and production DNS verification.
+
+## Offline successor candidate assembled — October 18
+
+**October 18 v6H offline candidate:** [image and exact changes](versions/R22NEXT-V6H/DIRECTORY.md), independently audited with [Wi-Fi v0.5.2](../packages/wifi-runtime/versions/v0.5.2/DIRECTORY.md) **31/31 PASS OFFLINE**, with no flash or package load. v6G is still the current physically installed recovery.

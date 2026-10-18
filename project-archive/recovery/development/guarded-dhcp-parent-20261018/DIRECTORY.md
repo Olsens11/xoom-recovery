@@ -1,5 +1,7 @@
 # Guarded recovery-RAM DHCP parent creation
 
+**Coordinated offline candidates — October 18, 2026:** This source branch informed [the newly built immutable offline artifact](../../versions/R22NEXT-V6H/R22NEXT-V6H-DHCP-PARENT-WIFI-052-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). Its original physical RAM / host fixture test acceptance level is unchanged; the assembled ZIP/image remain uninstalled and unflashed.
+
 **Parent:** [Recovery development](../DIRECTORY.md) · [Recovery overview](../../DIRECTORY.md).
 
 **Status:** **OFFLINE SOURCE / HOST FIXTURE PASS 11/11**; **NOT ASSEMBLED INTO A RECOVERY IMAGE**, **NOT FLASHED**, **NO CLEAN-BOOT HARDWARE PASS**. October 18, 2026.

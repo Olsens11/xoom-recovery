@@ -1,5 +1,7 @@
 # recovery / versions / R22NEXT-V6G
 
+**Coordinated offline candidates — October 18, 2026:** [a separate v0.5.2 ZIP](../../../packages/wifi-runtime/versions/v0.5.2/DIRECTORY.md) and [companion v6H recovery image](../R22NEXT-V6H/DIRECTORY.md) were built and passed offline integration QA 31/31. They **do not supersede the actual installed v6G/v0.5.1 baseline** until explicitly flashed/loaded and verified; original frozen bytes and historical tests are unchanged.
+
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
 **Parent:** [up one directory](../DIRECTORY.md).
 
