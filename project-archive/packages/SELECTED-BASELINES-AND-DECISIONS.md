@@ -40,3 +40,7 @@ The [sigaction development proxy](wifi-runtime/development/sigaction-abi-2026101
 ## Offline successor candidate assembled — October 18
 
 **Latest built candidate:** [Wi-Fi v0.5.2](wifi-runtime/versions/v0.5.2/DIRECTORY.md) is SHA-pinned and offline-audited 31/31 together with v6H, but **not selected as the installed package**. Physical v6G continues using v0.5.1; Desktop Commander 0.16.0 selection is unchanged.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+New v6H / Wi-Fi v0.5.2 are SD/RAM **staged** with exact on-device hashes, **NOT flashed/installed**. Previously installed v6G/Wi-Fi v0.5.1 still current. [Staging + fresh rollback verified](../recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

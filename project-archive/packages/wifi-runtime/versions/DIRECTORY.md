@@ -44,3 +44,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Source-branch QA update — 2026-10-18
 
 Latest new proof is the [unpackaged sigaction proxy's isolated physical DNS test](../development/sigaction-abi-20261018/DIRECTORY.md), **4/4 PASS** with safe SIGTERM cleanup. The historical artifact catalog and selected package remain **v0.5.1**; there is no v0.5.2 ZIP in this test round.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+Newest v0.5.2 ZIP is **staged on SD but not loaded**, while v0.5.1 is still the selected package. [Verified staging record](../../../recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

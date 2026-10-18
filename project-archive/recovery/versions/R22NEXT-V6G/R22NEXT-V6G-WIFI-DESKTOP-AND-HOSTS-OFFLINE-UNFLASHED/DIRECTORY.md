@@ -46,3 +46,7 @@ Component changes are mechanically verified. Interpretation of intended behavior
 ## Post-flash proposed follow-up — 2026-10-18
 
 The exact installed v6G image and its controller SHA remain unchanged. An [offline guarded DHCP parent-creation controller derivative](../../../development/guarded-dhcp-parent-20261018/DIRECTORY.md) was built from this **exact** ramdisk controller and passed **11/11 simulated host safety fixtures**. It is **not** part of v6G. Separately, an isolated DNS ABI proxy [passed 4/4 live RAM-only tests](../../../../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md). Neither is evidence of a successful unattended v6G clean boot.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+Live full-partition SHA `1748508c1b05b25f7bdd9c480c02a2125320b1f21c9a423e340cc23269a32047` reverified. Fresh full v6G backup is on SD and Surface with matching SHA. New v6H remains **unflashed**. [Protected deployment preflight](../../../2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

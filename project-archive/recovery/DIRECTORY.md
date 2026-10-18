@@ -44,3 +44,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 - [Development source candidates](development/DIRECTORY.md) → [guarded recovery-only `/data/misc` creation](development/guarded-dhcp-parent-20261018/DIRECTORY.md): **11/11 offline host filesystem/mount safety tests PASS** on source derived from the exact installed v6G controller.
 - [Separate Wi-Fi isolated Bionic DNS QA](../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed 4/4 real-device RAM socket cases and cleanup, but does not repair the production proxy in v6G.
 - **Current installed v6G unchanged; clean boot unresolved.** No recovery write or package replacement was performed.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+**Fresh physical p6 preflight PASS** for staged v6H candidate; battery 100%, confirmed 12 MiB recovery, matching live v6G partition, separate SHA-verified full v6G/v6D rollbacks, SD-staged v0.5.2 package. **No flash yet.** [Detailed pending-flash gate](2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

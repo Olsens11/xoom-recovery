@@ -42,3 +42,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Wi-Fi module and recovery-source QA continuation — 2026-10-18
 
 [Wi-Fi `sigaction` development](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) now has **isolated real-Xoom socket DNS 4/4 and SIGTERM cleanup PASS**. [Recovery guarded DHCP parent](../recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) is **host-fixture 11/11 PASS only**. The installed v6G, Wi-Fi 0.5.1 and unchanged Desktop Commander 0.16.0 selections **have not changed**.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+v0.5.2 Wi-Fi is **SD-staged, not loaded** and coordinated v6H is **RAM-staged, not flashed**. Desktop Commander v0.16.0 remains the selected unchanged baseline. [Latest physical preflight](../recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

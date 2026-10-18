@@ -53,3 +53,5 @@ Preserve USB ADB and existing authenticated SSH/SFTP. Wireless root ADB must rem
 For historical design/build policy see [N2 Build Workspace Policy](twrp-research/N2-BUILD-WORKSPACE-POLICY.md) and [N2 Network UX Requirements](twrp-research/N2-NETWORK-UX-REQUIREMENTS.md).
 
 **October 18 continued QA:** [Uninstalled Wi-Fi DNS proxy candidate](project-archive/packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed **real Xoom isolated DNS socket 4/4** with safe shutdown. [Recovery-only DHCP parent correction](project-archive/recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed **11/11 host safety fixtures**, but remains an unflashed source candidate. No package or recovery replacement occurred; v6G and Wi-Fi v0.5.1 remain installed with known production startup defects.
+
+**October 18 deployment checkpoint:** [v6H / Wi-Fi v0.5.2 safely staged and hash verified](project-archive/recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md), with full v6G rollback on SD and Surface. **No flash or reboot yet; explicit exact-image authorization pending.** Installed v6G/Wi-Fi v0.5.1 remain unchanged.

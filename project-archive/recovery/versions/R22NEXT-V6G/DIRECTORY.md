@@ -29,3 +29,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## October 18 development review
 
 The current v6G image remains the only physically installed R22next v6G revision. [A separate guarded RAM-parent source candidate](../../development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed host safety fixtures 11/11 but is **not integrated, installed or flashed**. The Wi-Fi proxy's isolated physical QA is separate from a production Wi-Fi package.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+Latest live Xoom readback confirms v6G still installed with unchanged full p6 SHA; full current rollback preserved independently. v6H staged but no flash. [Exact readback and rollback verification](../../2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

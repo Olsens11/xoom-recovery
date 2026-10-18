@@ -66,3 +66,7 @@ After consulting this hierarchy and the original v6G physical QA, development re
 - [Recovery-only guarded DHCP directory preparation](recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed **11/11 host safety fixtures**, based on the exact v6G controller, but was **not flashed or cold-booted**.
 - [Hardware QA practice](processes/HARDWARE-TEST-AND-ROLLBACK.md) now warns of legacy ADB returning host exit 0 for remote failures; test result evaluation was fixed and verified.
 - **Actual installed recovery v6G, selected Wi-Fi v0.5.1, Desktop Commander v0.16.0, and the unresolved native production DNS and clean-boot defects remain unchanged.** These leaf findings, parent summaries, subsystem registers and root were revised in the same documentation round.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+**Deployment preflight is complete, flash authorization pending.** The new v6H image is hash-verified in recovery RAM and Wi-Fi v0.5.2 is hash-verified on SD; fresh full v6G recovery backup and earlier v6D recovery backup are independently verified. **Installed v6G and active Wi-Fi v0.5.1 are unchanged.** [Full protected staging and rollback checkpoint](recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

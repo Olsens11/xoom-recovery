@@ -27,3 +27,7 @@ Source logs and QA reports are original evidence of their own dates, not eternal
 ## October 18 — v0.5.2 immutable offline ZIP built
 
 - [New SHA-pinned ZIP](../../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2-DNS-SIGACTION-OFFLINE-DO-NOT-INSTALL/DIRECTORY.md) (1,614,328 bytes, outer SHA `deeb5675f413353d4cc16f266125512f1cbd8150bbedd55403f1b8e35d17ef74`), inner SHA `ef0095de8ca9544df0b6865a6423ba17defe03a40e2c586e99f5371c5f4fa9ea`; only DNS proxy changed. Independent paired recovery+ZIP QA **31/31 PASS**. Selected/installed v0.5.1 unchanged; NOT INSTALLED or released.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+New v6H / Wi-Fi v0.5.2 are SD/RAM **staged** with exact on-device hashes, **NOT flashed/installed**. Previously installed v6G/Wi-Fi v0.5.1 still current. [Staging + fresh rollback verified](../../recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

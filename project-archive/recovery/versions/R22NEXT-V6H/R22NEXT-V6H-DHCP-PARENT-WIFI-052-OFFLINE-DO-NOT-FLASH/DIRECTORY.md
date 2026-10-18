@@ -31,3 +31,7 @@
 **Future safety gate:** explicit user authorization for the exact image, complete prior p6 backup and recovery route, live partition mapping/size, host-vs-device binary SHA, exact write-length readback before reboot, then untouched cold-boot/wireless DNS/Toolkit QA. Full rollback remains archived. No automatic flash action exists in this record.
 
 Private full audits: `/home/ps2/xoom-phase1/private/network-foundation-next/development/v6h-coordinated-offline-20261018/`.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+The exact v6H candidate is now staged in Xoom RAM, **NOT FLASHED**, with matching on-device SHA. Fresh full v6G rollback copied to Surface and SD, along with existing v6D rollback. [Specific target, hashes and pending flash approval](../../../2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

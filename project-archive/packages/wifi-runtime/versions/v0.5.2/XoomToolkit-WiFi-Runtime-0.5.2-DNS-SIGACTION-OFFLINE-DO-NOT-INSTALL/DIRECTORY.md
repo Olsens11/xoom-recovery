@@ -28,3 +28,7 @@ The exact v6G-loaded v0.5.1 proxy had a missing Bionic `signal` symbol, so the p
 **Next gate:** independent loader negative tests, exact SD file/pin staging only when approved, verified rollback and a separately authorized recovery flash/readback before live production QA. This file is an archive, not an installation instruction.
 
 Private build logs and frozen ZIP: Pi `private/network-foundation-next/development/v6h-coordinated-offline-20261018/`.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+**STAGED, NOT INSTALLED:** exact ZIP now on Xoom SD Toolkit packages directory, on-device checksum verified. Existing active Wi-Fi remains v0.5.1 and installed recovery v6G unchanged. [Preflash evidence and hashes](../../../../../recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

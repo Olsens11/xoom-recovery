@@ -39,3 +39,7 @@ The [guarded DHCP parent initialization draft](development/guarded-dhcp-parent-2
 ## Offline successor candidate assembled — October 18
 
 **October 18 v6H offline candidate:** [image and exact changes](versions/R22NEXT-V6H/DIRECTORY.md), independently audited with [Wi-Fi v0.5.2](../packages/wifi-runtime/versions/v0.5.2/DIRECTORY.md) **31/31 PASS OFFLINE**, with no flash or package load. v6G is still the current physically installed recovery.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+New v6H / Wi-Fi v0.5.2 are SD/RAM **staged** with exact on-device hashes, **NOT flashed/installed**. Previously installed v6G/Wi-Fi v0.5.1 still current. [Staging + fresh rollback verified](2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

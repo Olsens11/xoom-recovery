@@ -15,3 +15,7 @@
 v6H reassembles **the exact archived v6G image** with only two changed ramdisk members: `sbin/xoom-net-control` (guarded /data/misc RAM-rootfs creation) and `sbin/xoom-toolkit-verified-install` (v0.5.2 ZIP filename, outer and inner SHA pins). All other recovery ramdisk member bytes/modes, kernel, USB ADB, GUI, init services, all other package pins and Desktop Commander v0.16.0 remain identical.
 
 **Selected installed state is STILL v6G with Wi-Fi v0.5.1.** v6H needs explicit authorization and complete physical flash/readback/cold-boot evidence before any further claim of installation or acceptance.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+No installed-state change. v6H image is safely staged in recovery RAM, still **UNFLASHED**. Full existing v6G partition backup verified on Surface and SD. [Live preflight and exact flash gate](../../2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

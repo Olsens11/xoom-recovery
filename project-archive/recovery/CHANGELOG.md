@@ -19,3 +19,7 @@ An exact v6G-controller-derived source proposal adds fail-closed /data/misc init
 ## October 18 — v6H immutable offline image assembled
 
 - [v6H recovery image](R22NEXT-V6H/R22NEXT-V6H-DHCP-PARENT-WIFI-052-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) (9,611,264 bytes, SHA `d77ffeebe88e223b6d4b25c7b4809fb230f5daba8aba0c82889d8b6a7ec2695f`) built against exact v6G. Only guarded controller and Wi-Fi v0.5.2 verifier pins changed; kernel/GUI/ADB and all other Toolkit package pins preserved. Independent paired QA **31/31 PASS**; **NOT FLASHED**. v6G remains installed.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+New v6H / Wi-Fi v0.5.2 are SD/RAM **staged** with exact on-device hashes, **NOT flashed/installed**. Previously installed v6G/Wi-Fi v0.5.1 still current. [Staging + fresh rollback verified](2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).

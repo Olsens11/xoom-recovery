@@ -52,3 +52,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Validated development progress — 2026-10-18
 
 The [isolated `sigaction` ARM proxy branch](development/sigaction-abi-20261018/DIRECTORY.md) has now passed **real Xoom RAM-only 4/4 DNS functional QA plus SIGTERM cleanup**, following the previous host 7/7 and ABI tests. Separately the [recovery-owned guarded /data/misc parent candidate](../../recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed 11/11 host-only safety fixtures. Neither is installed, integrated or clean-boot tested; selected **Wi-Fi Runtime v0.5.1** remains unchanged and its native production proxy remains defective.
+
+## v6H deployment stage checkpoint — 2026-10-18
+
+Latest built v0.5.2 ZIP is **SD-staged and SHA verified** for the coordinated v6H candidate; v6G/0.5.1 remain live and old v0.5.1 ZIP was not overwritten. [Fresh recovery/rollback and staged package checkpoint](../../recovery/2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).
