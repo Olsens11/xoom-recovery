@@ -17,3 +17,9 @@ Source logs and QA reports are original evidence of their own dates, not eternal
 - Canonical source SHA-256: `d9408b1aa4da4e3f000b4f8ff69cc21131201bfdafe76338c21aeb5d9ee04be2`; target ARM32 test binary SHA-256: `542b9238b872a6e2c4e4b5ca6873dc1f872e626b65bfa1b2754f0614ddbfa46a`.
 - Host mock DNS test: **7/7 PASS**. ELF NDK android-14 ABI comparison: **PASS** against exact packaged v0.5.1 Bionic libc; Xoom loader/usage test with invalid CLI input: **PASS**, without starting a daemon or binding a DNS socket.
 - **Not tested:** actual native DNS protocol or socket lifecycle, new Wi-Fi ZIP, clean boot or a new recovery image. These remain release blockers. [Candidate record](development/sigaction-abi-20261018/DIRECTORY.md).
+
+## October 18 — first isolated proxy runtime hardware pass (no package release)
+
+- Follow-up to the initial ABI-only candidate: guarded QA variant using private DNS properties, independent RAM UNIX socket and synthetic DNS server passed **4/4 physical DNS cases**, SIGTERM cleanup, and unchanged production state. Private source/ELF/Surface witness hashes are in [the development record](development/sigaction-abi-20261018/DIRECTORY.md).
+- Corrected a test-harness false alarm: this legacy Xoom's ADB shell host exit code can be 0 for a failed on-device command, so postflight must inspect explicit outputs.
+- Selected Wi-Fi Runtime **v0.5.1 is unchanged**. No successor ZIP or recovery image has been built or installed; clean boot and actual production socket remain open.

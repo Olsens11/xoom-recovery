@@ -32,3 +32,7 @@ For actual actions and failures, read [October 18 physical QA](../recovery/2026-
 ## Wi-Fi development progress note — 2026-10-18
 
 The [unreleased `sigaction` source and ARM binary](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed offline regression and a physically observed Bionic dynamic-linker startup smoke test with invalid CLI arguments. This does **not** replace or qualify selected Wi-Fi v0.5.1. Its installed native DNS proxy remains defective; separate functional socket testing and a future immutable package plus recovery integration remain pending. v6G and Desktop Commander v0.16.0 remain unchanged.
+
+## New evidence without selection change — 2026-10-18
+
+The [sigaction development proxy](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed **isolated RAM-only Xoom socket DNS 4/4 and SIGTERM cleanup**. The recovery [DHCP parent safety change](../recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed **host fixture 11/11**, not actual cold boot. Neither is a package or flashed image. Selected Wi-Fi v0.5.1 and Desktop Commander v0.16.0, installed v6G and their unresolved real production startup defects remain unchanged.

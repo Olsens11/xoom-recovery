@@ -11,3 +11,7 @@
 A new version must preserve kernel, GUI, stock TWRP, USB ADB and verified rollback; update WIFI and Desktop Commander package pin/allowlist/Manager/GUI atomically; never mutate frozen v6D.
 
 - **2026-10-18 clean reboot:** TWRP 3.1.1-0 and USB ADB recovered. Wi-Fi Autoload enabled but verifier failed INNER_PIN_MISMATCH. v6D verifier pins old v0.4 inner archive, not v0.5.1. Full p6 pre-reboot backup and actual boot logs are stored privately on Pi. See 2026-10-18-V6D-COLD-BOOT-AND-VERIFIER-AUDIT.md.
+
+## October 18 — RAM-parent guard candidate (offline only)
+
+An exact v6G-controller-derived source proposal adds fail-closed /data/misc initialization only if /data is an ordinary unmounted RAM-rootfs directory, with mount/submount, symlink, missing-mount-data and special-file safeguards. Host-only fixtures passed **11/11**; no image was rebuilt, flashed or cold-booted. [Review and exact source](development/guarded-dhcp-parent-20261018/DIRECTORY.md). Installed v6G remains unchanged.

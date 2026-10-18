@@ -15,3 +15,7 @@
 Read the [module authority record](../DIRECTORY.md), [actual v6G hardware checkpoint](../../../recovery/2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md), and [documentation protocol](../../../DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md).
 
 **Documentation round:** 2026-10-18; this development entry and every ancestor were updated together. Previous physical results remain unchanged.
+
+## Live QA progression — 2026-10-18
+
+The [sigaction candidate](sigaction-abi-20261018/DIRECTORY.md) has advanced from host/ABI smoke testing to **isolated physical Xoom DNS socket testing 4/4 PASS, plus clean SIGTERM/socket cleanup**. This does not promote the candidate to an installable ZIP, change selected v0.5.1, or repair production DNS automatically.

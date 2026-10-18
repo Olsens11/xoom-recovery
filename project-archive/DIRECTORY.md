@@ -57,3 +57,10 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Current engineering continuation — October 18, 2026
 
 After consulting this hierarchy and the original v6G physical QA, development resumed with a [separate Wi-Fi DNS proxy ABI candidate](packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md). The proposed `signal` → `sigaction` change passed all **seven host DNS fixture cases**, target ARM build/import checks against the *actual v0.5.1 libc*, and a non-invasive on-Xoom dynamic-linker smoke test. **This does not change the installed v6G image or Wi-Fi 0.5.1 package, and it is not a fully running proxy test.** Next is an isolated Bionic DNS socket QA before any new ZIP or recovery release. The documentation update has been propagated through the leaf, version group, module, package area and this project root.
+
+## Current development and evidence roll-up — 2026-10-18
+
+- [Wi-Fi native DNS proxy compatibility](packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) advanced to **real-Xoom isolated RAM-only DNS 4/4 PASS**, SIGTERM and QA socket cleanup PASS; original Wi-Fi v0.5.1 production DNS remains uncorrected.
+- [Recovery-only guarded DHCP directory preparation](recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed **11/11 host safety fixtures**, based on the exact v6G controller, but was **not flashed or cold-booted**.
+- [Hardware QA practice](processes/HARDWARE-TEST-AND-ROLLBACK.md) now warns of legacy ADB returning host exit 0 for remote failures; test result evaluation was fixed and verified.
+- **Actual installed recovery v6G, selected Wi-Fi v0.5.1, Desktop Commander v0.16.0, and the unresolved native production DNS and clean-boot defects remain unchanged.** These leaf findings, parent summaries, subsystem registers and root were revised in the same documentation round.

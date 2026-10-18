@@ -36,3 +36,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Wi-Fi engineering follow-up — 2026-10-18
 
 [Wi-Fi Runtime's ABI compatibility development record](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) documents a 7/7 host regression PASS and Xoom ARM linker smoke PASS for a **separate uninstalled source/binary candidate**. This is not a Toolkit package release and does not change the selected Wi-Fi v0.5.1, Desktop Commander v0.16.0, or v6G hardware qualification.
+
+## Wi-Fi module and recovery-source QA continuation — 2026-10-18
+
+[Wi-Fi `sigaction` development](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) now has **isolated real-Xoom socket DNS 4/4 and SIGTERM cleanup PASS**. [Recovery guarded DHCP parent](../recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) is **host-fixture 11/11 PASS only**. The installed v6G, Wi-Fi 0.5.1 and unchanged Desktop Commander 0.16.0 selections **have not changed**.

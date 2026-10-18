@@ -54,3 +54,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Byte-level evidence index
 
 - [V6 through v6G frozen-image member differences](RECOVERY-IMAGE-COMPONENT-DIFFS-2026-10-18.md).
+
+## Latest recovery engineering evidence — 2026-10-18
+
+**No new immutable recovery image revision has been built.** The latest installed remains v6G; a separate [recovery-RAM /data/misc guarded source branch](../development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed 11 host safety fixtures only. A future flash requires separately approved candidate, image/partition readback, rollback and actual clean-boot tests.

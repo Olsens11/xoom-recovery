@@ -47,3 +47,7 @@ These file changes are mechanical observations, not automatic proof that a named
 ## October 18 ABI follow-up — selected artifact unchanged
 
 The installed v0.5.1 ZIP remains **unchanged** and its production Bionic proxy still fails the missing `signal` symbol. A [separate, uninstalled `sigaction` source/ARM binary candidate](../../../development/sigaction-abi-20261018/DIRECTORY.md) passed 7/7 host DNS tests and an Xoom dynamic-linker smoke test. These do **not** upgrade v0.5.1 to a production DNS PASS. No new successor ZIP has been issued.
+
+## Latest test comparison — 2026-10-18
+
+[Uninstalled sigaction development source](../../../development/sigaction-abi-20261018/DIRECTORY.md) now passed real-Xoom isolated UNIX socket DNS 4/4 and SIGTERM cleanup. The **exact frozen v0.5.1 ZIP above did not change** and still contains its original `signal`-importing proxy; its native DNS service remains nonworking. The correction must be packaged and retested with new pins before qualifying a release.

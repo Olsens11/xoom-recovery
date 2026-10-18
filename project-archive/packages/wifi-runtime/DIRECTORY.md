@@ -46,3 +46,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 
 - [Unreleased DNS proxy `sigaction` compatibility branch](development/DIRECTORY.md) → [exact source, host tests, ARM ABI load proof and remaining hardware gates](development/sigaction-abi-20261018/DIRECTORY.md).
 - **No operational state change:** Wi-Fi Runtime v0.5.1 remains the installed and verified Toolkit package; the v6G clean-boot DHCP directory defect and v0.5.1 production Bionic DNS failure remain unresolved. The new binary has been tested only with intentionally invalid arguments, without starting DNS service.
+
+## Validated development progress — 2026-10-18
+
+The [isolated `sigaction` ARM proxy branch](development/sigaction-abi-20261018/DIRECTORY.md) has now passed **real Xoom RAM-only 4/4 DNS functional QA plus SIGTERM cleanup**, following the previous host 7/7 and ABI tests. Separately the [recovery-owned guarded /data/misc parent candidate](../../recovery/development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed 11/11 host-only safety fixtures. Neither is installed, integrated or clean-boot tested; selected **Wi-Fi Runtime v0.5.1** remains unchanged and its native production proxy remains defective.

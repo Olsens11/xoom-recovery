@@ -26,3 +26,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## October 18 validation follow-up — unchanged selection
 
 v0.5.1 remains the selected, actually loaded package. The [uninstalled proxy ABI compatibility source](../../development/sigaction-abi-20261018/DIRECTORY.md) passed host functional 7/7 and real-Xoom dynamic loading tests, but has not yet been packaged or tested as a DNS service. The v0.5.1 Bionic proxy startup failure and unattended Wi-Fi boot issue remain open.
+
+## Latest reviewed evidence — 2026-10-18
+
+Selected v0.5.1 remains **unchanged**. New [sigaction isolated RAM-only hardware 4/4 PASS](../../development/sigaction-abi-20261018/DIRECTORY.md) demonstrates a possible correction, not a v0.5.1 package fix or a new released version.

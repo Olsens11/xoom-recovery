@@ -36,3 +36,7 @@ Run [documentation roll-up checker](../../scripts/check_documentation_rollup.py)
 Use [documentation authority and supersession](../DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md). Each procedure should state whether a step was **observed**, **recommended**, **unverified/proposed**, or an **authorization/safety gate**. If a design has superseded an older technique, keep the old description labeled for history rather than silently modifying past test reports.
 
 **Next improvement:** update a procedure when a better method has been validated, and add a dated entry in [process change log](PROCESS-CHANGELOG.md). Do not turn every exploratory workaround into a default standard.
+
+## Revalidated hardware QA method — 2026-10-18
+
+The [hardware QA reference](HARDWARE-TEST-AND-ROLLBACK.md) now records a confirmed ADB compatibility pitfall: on this Xoom's legacy recovery shell, successful **host** exit status does not guarantee successful **device** commands. The corrected isolated DNS harness verified actual remote outputs, then obtained RAM-only socket tests 4/4 PASS. This does not alter installed v6G or impose one mandatory harness.

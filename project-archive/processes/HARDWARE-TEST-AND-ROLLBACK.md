@@ -46,3 +46,9 @@
 - [v6G partial physical QA](../recovery/2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md)
 
 Record meaningful improvements in [process change log](PROCESS-CHANGELOG.md), rather than rewriting old test methods out of the history.
+
+## October 18 — legacy ADB shell exit-code validation (confirmed QA harness discovery)
+
+This Xoom's old recovery ADB shell can report **host exit code 0 even when the on-device command fails** (`busybox test -e` and `busybox ls` of a nonexistent path both appeared successful to the host). A guarded DNS-socket test initially **stopped before touching device state** due to this false interpretation. A corrected harness determined file/socket presence from explicit `ls -ld` device output and verified state via actual `getprop`, PID, socket and remote log evidence; the isolated DNS tests then passed 4/4 and cleanup.
+
+**Reference practice:** use explicit on-device sentinel/result text or independently parsed device output, verify output and status together, and never use the host ADB-shell exit code alone as a recovery filesystem or service safety gate. This is a proven tool-compatibility lesson; alternative robust remote execution methods are welcome. [Original isolated QA record](../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md).

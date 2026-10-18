@@ -36,3 +36,9 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Curated revision progression
 
 - [Timeline of recovery revisions, architectural decisions and verified hardware turning points](REVISION-TIMELINE.md).
+
+## Unflashed recovery development — 2026-10-18
+
+- [Development source candidates](development/DIRECTORY.md) → [guarded recovery-only `/data/misc` creation](development/guarded-dhcp-parent-20261018/DIRECTORY.md): **11/11 offline host filesystem/mount safety tests PASS** on source derived from the exact installed v6G controller.
+- [Separate Wi-Fi isolated Bionic DNS QA](../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed 4/4 real-device RAM socket cases and cleanup, but does not repair the production proxy in v6G.
+- **Current installed v6G unchanged; clean boot unresolved.** No recovery write or package replacement was performed.

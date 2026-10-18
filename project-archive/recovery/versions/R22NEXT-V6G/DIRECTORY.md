@@ -23,3 +23,7 @@
 This page is the **current directory-level synthesis as of 2026-10-18**, not a retroactive rewrite of preserved logs. Exact file digest/manifest and physical readback/observed hardware behavior control artifact and current-device claims. Dated design notes, proposals, filenames and old handoffs are evidence of what was believed or planned **at their time**, not automatic proof of implementation. A later rejected experiment does not supersede an accepted baseline. Unknown build/test details remain unknown until verified.
 
 **Next update:** amend this record with a dated evidence link, recorded decision, resulting version/hash, hardware test outcome and downstream status change; keep the historic source unmodified.
+
+## October 18 development review
+
+The current v6G image remains the only physically installed R22next v6G revision. [A separate guarded RAM-parent source candidate](../../development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed host safety fixtures 11/11 but is **not integrated, installed or flashed**. The Wi-Fi proxy's isolated physical QA is separate from a production Wi-Fi package.

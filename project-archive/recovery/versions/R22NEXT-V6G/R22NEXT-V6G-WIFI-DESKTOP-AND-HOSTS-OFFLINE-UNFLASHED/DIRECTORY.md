@@ -40,3 +40,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 **Removed paths:** `sbin/xoom-dhcp-notify`.
 
 Component changes are mechanically verified. Interpretation of intended behavior and real success comes from the original build notes and dated hardware reports.
+
+## Post-flash proposed follow-up — 2026-10-18
+
+The exact installed v6G image and its controller SHA remain unchanged. An [offline guarded DHCP parent-creation controller derivative](../../../development/guarded-dhcp-parent-20261018/DIRECTORY.md) was built from this **exact** ramdisk controller and passed **11/11 simulated host safety fixtures**. It is **not** part of v6G. Separately, an isolated DNS ABI proxy [passed 4/4 live RAM-only tests](../../../../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md). Neither is evidence of a successful unattended v6G clean boot.

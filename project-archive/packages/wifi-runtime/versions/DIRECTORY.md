@@ -37,3 +37,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Latest development evidence — 2026-10-18
 
 **No new immutable Wi-Fi package version or release exists.** v0.5.1 remains selected; [the separate `sigaction` ABI candidate](../development/sigaction-abi-20261018/DIRECTORY.md) has host 7/7 and real-device linker smoke acceptance only. Actual Bionic DNS behavior, new ZIP verification and cold boot remain untested.
+
+## Source-branch QA update — 2026-10-18
+
+Latest new proof is the [unpackaged sigaction proxy's isolated physical DNS test](../development/sigaction-abi-20261018/DIRECTORY.md), **4/4 PASS** with safe SIGTERM cleanup. The historical artifact catalog and selected package remain **v0.5.1**; there is no v0.5.2 ZIP in this test round.

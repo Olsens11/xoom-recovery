@@ -20,3 +20,7 @@ Every documentation round now explicitly requires updating each affected leaf an
 When a process changes meaningfully, add a dated entry indicating which reference was revised, what prompted it, what method was replaced or rejected, whether the new method was **tested** or is still **proposed**, and how it affects existing source/QA documents. Preserve links to the old method and original evidence. Do not automatically promote a single RAM workaround into a standard release workflow.
 
 [Process index](DIRECTORY.md) · [Documentation obligations](DOCUMENTATION-MAINTENANCE.md) · [Project authority](../DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md)
+
+## October 18 — ADB shell compatibility correction
+
+During isolated DNS QA, the older recovery ADB shell returned host exit 0 for failed device-side `test`/`ls` commands. The test harness was amended to inspect explicit device output and re-ran successfully. This is a validated QA interpretation improvement, **not a mandate to use any particular test script**. See [hardware QA reference](HARDWARE-TEST-AND-ROLLBACK.md).

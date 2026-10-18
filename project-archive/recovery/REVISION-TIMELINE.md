@@ -31,3 +31,7 @@ The source-level component comparison for coordinated v6 → v6G is [here](versi
 A follow-on, separately approved image is required to make recovery-only DHCP directories safe and automatic, install a compatible native Bionic DNS proxy through a new immutable Wi-Fi package, restore pinned Node runtime builtins as the responsible module's dependency, and keep the cloud agent running under init without a USB console session. Perform cold-boot QA before declaring release readiness.
 
 **Supersession principle:** an earlier successful subsystem test remains a valid historical observation, but it cannot upgrade the current image's untested behavior. See the [documentation protocol](../DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md).
+
+## October 18 post-v6G development branches — not new revisions
+
+The [guarded DHCP parent initialization draft](development/guarded-dhcp-parent-20261018/DIRECTORY.md) passed 11/11 offline fixtures, and an independent [DNS sigaction source branch](../packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed four live isolated DNS QA requests and orderly socket cleanup. Neither is a new recovery image or a new trusted Wi-Fi Runtime release. **v6G remains installed and only partially qualified**; it still requires genuine unattended reboot and production DNS verification.
