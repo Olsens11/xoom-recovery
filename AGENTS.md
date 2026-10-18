@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## Current verified later checkpoint (2026-10-18)
+
+**v6I recovery is now physically installed and readback verified.** Clean Wi-Fi Runtime v0.5.2 automatically loads, DHCP BOUND and init-owned DNS service RUNNING pass, including three production-socket DNS cases and a Bionic-built BusyBox hostname ping. Full v6I partition archived and v6H remains rollback. DNS stop/restart stale socket, GUI and Desktop Commander cloud remain open. See [v6I physical first-boot QA](project-archive/recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md). Historical earlier baseline below is preserved deliberately.
+
 ## Current checkpoint — not a permanent fact
 
 At documentation inception (October 18, 2026), **v6G is installed but only partially hardware-qualified**, Wi-Fi v0.5.1 loaded but clean boot/DNS proxy remained defective, Desktop Commander v0.16.0 remained the selected unchanged agent baseline, and v0.16.1 was rejected. **Revalidate against later checkpoints before reuse.**

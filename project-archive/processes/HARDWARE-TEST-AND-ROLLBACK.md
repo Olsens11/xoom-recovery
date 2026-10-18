@@ -1,5 +1,7 @@
 # Guarded hardware testing, evidence collection and rollback
 
+**2026-10-18 current installed v6I physical QA:** v6I confirmed all flash/readback and boot DNS gates, with full-v6I-p6 private archival and 3/3 native socket tests; deliberately left the daemon untouched for next lifecycle QA. This is a new verified physical checkpoint, not a change to the guard requirements. [v6I physical first-boot QA](../recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).
+
 **Classification:** reference methods distilled from R22 hardware QA, seven-package tests, native DHCP/DNS experiments, and the v6G recovery flash. Use alternative tooling when justified, but **maintain explicit safety/permission, exact identity and rollback integrity requirements**.
 
 ## Prior to each hardware test

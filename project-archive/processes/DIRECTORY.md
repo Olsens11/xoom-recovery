@@ -1,5 +1,7 @@
 # Engineering process reference library
 
+**2026-10-18 v6I first-boot hardware:** [Physical v6I recovery, Wi-Fi and native DNS checks](../recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md) confirm clean image readback, DHCP BOUND and init-owned DNS 3/3 PASS; [recovery test and rollback process](HARDWARE-TEST-AND-ROLLBACK.md) now records this new checkpoint. The previously observed stale-socket-on-init-stop issue was intentionally NOT exercised, and full release remains pending.
+
 **October 18, 2026 — v6I and Wi-Fi v0.5.2 clean-name coordination:** [Artifact naming and qualification policy](ARTIFACT-NAMING-AND-STATUS.md) now separates status from stable names. [clean Wi-Fi 0.5.2 package](../packages/wifi-runtime/versions/v0.5.2/XoomToolkit-WiFi-Runtime-0.5.2/DIRECTORY.md) and [coordinated clean v6I recovery](../recovery/versions/R22NEXT-V6I/R22NEXT-V6I-Recovery/DIRECTORY.md) passed independent 27/27 offline checks. **v6H remains physically installed; v0.5.2 is loaded under its original frozen filename**. New clean-name ZIP is staged on SD, new v6I image in RAM, both SHA verified; **v6I NOT FLASHED**.
 
 **Responsibility:** preserve methods generally standardized through Xoom recovery engineering and Toolkit QA so future agents can work consistently without rediscovering avoidable failures. This directory complements, but does not replace, the [authoritative project hierarchy](../DIRECTORY.md).

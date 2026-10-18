@@ -1,5 +1,7 @@
 # R22NEXT-V6I-Recovery.img — verified build and exact pins
 
+**2026-10-18 current installed v6I physical QA:** The user flashed clean-name v6I; live 9,611,264-byte p6 image prefix SHA verified, full 12 MiB p6 archived and rehashed. TWRP/USB ADB pass. The clean Wi-Fi v0.5.2 ZIP on SD matches the new v6I trusted SHA, loaded automatically, WPA and DHCP BOUND PASS, DNS init daemon automatically RUNNING with 3/3 live socket queries plus Bionic-built BusyBox hostname ping success. **Installed recovery is now v6I**, replacing v6H as installed baseline; v6H preserved full-p6 rollback. Native DNS stop/restart stale-socket lifecycle remains UNTESTED, and full release is NOT claimed. [v6I physical first-boot QA](../../../2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).
+
 **Parent:** [R22next v6I revision group](../DIRECTORY.md).
 
 **Artifact:** `R22NEXT-V6I-Recovery.img`, **9,611,264 bytes**, SHA-256 **`043f539f5d84c8e9d0f1b588abed41fc6244a305b7426c745dbae8e072aef33f`**. Immutable copy: Pi `private/project-archive/artifacts/recovery/R22NEXT-V6I-Recovery.img`. Exact ancestor/installed v6H base SHA `d77ffeebe88e223b6d4b25c7b4809fb230f5daba8aba0c82889d8b6a7ec2695f`. **v6H still physically installed.**

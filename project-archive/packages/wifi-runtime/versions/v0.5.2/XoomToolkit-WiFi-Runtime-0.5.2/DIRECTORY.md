@@ -1,5 +1,7 @@
 # Wi-Fi Runtime 0.5.2 — clean-name QA candidate
 
+**2026-10-18 current installed v6I physical QA:** The clean Wi-Fi v0.5.2 ZIP on SD matches the new v6I trusted SHA, loaded automatically, WPA and DHCP BOUND PASS, DNS init daemon automatically RUNNING with 3/3 live socket queries plus Bionic-built BusyBox hostname ping success.  **Installed recovery is now v6I**, replacing v6H as installed baseline; v6H preserved full-p6 rollback. Native DNS stop/restart stale-socket lifecycle remains UNTESTED, and full release is NOT claimed. [v6I physical first-boot QA](../../../../../recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).
+
 **Parent:** [Wi-Fi v0.5.2 versions](../DIRECTORY.md) · [Wi-Fi module](../../../DIRECTORY.md).
 
 **New QA candidate name:** `XoomToolkit-WiFi-Runtime-0.5.2.zip` · **1,614,287 bytes** · outer SHA-256 **`18a20f17bea70c9aec0dcff4eb8fbb5b66f4626a94cbd51d774228a7a6877862`**. Manifest `id=wifi-runtime`, `version=0.5.2`, `status=HARDWARE_QA_CANDIDATE`, `file_count=30`.
