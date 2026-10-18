@@ -2,10 +2,9 @@
 // Does not contact provider, open browser, parse logs, or store credentials.
 #include <sys/stat.h>
 #include <ctime>
-#include "objects.hpp"
-extern "C" {
+// Match TWRP's own gui/fill.cpp include order and C++ graphics ABI.
 #include "../minuitwrp/minui.h"
-}
+#include "objects.hpp"
 #include "xoom-qr-matrix.hpp"
 
 namespace {
