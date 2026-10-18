@@ -23,3 +23,7 @@ Read the [October 18 cross-machine source map](CROSS-MACHINE-SOURCE-MAP-2026-10-
 ## Legacy source reconciliation update — 2026-10-18
 
 51 conservatively screened historical Pi source files were restored to the public repository without modifying the old Pi checkout. The other 78 unique untracked files remain checksum-preserved in the private archive for closer review; 131 old untracked archive documents already matched GitHub exactly. See [the legacy source status](LEGACY-PI-SOURCE-RECONCILIATION-2026-10-18.md) for the distinction.
+
+## Current hierarchical directory documentation (2026-10-18)
+
+**Use [DIRECTORY.md](DIRECTORY.md) for the latest verified project state and directory-by-directory navigation.** The older narrative above is preserved as historical context; in particular, the later v6G hardware checkpoint supersedes its earlier v6D installed-state statement. See the [authority and supersession protocol](DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md).

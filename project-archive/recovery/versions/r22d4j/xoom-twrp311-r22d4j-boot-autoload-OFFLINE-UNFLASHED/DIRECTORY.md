@@ -1,0 +1,30 @@
+# recovery / versions / r22d4j / xoom-twrp311-r22d4j-boot-autoload-OFFLINE-UNFLASHED
+
+**Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
+**Parent:** [up one directory](../DIRECTORY.md).
+
+## Purpose and current interpretation
+
+**Immutable image artifact:** `xoom-twrp311-r22d4j-boot-autoload-OFFLINE-UNFLASHED.img`.
+- Size: **9,537,536 bytes**.
+- Verified private Pi SHA-256: `c4cc85a26b1b0188cd4f3a9f5451e406832b1a87d48cd0728c52aec82e74d2bb`.
+- Original source: `private/r22d4j/xoom-twrp311-r22d4j-boot-autoload-OFFLINE-UNFLASHED.img`.
+- Private archival copy: `private/project-archive/artifacts/recovery/xoom-twrp311-r22d4j-boot-autoload-OFFLINE-UNFLASHED.img`.
+
+**Qualification:** verified immutable image file. The filename reflects the build author’s state at creation; it does not independently prove an image was ever flashed or that its purported behavior passed hardware. See corresponding dated QA before accepting a test claim.
+
+**Forward view:** preserve as an earlier revision. Trace later changes at the parent series and recovery-wide checkpoint rather than altering this candidate or discarding it.
+
+## Existing records retained in this directory
+
+- [README.md](README.md) — historical original, read alongside this validated orientation.
+
+## Latest comparison record
+
+- [v6G physical hardware report](../../../2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md) (highest-confidence operational evidence for current device).
+
+## Authority and supersession rule
+
+This page is the **current directory-level synthesis as of 2026-10-18**, not a retroactive rewrite of preserved logs. Exact file digest/manifest and physical readback/observed hardware behavior control artifact and current-device claims. Dated design notes, proposals, filenames and old handoffs are evidence of what was believed or planned **at their time**, not automatic proof of implementation. A later rejected experiment does not supersede an accepted baseline. Unknown build/test details remain unknown until verified.
+
+**Next update:** amend this record with a dated evidence link, recorded decision, resulting version/hash, hardware test outcome and downstream status change; keep the historic source unmodified.
