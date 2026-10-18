@@ -33,3 +33,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Verified component evidence
 
 - [Frozen package manifests compared path-by-path](COMPONENT-CHANGE-MATRIX.md). An observed file delta is not a claim of successful hardware behavior.
+
+## Latest development evidence — 2026-10-18
+
+**No new immutable Wi-Fi package version or release exists.** v0.5.1 remains selected; [the separate `sigaction` ABI candidate](../development/sigaction-abi-20261018/DIRECTORY.md) has host 7/7 and real-device linker smoke acceptance only. Actual Bionic DNS behavior, new ZIP verification and cold boot remain untested.

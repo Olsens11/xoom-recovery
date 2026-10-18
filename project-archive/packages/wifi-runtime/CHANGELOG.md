@@ -10,3 +10,10 @@ Source logs and QA reports are original evidence of their own dates, not eternal
 
 - v6D verifier stores correct outer ZIP hash for v0.5.1, but old v0.4.0 inner SHA256; untouched reboot reports INNER_PIN_MISMATCH and fails Wi-Fi autoload. Distinct from the mode0750 /sbin callback execution failure observed when v0.5.1 was in RAM earlier.
 - This supersedes any claim that v0.5.1 was qualified for unattended boot. See ../../recovery/2026-10-18-V6D-COLD-BOOT-AND-VERIFIER-AUDIT.md.
+
+## October 18, 2026 — separate ABI candidate, not a package release
+
+- Prepared a **non-installable development source** fixing the bundled v0.5.1 native DNS proxy's missing Bionic `signal` import via checked `sigaction` handlers. The v0.5.1 ZIP and currently installed v6G recovery remain byte-for-byte unchanged.
+- Canonical source SHA-256: `d9408b1aa4da4e3f000b4f8ff69cc21131201bfdafe76338c21aeb5d9ee04be2`; target ARM32 test binary SHA-256: `542b9238b872a6e2c4e4b5ca6873dc1f872e626b65bfa1b2754f0614ddbfa46a`.
+- Host mock DNS test: **7/7 PASS**. ELF NDK android-14 ABI comparison: **PASS** against exact packaged v0.5.1 Bionic libc; Xoom loader/usage test with invalid CLI input: **PASS**, without starting a daemon or binding a DNS socket.
+- **Not tested:** actual native DNS protocol or socket lifecycle, new Wi-Fi ZIP, clean boot or a new recovery image. These remain release blockers. [Candidate record](development/sigaction-abi-20261018/DIRECTORY.md).

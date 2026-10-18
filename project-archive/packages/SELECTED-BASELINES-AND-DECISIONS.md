@@ -28,3 +28,7 @@
 No permanent network bootstrap belongs inside Desktop Commander v0.16.0. The higher-numbered v0.16.1 experimentally added that behavior and was expressly rejected. Every package owns its own complete, generalized capabilities and status signals. GitHub will publish only non-secret reviewed source; the Pi keeps source workspaces, pin manifests, original ZIPs, rollback images and test evidence.
 
 For actual actions and failures, read [October 18 physical QA](../recovery/2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md). For file-level revision changes, open each family's `versions/COMPONENT-CHANGE-MATRIX.md`. For historical interpretation, read the [authority policy](../DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md).
+
+## Wi-Fi development progress note — 2026-10-18
+
+The [unreleased `sigaction` source and ARM binary](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed offline regression and a physically observed Bionic dynamic-linker startup smoke test with invalid CLI arguments. This does **not** replace or qualify selected Wi-Fi v0.5.1. Its installed native DNS proxy remains defective; separate functional socket testing and a future immutable package plus recovery integration remain pending. v6G and Desktop Commander v0.16.0 remain unchanged.

@@ -43,3 +43,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 **Modified manifest paths:** `system/bin/dhcpcd`.
 
 These file changes are mechanical observations, not automatic proof that a named bug was fixed. Read the module-level decisions and dated hardware QA for that claim.
+
+## October 18 ABI follow-up — selected artifact unchanged
+
+The installed v0.5.1 ZIP remains **unchanged** and its production Bionic proxy still fails the missing `signal` symbol. A [separate, uninstalled `sigaction` source/ARM binary candidate](../../../development/sigaction-abi-20261018/DIRECTORY.md) passed 7/7 host DNS tests and an Xoom dynamic-linker smoke test. These do **not** upgrade v0.5.1 to a production DNS PASS. No new successor ZIP has been issued.

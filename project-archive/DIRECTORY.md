@@ -53,3 +53,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 
 - [Recovery image decisions and revision timeline](recovery/REVISION-TIMELINE.md).
 - [Toolkit package selection and responsibility ledger](packages/SELECTED-BASELINES-AND-DECISIONS.md).
+
+## Current engineering continuation — October 18, 2026
+
+After consulting this hierarchy and the original v6G physical QA, development resumed with a [separate Wi-Fi DNS proxy ABI candidate](packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md). The proposed `signal` → `sigaction` change passed all **seven host DNS fixture cases**, target ARM build/import checks against the *actual v0.5.1 libc*, and a non-invasive on-Xoom dynamic-linker smoke test. **This does not change the installed v6G image or Wi-Fi 0.5.1 package, and it is not a fully running proxy test.** Next is an isolated Bionic DNS socket QA before any new ZIP or recovery release. The documentation update has been propagated through the leaf, version group, module, package area and this project root.

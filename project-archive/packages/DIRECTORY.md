@@ -32,3 +32,7 @@ This page is the **current directory-level synthesis as of 2026-10-18**, not a r
 ## Current selection ledger
 
 - [Selected versions, explicitly rejected branches, per-package responsibility and test status](SELECTED-BASELINES-AND-DECISIONS.md).
+
+## Wi-Fi engineering follow-up — 2026-10-18
+
+[Wi-Fi Runtime's ABI compatibility development record](wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) documents a 7/7 host regression PASS and Xoom ARM linker smoke PASS for a **separate uninstalled source/binary candidate**. This is not a Toolkit package release and does not change the selected Wi-Fi v0.5.1, Desktop Commander v0.16.0, or v6G hardware qualification.

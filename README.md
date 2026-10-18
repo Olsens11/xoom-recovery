@@ -6,6 +6,8 @@
 
 **Installed recovery:** **R22next v6G**, flashed/readback-verified on the physical Xoom with TWRP 3.1.1-0 and USB ADB working. **Hardware QA is partial, not a production release.** Wi-Fi Runtime v0.5.1 and unchanged Desktop Commander v0.16.0 passed trusted Toolkit loading; Wi-Fi/DNS and cloud tools required documented RAM-only prerequisites, with native DNS proxy and unattended startup still unresolved. [Latest physical QA](project-archive/recovery/2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md).
 
+**Current development continuation (October 18):** a [separate Wi-Fi DNS proxy `sigaction` ABI candidate](project-archive/packages/wifi-runtime/development/sigaction-abi-20261018/DIRECTORY.md) passed host DNS tests (7/7) and an on-Xoom dynamic-linker smoke test. It has **not** been installed as a package or run as a DNS service; v6G and Wi-Fi v0.5.1 remain the current hardware baseline.
+
 The older October 16 milestone description below is preserved **as a dated historical record**, not the currently installed recovery. See the [documentation authority and supersession policy](project-archive/DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md) before interpreting earlier claims.
 
 ---

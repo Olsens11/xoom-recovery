@@ -41,3 +41,8 @@
 This page is the **current directory-level synthesis as of 2026-10-18**, not a retroactive rewrite of preserved logs. Exact file digest/manifest and physical readback/observed hardware behavior control artifact and current-device claims. Dated design notes, proposals, filenames and old handoffs are evidence of what was believed or planned **at their time**, not automatic proof of implementation. A later rejected experiment does not supersede an accepted baseline. Unknown build/test details remain unknown until verified.
 
 **Next update:** amend this record with a dated evidence link, recorded decision, resulting version/hash, hardware test outcome and downstream status change; keep the historic source unmodified.
+
+## Current development checkpoint — 2026-10-18
+
+- [Unreleased DNS proxy `sigaction` compatibility branch](development/DIRECTORY.md) → [exact source, host tests, ARM ABI load proof and remaining hardware gates](development/sigaction-abi-20261018/DIRECTORY.md).
+- **No operational state change:** Wi-Fi Runtime v0.5.1 remains the installed and verified Toolkit package; the v6G clean-boot DHCP directory defect and v0.5.1 production Bionic DNS failure remain unresolved. The new binary has been tested only with intentionally invalid arguments, without starting DNS service.
