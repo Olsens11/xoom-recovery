@@ -1,5 +1,7 @@
 # Current Motorola Xoom project status — October 18, 2026
 
+**2026-10-18 Desktop Commander Problem B isolated:** normal original agent remains running at 0/7/15/23 seconds while the USB ADB launching shell stays open, then stops immediately when it returns. Shell-session/process lifetime coupling, exact signal not yet determined; no fix applied. v0.16.2 solves separate Node shims Problem A; v0.16.0 remains trusted, agent stopped, v6I Wi-Fi/DNS healthy. [Physical diagnostic checkpoint](project-archive/packages/desktop-commander/2026-10-18-DC-PROBLEM-B-ADB-SHELL-LIFETIME-DIAGNOSIS.md).
+
 **2026-10-18 targeted Desktop Commander fix:** v0.16.2 development ZIP restores 3 pinned Node modules from its bundled archive in `prepare`; 14/14 offline and physical clean-RAM A/B PASS. The unchanged agent Start still exits (Problem B). v6I installed, DC 0.16.0 remains trusted/loaded, 0.16.2 SD-staged but not yet allowlisted. [Full A/B QA](project-archive/packages/desktop-commander/2026-10-18-DC-0162-PINNED-NODE-BUILTINS-AB-QA.md).
 
 **2026-10-18 v6I post-boot QA:** guarded DNS service restart PASS after stale socket cleanup (automatic cleanup still FAIL); Time Sync clock aligned to Surface, Autorun off; Desktop Commander pinned package/runtime/builtins RAM-validated but agent exits after Start and cloud is unconfirmed. [Lifecycle and Desktop Commander QA](project-archive/recovery/2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md). [Deferred Network screen UI](project-archive/recovery/NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md).
