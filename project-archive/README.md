@@ -1,5 +1,7 @@
 # Xoom Pi canonical project archive
 
+**Current source of truth:** [DIRECTORY.md](DIRECTORY.md), then [agent mandate](../AGENTS.md) and [process reference index](processes/DIRECTORY.md). The older prose below records an earlier v6D-era state; verified v6G evidence supersedes it for installed-state claims.
+
 Prepared Oct 18, 2026; 107 version-indexed ZIP/image artifacts, plus two DC runtime archives and Surface source snapshot. The Pi owns private, hash-verified binaries and source; a sanitized mirror goes to GitHub only after audit. Original sources, files and dated reports are preserved unmoved.
 
 Read recovery/README.md and recovery/CHANGELOG.md for image history, or packages/<ID>/README.md and CHANGELOG.md for each package. Private artifact inventory: private/project-archive/ARTIFACT-INDEX-2026-10-18.json.
@@ -23,6 +25,10 @@ Read the [October 18 cross-machine source map](CROSS-MACHINE-SOURCE-MAP-2026-10-
 ## Legacy source reconciliation update — 2026-10-18
 
 51 conservatively screened historical Pi source files were restored to the public repository without modifying the old Pi checkout. The other 78 unique untracked files remain checksum-preserved in the private archive for closer review; 131 old untracked archive documents already matched GitHub exactly. See [the legacy source status](LEGACY-PI-SOURCE-RECONCILIATION-2026-10-18.md) for the distinction.
+
+## Required agent onboarding and documentation propagation — 2026-10-18
+
+Before project work, read [root AGENTS.md](../AGENTS.md) and [the process handbook](processes/DIRECTORY.md). **Every documentation round now cascades through all affected DIRECTORY.md ancestors to the root**; see the [roll-up checklist](processes/DOCUMENTATION-ROLLUP-CHECKLIST.md). The procedures for builds and tests are adaptable references, while documentation upkeep is mandatory. This review did not change the actual v6G hardware state.
 
 ## Current hierarchical directory documentation (2026-10-18)
 

@@ -1,5 +1,7 @@
 # Documentation authority, revision history and supersession policy
 
+**Standing mandate:** every agent must read [root AGENTS.md](../AGENTS.md) and keep [hierarchical documentation updated continuously](processes/DOCUMENTATION-MAINTENANCE.md). The [process handbook](processes/DIRECTORY.md) preserves generally standardized practice for consistency, **not** a rigid mandate to use historical techniques. Explicit safety, security, integrity and recovery-flash approvals remain binding.
+
 **Effective:** 2026-10-18. **Scope:** Xoom recovery and independently versioned XoomToolkit packages. This document is the protocol for future updates to the hierarchical `DIRECTORY.md` records; it does not rewrite the original dated documents.
 
 ## A. Authority belongs to a defined question, not to the latest filename
@@ -34,7 +36,7 @@ Every `DIRECTORY.md` links up to its parent and down to its immediate child dire
 2. Record timestamp, parent/superseded version, motivation/goal, design choice and rejected alternatives, file-level changes and SHA-256.
 3. Record **verification level** separately: archived; offline checks; RAM-only hardware test; flashed/readback boot; individual service tests; full clean-boot qualification.
 4. Record failure cases, manually supplied prerequisites, rollback/safety gates and what was *not* tested.
-5. Amend the leaf revision's `DIRECTORY.md` and `CHANGELOG.md`, then its version group, module/recovery parent, and project root. Link directly to original evidence. Preserve old evidence as it was.
+5. On EVERY documentation round, update the affected leaf's DIRECTORY.md and relevant changelog, then EVERY ancestor DIRECTORY.md through the version group, module/recovery/process parent and project root. Each higher level must link the latest child evidence, reflect actual current selections/tests and describe earlier superseded claims. When a review confirms no state change, date and link that review without inventing advancement. Preserve original evidence.
 6. Publish only after private/credential and third-party license review; cross-check internal links and confirm the public Git worktree contains no raw images, private logs or credentials.
 7. Keep a dated changelog entry with the change to documentation authority itself. Avoid claiming that a future plan is live merely because its code exists.
 

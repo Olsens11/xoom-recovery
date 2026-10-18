@@ -1,5 +1,7 @@
 # Xoom recovery and Toolkit project
 
+**Agent onboarding and project mandate:** [AGENTS.md](../AGENTS.md) · [documentation maintenance](processes/DOCUMENTATION-MAINTENANCE.md) · [standard practices and runbooks](processes/DIRECTORY.md). Documentation upkeep is mandatory; copying a particular older build or QA method is not.
+
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
 **Scope:** project-level state and navigation; private source and binary provenance remains on the Pi.
 
@@ -21,13 +23,20 @@ The Pi holds private original binaries and snapshots; this GitHub tree is an int
 ## Child directories
 
 - [packages](packages/DIRECTORY.md) — detailed contents and history.
+- [processes](processes/DIRECTORY.md) — agent orientation, binding documentation obligations, and adaptable engineering SOP references.
 - [recovery](recovery/DIRECTORY.md) — detailed contents and history.
 
 ## Existing records retained in this directory
 
+- [AGENTS.md](AGENTS.md) — local pointer to standing agent onboarding and documentation requirements.
+- [DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md](DOCUMENTATION-AUTHORITY-AND-SUPERSESSION.md) — document interpretation and update rules.
 - [CROSS-MACHINE-SOURCE-MAP-2026-10-18.md](CROSS-MACHINE-SOURCE-MAP-2026-10-18.md) — preserved dated/ancillary evidence.
 - [README.md](README.md) — historical original, read alongside this validated orientation.
 - [XOOM-GITHUB-DIRECT-WORKFLOW-PROPOSAL-2026-10-18.md](XOOM-GITHUB-DIRECT-WORKFLOW-PROPOSAL-2026-10-18.md) — preserved dated/ancillary evidence.
+
+## Latest documentation governance review — 2026-10-18
+
+**Documentation mandate:** every documentation round must update its affected leaf and **all ancestor DIRECTORY.md files through this project root**; [the process library](processes/DIRECTORY.md) and [roll-up checklist](processes/DOCUMENTATION-ROLLUP-CHECKLIST.md) explain how. Each parent must stay current and point to the newest verified child evidence. This governance change **does not alter** the installed v6G recovery, selected Wi-Fi v0.5.1, selected Desktop Commander v0.16.0, or their partial hardware qualification.
 
 ## Authority and supersession rule
 

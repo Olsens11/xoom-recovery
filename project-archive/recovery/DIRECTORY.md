@@ -1,5 +1,7 @@
 # recovery
 
+**Recovery engineering reference:** [image build and first hardware QA](../processes/RECOVERY-IMAGE-BUILD-AND-FIRST-HARDWARE-QA.md) · [guarded testing and rollback](../processes/HARDWARE-TEST-AND-ROLLBACK.md). These are historically informed procedures, not obligatory scripts. [Documentation upkeep](../processes/DOCUMENTATION-MAINTENANCE.md) is required.
+
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
 **Parent:** [up one directory](../DIRECTORY.md).
 

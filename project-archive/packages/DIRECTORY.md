@@ -1,5 +1,7 @@
 # packages
 
+**Toolkit working references:** [versioned package lifecycle and QA](../processes/TOOLKIT-PACKAGE-LIFECYCLE.md) · [hardware evidence and rollback](../processes/HARDWARE-TEST-AND-ROLLBACK.md). These are adaptable precedents; [documentation updates](../processes/DOCUMENTATION-MAINTENANCE.md) are required.
+
 **Authoritative directory orientation — 2026-10-18.** This record integrates the archived evidence known at this checkpoint; it is not a replacement for original dated logs or build files.
 **Parent:** [up one directory](../DIRECTORY.md).
 

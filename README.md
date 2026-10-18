@@ -1,5 +1,7 @@
 # Current Motorola Xoom project status — October 18, 2026
 
+**For every new development agent:** read [mandatory agent onboarding and documentation expectations](AGENTS.md) before work. Each documentation round must update the affected leaf AND EVERY ANCESTOR directory record through the project root; see the [leaf-to-root roll-up checklist](project-archive/processes/DOCUMENTATION-ROLLUP-CHECKLIST.md). The [process handbook](project-archive/processes/DIRECTORY.md) preserves standardized practices as **adaptable references**, not rigid requirements; documented safety and authorization gates still apply.
+
 **Start here:** [Authoritative project and directory history](project-archive/DIRECTORY.md). From there, follow the linked [recovery versions](project-archive/recovery/DIRECTORY.md), [Toolkit package families](project-archive/packages/DIRECTORY.md), and each revision's own `DIRECTORY.md`.
 
 **Installed recovery:** **R22next v6G**, flashed/readback-verified on the physical Xoom with TWRP 3.1.1-0 and USB ADB working. **Hardware QA is partial, not a production release.** Wi-Fi Runtime v0.5.1 and unchanged Desktop Commander v0.16.0 passed trusted Toolkit loading; Wi-Fi/DNS and cloud tools required documented RAM-only prerequisites, with native DNS proxy and unattended startup still unresolved. [Latest physical QA](project-archive/recovery/2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md).
