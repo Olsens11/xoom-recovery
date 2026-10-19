@@ -1,5 +1,7 @@
 # Toolkit package selection and responsibility ledger
 
+**v6K DC0164 real cloud file roundtrip accepted (2026-10-19):** New v6K flashed recovery + immutable Desktop Commander v0.16.4 is physically QR-authorized and Online, and actual provider remote scratch listing, write/readback, SHA/ownership and fixed diagnostic all PASS. Corrected first-boot 1970 clock with existing Time Sync; future boot-order and long uptime remain independent tests. [Physical acceptance](../recovery/2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).
+
 **v6K physically installed and v0.16.4 trusted VERIFY (2026-10-19):** Exact flash SHA e2ed41e9...16f40f, recovery readback before reboot, full p6 archive and first TWRP boot PASS. New physical verifier accepted SD package 0.16.4: VERIFIED; 0.16.4 remains UNLOADED awaiting user-driven Toolkit Manager GUI Load and native Start/Pair workflow. Earlier v6J-C/v0.16.3 remain as preserved rollback/history, not currently installed. [Hardware QA](../recovery/2026-10-19-V6K-PHYSICAL-FLASH-READBACK-FIRST-BOOT-QA.md).
 
 **v6K preflash physical staging and p6 backup (2026-10-19):** v0.16.4 exact ZIP is staged/rehashed on Xoom SD, but physically installed v6J-C verifier still pins v0.16.3. v6K image matched on Surface/Pi only, not flashed. Full current v6J-C p6 SHA b550f54e...ac6a0a9 privately preserved twice; installed image-prefix SHA matches. Live Desktop Commander Online and previous RAM fixes preserved. [New hardware witness](../recovery/2026-10-19-V6K-DC0164-SD-STAGED-P6-BACKUP-FLASH-GATE.md).

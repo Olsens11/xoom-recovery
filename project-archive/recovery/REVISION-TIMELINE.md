@@ -103,3 +103,8 @@ User authorized exact v6K SHA e2ed41e9...16f40f. Individual-command 4695x2048-by
 ## v6K GUI CALIBRATED-TOUCH BATCH LOAD QA (2026-10-19)
 
 Physical TWRP screenshots via native VolumeUp+VolumeDown shortcut and calibrated touch at Load Selected proved real GUI operations. Desktop Commander v0.16.4 Load COMPLETE 100%, Partition Inspector Load COMPLETE 100%; native backend LOADED and exact recovery.log VERIFIED/LOADED for both. Checkbox 1 selected before each batch confirmed. Native source inspected: batch, button and checkbox handlers normal; original user-reported no-action could not be reproduced or definitively explained. Agent Start/QR/Reatime Online on new boot remain pending. [Live screenshot QA](2026-10-19-V6K-NATIVE-BATCH-GUI-SCREENSHOT-TOUCH-QA.md).
+
+
+## v6K DC0164 ONLINE CLOUD REMOTE TOOLS QA (2026-10-19)
+
+v6K first boot and native Load previously PASS. After Time Sync GUI Run fixed an initial 1970 clock and TLS CERT_NOT_YET_VALID failure, native GUI Desktop Commander v0.16.4 Start and first-party phone/QR approval yielded a new provider Xoom Online identity. Direct provider list_directory, fixed diagnostic, write_file + read_file exact content + get_file_info SHA256 with UID2000 mode0600, and list again all PASS. Agent running, /tmp/n24 root:shell 0750 and all 3 builtins exact. No manual chmod or init via ADB. [Full QA](2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).

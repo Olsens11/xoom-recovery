@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v6K v0.16.4 cloud QR and UID2000 file roundtrip PASS (latest 2026-10-19)
+
+On the physically installed v6K, after a first-boot 1970 clock caused HTTPS CERT_NOT_YET_VALID and was corrected by existing GUI Time Sync Run, the user started v0.16.4 through native GUI, scanned real first-party QR and authorized. New provider Xoom device is Online; real Remote Desktop Commander connector listing and approved diagnostic PASS, restricted UID2000 write/read/metadata/sha256/list cloud roundtrip PASS. Agent RUNNING, pinned Node builtins exact, root:shell 0750 on /tmp/n24. No manual RAM repair or SSH/ADB agent start. Future cold boot/time-sync auto-order and longevity NOT tested. [End-to-end physical QA](project-archive/recovery/2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).
+
 ## v6K two-package native GUI Load accepted (latest 2026-10-19 QA)
 
 User reported Load Selected failing for Desktop Commander and Partition Inspector. Existing working remote screenshot shortcut and calibrated Xoom touch captured before/after visual confirmation. Desktop Commander checkbox selected (1 selected), remote Load Selected showed LOADING 70% then LOADED/LOAD COMPLETE 100%; Partition Inspector likewise LOADED via native GUI. Recovery log records two batch:load and verified/loaded outcomes. Reviewed matching XML and checkbox/button/action/manager native source: no stable load-button failure reproduced; original missed-tap cause unknown, busy/action-thread guards plausible but unproven. Both packages now LOADED. **Desktop Commander v0.16.4 agent not yet Started or paired; runtime builtins only created at Start.** [Physical visual QA](project-archive/recovery/2026-10-19-V6K-NATIVE-BATCH-GUI-SCREENSHOT-TOUCH-QA.md).
