@@ -1,0 +1,23 @@
+# October 19, 2026 — v6P one-shot entropy recovery candidate handoff
+
+**Status:** Built, exact image audited; physical CPU health-test probe passed. **NOT FLASHED, NOT COLD-BOOTED; physically installed recovery is v6O.**
+
+## Reproduced issue
+
+After disabling all 8 package Auto Load settings using native UI (saved to SD), `adb reboot recovery` led to all 8 packages UNLOADED (PASS). Native GUI Desktop Commander **Load Selected** was incorrectly gated with `WIFI NEEDED — Load Wi-Fi first` (confirmed regression against the user's intended contract: a package can always Load; only Start resolves dependencies). We manually loaded/started Wi-Fi and confirmed `WIFI_READY`, then loaded Desktop Commander; its Start invoked the missing Time Sync package, advanced Checking dependencies -> Loading Time Sync -> Synchronizing time -> Preparing runtime, yielded `SYNCED` and Desktop Commander `RUNNING` with final GUI `TIME SYNC COMPLETED — DC STARTED`. This establishes the v6O generic Start-time dependency path **PASS** from an initially unloaded Time Sync state.
+
+Despite RUNNING service, cloud did not reconnect or generate pairing code. Kernel entropy available = 42 bits, wake threshold = 64; three separate Node commands hung (including minimal JavaScript eval) with fd 3 open on `/dev/random`. A temporary ~1KB ARM helper and 64 bytes of **Surface-generated CSPRNG data** used `RNDADDENTROPY` once from USB; entropy increased and all blocked Node processes resumed. Foreground Desktop Commander requested a provider code and published genuine `/tmp/xoom-dc-pairing/state.txt` PENDING and QR bytes. The temporary seed was removed after use. Reauthorization requirement on each start is the current `--no-persist-session` behavior; do not call it a new regression. SSH was inspected and contains no kernel entropy-seeding step. **No live flashing was used in this diagnosis.**
+
+## New design and build
+
+Use vetted upstream Jitterentropy v3.6.3 pinned to `c90ff465dcdb6a6949542c72a26a8ab496daa8cb` with SP800-90B-related health-test capabilities, not custom entropy estimation. `xoom_entropy_once --ensure` checks `entropy_avail>=128` and exits fast when ready; if low, initialize Jitterentropy with `JENT_FORCE_FIPS` health checks, gather 64 bytes, credit 128 bits via `RNDADDENTROPY` and exit, bounded by 35-second alarm. `--probe` runs without kernel injection. No persistent daemon, USB reliance, fixed seed or SD entropy file.
+
+Android 7.1/TWRP crossbuild: ARM32 Bionic ELF root-owned 0755 using `/sbin/linker`, 30,300 bytes, SHA `31bee415d5bfbec648b02179106e6930be6a7448607c818d1ae66c2f6a40bf25`. Physical RAM-only Xoom `--probe` returned `JITTER_PROBE_OK_NO_KERNEL_CREDIT`; `--ensure` on adequately seeded pool returned `ENTROPY_ALREADY_READY`. Both PASS. Integrated into new boot `xoomentropyonce` one-shot service and Desktop Commander Manager Start guard only; **not** into package Load, and no package ZIP changes.
+
+Exact private v6P image size **9,635,840 bytes**, SHA `7444113335e40e499257177903b1ea2e8a67d5d04099183a783e4db4f9a138fe`. Pinned physically installed v6O image SHA `86dbb96f98460206c20764ebafa491831f997992f50eeb4bcd5419c08ac5151d`; build regenerated boot ID and repacked ramdisk. 19/19 independent image checks PASS; unchanged kernel and 473 unrelated ramdisk members, trust loader, pinned ZIP hashes, GUI, resolver, policies. Binary and private image path: `/home/ps2/xoom-phase1/private/network-foundation-next/development/v6p-entropy-once-20261019/`. Reviewed public wrapper source/build recipe/QA: [development leaf](development/v6p-entropy-once-20261019/DIRECTORY.md).
+
+## Explicit safety boundary and next step
+
+**Not performed:** installing v6P, low-pool `--ensure` test using v6P binary, one-shot init lifecycle after reboot, full Desktop Commander fresh boot/connect/authorization, flash readback. These need explicit approval. Preserve full 12MiB v6O physical p6 snapshot on Surface and external SD, v6K rollback, and exact installed boot metadata. Verify USB serial and battery, live partition hashes, then issue individually audited commands for flash, independent image-prefix/tail readback before reboot, and fallback if boot fails.
+
+Known other issues: initial empty QR after AUTHORIZED is expected; on-screen pairing during live PENDING requires user-side verification later; Desktop Commander displayed v0.16.3 label while installed trusted ZIP is 0.16.4. The **incorrect Load Selected Wi-Fi prerequisite gate** is confirmed and remains deliberately unfixed by v6P to keep entropy revision isolated. Do not reset the saved all-off Auto Load choices without asking.
