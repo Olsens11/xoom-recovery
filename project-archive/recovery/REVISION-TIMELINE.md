@@ -1,5 +1,7 @@
 # Recovery revision timeline and architectural decisions
 
+**2026-10-18 next coordinated release scope:** [All deferred update requirements](2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md) batched for one separately authorized future image; preserve v6I and current package pins until offline candidate and complete QA pass.
+
 **2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Physical v6I DNS lifecycle:** init Stop left root-owned stale socket pathname with no listening owner; exact guarded cleanup and init Start restored daemon `running`, Wi-Fi `WIFI_READY`, real hostname ping PASS. Automatic shutdown cleanup FAIL; separately fix. v6I first-boot DHCP/native DNS PASS is unchanged. No recovery reflash/reboot. [Physical QA evidence](2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md).
 
 **UI deferred request, October 18:** [Network tab follow-up](NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md) saved for appropriate next UI build: saved-profile SSID/password preload, all live Network Status fields restored, Autoconnect control moved to Wi-Fi Setup. **No code/UI build or flash yet.**

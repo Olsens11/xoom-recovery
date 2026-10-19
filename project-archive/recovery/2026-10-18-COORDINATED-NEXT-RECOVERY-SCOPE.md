@@ -1,0 +1,26 @@
+# Coordinated next Xoom recovery release — consolidated scope (2026-10-18)
+
+**Status: AGREED BATCH SCOPE / BUILD IN PROGRESS, NOT FLASHED.** Current installed baseline: v6I, Wi-Fi Runtime 0.5.2, Desktop Commander trusted 0.16.0. Keep all current original packages and the complete v6I rollback. This record coordinates items explicitly selected or deferred; it is not proof that any listed item is already implemented.
+
+## User direction
+
+The next flash should be a **single coordinated recovery update**, rather than QR-only, bringing along the verified Desktop Commander Problem A fix and everything explicitly reserved for the next suitable recovery revision. Maintain independent package versioning, only put GUI/immutable service/verification hooks into recovery, and do not turn future unrelated research ideas into release blockers.
+
+## Candidate must include
+
+1. **Desktop Commander Problem A** — integrate the independently built v0.16.2 externalized Node-builtins restore into the next appropriate immutable package candidate, retaining exact pinned module hashes and validated release manifests/installer allowlist. It passed offline 14/14 plus physical A/B prepare/reuse QA; v0.16.2 is presently SD-staged **not allowlisted**. Keep trusted v0.16.0 unmodified.
+2. **Desktop Commander native pairing** — approved 576px QR with quiet zone, readable current code and status, browser scan auto-population only if provider's *actual official verification URL* supports it; Generate New Code, expiration, Check Status, clearance on auth/stop/expiry. Native GUI widget + package's secure volatile pairing bridge, no USB ADB/SSH dependency. [Offline native QR prototype and test](../packages/desktop-commander/qr-renderer-prototype/DIRECTORY.md). No actual ARM GUI build or pairing yet.
+3. **Desktop Commander normal GUI start/status** — preserve the already-working `setprop ctl.start xoomdcagent` / init service and correct separation between provider online/authenticated and process running. During hardware QA a single Node remote-agent process PID 7049 spawned its legitimate stdio MCP child PID 7533; prior shell-started PID 22440 exited. The legacy `control.sh` status read an obsolete PID file and must not disagree misleadingly with init service state. Do not build another redundant process supervisor.
+4. **Wi-Fi Setup GUI backlog** — prepopulate saved SSID and password without logging or overwriting unsaved changes; move the existing Autoconnect toggle from Advanced to Setup without duplicating or changing preference semantics.
+5. **Network Status GUI backlog** — restore all previously intended live fields, correctly distinguish Wi-Fi runtime running, Wi-Fi link associated, DHCP/route, DNS and internet reachability; retain approved screen positions and Refresh Details action. [Original deferred request](NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md).
+6. **Time Sync approved integration** — Time Sync sole clock authority. Each recovery boot starts in unsynced UTC+0, 24h, epoch midnight + Linux kernel boot elapsed time (do not restore old clock from SD); initialize before Wi-Fi starts; Time Sync Autoload+Autorun enabled in coordinated candidate, NTP only after verified Wi-Fi READY and on genuine new connections; indicator literal UP when unsynced vs plain clock icon when NTP-verified synced; timezone preferences saved on SD. [Authoritative design decisions](../../twrp-research/R22D4Q-TIME-SYNC-AUTHORITATIVE-DECISION-REGISTER-2026-10-15.md). Existing current boot prefs untouched; technical/UX open questions must be validated without silently changing approved behavior.
+
+## Technical qualification and release boundary
+
+- Wi-Fi Runtime owns standard hosts/resolver/DNS; do not reintroduce rejected Desktop Commander v0.16.1 DNS/hosts code. Verify the existing v6I init-owned DNS lifecycle including stale-socket cleanup, and complete regressions while doing the new UI work.
+- Any additional previously agreed **specific** deferred item should be brought in only after cross-checking an authoritative acceptance or deferment record; don't treat generic ideas as requirements. Explicitly deferred unrelated multi-package runtime, general credential store, NEON Lite, optional mDNS and unapproved SD-removal behavior do not silently join this release.
+- Preserve modern SSH/SFTP and independent private wireless ADB disabled by default; do not introduce legacy SFTP or security weakening.
+- Keep immutable, versioned packages on external SD with coordinated recovery verified hashes. Ensure package changes are independently verified before adding new recovery allowlist pins.
+- Native GUI/QR changes require target ARM compilation, screen/UI QA, camera scan and actual first-party approval; offline success does not prove recovery integration.
+- Preflight candidate identity/SHA, exact p6 partition size/map, staged rollback, authenticated USB ADB and successful readback verification. **No recovery flash until separate approval for an exact image**, and no unapproved Autoload/Autorun change on the currently booted image.
+- Build and test in isolated working trees; preserve v6I image, package archives, and original source. Finish with full documented success/failure matrices, updated leaf-to-root DIRECTORY records and rollback plan.

@@ -1,5 +1,7 @@
 # Current Motorola Xoom project status — October 18, 2026
 
+**2026-10-18 coordinated future recovery flash:** [Release scope and current restrictions](project-archive/recovery/2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md) consolidates verified Desktop Commander fix, oversized QR pairing, original deferred Wi-Fi GUI fixes and authoritative Time Sync behavior. Installed v6I untouched; build and exact-image approval remain ahead.
+
 **2026-10-18 native QR pairing offline prototype:** [Approved oversized QR design](project-archive/packages/desktop-commander/2026-10-18-OVERSIZED-QR-PAIRING-FEASIBILITY.md) and [host-tested TWRP QR renderer candidate](project-archive/packages/desktop-commander/qr-renderer-prototype/DIRECTORY.md). 576px square visual approved; strict QR matrix loader PASS; integration patch generated without changing original TWRP files. Xoom native build and actual camera scan NOT DONE; no image/package deployed.
 
 **2026-10-18 Desktop Commander Problem B isolated (historical ADB-session test):** normal original agent remains running at 0/7/15/23 seconds while the USB ADB launching shell stays open, then stops immediately when it returns. Shell-session/process lifetime coupling, exact signal not yet determined; no fix applied. v0.16.2 solves separate Node shims Problem A; v0.16.0 remains trusted, agent stopped, v6I Wi-Fi/DNS healthy. [Physical diagnostic checkpoint](project-archive/packages/desktop-commander/2026-10-18-DC-PROBLEM-B-ADB-SHELL-LIFETIME-DIAGNOSIS.md).

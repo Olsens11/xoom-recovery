@@ -1,5 +1,7 @@
 # recovery
 
+**2026-10-18 next coordinated flash scope:** [Consolidated checklist](2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md): Desktop Commander Problem A pinned v0.16.2 fix, native pairing QR and init-status integration, deferred Network tab fixes, Time Sync agreed policy, DNS lifecycle regression. **Scope only; none is yet a new flashed release.**
+
 **2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Physical v6I DNS lifecycle:** init Stop left root-owned stale socket pathname with no listening owner; exact guarded cleanup and init Start restored daemon `running`, Wi-Fi `WIFI_READY`, real hostname ping PASS. Automatic shutdown cleanup FAIL; separately fix. v6I first-boot DHCP/native DNS PASS is unchanged. No recovery reflash/reboot. [Full physical lifecycle, clock and Desktop Commander QA](2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md). [Deferred Network-tab UI requests](NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md).
 
 **Deferred Network screen UI backlog (user-reported, 2026-10-18):** [Wi-Fi setup, Network Status and Advanced tab follow-ups](NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md): prefill saved SSID/password, restore all dynamic status fields using current live sources, move Autoconnect toggle to Wi-Fi Setup. **Recorded, not implemented.** v6I Wi-Fi/DNS service validation continues separately.
