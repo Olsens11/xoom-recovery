@@ -1,3 +1,27 @@
+# Current update — standard GitHub write check, not an assumed blanket ban
+
+**Updated after examining the actual GitHub connector contracts and scheduled-task documentation (2026-10-19).** Scheduled tasks can use supported connected apps and may take write actions when authorized. A write may require approval and pause the task. Reports of `This tool call was blocked by OpenAI's safety checks` establish unsuccessful attempted calls, **not** an established universal scheduled-worker write prohibition. We have not inspected the actual rejected argument objects, so their precise failure cause is UNRESOLVED. This section supersedes any later prohibition in this document on *all* scheduled GitHub writes; earlier decisions are retained as incident history.
+
+## Canonical minimal invocation: use the connected GitHub tool, not a custom HTTP call
+
+When there is a meaningful issue update, do exactly ONE normal `mcp__GitHub__fetch_file` followed by exactly ONE normal `mcp__GitHub__update_file` for the **worker-owned existing issue report**. Never combine calls in parallel; do not write product files.
+
+- `fetch_file` arguments: `{repository_full_name:"Olsens11/xoom-recovery",path:"project-archive/packages/desktop-commander/research-program-2026-10-19/issue-NN.md"}` where NN is this worker's issue according to live QUEUE.json.
+- Take `result.sha` from this fetched file: this is the **current blob SHA**, not `commit_sha`.
+- Build `content` by preserving the fetched **complete UTF-8 issue report** and appending or integrating a small substantive research checkpoint. It must be plain complete Markdown text, **not base64**, not JSON, not a patch command, not an encoded object. The connector itself performs UTF-8 to base64 conversion. Use a short innocuous evidence update first, not an entire enormous research dump.
+- `update_file` arguments: `{repository_full_name:"Olsens11/xoom-recovery",path:"project-archive/packages/desktop-commander/research-program-2026-10-19/issue-NN.md",content:<complete updated Markdown text>,message:"Research: record issue NN source finding",sha:<fetched result.sha>,branch:"main"}`. All argument types are strings and the path is already present. Use ONLY the exact declared tool argument names.
+- When successful, the update returns `result.commit_sha` and `result.content_sha`. Confirm by a new `fetch_file` that the intended new paragraph exists. Only then say the report was saved.
+
+**Failure handling:** A normal GitHub SHA conflict or invalid-request error requires inspecting the error and, when appropriate, reconciling the latest file (do not force-overwrite). An external approval-required result requires user review of the approval, not evasion. If the call returns a safety-check rejection, do not retry or change endpoints/accounts/tools in that run. Report the **precise error** and the complete useful Markdown in the task response; keep the schedule enabled. Do not claim a commit. In particular do not substitute remote shell, direct REST calls, browser impersonation or alternative auth to evade a tool refusal.
+
+**Goal:** Test one **correctly formed, modest, genuine** update in the scheduled context to distinguish a malformed or oversized invocation from an approval/scheduled-context restriction. The worker is not to spend the whole hour debugging GitHub instead of engineering research. After success, use the same ordinary exact connector method for subsequent reports; after denial, preserve findings in the task response for later approved archival.
+
+After a report is fully implementation-ready, follow the existing concurrent queue CAS/atomic-handoff discipline **only where the normal write is actually permitted**, using fresh queue blob SHA. No claim of reassignment based merely on the task response.
+
+**Official guidance:** https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt — scheduled tasks can use supported GitHub connected apps, action permissions apply, and approval-required actions may pause for review.
+
+---
+
 # October 19 follow-up: confirmed BACKGROUND GitHub write restriction — supersedes earlier write instructions
 
 **Applies to scheduled Workers A, B and C until explicitly superseded.** Independent worker runs repeatedly received `This tool call was blocked by OpenAI's safety checks.` for GitHub `update_file`, even with a freshly fetched blob SHA. The attempts failed **before reaching GitHub**, leaving issue reports unchanged. In contrast, user-authorized interactive ChatGPT turns successfully edited the very same reports through the connected GitHub tool. This is a difference in execution context, not a diagnosed SHA conflict or proof of an account-wide GitHub outage.
