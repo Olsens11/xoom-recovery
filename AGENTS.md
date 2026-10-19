@@ -29,6 +29,14 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v0.16.4/v6K matched offline trust candidates (2026-10-19)
+
+User requires new Desktop Commander package in recovery trusted hash list. New immutable 0.16.4 ZIP SHA256 9cc600e87453ab2658e7b9c7e454ce9a738b8ebbaf4aa2d5c395b69cb2bf9e35, inner 4e374129f32b9df7d7e11cd176015f5a151974d97b36865fee8ab11b40ca303e; offline v6K image SHA256 e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f includes the exact new filename and both pins, other seven unchanged. Independent 31/31 offline PASS. Neither candidate copied to Xoom SD/flashed/loaded. Current physically installed v6J-C with RAM-only fixes preserved. [Dated proof](project-archive/recovery/2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).
+
+## v6J-C UID2000 filesystem worker recovered in RAM (2026-10-19)
+
+User-approved root:shell 0750 access on /tmp/n24 restored the restricted UID2000 worker and actual cloud-delivered list_directory; realtime remained Online. This is a volatile fix, not a packaged v0.16.4 clean-boot PASS. [On-device QA](project-archive/recovery/2026-10-19-V6J-C-DC-UID2000-FS-WORKER-RAM-RECOVERY.md).
+
 ## v6J-C worker regression root cause (latest read-only QA)
 
 The original v6G Desktop Commander v0.16.0 physically performed successful UID2000 filesystem operations. Current agent/worker source and Node builtin SHA identities are unchanged, but v0.16.2+ automatic restore extracts into root-owned /tmp/n24 mode0700 under umask077. Restricted UID2000 Node aborts during startup on inaccessible externalized undici module; root Node succeeds. Exact v0.16.0/v0.16.3 inner ZIP comparison proves bounded dispatcher, worker, access policy and original launcher byte-identical. Root:shell mode0750 safe directory-access correction is only PROPOSED, NOT APPLIED. Live authorized realtime connection preserved. [Comparative read-only QA](project-archive/recovery/2026-10-19-V6J-C-DC-UID2000-N24-PERMISSION-REGRESSION.md).

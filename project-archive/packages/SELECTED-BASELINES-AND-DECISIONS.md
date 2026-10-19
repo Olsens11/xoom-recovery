@@ -1,5 +1,7 @@
 # Toolkit package selection and responsibility ledger
 
+**v0.16.4/v6K coordinated offline successor (2026-10-19):** New Desktop Commander ZIP outer 9cc600e8...2bf9e35, inner 4e374129...0ca303e, plus v6K recovery pin exactly that filename and both digests; 31/31 offline PASS. Installed v6J-C/v0.16.3 stays physically current and cloud-Online with RAM-only fixes; candidate ZIP and image not yet staged, flashed or loaded. [Proof](../recovery/2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).
+
 **2026-10-18 scoped v6J-B choice:** [Recovery paired to Desktop Commander 0.16.3](../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), only verified Problem A module restore and first-party QR pairing. v0.16.3 is NOT trusted by physically installed v6I, nor deployed; all other package selections and pin hashes remain unchanged. Earlier broader consolidated proposal stays deferred.
 
 **LATEST explicit 2026-10-18 choice:** [v6J strictly DC Problem A and QR pairing](../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md), superseding broader combined UI/Time Sync release proposal. [v0.16.3 offline QA](desktop-commander/versions/v0.16.3/DIRECTORY.md) is untrusted/uninstalled; selected installed v0.16.0 stays unchanged.

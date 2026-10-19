@@ -1,0 +1,16 @@
+# v6K — single verified-installer member update for v0.16.4
+
+**OFFLINE IMAGE ONLY. It has not been flashed, booted or qualified as an installed recovery. User has not authorized flashing this exact image.**
+
+- Image: `R22NEXT-V6K-DC0164-PINNED-OFFLINE-DO-NOT-FLASH.img`; **9,615,360 bytes**; SHA-256 `e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f`.
+- Parent is exact booted v6J-C image SHA-256 `0993c94cb9518ddb813b838afed90f5158016266fdcb7efbf52dea60cb63fafc`.
+- Kernel byte-identical, SHA `aea86fea2a152f3c9c2ac88e64a0508c6ad093713addf47974a1eb1d90bacb71`. Exactly 468 of 469 recovery CPIO members unchanged, including recovery ELF, all native 576px QR pages, Toolkit Manager and other runtime services.
+- Single changed member: `sbin/xoom-toolkit-verified-install`, SHA-256 `a5b7aef78048893e981ced6180cea3fcadb108f224ff440ad370859a6ac0c750` → `03272808aae8c0b9bed43824d84915758304f3782f4a39cd7af2689e7e80cc96`.
+- Trusted Desktop Commander filename `XoomToolkit-Desktop-Commander-0.16.4-SPLITMODE-QA.zip`. Outer PIN `9cc600e87453ab2658e7b9c7e454ce9a738b8ebbaf4aa2d5c395b69cb2bf9e35`; INNER PIN `4e374129f32b9df7d7e11cd176015f5a151974d97b36865fee8ab11b40ca303e`. Both normal approved filename occurrences updated; other seven package entries untouched and bypass disabled.
+- [Reproducible builder](build_v6k_dc0164_verified_image.py) · [Independent package/image 31-gate audit](independent_dc0164_v6k_qa.py) · [Exact package](../../../../packages/desktop-commander/versions/v0.16.4/DIRECTORY.md).
+
+The actual IMG, immutable ZIP and JSON audit results are preserved privately at `/home/ps2/xoom-phase1/private/network-foundation-next/development/dc0164-verified-image-20261019/`. These sources, not a filename, determine exact identity.
+
+**Hardware gates pending:** stage the ZIP to SD and check its on-device hash; separately authorize exact v6K recovery flash with fresh p6 identity/size, full rollback and image-length readback before reboot; then normal Toolkit trusted Verify/Load, fresh Node builtin restore, GUI QR authorization, realtime Online and UID2000 MCP regression tests. No trusted pin bypass.
+
+[Detailed coordinated QA](../../../2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md) · [Parent](../DIRECTORY.md).

@@ -83,3 +83,8 @@ Actual Xoom native GUI QR and user first-party authorization PASS using verified
 ## v6J-C UID2000 BUILTIN DIRECTORY REGRESSION (2026-10-19)
 
 Comparative original v6G v0.16.0 physical file-tool PASS versus current v0.16.3 file-tool worker startup FAIL. Current /tmp/n24 is root:root mode0700; pinned 3-file tar lacks directory entry and v0.16.2+ control extracts under umask077. Exact current undici file SHA correct; root Node starts, UID2000 Node using worker loader aborts with same externalized-builtin error. Immutable ZIP member comparison confirms dispatcher, worker, root-gate, root-read-profile and original launcher unchanged between v0.16.0 and v0.16.3. Proposed group shell/traversable mode0750 fix not yet applied. [Evidence](2026-10-19-V6J-C-DC-UID2000-N24-PERMISSION-REGRESSION.md).
+
+
+## v6K v0.16.4 MATCHED HASH LIST (2026-10-19)
+
+Desktop Commander 0.16.4 combines RAM-proven split-mode QR and UID2000 builtin access guard in immutable 669650-byte ZIP outer SHA 9cc600e8...2bf9e35, inner SHA 4e374129...0ca303e. New v6K image SHA e2ed41e9...16f40f changes only recovery trusted installer member; seven other package hashes and GUI/kernel preserved. Independent 31/31 offline PASS. Candidate not staged or flashed. [Evidence](2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).
