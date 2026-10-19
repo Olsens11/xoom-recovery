@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "purpose": "Research-only nine-issue queue, one issue per worker at a time",
+  "repo": "Olsens11/xoom-recovery",
+  "branch": "main",
+  "initial_ownership": {
+    "A": 1,
+    "B": 2,
+    "C": 3
+  },
+  "next_claim": "lowest-numbered queued issue, regardless of worker",
+  "states": [
+    "queued",
+    "researching",
+    "ready_for_implementation_review"
+  ],
+  "issues": [
+    {
+      "id": 1,
+      "title": "Reboot startup sequencing and Time Sync readiness",
+      "status": "researching",
+      "owner": "A",
+      "report": "issue-01.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 2,
+      "title": "Persistent first-party device identity and pairing reuse",
+      "status": "researching",
+      "owner": "B",
+      "report": "issue-02.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 3,
+      "title": "Full Desktop Commander lifecycle and longevity testing",
+      "status": "researching",
+      "owner": "C",
+      "report": "issue-03.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 4,
+      "title": "Standard/Root permission modes and session switching",
+      "status": "queued",
+      "owner": null,
+      "report": "issue-04.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 5,
+      "title": "Recovery header agent, Online and privilege indicators",
+      "status": "queued",
+      "owner": null,
+      "report": "issue-05.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 6,
+      "title": "Desktop Commander package-page terminal/tool monitor",
+      "status": "queued",
+      "owner": null,
+      "report": "issue-06.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 7,
+      "title": "Desktop Commander tool parity and Xoom-specific APIs",
+      "status": "queued",
+      "owner": null,
+      "report": "issue-07.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 8,
+      "title": "Single trusted package and bounded >12 MiB exception",
+      "status": "queued",
+      "owner": null,
+      "report": "issue-08.md",
+      "reviewed_complete_at": null
+    },
+    {
+      "id": 9,
+      "title": "Native GUI testing, interaction quality and polish",
+      "status": "queued",
+      "owner": null,
+      "report": "issue-09.md",
+      "reviewed_complete_at": null
+    }
+  ]
+}
