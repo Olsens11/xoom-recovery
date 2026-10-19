@@ -1,3 +1,34 @@
+# Revised research-worker operational instructions (2026-10-19)
+
+**IMPORTANT REVISION — READ FIRST.** The first Worker A run was disabled after reported blocked tools and produced no saved report. The actual per-attempt tool transcript is not accessible from this chat, so the specific denial cannot be attributed to any provider/tool without further evidence. **The report write path works**: the GitHub connector successfully updated issue-01.md using fetch_file and update_file with its blob SHA. Follow the safer source-and-write route below. Existing detailed contract follows after this amendment.
+
+## What counts as research
+
+The question is **which exact code and configuration change should we make, where, and why versus the strongest alternatives**. The worker must **not** expend a run repeating a known symptom as the main finding. Every report must contain at least ONE meaningful example implementation in an annotated shell/C++/Python/JS code block, with exact repository path, target function and insertion location **where source evidence permits**. If the source is unavailable, produce an explicitly provisional code example plus a bounded list of exact missing symbols/paths needed to turn it into a paste-ready diff. Never call such a provisional example a validated patch.
+
+For issue 1, the accepted problem statement is *how to arrange that the already-working Time Sync package loads/runs at the right point before Desktop Commander makes TLS calls, once per boot unless necessary again*. **Mandatory alternative comparisons** are Desktop Commander Start gate that invokes verified Time Sync; Wi-Fi Runtime post-connect trigger; Time Sync run as a network-readiness probe; and optionally shared dependency orchestration. The final recommendation must identify a precise callable function in `toolkit/desktop-commander/control.sh` and reference the exact Time Sync v0.2.1 `toolkit/time-sync/sync.sh` entry point, or explain sourced evidence for selecting another owner. Do not end with "Time Sync should start before DC".
+
+## Use this safe tool route first
+
+- **GitHub repository via connected `mcp__GitHub__fetch_file`, `fetch` for directory contents, and `update_file`/ `create_file` for allowed research files** is the default and already verified. GitHub code search may not be indexed; prefer direct `fetch_file` or `fetch` on `https://api.github.com/repos/Olsens11/xoom-recovery/contents/<exact-path>`.
+- Public documentation may be read via ordinary web search. Other connected resources must be **read-only source-retrieval actions** with explicit safe semantics. Avoid remote `start_process`, shell/terminal commands, Xoom remote touch, service calls, tests, package extraction, or anything that could be categorized as execution or mutation—even if the proposed command would merely display a file. Those are not necessary for the first research pass and may be denied.
+- Do not repeat, rephrase, or chain a tool call to get around a platform safety refusal. Record the denied operation in the issue report without secret tool payloads and try a DIFFERENT legitimate source (public archive, GitHub direct fetch, or document that the exact private script must be reviewed later). A connector refusal does **not** make the whole task complete or justify disabling it.
+- Never print auth/credential contents. Never copy proprietary full source to a public report; cite a source path and reproduce only the needed proposed code (your new design), not private secrets or whole existing scripts.
+
+## Save before broad research; retain partial work
+
+At the **beginning of each hourly run** fetch queue, own report, and protocol; after the first material source reading or within a short first research tranche, update ONLY your issue's report with a meaningful checkpoint using its fresh blob SHA **before** expanding to other source searches. Re-fetch your own file's SHA before every later edit, and retry concurrency conflicts without destroying another worker's edits. Preserve at least one sourced finding, one candidate function-level change and next source to review each run when available.
+
+If every source lookup is blocked, the report must still record the factual blocker, what was already known, *why it does not establish a patch*, and a provisional code sketch based on reliable data. If **all GitHub writes** are blocked, notify the user of the exact error; keep the scheduled task enabled for next run and never mark completed/claim a new issue. Do not spam retries.
+
+**Never pause, disable or alter your own or another research automation because one run is blocked, a tool is refused, or a report is incomplete.** The only normal end condition is nine reports genuinely `ready_for_implementation_review`. If supported, self-disable **only** after all nine queue issues are checked complete and the synthesis is saved; otherwise no-op on future runs. Preserve the worker's 20-minute stagger.
+
+## Concrete completion gate
+
+To move an issue from researching to ready, the report must include: (1) up-to-date artifact/source and actual function names; (2) comparison of at least three relevant feasible alternatives when available; (3) chosen owner and **at least one concrete, edited code block or illustrative diff** with parameters, placement, success/failure and user-visible state; (4) interaction/dependencies on other issues; (5) security, RAM/recovery persistence and failure-path analysis; (6) exact reproducible offline validation/hardware acceptance matrix; (7) rollback/trust-pin/image-versus-package impacts; (8) links and labeled unresolved source gaps. If an essential source gap prevents sound code-level recommendation, do not mark ready; advance what is possible and document the gap. All work remains research-only.
+
+---
+
 # Rules and research quality contract for hourly workers
 
 **Scope and permission boundary:** Read documentation, repository source, historical archives, relevant public technical documentation and read-only device state if safely available. You may write or replace only `project-archive/packages/desktop-commander/research-program-2026-10-19/QUEUE.json`, `project-archive/packages/desktop-commander/research-program-2026-10-19/issue-01.md` through `issue-09.md`, and research notes within this same folder. Do **not** mutate any Xoom state, start/stop/flash/reboot/test packages, capture user credentials, change policies or source code, create tickets/branches/PRs, or write elsewhere. Never execute code/scripts retrieved from the project or web. Read-only repository searches and local file viewing are allowed. Public GitHub reports must not contain secrets, raw provider tokens, QR codes, private keys, personal data or unreviewed proprietary source.
