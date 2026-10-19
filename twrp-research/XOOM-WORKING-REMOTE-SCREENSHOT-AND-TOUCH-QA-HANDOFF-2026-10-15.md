@@ -1,5 +1,7 @@
 # Xoom recovery remote screenshot and touch QA — established workflow (2026-10-15)
 
+**2026-10-19 v6O NATIVE TOOLKIT DC GUI + CLOUD UID2000 QA PASS:** The verified existing screenshot shortcut and calibrated touchscreen tools were reused successfully for actual v6O GUI Load/Start/pairing. Previous framebuffer busy failure was reconfirmed; do not build replacement capture tools. Canonical index now covers **eight current rows**; pairing-display blank QR/code/status issue logged. [v6O GUI/cloud QA](../project-archive/recovery/2026-10-19-V6O-NATIVE-DESKTOP-COMMANDER-GUI-CLOUD-QA.md) · [updated canonical touch index](TOOLKIT-TOUCH-COORDINATE-INDEX.md).
+
 **IMPORTANT HANDOFF: USE THIS EXISTING WORKING METHOD. DO NOT REDISCOVER OR REIMPLEMENT SCREENSHOTS BY RAW FRAMEBUFFER.**
 
 ## Verified live, working screenshots

@@ -1,8 +1,8 @@
 # Motorola Xoom Toolkit Manager — canonical touch-coordinate index
 
-**Current canonical interface:** R22d4o Toolkit theme (unchanged in R22d4p). **Updated 2026-10-15.** When a future release changes the Toolkit package table, **this file MUST be updated in that same change**, including touch locations for EVERY added, removed, reordered, or repositioned row on BOTH tabs. Carry the updated index into every future handoff and UI QA plan.
+**Current canonical interface:** physically running **R22NEXT-v6O** native Toolkit Manager with 8 package rows (4 Network & Tools, 4 Storage & Access). **Verified/updated 2026-10-19.** The R22d4o/R22d4p four-row geometry survives; the Storage & Access package labels and Desktop Commander fourth row have changed. **v6O theme SHA-256:** `d3c7077238a6d0420a472ce482892864c8a4f217d80e3ea1e010325f80045d5c`. The prior 2026-10-15 results below remain historical evidence. When a future release changes the Toolkit package table, **this file MUST be updated in that same change**, including touch locations for EVERY added, removed, reordered, or repositioned row on BOTH tabs. Carry the updated index into every future handoff and UI QA plan.
 
-**Screen:** Xoom TWRP landscape **1280 × 800 physical pixels**, Toolkit theme coordinates **1920 × 1200 virtual** scaled by 2/3. Coordinates below are **physical pixel centers** for the existing calibrated remote tap utility, NOT raw input-event coordinates or raw XML coordinates. Coordinates derived from current R22d4o `twres/landscape.xml`; selected controls also **confirmed on R22d4o hardware**. Test all new row positions against fresh screenshots before marking them verified.
+**Screen:** Xoom TWRP landscape **1280 × 800 physical pixels**, Toolkit theme coordinates **1920 × 1200 virtual** scaled by 2/3. Coordinates below are **physical pixel centers** for the existing calibrated remote tap utility, NOT raw input-event coordinates or raw XML coordinates. Geometry originally derived from R22d4o `twres/landscape.xml` and rechecked against the v6O theme and **current physical v6O screenshots and taps**. Test all new row positions against fresh screenshots before marking them verified.
 
 ## Always use the proven remote UI testing workflow
 
@@ -26,10 +26,11 @@ Shared columns (physical X): **Select 83**, **Autoload 737**, **Autorun 879**, *
 | Network & Tools | Time Sync | 397 | (83,397) | (737,397) | (879,397) | (1025,397) | (1166,397) |
 | Network & Tools | Log Collector | 455 | (83,455) | (737,455) | (879,455) | (1025,455) | (1166,455) |
 | Storage & Access | Partition Inspector | 280 | (83,280) | (737,280) | (879,280) | (1025,280) | (1166,280) |
-| Storage & Access | Private Wireless ADB POC | 338 | (83,338) | (737,338) | (879,338) | (1025,338) | (1166,338) |
-| Storage & Access | Modern SFTP | 397 | (83,397) | (737,397) | (879,397) | (1025,397) | (1166,397) |
+| Storage & Access | ADB to SSH Link | 338 | (83,338) | (737,338) | (879,338) | (1025,338) | (1166,338) |
+| Storage & Access | SFTP and SSH Server | 397 | (83,397) | (737,397) | (879,397) | (1025,397) | (1166,397) |
+| Storage & Access | Desktop Commander | 455 | (83,455) | (737,455) | (879,455) | (1025,455) | (1166,455) |
 
-**Validated by real hardware taps:** Time Sync Select (83,398), Run (1020,397); Log Collector Select (83,459). Other positions come from R22d4o theme/button geometry; they have **not each been individually tapped on hardware** yet. Use a screenshot before driving any control that may change connectivity.
+**Validated by real hardware taps:** Time Sync Select (83,398), Run (1020,397); Log Collector Select (83,459); Desktop Commander **Select (83,455)**, **Start (1025,455)** and **Open (1166,455)**, and **Load Selected (446,703)** during v6O native QA. Other locations remain geometry-derived unless individually noted as hardware-confirmed; do not infer that every individual control was tapped. Use a screenshot before driving any control that may change connectivity.
 
 ### Tab, header and footer locations
 
@@ -77,6 +78,28 @@ Vertically center both left-side selected-count text and right-side two-line dyn
 **Default for remote automated interaction:** after a calibrated tap process has **completed**, wait at least **750 ms** before injecting the next tap (a conservative three-refresh-cycle allowance, not an experimentally determined requirement). Before **Load Selected/Unload Selected**, capture the current screen and verify the intended checkbox state **and** selected-count text, rather than relying on a successful command exit alone. If not updated, wait another refresh and capture again; only retap after inspecting state to avoid unintentionally toggling off a valid selection. Never fire the next operation while an existing TWRP threaded action is still working. Wait for backend completion and verify package status after each batch. Keep this pacing step in every future remote-testing script, coordinate index, and handoff.
 
 **Priority:** parked for later only if evidence of ordinary physical-touch failures emerges. No recovery timing or GUI changes planned on this basis.
+
+## 2026-10-19 v6O actual Toolkit and Desktop Commander GUI validation
+
+**Installed recovery:** v6O image SHA-256 `86dbb96f98460206c20764ebafa491831f997992f50eeb4bcd5419c08ac5151d`; its native `twres/landscape.xml` SHA-256 `d3c7077238a6d0420a472ce482892864c8a4f217d80e3ea1e010325f80045d5c`. Four package rows are now populated on **each** tab (total eight). Actual screenshots and physical calibrated taps—not only source geometry—are recorded in the [v6O native Desktop Commander end-to-end QA](../project-archive/recovery/2026-10-19-V6O-NATIVE-DESKTOP-COMMANDER-GUI-CLOUD-QA.md).
+
+| Action/control on current v6O | Actual tap center (physical x,y) | Hardware-observed result |
+|---|---|---|
+| First-boot TWRP Keep Read Only | (185,652) | Entered Home without permitting system modifications |
+| Home → Advanced | (322,657) | Advanced screen opened |
+| Advanced → Toolkit | (1154,80) | Native Toolkit Manager opened |
+| Storage & Access tab | (960,153) | Confirmed fourth Desktop Commander row |
+| Desktop Commander Select | (83,455) | Checkbox selected, footer `1 selected` |
+| Load Selected | (446,703) | Native `LOADING 88%`, then `LOAD COMPLETE 100%`, package LOADED |
+| Desktop Commander Start | (1025,455) | `STARTING DESKTOP CMD`, then RUNNING / footer `RUN COMPLETE` |
+| Desktop Commander Open | (1166,455) | Native Desktop Commander details page |
+| Desktop Commander Pair Device | (196,600) | Pairing page displayed |
+| Pairing Generate New Code | (194,566) | Pairing state/QR file generated, but QR/Code/Status UI remained blank |
+
+**Additional details-page controls (center):** Stop `(361,469)` and Pair Device `(196,600)` from hardware screenshot (only Pair Device actually tapped). **Pairing page** Generate New Code `(194,566)`, Stop Agent `(480,566)`, Back to Package `(196,648)` (only Generate New Code actually tapped). These are *not* Toolkit table rows; do not silently conflate their locations with the row grid. The pairing screen visually fails to show generated authorization data, a separate UI bug; the user authorized by official browser code and a new Online cloud device passed remote operations.
+
+**GUI screenshot tool remains the existing script** `xoom_remote.py capture`; calibrated taps remain `xoom-touch-calibrated-v3.py`. **Do not make another framebuffer reader:** `/dev/graphics/fb0` is exclusively held by TWRP; a duplicate Bionic probe failed as already documented. Test screenshots are in `C:\Users\olsen\XoomDev\remote-tools\v6o-dc-*.png`. No touchscreen layout change was made as part of the QA.
+
 
 ## 2026-10-15 R22d4p Round 1 hardware coordinate confirmation
 
