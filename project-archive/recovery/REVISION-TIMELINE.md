@@ -88,3 +88,8 @@ Comparative original v6G v0.16.0 physical file-tool PASS versus current v0.16.3 
 ## v6K v0.16.4 MATCHED HASH LIST (2026-10-19)
 
 Desktop Commander 0.16.4 combines RAM-proven split-mode QR and UID2000 builtin access guard in immutable 669650-byte ZIP outer SHA 9cc600e8...2bf9e35, inner SHA 4e374129...0ca303e. New v6K image SHA e2ed41e9...16f40f changes only recovery trusted installer member; seven other package hashes and GUI/kernel preserved. Independent 31/31 offline PASS. Candidate not staged or flashed. [Evidence](2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).
+
+
+## v6K HARDWARE PREFLIGHT / ZIP SD STAGING (2026-10-19)
+
+Exact new Desktop Commander v0.16.4 ZIP 669650 bytes, SHA256 9cc600e8...2bf9e35, copied via guarded single-use private LAN relay to Surface and USB ADB SD, verified by Xoom SHA. v6K candidate image SHA e2ed41e9...16f40f staged only on Surface, no partition changes. Raw current recovery p6 backed up (12582912 bytes, SHA b550f54e...ac6a0a9) to Surface and private Pi; both checked and 9615360-byte prefix matches active v6J-C SHA 0993c94c...cb63fafc. Device 100% battery, USB ADB, package SD mount and remote agent Online, no reboot or flash. A separately authorized exact-hash flash is pending. [Evidence](2026-10-19-V6K-DC0164-SD-STAGED-P6-BACKUP-FLASH-GATE.md).

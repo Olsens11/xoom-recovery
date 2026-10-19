@@ -1,5 +1,7 @@
 # Toolkit package selection and responsibility ledger
 
+**v6K preflash physical staging and p6 backup (2026-10-19):** v0.16.4 exact ZIP is staged/rehashed on Xoom SD, but physically installed v6J-C verifier still pins v0.16.3. v6K image matched on Surface/Pi only, not flashed. Full current v6J-C p6 SHA b550f54e...ac6a0a9 privately preserved twice; installed image-prefix SHA matches. Live Desktop Commander Online and previous RAM fixes preserved. [New hardware witness](../recovery/2026-10-19-V6K-DC0164-SD-STAGED-P6-BACKUP-FLASH-GATE.md).
+
 **v0.16.4/v6K coordinated offline successor (2026-10-19):** New Desktop Commander ZIP outer 9cc600e8...2bf9e35, inner 4e374129...0ca303e, plus v6K recovery pin exactly that filename and both digests; 31/31 offline PASS. Installed v6J-C/v0.16.3 stays physically current and cloud-Online with RAM-only fixes; candidate ZIP and image not yet staged, flashed or loaded. [Proof](../recovery/2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).
 
 **2026-10-18 scoped v6J-B choice:** [Recovery paired to Desktop Commander 0.16.3](../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), only verified Problem A module restore and first-party QR pairing. v0.16.3 is NOT trusted by physically installed v6I, nor deployed; all other package selections and pin hashes remain unchanged. Earlier broader consolidated proposal stays deferred.
