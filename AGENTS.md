@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v6J-C authorized but realtime offline (newest physical QA)
+
+Native first-party QR GUI and phone authorization PASS, agent RUNNING; Realtime channel cannot subscribe under temporary main-agent jitless. Verified public-key WebSocket heartbeat PASS without jitless and FAIL with it. Isolated RAM split-mode bridge QA PASS; live agent NOT swapped/restarted. [Newest evidence](project-archive/recovery/2026-10-18-V6J-C-AUTHORIZED-OFFLINE-SPLITMODE-QA.md).
+
 ## v6J-C latest physical hardware QA (supersedes installed v6I status below)
 
 Exact v6J-C recovery flash/readback and first boot PASS; Desktop Commander v0.16.3 trusted Load PASS. Native QR crashes in Node JIT but passes --jitless isolated test; reversible RAM launcher adjustment staged, agent stopped, GUI/provider pairing not accepted. [New hardware QA](project-archive/recovery/2026-10-18-V6J-C-PHYSICAL-QR-JIT-RAM-QA.md).

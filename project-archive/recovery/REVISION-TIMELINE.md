@@ -63,3 +63,8 @@ New v6H / Wi-Fi v0.5.2 are SD/RAM **staged** with exact on-device hashes, **NOT 
 ## v6J-C PHYSICAL AND QR JIT (2026-10-18 EDT)
 
 v6J-C exact recovery flash/readback/boot passed, Desktop Commander v0.16.3 trusted load passed. Normal Xoom Node QR execution reproduced a V8 unreachable-code Bus error. Isolated QR passed with --jitless; RAM-only launcher staged for GUI test, real pairing NOT TESTED. [Detailed QA](2026-10-18-V6J-C-PHYSICAL-QR-JIT-RAM-QA.md).
+
+
+## v6J-C AUTHORIZED / REALTIME OFFLINE (2026-10-18 EDT)
+
+Native QR and official browser authorization physically PASS; device remained offline due to Realtime channel failure. Same Xoom Node binary native WebSocket heartbeat PASS with normal JIT, FAIL with jitless; raw publishable-key TLS WebSocket upgrade HTTP 101. Split-mode wrapper and JITless QR helper tested in isolated RAM PASS, live agent not replaced/restarted. [Evidence](2026-10-18-V6J-C-AUTHORIZED-OFFLINE-SPLITMODE-QA.md).
