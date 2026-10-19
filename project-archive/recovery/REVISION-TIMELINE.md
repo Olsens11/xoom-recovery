@@ -98,3 +98,8 @@ Exact new Desktop Commander v0.16.4 ZIP 669650 bytes, SHA256 9cc600e8...2bf9e35,
 ## v6K EXACT PHYSICAL FLASH AND TRUSTED PACKAGE VERIFY (2026-10-19)
 
 User authorized exact v6K SHA e2ed41e9...16f40f. Individual-command 4695x2048-byte dd/conv fsync write, sync, full image-length readback hash before reboot PASS. Entire postflash p6 12582912 bytes SHA f864733a...db6bee archived Surface and private Pi, 2967552-byte trailing area unchanged, original full v6J-C rollback preserved SHA b550f54e...ac6a0a9 twice. TWRP v3.1.1 and USB ADB first boot, Wi-Fi and DNS PASS; physical exact new verifier SHA 03272808...0cc96, trusted v0.16.4 verified ZIP PASS. GUI Load/Pair/Online/UID2000 remote operations NOT YET TESTED. [Dated witness](2026-10-19-V6K-PHYSICAL-FLASH-READBACK-FIRST-BOOT-QA.md).
+
+
+## v6K GUI CALIBRATED-TOUCH BATCH LOAD QA (2026-10-19)
+
+Physical TWRP screenshots via native VolumeUp+VolumeDown shortcut and calibrated touch at Load Selected proved real GUI operations. Desktop Commander v0.16.4 Load COMPLETE 100%, Partition Inspector Load COMPLETE 100%; native backend LOADED and exact recovery.log VERIFIED/LOADED for both. Checkbox 1 selected before each batch confirmed. Native source inspected: batch, button and checkbox handlers normal; original user-reported no-action could not be reproduced or definitively explained. Agent Start/QR/Reatime Online on new boot remain pending. [Live screenshot QA](2026-10-19-V6K-NATIVE-BATCH-GUI-SCREENSHOT-TOUCH-QA.md).
