@@ -78,3 +78,8 @@ Following native GUI stop, SHA-guarded RAM-only patch restored normal Node launc
 ## v6J-C REALTIME ONLINE / WORKER STILL FAILS (2026-10-19)
 
 Actual Xoom native GUI QR and user first-party authorization PASS using verified split-mode RAM fix, remote device list Online, agent log Supabase channel SUBSCRIBED and inbound tool requests. Intentional arbitrary shell restriction PASS. File/list/metadata remote tools failed in pre-existing externalized Node builtin worker, so productive remote operations still NOT PASS. [Newest QA](2026-10-19-V6J-C-DC-PAIRING-ONLINE-WORKER-QA.md).
+
+
+## v6J-C UID2000 BUILTIN DIRECTORY REGRESSION (2026-10-19)
+
+Comparative original v6G v0.16.0 physical file-tool PASS versus current v0.16.3 file-tool worker startup FAIL. Current /tmp/n24 is root:root mode0700; pinned 3-file tar lacks directory entry and v0.16.2+ control extracts under umask077. Exact current undici file SHA correct; root Node starts, UID2000 Node using worker loader aborts with same externalized-builtin error. Proposed group shell/traversable mode0750 fix not yet applied. [Evidence](2026-10-19-V6J-C-DC-UID2000-N24-PERMISSION-REGRESSION.md).
