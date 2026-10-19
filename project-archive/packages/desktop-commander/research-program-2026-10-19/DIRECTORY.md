@@ -2,6 +2,8 @@
 
 **RESEARCH ONLY. No code execution on the Xoom, state changes, flashes, package or recovery builds, permission changes, credentials changes, GitHub writes outside this folder, or deployment.** This folder is the **sole GitHub write destination** for three hourly workers. Their reports are proposed implementation plans for user review, not implementation authorization.
 
+**Worker A recovery notice (2026-10-19):** Its first run was disabled with no published findings. The write route was independently verified, issue-01 received a source-based implementation checkpoint, and the research instructions were tightened to prioritize direct GitHub access and early checkpoints. See [incident and safeguards](WORKER-A-INCIDENT-AND-RECOVERY.md). Worker A retains issue 01 until the exact patch design is complete.
+
 ## Coordination
 
 [Canonical queue](QUEUE.json) · [Research worker protocol](PROTOCOL.md) · [Existing user-approved goals](../2026-10-19-NEXT-PHASE-GOALS-AND-ENGINEERING-ROADMAP.md) · [Physically accepted v6K/v0.16.4 milestone](../../../recovery/2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).
