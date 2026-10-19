@@ -1,5 +1,7 @@
 # recovery / versions
 
+**R22next v6J — two changes only, PLANNED:** [Scope and candidate status](R22NEXT-V6J/DIRECTORY.md); preserve v6I intact and add only DC Problem A and QR pairing. No v6J image has passed target ARM/source-provenance or flash QA.
+
 **2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Physical v6I DNS lifecycle:** init Stop left root-owned stale socket pathname with no listening owner; exact guarded cleanup and init Start restored daemon `running`, Wi-Fi `WIFI_READY`, real hostname ping PASS. Automatic shutdown cleanup FAIL; separately fix. v6I first-boot DHCP/native DNS PASS is unchanged. No recovery reflash/reboot. [Full physical lifecycle, clock and Desktop Commander QA](../2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md). [Deferred Network-tab UI requests](../NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md).
 
 **2026-10-18 current installed v6I physical QA:** The user flashed clean-name v6I; live 9,611,264-byte p6 image prefix SHA verified, full 12 MiB p6 archived and rehashed. TWRP/USB ADB pass. The clean Wi-Fi v0.5.2 ZIP on SD matches the new v6I trusted SHA, loaded automatically, WPA and DHCP BOUND PASS, DNS init daemon automatically RUNNING with 3/3 live socket queries plus Bionic-built BusyBox hostname ping success. **Installed recovery is now v6I**, replacing v6H as installed baseline; v6H preserved full-p6 rollback. Native DNS stop/restart stale-socket lifecycle remains UNTESTED, and full release is NOT claimed. [v6I physical first-boot QA](../2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md).

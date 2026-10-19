@@ -1,5 +1,7 @@
 # Desktop Commander: oversized QR native renderer candidate
 
+**Newest scoped pairing integration (October 18, 2026):** [v0.16.3 combined Problem A + pairing candidate](../versions/v0.16.3/DIRECTORY.md) contains a root-private pairing bridge and actual provider-link QR encoder. [Proposed v6J strict scope](../../../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md) adds native state-aware QR rendering, readable code, expiry and new-code action while deferring all other features. All tested checks are still offline; no target ARM QR acceptance, first-party browser approval, package allowlisting or flash has occurred.
+
 **Status: OFFLINE SOURCE PROTOTYPE, NOT INSTALLED OR BUILT AS A RECOVERY IMAGE.**
 **Date:** October 18, 2026. **Parent:** [Desktop Commander](../DIRECTORY.md).
 **Design record:** [pairing feasibility](../2026-10-18-OVERSIZED-QR-PAIRING-FEASIBILITY.md).

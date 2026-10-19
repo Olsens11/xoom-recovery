@@ -1,5 +1,7 @@
 # Xoom recovery and Toolkit project
 
+**LATEST explicit scope correction:** [R22next v6J Desktop Commander-only](recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md): Problem A validated Node shim restoration plus native QR pairing. Earlier broad Wi-Fi/DNS/Time Sync scope was withdrawn from this next flash. [v0.16.3 offline package candidate](packages/desktop-commander/versions/v0.16.3/DIRECTORY.md) is built but not trusted/loaded. v6I remains installed; no v6J image is flashed.
+
 **2026-10-18 coordinated next recovery update:** [Authoritative consolidated release scope](recovery/2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md) includes selected v0.16.2 Problem A fix, native QR pairing and init-managed status, Wi-Fi Setup/Status deferred GUI changes, Time Sync accepted policy, DNS lifecycle verification. No new image deployed.
 
 **October 18 oversized QR pairing prototype (offline only):** [Approved 576px pairing-screen design](packages/desktop-commander/2026-10-18-OVERSIZED-QR-PAIRING-FEASIBILITY.md) and [host-tested C++ native renderer source](packages/desktop-commander/qr-renderer-prototype/DIRECTORY.md): matrix parse/quiet zone safety QA PASS, an isolated TWRP integration patch created, originals unchanged. Recovery ARM build, camera scan, and agent provider-code UI bridge NOT yet tested. Existing installed v6I and DC 0.16.0 unchanged.

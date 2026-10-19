@@ -1,5 +1,7 @@
 # Coordinated next Xoom recovery release — consolidated scope (2026-10-18)
 
+**SUPERSEDED FOR v6J BY EXPLICIT USER REVISION:** [Strict two-item Desktop Commander scope](2026-10-18-V6J-STRICT-DC-SCOPE.md). This broader list is historical planning evidence only. Do NOT bring deferred Wi-Fi, DNS, Time Sync or other changes into v6J.
+
 **Status: AGREED BATCH SCOPE / BUILD IN PROGRESS, NOT FLASHED.** Current installed baseline: v6I, Wi-Fi Runtime 0.5.2, Desktop Commander trusted 0.16.0. Keep all current original packages and the complete v6I rollback. This record coordinates items explicitly selected or deferred; it is not proof that any listed item is already implemented.
 
 ## User direction

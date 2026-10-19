@@ -1,5 +1,7 @@
 # Toolkit package selection and responsibility ledger
 
+**LATEST explicit 2026-10-18 choice:** [v6J strictly DC Problem A and QR pairing](../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md), superseding broader combined UI/Time Sync release proposal. [v0.16.3 offline QA](desktop-commander/versions/v0.16.3/DIRECTORY.md) is untrusted/uninstalled; selected installed v0.16.0 stays unchanged.
+
 **2026-10-18 pairing QR prototype selected DESIGN, not a release:** [Native QR offline renderer source](desktop-commander/qr-renderer-prototype/DIRECTORY.md) follows the approved 576-pixel pairing UX. Matrix parser host QA PASS; target GUI build, camera scan and authorization bridge not yet integrated. Existing v6I + Desktop Commander v0.16.0 remain the installed baseline and v0.16.2 remains an unallowlisted candidate.
 
 **2026-10-18 Problem B physical shell-lifetime diagnosis (historical ADB-path test):** Original selected Desktop Commander v0.16.0 agent remained `AGENT_PROCESS_RUNNING` through 23 seconds with its ADB launching shell held open, then immediately `AGENT_PROCESS_STOPPED` after that shell returned; a first 9-second run reproduced it. This isolates session-lifetime coupling and excludes a short intrinsic application timeout as the normal Start failure. Exact termination signal/ADB mechanism not yet measured; no fix or updated runtime package deployed, authentication state unknown. Wi-Fi and DNS remained healthy. [Full bounded ADB lifetime evidence](desktop-commander/2026-10-18-DC-PROBLEM-B-ADB-SHELL-LIFETIME-DIAGNOSIS.md).
