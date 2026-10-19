@@ -77,6 +77,15 @@ dc_ensure_boot_time_ready() {
 
 **Tentative direction:** deliver DC Start prerequisite first if source confirms a safe invocation, while separately evaluating a shared network readiness/time dependency manager as the longer-term architecture. Do not add speculative NTP code to Wi-Fi until its ownership/readiness contract is analyzed.
 
+
+## Recovered Worker A later research after background GitHub write rejection
+
+**Provisional technical observations from Worker A's October 19 scheduled run, not a merged patch:** It identified existing Time Sync v0.2.0 behavior that may allow one automatic attempt and overwrite a status value; newer v0.2.1 exact code remains to be inspected to determine whether that behavior persists. It also identified a potential synchronous GUI concern in the native Toolkit action path: a `fork()/waitpid()` dispatch could make a blocking time-sync operation (on the order of 20 seconds) stall UI feedback. These are source-reading leads requiring exact line citations, not established v6K runtime test results.
+
+Worker A suggested a more robust current-boot contract than a bare `SYNCED` flag: explicit time readiness + last-attempt metadata, tied to current recovery RAM lifecycle; rate-limited retries on meaningful Wi-Fi connection-generation changes; and preferably an **asynchronous/bounded manager handoff** if the native GUI action path waits synchronously. It recommended distinguishing no Internet, NTP unavailable, UTC plausible and actually verified TLS, rather than using a single Wi-Fi boolean.
+
+**Exact remaining work:** inspect the v0.2.1 `sync.sh` final status handling and the current native `xoom-toolkit-manager`/GUI source, determine if automatic invocation from Desktop Commander `control.sh` can safely nest the manager, and produce the final chosen function-level code diff with timeout/lock/retry semantics. The scheduled GitHub report update was rejected before it reached GitHub; this checkpoint was preserved interactively with its provenance labeled.
+
 ## Required finished deliverables for Worker A
 
 - Read/extract *exact* current trusted v0.16.4 `control.sh`, v0.2.1 `sync.sh`, `/sbin/xoom-toolkit-manager` (or archived source), Wi-Fi Runtime's connection state contract, and GUI action call chain; cite actual code lines and immutable hashes.
