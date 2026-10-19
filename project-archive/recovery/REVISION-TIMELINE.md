@@ -118,3 +118,8 @@ Exact v6K image modified only to add a recovery-owned action-qualified dependenc
 ## v6M native dependency interlock footer (2026-10-19, OFFLINE)
 
 Follow-on to physically uninstalled v6L prototype. Exact v6M SHA 62f6c9174379f510d023339f5de7a178bc81b376b84222c155339452934f50ae, 9,615,360 bytes. New rebuilt matching ARM native TWRP executable observes recovery-owned dependency phase markers and shows success or failure footer; Manager and resolver state semantics adjusted without changes to trust pins, Wi-Fi, Time Sync or Desktop Commander packages. 14/14 simulated + 40/40 static independent checks PASS, no hardware tests or recovery flash. Delayed Start is bounded; later automatic restart after timeout not implemented. [Full code and review gates](development/v6m-dependency-feedback-20261019/DIRECTORY.md).
+
+
+## v6N-B external declarative package-dependency files — 2026-10-19 (offline)
+
+Two new root-owned optional policy files live in recovery, not ZIPs: Desktop Commander declares \`wifi-runtime WIFI_READY\` and \`time-sync SYNCED\`, Time Sync declares \`wifi-runtime WIFI_READY\`. General Manager Start hook feeds a strict state-provider resolver and validates transitive dependency cycles before executing operations. No package/runtime/pin changes. v6N-B SHA-256 e8f4c7c2261c9e828de7b2a6bb72b9db3751ff1b248af449dc8702f49db24f52, 9,617,408 bytes. 36/36 simulated + 46/46 independent static QA plus direct exact-bit rebuild; no flash, no staging, no live Xoom QA. Event-driven waiting remains separate unfinished work. [Full source, rules, tests and gates](development/v6n-declarative-deps-20261019/DIRECTORY.md).

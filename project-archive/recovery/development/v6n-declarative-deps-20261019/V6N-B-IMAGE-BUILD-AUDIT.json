@@ -1,0 +1,49 @@
+{
+  "status": "OFFLINE_BUILT_NOT_INSTALLED_NOT_STAGED_NO_HARDWARE_TEST",
+  "parent_v6m_sha256": "62f6c9174379f510d023339f5de7a178bc81b376b84222c155339452934f50ae",
+  "v6n_sha256": "e8f4c7c2261c9e828de7b2a6bb72b9db3751ff1b248af449dc8702f49db24f52",
+  "v6n_bytes": 9617408,
+  "partition_capacity": 12582912,
+  "ramdisk_members": 474,
+  "changed_old_members": {
+    "sbin/xoom-toolkit-manager": {
+      "old_sha256": "305af08231c697697bc4a88d20561db81e19516fbad74aa7030fccbfb7dfd1dd",
+      "new_sha256": "f48c12a71cb82a81cc62aa96447571f81ff848d0bc8ee0f5b84e315c36a53a70"
+    },
+    "sbin/xoom-toolkit-deps": {
+      "old_sha256": "4c8176bdfcdff59db9c22acb9aeb53fcb5040ec061351768a0a9405eb4776e17",
+      "new_sha256": "0b3ef0b60878545ea905ccbc707cd08659aff94173198f0cbef41632bfa8e4f6"
+    }
+  },
+  "added_members": {
+    "etc/xoom-toolkit": {
+      "mode": "0o40755",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uid": 0,
+      "gid": 0
+    },
+    "etc/xoom-toolkit/dependencies": {
+      "mode": "0o40755",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uid": 0,
+      "gid": 0
+    },
+    "etc/xoom-toolkit/dependencies/desktop-commander.conf": {
+      "mode": "0o100644",
+      "sha256": "d0760cbf81dd39741342ff98a315f55fdc37316c6bc3d409908986c612b10e35",
+      "uid": 0,
+      "gid": 0
+    },
+    "etc/xoom-toolkit/dependencies/time-sync.conf": {
+      "mode": "0o100644",
+      "sha256": "c746e8b7f87c02c81247e8d1e57cda8afcaf7115b975d764d09f5f14f7a7198e",
+      "uid": 0,
+      "gid": 0
+    }
+  },
+  "kernel_unchanged": true,
+  "verified_installer_unchanged": true,
+  "native_ui_unchanged": true,
+  "other_468_members_unchanged": true,
+  "no_package_zip_or_hash_changes": true
+}
