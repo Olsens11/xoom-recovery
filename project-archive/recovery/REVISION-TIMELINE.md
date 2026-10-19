@@ -108,3 +108,8 @@ Physical TWRP screenshots via native VolumeUp+VolumeDown shortcut and calibrated
 ## v6K DC0164 ONLINE CLOUD REMOTE TOOLS QA (2026-10-19)
 
 v6K first boot and native Load previously PASS. After Time Sync GUI Run fixed an initial 1970 clock and TLS CERT_NOT_YET_VALID failure, native GUI Desktop Commander v0.16.4 Start and first-party phone/QR approval yielded a new provider Xoom Online identity. Direct provider list_directory, fixed diagnostic, write_file + read_file exact content + get_file_info SHA256 with UID2000 mode0600, and list again all PASS. Agent running, /tmp/n24 root:shell 0750 and all 3 builtins exact. No manual chmod or init via ADB. [Full QA](2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).
+
+
+## v6L dependency interlock offline engineering — October 19, 2026
+
+Exact v6K image modified only to add a recovery-owned action-qualified dependency resolver (`sbin/xoom-toolkit-deps`) and call it from Desktop Commander Start in `sbin/xoom-toolkit-manager`. Trusted verifier, all eight outer+inner PINs, ZIPs, boot workers, native GUI, and kernel unchanged. 14/14 mocked lifecycle/dependency fixture tests and 27/27 independent static image checks PASS; SHA 690740bffc3e7611314c956d5e9af7b4a6db3163d45735c332b8926259589837, 9,617,408 bytes. Offline candidate only; GUI auto-sync notice and durable pending request remain unimplemented; no flash or hardware tests. [Reviewed source and QA](development/v6l-dependency-interlock-20261019/DIRECTORY.md).

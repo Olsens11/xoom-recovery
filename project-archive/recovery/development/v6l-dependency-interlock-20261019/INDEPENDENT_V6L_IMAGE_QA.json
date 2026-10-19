@@ -1,0 +1,46 @@
+{
+  "status": "INDEPENDENT_STATIC_OFFLINE_PASS_NOT_HARDWARE_TESTED",
+  "check_count": 27,
+  "checks": {
+    "android_boot_header_R22": "PASS",
+    "page_and_no_second_stage_R22": "PASS",
+    "unique_cpio_members_R22": "PASS",
+    "bootid_R22": "PASS",
+    "known_parent_image": "PASS",
+    "candidate_matches_logged_image": "PASS",
+    "partition_capacity": "PASS",
+    "kernel_exactly_unchanged": "PASS",
+    "only_expected_new_member": "PASS",
+    "only_expected_old_member_changed": "PASS",
+    "every_unmodified_member_bit_identical": "PASS",
+    "manager_mode_preserved": "PASS",
+    "trusted_loader_bit_identical": "PASS",
+    "all_8_outer_and_inner_pins_untouched": "PASS",
+    "all_pinned_filename_dispatch_unchanged": "PASS",
+    "exact_manager_delta_only": "PASS",
+    "no_manager_changes_to_stop_or_unload": "PASS",
+    "helper_trust_and_root_mode": "PASS",
+    "helper_source_identical": "PASS",
+    "manager_shell_syntax": "PASS",
+    "deps_shell_syntax": "PASS",
+    "fail_closed_no_untrusted_dependency_eval": "PASS",
+    "explicit_action_qualified_policy": "PASS",
+    "bounded_network_and_sync_waits": "PASS",
+    "boot_worker_and_autoload_preserved": "PASS",
+    "native_gui_binary_unchanged": "PASS",
+    "counterfeit_image_digest_fails": "PASS"
+  },
+  "parent_sha256": "e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f",
+  "candidate_sha256": "690740bffc3e7611314c956d5e9af7b4a6db3163d45735c332b8926259589837",
+  "candidate_bytes": 9617408,
+  "changes": [
+    "sbin/xoom-toolkit-manager",
+    "sbin/xoom-toolkit-deps (new)"
+  ],
+  "limitations": [
+    "No TWRP screen notification wired to new .notice yet",
+    "No recovery flash or cold boot performed",
+    "Host simulation does not prove root ownership or concurrent real-world WiFi/NTP semantics",
+    "No long-lived offline deferred-Start queue; bounded wait/failure only"
+  ]
+}

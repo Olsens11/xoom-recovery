@@ -1,5 +1,7 @@
 # Xoom project — standing instructions for all development agents
 
+**2026-10-19 v6L DEPENDENCY INTERLOCK OFFLINE (NOT FLASHED):** Exact v6K-derived image `690740bffc3e7611314c956d5e9af7b4a6db3163d45735c332b8926259589837`, two recovery-only changes (Manager start hook + new trusted `xoom-toolkit-deps`). Desktop Commander and Time Sync ZIPs and all eight verifier hash pins unchanged. Verified 14/14 simulated behaviors and 27/27 independent static image checks. Existing TWRP GUI does NOT yet show the requested Time Sync auto-run notice; only RAM status records it. Start uses bounded waits, not a durable pending job. No Xoom staging, flash, reboot, or hardware test. [Offline v6L trial](project-archive/recovery/development/v6l-dependency-interlock-20261019/DIRECTORY.md). **Still physically installed: v6K.**
+
 **Read this at the beginning of every Xoom recovery/Toolkit session.** These instructions apply to work reached through GitHub, the Raspberry Pi, Windows/WSL, Surface Book, and Xoom Desktop Commander.
 
 ## Required onboarding
