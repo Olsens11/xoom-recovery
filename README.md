@@ -1,5 +1,7 @@
 # Current Motorola Xoom project status — October 18, 2026
 
+**Latest coordinated Desktop Commander-only v6J-B offline image:** [Strict image identity, hashes, scope and rollback plan](project-archive/recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). Four ramdisk entries changed only; v0.16.3 preserves Problem A Node module restore and adds first-party QR pairing. v6I stays installed, v6J-B is not flashed or physically tested.
+
 **LATEST v6J scope:** [Problem A + native pairing only](project-archive/recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md). Earlier larger deferred-feature release list is superseded for this flash. v0.16.3 package candidate built offline; no v6J recovery image, trust allowlist update on device, flash, or hardware pairing claimed.
 
 **2026-10-18 coordinated future recovery flash:** [Release scope and current restrictions](project-archive/recovery/2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md) consolidates verified Desktop Commander fix, oversized QR pairing, original deferred Wi-Fi GUI fixes and authoritative Time Sync behavior. Installed v6I untouched; build and exact-image approval remain ahead.

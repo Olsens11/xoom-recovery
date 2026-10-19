@@ -1,5 +1,7 @@
 # Desktop Commander v0.16.3 — Problem A plus native pairing candidate
 
+**Paired test image now assembled, not installed:** [v6J-B strict Desktop Commander-only image identity](../../../../../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). Independent package verifier confirmed exact 25 hashes and Problem A inherited control. Hardware code/browser approval and QR scan not yet tested.
+
 **Status:** Offline-built, independently integrity checked. **Not allowlisted on installed v6I, not installed or cloud-tested.**
 
 - Parent: [v0.16.3 versions](../DIRECTORY.md).

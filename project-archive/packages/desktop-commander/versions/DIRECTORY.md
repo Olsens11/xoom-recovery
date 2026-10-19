@@ -1,5 +1,7 @@
 # packages / desktop-commander / versions
 
+**Current paired image candidate (not installed):** [v6J-B Desktop Commander QR plus Problem A](../../../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), pinning unreleased 0.16.3. v0.16.0 remains selected on physical v6I; v0.16.2 remains the proven RAM-only Problem A predecessor.
+
 **Newest QR pairing scope candidate:** [v0.16.3 combined package (OFFLINE-ONLY)](v0.16.3/DIRECTORY.md), ZIP SHA-256 `0ac0eccbe2b35842ad2496371f09e7af91de3d7ccc53d1dcb0e222c0fc1b6f40`, carries the unchanged v0.16.2 Problem A restore plus a native pairing-data bridge. v0.16.0 remains trusted/current; v0.16.3 not allowlisted, not tested on Xoom.
 
 **2026-10-18 Problem B physical shell-lifetime diagnosis (most recent):** Original selected Desktop Commander v0.16.0 agent remained `AGENT_PROCESS_RUNNING` through 23 seconds with its ADB launching shell held open, then immediately `AGENT_PROCESS_STOPPED` after that shell returned; a first 9-second run reproduced it. This isolates session-lifetime coupling and excludes a short intrinsic application timeout as the normal Start failure. Exact termination signal/ADB mechanism not yet measured; no fix or updated runtime package deployed, authentication state unknown. Wi-Fi and DNS remained healthy. [Full bounded ADB lifetime evidence](../2026-10-18-DC-PROBLEM-B-ADB-SHELL-LIFETIME-DIAGNOSIS.md).

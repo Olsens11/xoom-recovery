@@ -1,5 +1,7 @@
 # Xoom recovery and Toolkit project
 
+**Latest v6J-B Desktop Commander test candidate — 2026-10-18:** [Exact four-member image, source provenance, package SHA and no-flash gate](recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). User scope is **Problem A plus native pairing only**. Original v6I remains physically installed (verified read-only on Xoom). v6J-B has not been flashed or boot-qualified.
+
 **LATEST explicit scope correction:** [R22next v6J Desktop Commander-only](recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md): Problem A validated Node shim restoration plus native QR pairing. Earlier broad Wi-Fi/DNS/Time Sync scope was withdrawn from this next flash. [v0.16.3 offline package candidate](packages/desktop-commander/versions/v0.16.3/DIRECTORY.md) is built but not trusted/loaded. v6I remains installed; no v6J image is flashed.
 
 **2026-10-18 coordinated next recovery update:** [Authoritative consolidated release scope](recovery/2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md) includes selected v0.16.2 Problem A fix, native QR pairing and init-managed status, Wi-Fi Setup/Status deferred GUI changes, Time Sync accepted policy, DNS lifecycle verification. No new image deployed.

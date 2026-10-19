@@ -1,5 +1,7 @@
 # Toolkit package selection and responsibility ledger
 
+**2026-10-18 scoped v6J-B choice:** [Recovery paired to Desktop Commander 0.16.3](../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), only verified Problem A module restore and first-party QR pairing. v0.16.3 is NOT trusted by physically installed v6I, nor deployed; all other package selections and pin hashes remain unchanged. Earlier broader consolidated proposal stays deferred.
+
 **LATEST explicit 2026-10-18 choice:** [v6J strictly DC Problem A and QR pairing](../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md), superseding broader combined UI/Time Sync release proposal. [v0.16.3 offline QA](desktop-commander/versions/v0.16.3/DIRECTORY.md) is untrusted/uninstalled; selected installed v0.16.0 stays unchanged.
 
 **2026-10-18 pairing QR prototype selected DESIGN, not a release:** [Native QR offline renderer source](desktop-commander/qr-renderer-prototype/DIRECTORY.md) follows the approved 576-pixel pairing UX. Matrix parser host QA PASS; target GUI build, camera scan and authorization bridge not yet integrated. Existing v6I + Desktop Commander v0.16.0 remain the installed baseline and v0.16.2 remains an unallowlisted candidate.

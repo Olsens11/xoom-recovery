@@ -1,5 +1,7 @@
 # recovery / versions
 
+**Current v6J-B offline candidate (2026-10-18):** [Desktop Commander-only v6J-B image](R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) combines only Problem A trust and 576px first-party QR pairing. Four ramdisk entries changed; 465 unchanged; ARM source v6I baseline matched exactly. **Installed recovery remains v6I; v6J-B NOT FLASHED.**
+
 **R22next v6J — two changes only, PLANNED:** [Scope and candidate status](R22NEXT-V6J/DIRECTORY.md); preserve v6I intact and add only DC Problem A and QR pairing. No v6J image has passed target ARM/source-provenance or flash QA.
 
 **2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Physical v6I DNS lifecycle:** init Stop left root-owned stale socket pathname with no listening owner; exact guarded cleanup and init Start restored daemon `running`, Wi-Fi `WIFI_READY`, real hostname ping PASS. Automatic shutdown cleanup FAIL; separately fix. v6I first-boot DHCP/native DNS PASS is unchanged. No recovery reflash/reboot. [Full physical lifecycle, clock and Desktop Commander QA](../2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md). [Deferred Network-tab UI requests](../NETWORK-TABS-UI-DEFERRED-REQUESTS-2026-10-18.md).

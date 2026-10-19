@@ -1,5 +1,7 @@
 # packages
 
+**Current paired v6J-B release proposal (offline only):** [Exact recovery candidate and v0.16.3 Desktop Commander pin](../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). Problem A automatic modules are byte-for-byte preserved; the new scoped pairing bridge and QR native renderer are untested on hardware. Other package selections unchanged; no flash.
+
 **LATEST scoped Desktop Commander candidate:** [v0.16.3](desktop-commander/versions/v0.16.3/DIRECTORY.md) carries only Problem A shim restoration and pairing bridge; no unrelated module changes. [v6J two-item-only scope](../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md) supersedes earlier multi-feature planning.
 
 **2026-10-18 QR pairing approved visual layout and native renderer offline QA:** [Desktop Commander native QR renderer prototype](desktop-commander/qr-renderer-prototype/DIRECTORY.md) implements a bounded private PBM parser (Pi host tests pass), draw-only TWRP GUI object and isolated source-integration patch. 576px QR approved. No physical ARM build, camera scan or provider pairing API integration, and installed v6I and DC 0.16.0 unchanged.

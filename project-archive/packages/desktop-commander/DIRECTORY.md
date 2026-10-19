@@ -1,5 +1,7 @@
 # packages / desktop-commander
 
+**New pairing-and-Problem-A offline image scope (2026-10-18):** [v6J-B exact image and guarded next step](../../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), along with [physical read-only v6I/source provenance checks](../../recovery/2026-10-18-V6J-B-FOUR-MEMBER-IMAGE-OFFLINE-QA.md). v0.16.3 package hashes validated; installed v6I still trusts original 0.16.0. No flash.
+
 **LATEST two-item v6J scope:** [Desktop Commander v0.16.3 candidate](versions/v0.16.3/DIRECTORY.md) combines original v0.16.2 Problem A restore with provider-issued QR pairing bridge, 25 SHA-listed files, offline integrity QA PASS; [v6J release scope](../../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md) excludes all other deferred updates. No package installed or recovery flashed.
 
 **October 18 oversized QR pairing prototype (offline only):** The user approved a 576px QR pairing layout. [Design feasibility](2026-10-18-OVERSIZED-QR-PAIRING-FEASIBILITY.md) and [native QR renderer offline source and QA](qr-renderer-prototype/DIRECTORY.md) cover a host-tested strict QR parser, a GUI drawing object and an isolated TWRP source integration patch. Native ARM/TWRP compilation and real camera scanning are not yet tested; agent pairing callback/UI bridge is still outstanding. No recovery or package update was deployed.

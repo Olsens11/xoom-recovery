@@ -1,5 +1,7 @@
 # recovery
 
+**v6J-B Desktop Commander-only offline build — 2026-10-18:** [Image identity and rollback gate](versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md); [independent offline and read-only physical preflight](2026-10-18-V6J-B-FOUR-MEMBER-IMAGE-OFFLINE-QA.md). Source provenance and four-file image scope passed. No new hardware image flashed; installed baseline is v6I.
+
 **LATEST RELEASE SCOPE CORRECTION:** [v6J strict Desktop Commander-only scope](2026-10-18-V6J-STRICT-DC-SCOPE.md) supersedes the broad earlier checklist for the next flash. Include only the preserved Problem A pinned module fix and native QR pairing, with other features explicitly deferred. v6I remains installed; v6J unbuilt/not flashed.
 
 **2026-10-18 next coordinated flash scope:** [Consolidated checklist](2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md): Desktop Commander Problem A pinned v0.16.2 fix, native pairing QR and init-status integration, deferred Network tab fixes, Time Sync agreed policy, DNS lifecycle regression. **Scope only; none is yet a new flashed release.**

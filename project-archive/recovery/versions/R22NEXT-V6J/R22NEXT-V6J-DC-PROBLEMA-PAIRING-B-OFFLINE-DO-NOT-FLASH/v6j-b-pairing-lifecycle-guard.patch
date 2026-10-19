@@ -1,0 +1,50 @@
+--- v6j-a-draft-manager
++++ v6j-b-manager-pairing-cleanup
+@@ -76,6 +76,13 @@
+  bb rm -f "$marker"
+  [ "$outcome" = 0 ] || { note "$1" RUN_FAILED;return 15; }
+  note "$1" COMPLETE
++}
++dc_pairing_clear() {
++ local_dc_dir=/tmp/xoom-dc-pairing
++ if [ -e "$local_dc_dir" ] || [ -L "$local_dc_dir" ];then
++  [ -d "$local_dc_dir" ] && [ ! -L "$local_dc_dir" ] || return 1
++  bb rm -f -- "$local_dc_dir/qr.pbm" "$local_dc_dir/state.txt" "$local_dc_dir/qr.pbm.stage" "$local_dc_dir/state.txt.stage" || return 1
++ fi
+ }
+ run_start() { 
+  approved "$1" || return 2
+@@ -93,12 +100,14 @@
+  recovery-log-collector) run_one_shot "$1" "$PROBE" collect ;;
+  partition-storage-inspector) run_one_shot "$1" "$PROBE" inspect ;;
+  desktop-commander)
++  if service_running desktop-commander;then note "$1" ALREADY_RUNNING;return 0;fi
+   [ "$(/sbin/getprop xoom.n2.wifi.status)" = WIFI_READY ] ||
+     { note "$1" WIFI_NOT_READY;return 14; }
+   [ -s /etc/resolv.conf ] && [ -s /etc/hosts ] ||
+     { note "$1" NETWORK_RESOLVER_OR_HOSTS_MISSING;return 14; }
+   "$PROBE" prepare > "$LOG/desktop-commander-prepare.log" 2>&1 ||
+     { note "$1" RUNTIME_PREPARE_FAILED;return 14; }
++  dc_pairing_clear || { note "$1" PAIRING_CLEANUP_FAILED;return 14; }
+   /sbin/setprop ctl.start xoomdcagent ||
+     { note "$1" AGENT_INIT_START_FAILED;return 14; }
+   count=0
+@@ -132,6 +141,7 @@
+    bb sleep 1;count=$((count+1))
+   done
+   service_running desktop-commander && { note "$1" STOP_PENDING;return 16; }
++  dc_pairing_clear || { note "$1" PAIRING_CLEANUP_FAILED;return 16; }
+   note "$1" STOPPED ;;
+  poc-insecure-wireless-adb|sftp-modern)
+   loaded "$1" || { note "$1" ALREADY_UNLOADED;return 0; }
+@@ -195,10 +205,6 @@
+  [ "$1" = desktop-commander ] || { bb echo UNSUPPORTED_PAIRING_MODULE >&2;return 2; }
+  loaded "$1" || { note "$1" LOAD_FIRST;return 13; }
+  run_stop "$1" || return $?
+- # Remove prior root-private one-time display credentials, never any saved auth token.
+- if [ -d /tmp/xoom-dc-pairing ] && [ ! -L /tmp/xoom-dc-pairing ];then
+-  bb rm -f /tmp/xoom-dc-pairing/qr.pbm /tmp/xoom-dc-pairing/state.txt || return 27
+- fi
+  run_start "$1"
+ }
+  [ "$#" -eq 2 ] || { bb echo 'usage: manager load|start|stop|pair|unload|status|test|export id' >&2;exit 2; }
