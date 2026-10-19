@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v6J-C latest physical hardware QA (supersedes installed v6I status below)
+
+Exact v6J-C recovery flash/readback and first boot PASS; Desktop Commander v0.16.3 trusted Load PASS. Native QR crashes in Node JIT but passes --jitless isolated test; reversible RAM launcher adjustment staged, agent stopped, GUI/provider pairing not accepted. [New hardware QA](project-archive/recovery/2026-10-18-V6J-C-PHYSICAL-QR-JIT-RAM-QA.md).
+
 ## Current verified later checkpoint (2026-10-18)
 
 **v6I recovery is now physically installed and readback verified.** Clean Wi-Fi Runtime v0.5.2 automatically loads, DHCP BOUND and init-owned DNS service RUNNING pass, including three production-socket DNS cases and a Bionic-built BusyBox hostname ping. Full v6I partition archived and v6H remains rollback. DNS stop/restart stale socket, GUI and Desktop Commander cloud remain open. See [v6I physical first-boot QA](project-archive/recovery/2026-10-18-V6I-FIRST-BOOT-PHYSICAL-QA.md). Historical earlier baseline below is preserved deliberately.

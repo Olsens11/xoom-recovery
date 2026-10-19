@@ -58,3 +58,8 @@ The [guarded DHCP parent initialization draft](development/guarded-dhcp-parent-2
 ## v6H deployment stage checkpoint — 2026-10-18
 
 New v6H / Wi-Fi v0.5.2 are SD/RAM **staged** with exact on-device hashes, **NOT flashed/installed**. Previously installed v6G/Wi-Fi v0.5.1 still current. [Staging + fresh rollback verified](2026-10-18-V6H-STAGED-PREFLIGHT-FLASH-GATE.md).
+
+
+## v6J-C PHYSICAL AND QR JIT (2026-10-18 EDT)
+
+v6J-C exact recovery flash/readback/boot passed, Desktop Commander v0.16.3 trusted load passed. Normal Xoom Node QR execution reproduced a V8 unreachable-code Bus error. Isolated QR passed with --jitless; RAM-only launcher staged for GUI test, real pairing NOT TESTED. [Detailed QA](2026-10-18-V6J-C-PHYSICAL-QR-JIT-RAM-QA.md).
