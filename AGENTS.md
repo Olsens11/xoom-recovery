@@ -31,7 +31,7 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 
 ## v6J-C worker regression root cause (latest read-only QA)
 
-The original v6G Desktop Commander v0.16.0 physically performed successful UID2000 filesystem operations. Current agent/worker source and Node builtin SHA identities are unchanged, but v0.16.2+ automatic restore extracts into root-owned /tmp/n24 mode0700 under umask077. Restricted UID2000 Node aborts during startup on inaccessible externalized undici module; root Node succeeds. Root:shell mode0750 safe directory-access correction is only PROPOSED, NOT APPLIED. Live authorized realtime connection preserved. [Comparative read-only QA](project-archive/recovery/2026-10-19-V6J-C-DC-UID2000-N24-PERMISSION-REGRESSION.md).
+The original v6G Desktop Commander v0.16.0 physically performed successful UID2000 filesystem operations. Current agent/worker source and Node builtin SHA identities are unchanged, but v0.16.2+ automatic restore extracts into root-owned /tmp/n24 mode0700 under umask077. Restricted UID2000 Node aborts during startup on inaccessible externalized undici module; root Node succeeds. Exact v0.16.0/v0.16.3 inner ZIP comparison proves bounded dispatcher, worker, access policy and original launcher byte-identical. Root:shell mode0750 safe directory-access correction is only PROPOSED, NOT APPLIED. Live authorized realtime connection preserved. [Comparative read-only QA](project-archive/recovery/2026-10-19-V6J-C-DC-UID2000-N24-PERMISSION-REGRESSION.md).
 
 ## v6J-C pairing and realtime Online (newest QA)
 

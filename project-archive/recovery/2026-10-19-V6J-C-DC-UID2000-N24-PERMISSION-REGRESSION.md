@@ -22,3 +22,16 @@ After guarded checks that `/tmp/n24` is a genuine root-owned directory with the 
 For permanent packaging, update only the Desktop Commander-owned `restore_node_builtins()` logic to create/verify the correct root owner, `shell` group and safe mode **both on fresh extraction and on reuse**, without relaxing working filesystem tool policy or modifying the main agent. Produce a new immutable versioned ZIP with updated pins only after hardware testing. No recovery flash or original SD v0.16.3 replacement is authorized by this analysis.
 
 [Current split-mode Online checkpoint](2026-10-19-V6J-C-DC-PAIRING-ONLINE-WORKER-QA.md) · [Physical v6G remote-worker PASS](2026-10-18-V6G-PHYSICAL-TOOLKIT-QA-CHECKPOINT.md) · [v0.16.2 original restoration design](../packages/desktop-commander/2026-10-18-DC-0162-PINNED-NODE-BUILTINS-AB-QA.md)
+
+## Exact immutable ZIP-to-ZIP comparison (supplemental confirmation)
+
+The frozen v0.16.0 ZIP `308da5c5b61315158a03a1b0fe48ecde4aa5d05075887282f11c095759b0abb8` and frozen v0.16.3 ZIP `0ac0eccbe2b35842ad2496371f09e7af91de3d7ccc53d1dcb0e222c0fc1b6f40` were opened directly on the Pi with Python zip/tar readers; actual inner member bytes were SHA-compared, not merely package labels.
+
+- `xoom-scratch-mcp-v15-candidate.js` **IDENTICAL** in both, SHA `9b13e58b2d06aa747c764c6f373a47cb9e1b3b68b5d46a7fda12572d3d3a30d2`.
+- `xoom-scratch-fs-worker-v13.js` **IDENTICAL** in both, SHA `90acbe94a2d1a840457d83526c7e26c92579a73a1e4dd935b3537bcff1bf8562`.
+- `xoom-root-gate-v15.js` **IDENTICAL** in both, SHA `91a7b415cbced02bb83d8cadd87819797ddf94bcf8154119dbac376f363dbf1f`.
+- `xoom-root-read-profile-v15.js` **IDENTICAL** in both, SHA `5d37234c78269488877cd20de47d82d7c60555f0ed06e14009dafef29c5c49f6`.
+- `agent-run.sh` **IDENTICAL** in both, SHA `131a412daaf2c42c42914d99c5832917d58459caf9dac219a289fbfe90581225` (temporarily altered in previous RAM experiments, subsequently restored exactly).
+- `control.sh` differs: v0.16.0 SHA `e528ee5fa3abeb442d488cc9c2ef52e71ce7a3736dc01fb5ecfe0572d48e11e6`, v0.16.3 SHA `5b43f185c54542e15d034ff833a998463a419714ebebdf767da1433bd1440202`; its automatic n24 restoration is the observed relevant change.
+- `agent-remote-offline-poc.mjs` differs for first-party QR flow (old SHA `6b076df145ba2a43fd89cd7874ec51b7174c92c9dfd8fcdcbf04a7d05374ec10`, v0.16.3 SHA `308a3a5e18f8c7b4fba0154e7459b01517c482c4cf05c1b8a3083c91b46df471`); QR additions do not change those identical bounded filesystem-worker source files.
+- v0.16.3 adds the exact pinned `n24-externalized-builtins-20261018.tar.gz` to its payload, plus first-party QR/vendor files. Therefore, comparison isolates the filesystem regression to **the changed runtime-dependency provisioning and permission environment**, not a changed implementation or newly broadened security policy. The mode0750 root:shell proposal remains untested/unapplied.
