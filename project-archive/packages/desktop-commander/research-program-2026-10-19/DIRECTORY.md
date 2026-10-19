@@ -4,7 +4,7 @@
 
 **Worker A recovery notice (2026-10-19):** Its first run was disabled with no published findings. The write route was independently verified, issue-01 received a source-based implementation checkpoint, and the research instructions were tightened to prioritize direct GitHub access and early checkpoints. See [incident and safeguards](WORKER-A-INCIDENT-AND-RECOVERY.md). Worker A retains issue 01 until the exact patch design is complete.
 
-## Coordination
+**Scheduled-task GitHub write restriction (2026-10-19):** All three research workers encountered platform safety refusals for `update_file`, even with fresh blob SHAs. Current schedule is **read-only research + full Markdown task response**, followed by **interactive GitHub archiving** and queue reassignment; this is an interim limitation, not a full unattended publishing fix. [Details and recovery](SCHEDULED-GITHUB-PUBLICATION-RESTRICTION.md) · [Revised protocol](PROTOCOL.md) · [Queue publication mode](QUEUE.json). Recoverable A/B/C research checkpoints have now been saved into their reports.\n\n## Coordination
 
 [Canonical queue](QUEUE.json) · [Research worker protocol](PROTOCOL.md) · [Existing user-approved goals](../2026-10-19-NEXT-PHASE-GOALS-AND-ENGINEERING-ROADMAP.md) · [Physically accepted v6K/v0.16.4 milestone](../../../recovery/2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).
 
