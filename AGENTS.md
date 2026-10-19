@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v6J-C split-mode installed in RAM (latest physical staging)
+
+User GUI Stop PASS. Normal Node launcher restored, verified split-mode JITless QR bridge/helper installed **only in recovery RAM**, exact four-source file hashes match; original SD v0.16.3 ZIP and Problem A controller unchanged. Agent remains STOPPED. Real GUI restart and Realtime Online/MCP acceptance **NOT YET TESTED**. [Current physical QA](project-archive/recovery/2026-10-19-V6J-C-DC-SPLITMODE-RAM-STAGED-NO-START.md).
+
 ## v6J-C authorized but realtime offline (newest physical QA)
 
 Native first-party QR GUI and phone authorization PASS, agent RUNNING; Realtime channel cannot subscribe under temporary main-agent jitless. Verified public-key WebSocket heartbeat PASS without jitless and FAIL with it. Isolated RAM split-mode bridge QA PASS; live agent NOT swapped/restarted. [Newest evidence](project-archive/recovery/2026-10-18-V6J-C-AUTHORIZED-OFFLINE-SPLITMODE-QA.md).

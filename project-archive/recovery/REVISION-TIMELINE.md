@@ -68,3 +68,8 @@ v6J-C exact recovery flash/readback/boot passed, Desktop Commander v0.16.3 trust
 ## v6J-C AUTHORIZED / REALTIME OFFLINE (2026-10-18 EDT)
 
 Native QR and official browser authorization physically PASS; device remained offline due to Realtime channel failure. Same Xoom Node binary native WebSocket heartbeat PASS with normal JIT, FAIL with jitless; raw publishable-key TLS WebSocket upgrade HTTP 101. Split-mode wrapper and JITless QR helper tested in isolated RAM PASS, live agent not replaced/restarted. [Evidence](2026-10-18-V6J-C-AUTHORIZED-OFFLINE-SPLITMODE-QA.md).
+
+
+## v6J-C SPLIT-MODE RAM QA STAGING (2026-10-19)
+
+Following native GUI stop, SHA-guarded RAM-only patch restored normal Node launcher and installed exact tested JITless QR child/helper arrangement. Backups, original SD v0.16.3 and Problem A controller intact. Agent STOPPED, new real pairing / cloud Online / MCP round trip not yet tested. [QA](2026-10-19-V6J-C-DC-SPLITMODE-RAM-STAGED-NO-START.md).
