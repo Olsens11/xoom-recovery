@@ -1,5 +1,8 @@
 # recovery
 
+**LATEST 2026-10-18 v6J-C (offline, NOT FLASHED):** [Exact C identity](versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) and [17-check independent audit](2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md). Previous B screen action could not invoke `pair` because two native dispatch filters rejected it; C repairs only that pairing path and corrects v0.16.3 help text. Latest physical recovery stays **v6I** with intact rollback. No flash/boot/QR acceptance. The two-item [strict scope](2026-10-18-V6J-STRICT-DC-SCOPE.md) remains binding; historical contrary paragraphs below are superseded for current state.
+
+
 **v6J-B Desktop Commander-only offline build — 2026-10-18:** [Image identity and rollback gate](versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md); [independent offline and read-only physical preflight](2026-10-18-V6J-B-FOUR-MEMBER-IMAGE-OFFLINE-QA.md). Source provenance and four-file image scope passed. No new hardware image flashed; installed baseline is v6I.
 
 **LATEST RELEASE SCOPE CORRECTION:** [v6J strict Desktop Commander-only scope](2026-10-18-V6J-STRICT-DC-SCOPE.md) supersedes the broad earlier checklist for the next flash. Include only the preserved Problem A pinned module fix and native QR pairing, with other features explicitly deferred. v6I remains installed; v6J unbuilt/not flashed.

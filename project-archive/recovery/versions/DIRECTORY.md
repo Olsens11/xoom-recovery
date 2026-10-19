@@ -1,5 +1,8 @@
 # recovery / versions
 
+**LATEST 2026-10-18 v6J-C (offline, NOT FLASHED):** [Newest four-member test image](R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) and [independent 17/17 offline QA](../2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md). Source-built Desktop Commander-only pair-dispatch repair; v0.16.3 package unchanged; installed v6I and verified full-p6 rollback preserved. **No recovery flash authorized or performed.** B remains preserved but superseded as selected candidate.
+
+
 **Current v6J-B offline candidate (2026-10-18):** [Desktop Commander-only v6J-B image](R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) combines only Problem A trust and 576px first-party QR pairing. Four ramdisk entries changed; 465 unchanged; ARM source v6I baseline matched exactly. **Installed recovery remains v6I; v6J-B NOT FLASHED.**
 
 **R22next v6J — two changes only, PLANNED:** [Scope and candidate status](R22NEXT-V6J/DIRECTORY.md); preserve v6I intact and add only DC Problem A and QR pairing. No v6J image has passed target ARM/source-provenance or flash QA.

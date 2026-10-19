@@ -1,5 +1,8 @@
 # v6J — two-item Desktop Commander scope decision (2026-10-18)
 
+**Implementation checkpoint, 2026-10-18:** [v6J-C, latest unflashed candidate](versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) fixes the native dispatcher blocker in B without broadening this strict scope; [17/17 independent offline QA](2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md) passed. v0.16.3 Problem A/controller unchanged. User has NOT authorized a specific recovery SHA flash.
+
+
 **Latest explicit user decision supersedes the broad previous consolidated release checklist.** This is a scope change, not completion of the previously postponed work.
 
 ## Include in v6J, and only these changes

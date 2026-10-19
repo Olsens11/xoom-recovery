@@ -1,5 +1,8 @@
 # R22next v6J — Desktop Commander pairing and Problem A (planned candidate)
 
+**LATEST 2026-10-18 v6J-C (offline, NOT FLASHED):** [Exact newest candidate](R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) supersedes B after source review discovered that the *Generate New Code* GUI action was rejected by two native dispatcher allowlists. Native fix is now ARM-built; independent offline CPIO/ZIP/rollback QA **17/17 PASS**, image SHA `0993c94c…cb63fafc` (9,615,360 bytes). Only 4 ramdisk members differ from installed v6I, and C changes only 2 members relative to B. **v6I is physically installed; neither B nor C is flashed.** [Full checkpoint](../../2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md). Older “unbuilt” status below is historical and superseded.
+
+
 **Latest v6J-B artifact (2026-10-18):** [Strict two-item v6J-B offline candidate](R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) is now assembled, SHA-256 `224d4c0d…f45c655cd9`, 9,617,408 bytes. [Four-member image and baseline source QA](../../2026-10-18-V6J-B-FOUR-MEMBER-IMAGE-OFFLINE-QA.md) passed; patched ARM QR executable SHA `f23080ec…`, exact original v6I source rebuild passed. **Earlier statements below saying no image built are historical and superseded. No flash, boot or camera scan yet.**
 
 **Status: DESIGN AND SOURCE INTEGRATION ONLY. No recovery image has been built, flashed or approved.**

@@ -1,0 +1,22 @@
+--- a/xoom-toolkit-manager-native.cpp
++++ b/xoom-toolkit-manager-native.cpp
+@@ -72,7 +72,8 @@
+  return running(i)?"running":"loaded";
+ }
+ int execute(const std::string&verb,const std::string&id){
+- if(verb!="load"&&verb!="unload"&&verb!="start"&&verb!="stop"&&verb!="test"&&verb!="export")return -1;
++ if(verb!="load"&&verb!="unload"&&verb!="start"&&verb!="stop"&&verb!="test"&&verb!="export"&&verb!="pair")return -1;
++ if(verb=="pair" && id!="desktop-commander")return -1;
+  bool found=false;for(const auto&m:modules)if(id==m.id)found=true;
+  if(!found)return -1;
+  pid_t pid=fork();if(pid<0)return -1;
+@@ -334,7 +335,8 @@
+  }
+  size_t split=action.find(':');if(split==std::string::npos)return -1;
+  std::string verb=action.substr(0,split),id=action.substr(split+1);
+- if(verb!="start"&&verb!="stop"&&verb!="load"&&verb!="unload"&&verb!="test"&&verb!="export")return -1;
++ if(verb!="start"&&verb!="stop"&&verb!="load"&&verb!="unload"&&verb!="test"&&verb!="export"&&verb!="pair")return -1;
++ if(verb=="pair" && id!="desktop-commander")return -1;
+  bool found=false;for(const auto&m:modules)if(id==m.id)found=true;
+  if(!found||on("xt_batch_busy"))return -1;
+  // Immediate feedback before blocking on the package's actual operation.

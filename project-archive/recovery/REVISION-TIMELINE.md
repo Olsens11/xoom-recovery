@@ -1,5 +1,8 @@
 # Recovery revision timeline and architectural decisions
 
+**2026-10-18 — v6J-C scoped dispatcher correction (newest offline):** [C QA](2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md) and [exact candidate](versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). v6J-B previously built but its Generate New Code button could not pass native GUI dispatcher. C admits only Desktop Commander `pair`, rebuilds ARM recovery and requalifies strict 4-member image, **17/17 offline PASS**. C image SHA `0993c94c…cb63fafc`; v6I remains installed; no flash authorization.
+
+
 **2026-10-18 next coordinated release scope:** [All deferred update requirements](2026-10-18-COORDINATED-NEXT-RECOVERY-SCOPE.md) batched for one separately authorized future image; preserve v6I and current package pins until offline candidate and complete QA pass.
 
 **2026-10-18 post-boot lifecycle QA (newer than first-boot checkpoint):** **Physical v6I DNS lifecycle:** init Stop left root-owned stale socket pathname with no listening owner; exact guarded cleanup and init Start restored daemon `running`, Wi-Fi `WIFI_READY`, real hostname ping PASS. Automatic shutdown cleanup FAIL; separately fix. v6I first-boot DHCP/native DNS PASS is unchanged. No recovery reflash/reboot. [Physical QA evidence](2026-10-18-V6I-DNS-LIFECYCLE-TIME-DESKTOP-COMMANDER-QA.md).
