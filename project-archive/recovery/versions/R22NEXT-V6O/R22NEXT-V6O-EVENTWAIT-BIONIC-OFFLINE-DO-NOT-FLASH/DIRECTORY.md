@@ -1,5 +1,7 @@
 # v6O exact image — offline only, no flash authorization
 
+**2026-10-19 v6O PHYSICAL RAM EVENT QA / FLASH STAGING — NOT FLASHED:** Physical Xoom ARM/Bionic production waiter immediate Wi-Fi + Time Sync state checks PASS (2/2); isolated delayed inotify events, irrelevant-event filtering, timeout and missing-watch checks PASS (7/7). Exact v6O image SHA 86dbb96f98460206c20764ebafa491831f997992f50eeb4bcd5419c08ac5151d (9,623,552 bytes) now staged/hashed in Xoom RAM, on Xoom SD and Surface; Pi immutable original. Full current 12,582,912-byte p6 v6K rollback SHA f864733a0993647cc015923eecc8dc52d19cbfc1fc22fd2cf0088a575fdb6bee verified on Surface, SD and live partition. Exact live v6K image-length SHA e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f matches; initial mismatching prefix was an extra 2,048 bytes read and was corrected. Temporary RAM-only helper/fixtures removed; live v6K unaffected. NO p6 WRITE / NO REBOOT / NO v6O BOOT OR FULL INTEGRATION QUALIFICATION. [v6O physical RAM QA and exact-image flash gate](../../../2026-10-19-V6O-BIONIC-ALERT-RAM-P6-STAGED-FLASH-GATE.md).
+
 **DO NOT FLASH WITHOUT SEPARATE USER APPROVAL.** [Parent version](../DIRECTORY.md) · [Engineering source and audit](../../../development/v6o-eventwait-20261019/DIRECTORY.md).
 
 - Private Pi image: `/home/ps2/xoom-phase1/private/network-foundation-next/development/v6o-eventwait-20261019/R22NEXT-V6O-EVENTWAIT-BIONIC-OFFLINE-DO-NOT-FLASH.img`
