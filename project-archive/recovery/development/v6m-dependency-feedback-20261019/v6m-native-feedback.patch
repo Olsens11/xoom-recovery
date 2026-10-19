@@ -1,0 +1,93 @@
+--- /home/xoomdev/xoom-build/output/v6m-dependency-feedback-20261019/xoom-toolkit-manager-native-v6k-original.cpp	2026-10-19 08:04:31.547678302 -0400
++++ /home/xoomdev/xoom-build/android-7.1/bootable/recovery-twrp/xoom-toolkit-manager-native.cpp	2026-10-19 08:06:47.166365822 -0400
+@@ -81,7 +81,45 @@
+   execv(argv[0],const_cast<char*const*>(argv));_exit(127);
+  }
+  int result=0;
+- while(waitpid(pid,&result,0)<0){if(errno!=EINTR)return -1;}
++ const bool watch=(verb=="start" && id=="desktop-commander");
++ std::string lastPhase;
++ for(;;){
++  pid_t done=waitpid(pid,&result,watch?WNOHANG:0);
++  if(done==pid)break;
++  if(done<0){if(errno==EINTR)continue;return -1;}
++  if(watch){
++   FILE* f=fopen("/tmp/xoom-toolkit/deps/desktop-commander.state","r");
++   if(f){
++    char value[96]={0};
++    const bool valid=fgets(value,sizeof(value),f)!=NULL;
++    fclose(f);
++    if(valid){
++     std::string phase(value);
++     while(!phase.empty()&&(phase.back()=='\n'||phase.back()=='\r'))
++      phase.pop_back();
++     if(phase!=lastPhase){
++      lastPhase=phase;
++      std::string detail;
++      if(phase=="CHECKING")detail="Checking dependencies";
++      else if(phase=="STARTING_WIFI")detail="Connecting Wi-Fi";
++      else if(phase=="WAITING_FOR_WIFI")detail="Waiting for Wi-Fi";
++      else if(phase=="LOADING:wifi-runtime")detail="Loading Wi-Fi";
++      else if(phase=="LOADING:time-sync")detail="Loading Time Sync";
++      else if(phase=="SYNCHRONIZING_TIME")detail="Synchronizing time";
++      else if(phase=="WAITING_FOR_TIME_SYNC")detail="Waiting for Time Sync";
++      else if(phase=="PREPARING_RUNTIME")detail="Preparing runtime";
++      else if(phase=="STARTING_AGENT")detail="Starting agent";
++      else if(phase=="READY")detail="Prerequisites ready";
++      if(!detail.empty()){
++       put("xt_footer_line1","STARTING DESKTOP CMD");
++       put("xt_footer_line2",footerSafe(detail));
++      }
++     }
++    }
++   }
++   usleep(150000); // Same bounded GUI worker-poll pattern as batch operations.
++  }
++ }
+  return WIFEXITED(result)?WEXITSTATUS(result):-1;
+ }
+ void result(const std::string&verb,const std::string&id,int rc){
+@@ -91,6 +129,21 @@
+       verb=="unload"?"UNLOAD COMPLETE":
+       verb=="start"?"RUN COMPLETE":"ACTION COMPLETE");
+   put("xt_footer_line2",footerSafe(id));
++  if(verb=="start" && id=="desktop-commander"){
++   FILE* f=fopen("/tmp/xoom-toolkit/deps/desktop-commander.notice","r");
++   if(f){
++    char value[64]={0};
++    const bool valid=fgets(value,sizeof(value),f)!=NULL;
++    fclose(f);
++    if(valid && strncmp(value,"TIME_SYNC_NEEDED",16)==0 &&
++       (value[16]=='\n'||value[16]=='\r'||value[16]=='\0')){
++     put("xoom_toolkit_action_status",
++         "Desktop Commander started; Time Sync prerequisite was completed");
++     put("xt_footer_line1","TIME SYNC COMPLETED");
++     put("xt_footer_line2","DC STARTED");
++    }
++   }
++  }
+   if(id=="wifi-runtime"){
+    if(verb=="start")put("xoom_toolkit_wifi_running","1");
+    if(verb=="stop"||verb=="unload")put("xoom_toolkit_wifi_running","0");
+@@ -100,6 +153,21 @@
+   put("xoom_toolkit_action_status",verb+" "+id+b);
+   put("xt_footer_line1","ACTION FAILED");
+   put("xt_footer_line2",footerSafe(id+" error "+std::to_string(rc)));
++  if(verb=="start" && id=="desktop-commander" && rc==14){
++   FILE* f=fopen("/tmp/xoom-toolkit/deps/desktop-commander.state","r");
++   if(f){
++    char phase[64]={0};
++    const bool valid=fgets(phase,sizeof(phase),f)!=NULL;
++    fclose(f);
++    if(valid){
++     std::string info(phase);
++     if(info.find("WIFI_TIMEOUT")==0)put("xt_footer_line2","Wi-Fi timeout; retry");
++     else if(info.find("TIME_SYNC_FAILED")==0)put("xt_footer_line2","Time Sync failed");
++     else if(info.find("WIFI_PROFILE_MISSING")==0)put("xt_footer_line2","Wi-Fi profile needed");
++     else if(info.find("LOAD_FAILED:")==0)put("xt_footer_line2","Dependency load failed");
++    }
++   }
++  }
+  }
+ }
+ } // namespace

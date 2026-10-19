@@ -1,0 +1,30 @@
+{
+  "status": "OFFLINE_BUILT_ONLY_DO_NOT_FLASH_NO_XOOM_WRITES",
+  "v6l_parent_sha256": "690740bffc3e7611314c956d5e9af7b4a6db3163d45735c332b8926259589837",
+  "v6m_image_sha256": "62f6c9174379f510d023339f5de7a178bc81b376b84222c155339452934f50ae",
+  "v6m_image_bytes": 9615360,
+  "partition_bytes": 12582912,
+  "ramdisk_members": 470,
+  "changed_members": {
+    "sbin/xoom-toolkit-manager": {
+      "old": "1a1215e0ef172ab9fb752030f7189af35300e3ad3616093a3d13465d96e16aa3",
+      "new": "305af08231c697697bc4a88d20561db81e19516fbad74aa7030fccbfb7dfd1dd"
+    },
+    "sbin/xoom-toolkit-deps": {
+      "old": "dd0715ce574b997712c364c34c11a15bd9be5fb799e8d788b8fa2eeb141a9b52",
+      "new": "4c8176bdfcdff59db9c22acb9aeb53fcb5040ec061351768a0a9405eb4776e17"
+    },
+    "sbin/recovery": {
+      "old": "b490fde2891ea732dc819caf0bf2a2a5d8173a856c1a18104e559950cb09a6bb",
+      "new": "7d2e1d033aa95d7d8c575848891babbb1e6838ba776dad1bb33e89d3c1f7ccb3"
+    }
+  },
+  "unchanged_other_members": 467,
+  "original_trusted_installer_sha256": "03272808aae8c0b9bed43824d84915758304f3782f4a39cd7af2689e7e80cc96",
+  "new_trusted_installer_identical": true,
+  "boot_kernel_identical": true,
+  "ui_notice": "Native Toolkit result maps dependency notice TIME_SYNC_NEEDED to TIME SYNC COMPLETED / DC STARTED",
+  "progress": "Native manager polls bounded dependency state file while Start action thread waits",
+  "pending_start": "No indefinite silent future autorun. Bounded waits only; user may retry.",
+  "hardware_validation": "NOT_RUN"
+}

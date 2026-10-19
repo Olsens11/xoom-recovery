@@ -113,3 +113,8 @@ v6K first boot and native Load previously PASS. After Time Sync GUI Run fixed an
 ## v6L dependency interlock offline engineering — October 19, 2026
 
 Exact v6K image modified only to add a recovery-owned action-qualified dependency resolver (`sbin/xoom-toolkit-deps`) and call it from Desktop Commander Start in `sbin/xoom-toolkit-manager`. Trusted verifier, all eight outer+inner PINs, ZIPs, boot workers, native GUI, and kernel unchanged. 14/14 mocked lifecycle/dependency fixture tests and 27/27 independent static image checks PASS; SHA 690740bffc3e7611314c956d5e9af7b4a6db3163d45735c332b8926259589837, 9,617,408 bytes. Offline candidate only; GUI auto-sync notice and durable pending request remain unimplemented; no flash or hardware tests. [Reviewed source and QA](development/v6l-dependency-interlock-20261019/DIRECTORY.md).
+
+
+## v6M native dependency interlock footer (2026-10-19, OFFLINE)
+
+Follow-on to physically uninstalled v6L prototype. Exact v6M SHA 62f6c9174379f510d023339f5de7a178bc81b376b84222c155339452934f50ae, 9,615,360 bytes. New rebuilt matching ARM native TWRP executable observes recovery-owned dependency phase markers and shows success or failure footer; Manager and resolver state semantics adjusted without changes to trust pins, Wi-Fi, Time Sync or Desktop Commander packages. 14/14 simulated + 40/40 static independent checks PASS, no hardware tests or recovery flash. Delayed Start is bounded; later automatic restart after timeout not implemented. [Full code and review gates](development/v6m-dependency-feedback-20261019/DIRECTORY.md).

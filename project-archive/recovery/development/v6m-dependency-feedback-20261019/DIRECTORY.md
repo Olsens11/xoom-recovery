@@ -1,0 +1,41 @@
+# v6M dependency interlock — native progress and notification, offline QA
+
+**2026-10-19 status: SOURCE + FULL ARM NATIVE BUILD + OFFLINE IMAGE COMPLETE. NOT STAGED ON XOOM, NOT FLASHED, NOT COLD-BOOTED.** [Development parent](../DIRECTORY.md) · [Exact candidate](../../versions/R22NEXT-V6M/DIRECTORY.md) · [v6L parent source](../v6l-dependency-interlock-20261019/DIRECTORY.md).
+
+## Scope and design decision
+
+The user chose to refine the existing recovery-owned dependency interlock, adding meaningful on-screen progress and a visible success notification if Time Sync had to be satisfied while starting Desktop Commander. We also reviewed delayed/pending Start semantics: for the initial release, let the user's Start request remain pending during **bounded** dependency startup, but **do not** retain an indefinite unseen launch authorization that might automatically bring the cloud agent online hours later. If Wi-Fi remains absent for the bounded interval, report a clear condition; the user may explicitly retry. Full cancellation while the GUI's Start action worker is busy, event-triggered requeue after timeout, and indefinite wait were **not implemented**. A persistent deferred request would need a separately designed state machine and user-controlled cancellation.
+
+## Candidate identity and preservation
+
+- Exact *private offline* image: `R22NEXT-V6M-DEPENDENCY-UI-FEEDBACK-OFFLINE-DO-NOT-FLASH.img`, size **9,615,360 bytes** (partition 12,582,912), SHA-256 **`62f6c9174379f510d023339f5de7a178bc81b376b84222c155339452934f50ae`**.
+- Derived byte-for-byte from the immutable v6L candidate image SHA `690740bffc3e7611314c956d5e9af7b4a6db3163d45735c332b8926259589837`, itself derived from the physically accepted v6K SHA `e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f`.
+- Exactly **three** previously existing members differ from v6L: `sbin/xoom-toolkit-deps` (SHA `4c8176bdfcdff59db9c22acb9aeb53fcb5040ec061351768a0a9405eb4776e17`), `sbin/xoom-toolkit-manager` (SHA `305af08231c697697bc4a88d20561db81e19516fbad74aa7030fccbfb7dfd1dd`), and `sbin/recovery` native ARM ELF (SHA `7d2e1d033aa95d7d8c575848891babbb1e6838ba776dad1bb33e89d3c1f7ccb3`). Other 467 CPIO members and their metadata are unchanged, with identical kernel and valid Android boot ID.
+- The native ELF was compiled in the existing **Windows desktop Ubuntu-22.04 WSL full Android 7.1 build**, starting from the source that produced the **same binary as v6K** (original native ELF SHA `b490fde2891ea732dc819caf0bf2a2a5d8173a856c1a18104e559950cb09a6bb`). Full native source delta preserved as [v6M native diff](v6m-native-feedback.patch), and exact compiled output independently hashed and transferred to private Pi before packaging. The actual build command was `source build/envsetup.sh; lunch omni_wingray-eng; make -j4 recoveryimage`. The image builder takes ONLY the resulting native ELF, not the whole automatically generated WSL recovery image.
+- The trusted ZIP installer is byte-identical SHA `03272808aae8c0b9bed43824d84915758304f3782f4a39cd7af2689e7e80cc96`, with all 8 installed package pairs (16 PIN/INNER values), default 12 MiB verifier limit, bypass hard-disabled, boot workers, kernel and Toolkit theme unchanged. Desktop Commander v0.16.4 and Time Sync v0.2.1 ZIPs unchanged; user Autoload/Autorun preferences untouched.
+
+## Functional changes
+
+1. Recovery-owned helper still has a small `requirements_for()` registry: **Start Desktop Commander** requires Wi-Fi operational state `WIFI_READY` and Time Sync `SYNCED`. Loads missing trusted packages and uses the existing Manager to start prerequisites as necessary. No dependency rules are fetched from SD or executed from manifests.
+2. On every Start attempt, helper clears the stale notice and state, then writes `CHECKING`. Other bounded phases include `LOADING:time-sync`, `STARTING_WIFI`, `WAITING_FOR_WIFI`, `WAITING_FOR_TIME_SYNC`, `SYNCHRONIZING_TIME`, and `READY` via private RAM-only atomic rename. The trusted Manager additionally emits `PREPARING_RUNTIME` and `STARTING_AGENT`.
+3. Helper now reports `TIME_SYNC_NEEDED` only if this Start found no already-successful synchronization but *subsequently satisfied it*. That is intentionally distinct from the prior misleading `TIME_SYNC_AUTO_STARTED` flag when another process had been performing the sync.
+4. Native Toolkit Manager GUI's existing `execute()` is extended to poll the status file every 150 ms **only during the Desktop Commander Start action**. It maps allowlisted exact phase tokens to two bounded footer lines. It uses the existing action worker thread and DataManager; other package actions and theme coordinates are untouched.
+5. After Manager reports actual successful Start, native `result()` conditionally reads the exact `TIME_SYNC_NEEDED` notice and displays **`TIME SYNC COMPLETED` / `DC STARTED`** in the established footer. It does not claim success before the Manager's process completes. Failure paths retain `ACTION FAILED` and show a more specific reason for Wi-Fi timeout, missing profile, Time Sync or trusted dependency Load failure.
+6. Existing 30-second Wi-Fi connection wait, 25-second wait on a currently executing Time Sync, two-attempt bounded NTP policy (each Time Sync internal attempt up to 20 seconds) and trusted independent Time Sync implementation remain. No indefinite pending Start queue, auto-relaunch after timeout, or cancellation UI is added. **The Start action can take significant time on a bad network but cannot remain pending forever.**
+
+## Source and verified offline tests
+
+- [Updated dependency helper](xoom-toolkit-deps.sh) · [Exact native source patch](v6m-native-feedback.patch) · [v6M image assembly](build_v6m_dependency_feedback.py) · [Host dependency simulation](test_v6m_dependency_feedback.py) · [Independent static image audit](independent_v6m_qa.py).
+- [Mock control-flow results](V6M-DEPENDENCY-MOCK-QA.json): **14/14 PASS**, includes already synced, verified dependency loads, auto Time Sync, already-running Time Sync, Wi-Fi initialized but not associated, missing Wi-Fi, timeout, NTP failures, rejected operations.
+- [Independent v6M image checks](INDEPENDENT_V6M_QA.json): **40/40 PASS**, including exact parent/candidate SHA, unchanged 467 members, valid ARM ELF, native compiled status/notice strings, trusted package verifier unchanged, source integrity and shell parse, unchanged boot workers and Toolkit theme. [Build provenance](V6M-DEPENDENCY-UI-FEEDBACK-AUDIT.json).
+- **Total offline checks: 54/54**. Both sets are host/offline checks, **not an Xoom hardware acceptance**. A synthetic fixture passing cannot prove real WPA state, init service, GUI repaint or cloud behavior.
+
+## Known limitations and preflash review gates
+
+- No direct on-Xoom UI screenshot or touch test. Even though the exact full ARM rebuild compiled, actual footer rendering and responsiveness during 20- to 90-second failed network Start require first hardware QA.
+- No guaranteed cancellation through Stop while an ongoing GUI Start occupies its action worker; tests must explicitly verify thread behavior and Stop controls on hardware. A future cancel mechanism should be discussed before allowing indefinite pending jobs.
+- Existing Time Sync v0.2.1 can overwrite `SYNCED` on a later failed attempt; the previously approved Time Sync lifetime authority/event-driven Wi-Fi design is not implemented. This candidate does not pretend to fix that independent policy.
+- No device identity persistence, saved cloud credentials, QR reuse or full Desktop Commander lifecycle change; other roadmap work remains separate.
+- **Do not flash from this report alone.** Require exact image hash on host, image-size/partition/rollback verification, explicit user approval for flashing the identified candidate, on-device image-length readback BEFORE reboot, first-boot USB/Wi-Fi/time/native progress and full cloud tools QA with validated rollback.
+
+**Implementation result:** A minimally invasive, externally managed, action-qualified dependency system is now built offline with a truly native status footer. Decide if the bounded pending policy meets expected user behavior before hardware rollout. All originals and v6K live device preserved.
