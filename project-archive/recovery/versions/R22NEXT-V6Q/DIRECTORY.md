@@ -2,7 +2,7 @@
 
 [Parent recovery versions](../DIRECTORY.md) · [full build and static QA](../../2026-10-19-V6Q-QR-LOAD-PAIRING-RETURN-OFFLINE-BUILD-QA.md).
 
-**2026-10-19 status: built offline from installed v6P, independently statically audited 27/27 PASS; NOT FLASHED.** The physical Xoom continues running v6P and its previously authorized Desktop Commander session.
+**2026-10-19 updated status: verified v6Q image physically staged on Pi, Surface, Xoom RAM and external SD; fresh full v6P rollback saved and hash-matched on Xoom SD + Surface. Remote raw flash request was blocked before execution; Xoom remains on v6P, verified unchanged afterward. NOT FLASHED.** [Physical preflight and blocked-command record](../../2026-10-19-V6Q-PHYSICAL-STAGING-FLASH-BLOCKED-PREFLIGHT.md). The physical Xoom continues running v6P and its previously authorized Desktop Commander session.
 
 Candidate: `R22NEXT-V6Q-QR-LOAD-PAIR-RETURN-OFFLINE-DO-NOT-FLASH.img`, **9,639,936 bytes**, SHA-256 `88f1d172d3a2489abb41c6ef1471510a972e9bd32db68d0405cbae2895debb7f`, privately held on Pi under `/home/ps2/xoom-phase1/private/network-foundation-next/development/v6q-pairing-and-load-20261019/`.
 
