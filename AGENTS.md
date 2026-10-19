@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## Next-phase Desktop Commander goals (2026-10-19)
+
+User-defined future roadmap, **NOT approved changes**: startup Wi-Fi/DNS/Time Sync/HTTPS sequencing; preserve first-party cloud device identity and avoid repeat QR/duplicate entries; full lifecycle and uptime; selectable Standard/Root modes and investigate safe mid-session change; three header icons for agent, provider connection and permission state; package-page terminal monitoring and UI polish; further first-party tool parity and Xoom-specific tools; one unified Desktop Commander/runtime ZIP with a narrow verified >12 MiB exception while retaining standard verifier protections. Inspect the shipped --no-persist-session flag and 1970 boot clock as hypotheses before implementation; never claim the duplicate-device root cause is proven. No recovery or agent changes made. [Full roadmap](project-archive/packages/desktop-commander/2026-10-19-NEXT-PHASE-GOALS-AND-ENGINEERING-ROADMAP.md).
+
 ## v6K v0.16.4 cloud QR and UID2000 file roundtrip PASS (latest 2026-10-19)
 
 On the physically installed v6K, after a first-boot 1970 clock caused HTTPS CERT_NOT_YET_VALID and was corrected by existing GUI Time Sync Run, the user started v0.16.4 through native GUI, scanned real first-party QR and authorized. New provider Xoom device is Online; real Remote Desktop Commander connector listing and approved diagnostic PASS, restricted UID2000 write/read/metadata/sha256/list cloud roundtrip PASS. Agent RUNNING, pinned Node builtins exact, root:shell 0750 on /tmp/n24. No manual RAM repair or SSH/ADB agent start. Future cold boot/time-sync auto-order and longevity NOT tested. [End-to-end physical QA](project-archive/recovery/2026-10-19-V6K-DC0164-REAL-QR-ONLINE-REMOTE-TOOLS-PASS.md).
