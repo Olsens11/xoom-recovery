@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v6J-C pairing and realtime Online (newest QA)
+
+Current split-mode RAM patch physically generated first-party QR, user authorized, and device listed Online; live Supabase channel SUBSCRIBED and incoming remote tool requests reached agent. Existing policy correctly denied unrestricted shell; attempted file tools failed in externalized Node worker. **Do not claim full usable MCP tools acceptance.** No recovery/SD/agent code changes after this online test. [Physical QA](project-archive/recovery/2026-10-19-V6J-C-DC-PAIRING-ONLINE-WORKER-QA.md).
+
 ## v6J-C split-mode installed in RAM (latest physical staging)
 
 User GUI Stop PASS. Normal Node launcher restored, verified split-mode JITless QR bridge/helper installed **only in recovery RAM**, exact four-source file hashes match; original SD v0.16.3 ZIP and Problem A controller unchanged. Agent remains STOPPED. Real GUI restart and Realtime Online/MCP acceptance **NOT YET TESTED**. [Current physical QA](project-archive/recovery/2026-10-19-V6J-C-DC-SPLITMODE-RAM-STAGED-NO-START.md).

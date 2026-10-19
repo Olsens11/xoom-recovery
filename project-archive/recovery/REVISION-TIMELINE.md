@@ -73,3 +73,8 @@ Native QR and official browser authorization physically PASS; device remained of
 ## v6J-C SPLIT-MODE RAM QA STAGING (2026-10-19)
 
 Following native GUI stop, SHA-guarded RAM-only patch restored normal Node launcher and installed exact tested JITless QR child/helper arrangement. Backups, original SD v0.16.3 and Problem A controller intact. Agent STOPPED, new real pairing / cloud Online / MCP round trip not yet tested. [QA](2026-10-19-V6J-C-DC-SPLITMODE-RAM-STAGED-NO-START.md).
+
+
+## v6J-C REALTIME ONLINE / WORKER STILL FAILS (2026-10-19)
+
+Actual Xoom native GUI QR and user first-party authorization PASS using verified split-mode RAM fix, remote device list Online, agent log Supabase channel SUBSCRIBED and inbound tool requests. Intentional arbitrary shell restriction PASS. File/list/metadata remote tools failed in pre-existing externalized Node builtin worker, so productive remote operations still NOT PASS. [Newest QA](2026-10-19-V6J-C-DC-PAIRING-ONLINE-WORKER-QA.md).
