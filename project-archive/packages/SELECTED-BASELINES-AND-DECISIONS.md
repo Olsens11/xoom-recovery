@@ -1,5 +1,7 @@
 # Toolkit package selection and responsibility ledger
 
+**v6K physically installed and v0.16.4 trusted VERIFY (2026-10-19):** Exact flash SHA e2ed41e9...16f40f, recovery readback before reboot, full p6 archive and first TWRP boot PASS. New physical verifier accepted SD package 0.16.4: VERIFIED; 0.16.4 remains UNLOADED awaiting user-driven Toolkit Manager GUI Load and native Start/Pair workflow. Earlier v6J-C/v0.16.3 remain as preserved rollback/history, not currently installed. [Hardware QA](../recovery/2026-10-19-V6K-PHYSICAL-FLASH-READBACK-FIRST-BOOT-QA.md).
+
 **v6K preflash physical staging and p6 backup (2026-10-19):** v0.16.4 exact ZIP is staged/rehashed on Xoom SD, but physically installed v6J-C verifier still pins v0.16.3. v6K image matched on Surface/Pi only, not flashed. Full current v6J-C p6 SHA b550f54e...ac6a0a9 privately preserved twice; installed image-prefix SHA matches. Live Desktop Commander Online and previous RAM fixes preserved. [New hardware witness](../recovery/2026-10-19-V6K-DC0164-SD-STAGED-P6-BACKUP-FLASH-GATE.md).
 
 **v0.16.4/v6K coordinated offline successor (2026-10-19):** New Desktop Commander ZIP outer 9cc600e8...2bf9e35, inner 4e374129...0ca303e, plus v6K recovery pin exactly that filename and both digests; 31/31 offline PASS. Installed v6J-C/v0.16.3 stays physically current and cloud-Online with RAM-only fixes; candidate ZIP and image not yet staged, flashed or loaded. [Proof](../recovery/2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).

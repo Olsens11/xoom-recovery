@@ -93,3 +93,8 @@ Desktop Commander 0.16.4 combines RAM-proven split-mode QR and UID2000 builtin a
 ## v6K HARDWARE PREFLIGHT / ZIP SD STAGING (2026-10-19)
 
 Exact new Desktop Commander v0.16.4 ZIP 669650 bytes, SHA256 9cc600e8...2bf9e35, copied via guarded single-use private LAN relay to Surface and USB ADB SD, verified by Xoom SHA. v6K candidate image SHA e2ed41e9...16f40f staged only on Surface, no partition changes. Raw current recovery p6 backed up (12582912 bytes, SHA b550f54e...ac6a0a9) to Surface and private Pi; both checked and 9615360-byte prefix matches active v6J-C SHA 0993c94c...cb63fafc. Device 100% battery, USB ADB, package SD mount and remote agent Online, no reboot or flash. A separately authorized exact-hash flash is pending. [Evidence](2026-10-19-V6K-DC0164-SD-STAGED-P6-BACKUP-FLASH-GATE.md).
+
+
+## v6K EXACT PHYSICAL FLASH AND TRUSTED PACKAGE VERIFY (2026-10-19)
+
+User authorized exact v6K SHA e2ed41e9...16f40f. Individual-command 4695x2048-byte dd/conv fsync write, sync, full image-length readback hash before reboot PASS. Entire postflash p6 12582912 bytes SHA f864733a...db6bee archived Surface and private Pi, 2967552-byte trailing area unchanged, original full v6J-C rollback preserved SHA b550f54e...ac6a0a9 twice. TWRP v3.1.1 and USB ADB first boot, Wi-Fi and DNS PASS; physical exact new verifier SHA 03272808...0cc96, trusted v0.16.4 verified ZIP PASS. GUI Load/Pair/Online/UID2000 remote operations NOT YET TESTED. [Dated witness](2026-10-19-V6K-PHYSICAL-FLASH-READBACK-FIRST-BOOT-QA.md).

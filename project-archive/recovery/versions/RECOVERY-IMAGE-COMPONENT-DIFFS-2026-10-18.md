@@ -12,3 +12,8 @@
 ## 2026-10-19 v0.16.4-v6K trust pair (offline)
 
 v0.16.4 vs v0.16.3: two changed payload members (controller and pairing bridge), two added (original QR core and short-lived JITless worker), 23 preserved. v6K vs physically flashed v6J-C: only verified-install member changed, replacing DC package filename, outer and inner hashes; seven other package PIN/INNER entries, kernel and 468 other ramdisk members unchanged. 31/31 offline QA PASS; unflashed/unloaded. [Evidence](../2026-10-19-V6K-DC0164-COORDINATED-VERIFIED-PINS-OFFLINE-QA.md).
+
+
+## 2026-10-19 v6K physical first boot and trusted verifier
+
+Exact-image 9,615,360-byte v6K p6 prefix was written and SHA-readback verified before reboot; full 12 MiB p6 archived, tail unchanged from predecessor. First boot TWRP/USB ADB/Wi-Fi/DNS PASS; new verifier matches known SHA and accepted verified Desktop Commander v0.16.4 ZIP through strict native verifier. v0.16.4 Load, first-party QR/cloud and UID2000 worker remain untested after this flash. [Physical evidence](../2026-10-19-V6K-PHYSICAL-FLASH-READBACK-FIRST-BOOT-QA.md).

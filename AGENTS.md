@@ -29,6 +29,10 @@ The [process library](project-archive/processes/DIRECTORY.md) records methods ge
 - Do not silently replace immutable historical artifacts or treat newer filenames/semvers as accepted. Explicitly distinguish booted/loaded, connected, Internet-ready, cloud-authenticated and fully tested states.
 - Preserve the original Pi historical checkout and archived machine snapshots until the user approves a retention/cold-storage decision.
 
+## v6K physical flash and first boot accepted (2026-10-19)
+
+User authorized exact v6K image SHA e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f and required individual commands. Booted v6K physically installed; image-length 9615360-byte p6 readback exact before reboot; full postflash p6 SHA f864733a0993647cc015923eecc8dc52d19cbfc1fc22fd2cf0088a575fdb6bee preserved on Surface and Pi, suffix unchanged. TWRP/USB ADB/WIFI_READY/xoomdns and new verifier SHA pass; v0.16.4 native trusted VERIFY PASS. **Desktop Commander v0.16.4 is UNLOADED; do not claim packaged Load, fresh QR, provider Online or UID2000 worker acceptance.** Full v6J-C preflash rollback separately preserved SHA b550f54e6c24915c1867e1d0597a60af037d4becb9efa889902cfd515ac6a0a9. [Exact hardware witness](project-archive/recovery/2026-10-19-V6K-PHYSICAL-FLASH-READBACK-FIRST-BOOT-QA.md).
+
 ## v6K preflash physical staging completed (2026-10-19)
 
 Actual Xoom SD contains exact v0.16.4 ZIP rehashed 9cc600e87453ab2658e7b9c7e454ce9a738b8ebbaf4aa2d5c395b69cb2bf9e35. v6K image e2ed41e9fea23c84a295f46f4a938ff748d3d00a6af7aac0eb1fef817b16f40f independently hashed on Pi and Surface; not flashed. Full current v6J-C recovery p6 backup 12,582,912 bytes SHA b550f54e6c24915c1867e1d0597a60af037d4becb9efa889902cfd515ac6a0a9 preserved on Surface AND private Pi; installed prefix matches 0993c94c...cb63fafc. Device running/Online, battery 100%, USB ADB and partition identity PASS. **No recovery flash/reboot or new package Load. Requires separate explicit exact-v6K SHA flash authorization.** [Physical staging record](project-archive/recovery/2026-10-19-V6K-DC0164-SD-STAGED-P6-BACKUP-FLASH-GATE.md).
