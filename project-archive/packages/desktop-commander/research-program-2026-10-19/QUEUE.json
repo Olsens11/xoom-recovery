@@ -87,5 +87,14 @@
       "report": "issue-09.md",
       "reviewed_complete_at": null
     }
-  ]
+  ],
+  "publication": {
+    "mode": "interactive_archive_only_while_scheduled_writes_safety_blocked",
+    "scheduled_worker_github_writes": false,
+    "worker_deliverable": "complete Markdown report in scheduled task response",
+    "queue_mutation_owner": "interactive authorized archival conversation",
+    "last_protocol_revision": "2026-10-19",
+    "next_claim": "on accepted archived completion, lowest numbered queued issue, by earliest completed task timestamp",
+    "status": "interim; full unattended handoff unavailable until scheduled write restriction changes"
+  }
 }
