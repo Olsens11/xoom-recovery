@@ -1,0 +1,41 @@
+{
+  "scope": "real Linux kernel inotify on host; not physical Xoom",
+  "check_count": 9,
+  "checks": {
+    "wifi_already_ready": {
+      "result": "PASS",
+      "seconds": 0.012
+    },
+    "wifi_async_change": {
+      "result": "PASS",
+      "seconds": 0.252
+    },
+    "sync_already_complete": {
+      "result": "PASS",
+      "seconds": 0.005
+    },
+    "sync_async_completion": {
+      "result": "PASS",
+      "seconds": 0.254
+    },
+    "nonterminal_then_complete": {
+      "result": "PASS",
+      "seconds": 0.404
+    },
+    "event_without_readiness_ignored": {
+      "result": "PASS",
+      "seconds": 0.453
+    },
+    "true_timeout_no_event": {
+      "result": "PASS",
+      "seconds": 1.008
+    },
+    "notifier_parent_missing_fallback": {
+      "result": "PASS",
+      "seconds": 0.001
+    },
+    "rejects_invalid_mode_and_budgets": {
+      "result": "PASS"
+    }
+  }
+}

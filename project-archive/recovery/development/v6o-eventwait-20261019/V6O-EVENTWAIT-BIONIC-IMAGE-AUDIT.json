@@ -1,0 +1,29 @@
+{
+  "status": "OFFLINE_BUILT_NOT_FLASHED_NO_HARDWARE_TEST",
+  "parent_sha256": "e8f4c7c2261c9e828de7b2a6bb72b9db3751ff1b248af449dc8702f49db24f52",
+  "candidate_sha256": "86dbb96f98460206c20764ebafa491831f997992f50eeb4bcd5419c08ac5151d",
+  "candidate_bytes": 9623552,
+  "partition_bytes": 12582912,
+  "member_count": 475,
+  "only_modified_prior_member": "sbin/xoom-toolkit-deps",
+  "modified_helper_sha256": "0141281bc95e9f49cb99549bfed53eb32f6b423cd1b83cfc8aba9d0f114f28c1",
+  "added_member": {
+    "path": "sbin/xoom_toolkit_eventwait",
+    "sha256": "1bf2d56393206c7f512c33c8caec785f2f52f0c8c2f86eae216010e9fd8e02a9",
+    "bytes": 13920,
+    "mode": "root:root 0755",
+    "interpreter": "/sbin/linker",
+    "bionic_dependencies": [
+      "libc++.so",
+      "libdl.so",
+      "libc.so",
+      "libm.so"
+    ]
+  },
+  "remaining_473_members_unchanged": true,
+  "kernel_exact": true,
+  "original_verifier_and_zip_pins_exact": true,
+  "desktop_commander_and_time_sync_unchanged": true,
+  "native_ui_unchanged": true,
+  "hardware_validation": "NOT_RUN"
+}
