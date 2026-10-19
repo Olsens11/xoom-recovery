@@ -1,5 +1,8 @@
 # R22next v6J — Desktop Commander pairing and Problem A (planned candidate)
 
+**2026-10-18 (newer physical SD-staging checkpoint):** The exact Desktop Commander **v0.16.3** ZIP (668,785 bytes, SHA `0ac0eccb…fc1b6f40`) is now **copied onto Xoom microSD and rehashed by Xoom BusyBox** at `/external_sd/XoomToolkit/packages/XoomToolkit-Desktop-Commander-0.16.3-PAIRING-QA.zip`. Pre-existing v0.16.0/v0.16.2 remain intact. **Installed v6I does NOT trust/load v0.16.3; there was no allowlist bypass, agent restart, recovery flash or reboot.** The physical p6 prefix still matches v6I, and full-p6 rollback SHA remains verified. [Full staging witness](../../2026-10-18-V6J-C-DC0163-SD-STAGING-NO-FLASH.md). Latest selected offline v6J-C SHA `0993c94c…cb63fafc` still requires explicit exact-SHA flash authorization.
+
+
 **LATEST 2026-10-18 v6J-C (offline, NOT FLASHED):** [Exact newest candidate](R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md) supersedes B after source review discovered that the *Generate New Code* GUI action was rejected by two native dispatcher allowlists. Native fix is now ARM-built; independent offline CPIO/ZIP/rollback QA **17/17 PASS**, image SHA `0993c94c…cb63fafc` (9,615,360 bytes). Only 4 ramdisk members differ from installed v6I, and C changes only 2 members relative to B. **v6I is physically installed; neither B nor C is flashed.** [Full checkpoint](../../2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md). Older “unbuilt” status below is historical and superseded.
 
 

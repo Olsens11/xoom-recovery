@@ -1,5 +1,8 @@
 # packages / desktop-commander
 
+**2026-10-18 (newer physical SD-staging checkpoint):** The exact Desktop Commander **v0.16.3** ZIP (668,785 bytes, SHA `0ac0eccb…fc1b6f40`) is now **copied onto Xoom microSD and rehashed by Xoom BusyBox** at `/external_sd/XoomToolkit/packages/XoomToolkit-Desktop-Commander-0.16.3-PAIRING-QA.zip`. Pre-existing v0.16.0/v0.16.2 remain intact. **Installed v6I does NOT trust/load v0.16.3; there was no allowlist bypass, agent restart, recovery flash or reboot.** The physical p6 prefix still matches v6I, and full-p6 rollback SHA remains verified. [Full staging witness](../../recovery/2026-10-18-V6J-C-DC0163-SD-STAGING-NO-FLASH.md). Latest selected offline v6J-C SHA `0993c94c…cb63fafc` still requires explicit exact-SHA flash authorization.
+
+
 **New pairing-and-Problem-A offline image scope (2026-10-18):** [v6J-B exact image and guarded next step](../../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), along with [physical read-only v6I/source provenance checks](../../recovery/2026-10-18-V6J-B-FOUR-MEMBER-IMAGE-OFFLINE-QA.md). v0.16.3 package hashes validated; installed v6I still trusts original 0.16.0. No flash.
 
 **LATEST two-item v6J scope:** [Desktop Commander v0.16.3 candidate](versions/v0.16.3/DIRECTORY.md) combines original v0.16.2 Problem A restore with provider-issued QR pairing bridge, 25 SHA-listed files, offline integrity QA PASS; [v6J release scope](../../recovery/2026-10-18-V6J-STRICT-DC-SCOPE.md) excludes all other deferred updates. No package installed or recovery flashed.

@@ -1,5 +1,8 @@
 # packages / desktop-commander / versions
 
+**2026-10-18 (newer physical SD-staging checkpoint):** The exact Desktop Commander **v0.16.3** ZIP (668,785 bytes, SHA `0ac0eccb…fc1b6f40`) is now **copied onto Xoom microSD and rehashed by Xoom BusyBox** at `/external_sd/XoomToolkit/packages/XoomToolkit-Desktop-Commander-0.16.3-PAIRING-QA.zip`. Pre-existing v0.16.0/v0.16.2 remain intact. **Installed v6I does NOT trust/load v0.16.3; there was no allowlist bypass, agent restart, recovery flash or reboot.** The physical p6 prefix still matches v6I, and full-p6 rollback SHA remains verified. [Full staging witness](../../../recovery/2026-10-18-V6J-C-DC0163-SD-STAGING-NO-FLASH.md). Latest selected offline v6J-C SHA `0993c94c…cb63fafc` still requires explicit exact-SHA flash authorization.
+
+
 **Current paired image candidate (not installed):** [v6J-B Desktop Commander QR plus Problem A](../../../recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-B-OFFLINE-DO-NOT-FLASH/DIRECTORY.md), pinning unreleased 0.16.3. v0.16.0 remains selected on physical v6I; v0.16.2 remains the proven RAM-only Problem A predecessor.
 
 **Newest QR pairing scope candidate:** [v0.16.3 combined package (OFFLINE-ONLY)](v0.16.3/DIRECTORY.md), ZIP SHA-256 `0ac0eccbe2b35842ad2496371f09e7af91de3d7ccc53d1dcb0e222c0fc1b6f40`, carries the unchanged v0.16.2 Problem A restore plus a native pairing-data bridge. v0.16.0 remains trusted/current; v0.16.3 not allowlisted, not tested on Xoom.

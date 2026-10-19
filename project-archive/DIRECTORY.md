@@ -1,5 +1,8 @@
 # Xoom recovery and Toolkit project
 
+**2026-10-18 (newer physical SD-staging checkpoint):** The exact Desktop Commander **v0.16.3** ZIP (668,785 bytes, SHA `0ac0eccb…fc1b6f40`) is now **copied onto Xoom microSD and rehashed by Xoom BusyBox** at `/external_sd/XoomToolkit/packages/XoomToolkit-Desktop-Commander-0.16.3-PAIRING-QA.zip`. Pre-existing v0.16.0/v0.16.2 remain intact. **Installed v6I does NOT trust/load v0.16.3; there was no allowlist bypass, agent restart, recovery flash or reboot.** The physical p6 prefix still matches v6I, and full-p6 rollback SHA remains verified. [Full staging witness](recovery/2026-10-18-V6J-C-DC0163-SD-STAGING-NO-FLASH.md). Latest selected offline v6J-C SHA `0993c94c…cb63fafc` still requires explicit exact-SHA flash authorization.
+
+
 **LATEST 2026-10-18 v6J-C (offline, NOT FLASHED):** [Current candidate and exact image SHA](recovery/versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md); [full QA and discovery](recovery/2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md). A newly discovered blocked native `pair` action was fixed and ARM-built from verified v6I source; v6J-C **17/17 PASS offline**, **not flashed**. Desktop Commander v0.16.3 still includes untouched validated Problem A logic; approved scope remains **Problem A + native official pairing only**. Installed recovery and full rollback remain v6I.
 
 
