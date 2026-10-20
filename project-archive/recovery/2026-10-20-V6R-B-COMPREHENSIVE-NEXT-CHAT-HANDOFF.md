@@ -161,7 +161,7 @@ The active Dashboard XML is [here](https://github.com/Olsens11/xoom-recovery/blo
 - The main dashboard should be a connection health/control center. Eventually offer one glance at live agent activity, plus a compact/full-screen terminal workspace that uses existing authorized local capabilities. A separately navigable near-full-screen console should have an **Agent Activity** (passive/independent observer) and **My Terminal** (interactive user terminal) tab. Need careful buffer/resource/UI design; no unbounded output or pretend functionality.
 - Eventually show independent top-header **agent running**, **real provider/cloud connection**, and **actual Standard/Root permission state** indicators, rather than misrepresenting Wi-Fi as Online.
 - The user wants an optional enforced **root permission mode** controlled from package page eventually, but **deferred**; investigate Standard UID2000 versus Root security and potential mid-session switching. Do not casually grant unrestricted root on the cloud transport.
-- Do the layout/look-and-feel pass first, then functional improvements incrementally with regression tests. v6R-B completed and was physically accepted for visual fit; the three defects below now merit focused work.
+- Do the layout/look-and-feel pass first, then functional improvements incrementally with regression tests. v6R-B was physically booted and its layout rendered without obvious overlap in captured states; the user has not yet given a separate final aesthetic sign-off. The three defects below now merit focused work.
 
 ---
 
