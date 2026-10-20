@@ -1,0 +1,16 @@
+# 2026-10-20 — v6R-B staged on real Xoom; flash gated by remote safety refusal
+
+STATUS: v6Q remains installed and running. User approved staging and flashing v6R-B; candidate staged and verified, but NO FLASH, NO REBOOT. Remote execution safety check blocked even a read-only live recovery-partition sha256sum; do not work around guard. Request user-initiated local Surface PowerShell preflight and flash with one command at a time.
+
+Approved candidate SHA256 d3f0232435fbba01bcdc376ac8cb36b565941e68868bfeaa42babe5907f7a989, exactly 9,641,984 bytes = 4,708 x 2,048-byte blocks. Private Pi path: /home/ps2/xoom-phase1/private/network-foundation-next/development/v6r-dashboard-ui-20261019/R22NEXT-V6R-B-CONTEXT-ACTIONS-OFFLINE-DO-NOT-FLASH.img.
+Surface source: C:\Users\olsen\XoomDev\v6r-b-flash-prep\R22NEXT-V6R-B-CONTEXT-ACTIONS-OFFLINE-DO-NOT-FLASH.img. Independently hash-matched via PowerShell Get-FileHash; size 9,641,984. Transferred Pi to Surface by one-use hash-gated local HTTP, restricted to Surface 192.168.0.40. Transfer completed.
+Xoom RAM copy: /tmp/R22NEXT-V6R-B-CONTEXT-ACTIONS-STAGED.img; adb push and read-only SHA256 matched EXACT candidate hash.
+Xoom external SD copy: /external_sd/XoomToolkit/recovery-preflight-v6R-B-20261020/v6R-B-staged.img; adb push and read-only SHA256 matched EXACT hash. External SD mounted with >15GB free.
+
+Physical checks: USB ADB serial 02804102421f7517, product tervigon, model Xoom, device wingray, TWRP 3.1.1-0, battery 100%. Recovery alias resolves /dev/block/mmcblk1p6, 24,576 sectors x 512 = 12,582,912 bytes, 6,144 blocks x 2,048.
+Prior full v6Q rollback (separate Surface and SD copies) independently rehashed and both matched 8878e2fce7dbc7f939791c904af116002c4a1d1786ba569d2c26293a3773ab56. Surface file C:\Users\olsen\XoomDev\v6q-flash-prep\v6q-postflash-p6-full-20261019-194800.img; SD file /external_sd/XoomToolkit/recovery-preflight-v6Q-20261019/v6q-postflash-p6-full-20261019-194800.img. These backups are complete 12,582,912-byte pre-existing v6Q partition copies, but they are NOT yet a fresh preflash backup.
+
+NEXT USER ACTION: locally run one read-only PowerShell command on Surface: adb -s 02804102421f7517 shell sha256sum /dev/block/mmcblk1p6 . Only if live hash matches the previously verified v6Q full-partition hash, take a fresh full-p6 backup to SD, pull to Surface, and independently hash. Do not flash on any mismatch. Use one command at a time.
+After fresh preflight pass, user manually performs one exact-length recovery flash of staged RAM candidate, then separate sync, readback of exactly 4,708 x 2,048-byte image, compare untouched final 1,436 x 2,048-byte suffix against the fresh backup, and archive complete postflash p6 before any reboot. Only reboot after all checks. Previous v6Q flash similarly required user-local execution because remote command guard refused raw p6 write.
+
+Image differs from physically accepted v6Q in only twres/landscape.xml; 475 other CPIO records, kernel, native QR, manager, agent, installer and dependencies unchanged. v6R-B offline static QA 28/28 PASS; native GUI/hardware untested. See 2026-10-19-V6R-B-CONTEXT-ACTIONS-OFFLINE-QA.md.
