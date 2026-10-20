@@ -1,0 +1,21 @@
+[Reading 17 lines from start (total: 17 lines, 0 remaining)]
+
+<page name="xt_dc_connection_details">
+<template name="page"/>
+<xoomqr><placement x="0" y="0" w="0" h="0"/></xoomqr>
+<text><placement x="%col1_x_header%" y="%row3_header_y%"/><font resource="font_l" color="%text_color%"/><text>Desktop Commander | Connection Details</text></text>
+<fill color="#19293A"><placement x="80" y="290" w="1750" h="750"/></fill>
+<text><placement x="121" y="366"/><font resource="font_s" color="#54afe0"/><text>CURRENT SESSION</text></text>
+<text><placement x="121" y="458"/><font resource="font_l" color="#ffffff"/><text>%xt_dc_pairing_status%</text></text>
+<text><placement x="121" y="548"/><font resource="font_s" color="#ffffff"/><text>Agent package state: %xt_pkg_desktop_commander_state%</text></text>
+<text><placement x="121" y="616"/><font resource="font_s" color="#b7c9d8"/><text>Authorization is checked locally; cloud reachability is not.</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="AUTHORIZED"/><placement x="121" y="693"/><font resource="font_s" color="#68d3a3"/><text>Paired. Re-pairing controls will be added later.</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="AGENT_STOPPED"/><placement x="121" y="693"/><font resource="font_s" color="#b7c9d8"/><text>Start Agent from the dashboard to begin connecting.</text></text>
+<button><condition var1="xt_dc_pairing_status" var2="WAITING_FOR_BROWSER"/><placement x="121" y="759" w="450" h="88"/><fill color="#2676a4"/><font resource="font_s" color="#ffffff"/><text>View Pending QR</text><action function="page">xt_dc_pairing</action></button>
+<button><condition var1="xt_dc_pairing_status" var2="CODE_EXPIRED"/><placement x="121" y="759" w="450" h="88"/><fill color="#2676a4"/><font resource="font_s" color="#ffffff"/><text>Pairing Options</text><action function="page">xt_dc_pairing</action></button>
+<button><placement x="121" y="893" w="450" h="91"/><fill color="#264e7c"/><font resource="font_s" color="#ffffff"/><text>Back to Dashboard</text><action function="page">xt_details_desktop_commander</action></button>
+<action><touch key="home"/><action function="page">main</action></action>
+<action><touch key="back"/><action function="page">xt_details_desktop_commander</action></action>
+</page>
+
+[executed on device: ps-to-vnc-dev (4d7ecdd9-abb8-43fd-bb56-738a1edb45b8)]
