@@ -1,5 +1,7 @@
 # R22NEXT v6R — initial Desktop Commander dashboard UI pass
 
+**2026-10-20 V6R-B REAL FLASH/READBACK PASS — PRE-REBOOT:** User locally flashed 9,641,984-byte v6R-B theme-only recovery after fresh SHA-verified v6Q full backup on SD + Surface. 4,708-block written image prefix SHA matched approved `d3f0232435fbba01bcdc376ac8cb36b565941e68868bfeaa42babe5907f7a989`; full 12,582,912-byte live partition plus independent Surface readback matched calculated expected `8bb3f153028187e0093fd3cf6672bab3ff38b042b36a97dd9332af17da39ac63`, so untouched suffix verified. User typed lowercase `reboot` while script tested case-sensitive `REBOOT`; **no reboot observed yet**, so boot/native UI QA pending. [Actual flash/readback and QA gate](../../2026-10-20-V6R-B-PHYSICAL-FLASH-READBACK-VERIFIED-PREBOOT.md).
+
 ## Current revised candidate — v6R-B (2026-10-19)
 
 **OFFLINE ONLY. Do not flash without explicit approval.** Revised UI source: [Dashboard v6R-B](dashboard-page-v6r-b.xml), [Connection Details v6R-B](connection-details-page-v6r-b.xml). [Independent 28/28 QA and exact scope](../../2026-10-19-V6R-B-CONTEXT-ACTIONS-OFFLINE-QA.md). Candidate file privately held on Pi: `R22NEXT-V6R-B-CONTEXT-ACTIONS-OFFLINE-DO-NOT-FLASH.img` (9,641,984 bytes), SHA-256 `d3f0232435fbba01bcdc376ac8cb36b565941e68868bfeaa42babe5907f7a989`.
