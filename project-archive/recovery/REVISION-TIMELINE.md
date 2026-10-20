@@ -1,5 +1,7 @@
 # Recovery revision timeline and architectural decisions
 
+**2026-10-20 v6S physical flash and readback (NO BOOT):** Exact v6S SHA `55951d9d49fcb80eb144c42fe48ab8ba8debf01392db7b0a28e217267170af64` flashed, entire recovery partition precomputed SHA verified as `74535a63e2bb0beb105ab9b76a1f83caa21c549d408c4458a86f5f5af5afd261`, old full v6R-B rollback on SD/Surface retained. No reboot or functional QA. [Full flash QA](2026-10-20-V6S-PHYSICAL-FLASH-READBACK-VERIFIED-PREBOOT.md).
+
 **2026-10-20 v6S experimental OFFLINE ONLY:** [Exact candidate](versions/R22NEXT-V6S/DIRECTORY.md) combines guarded QR auto-entry, 90s Wi-Fi deadline and native semi-transparent footer hitbox / live touch crosshair. 33/33 offline PASS, physically installed remains v6R-B; no flash. [Detailed QA](2026-10-20-V6S-QR-WIFI90-HITBOX-DEBUG-OFFLINE-QA.md).
 
 **2026-10-18 — v6J-C scoped dispatcher correction (newest offline):** [C QA](2026-10-18-V6J-C-DISPATCH-AND-FOUR-MEMBER-OFFLINE-QA.md) and [exact candidate](versions/R22NEXT-V6J/R22NEXT-V6J-DC-PROBLEMA-PAIRING-C-OFFLINE-DO-NOT-FLASH/DIRECTORY.md). v6J-B previously built but its Generate New Code button could not pass native GUI dispatcher. C admits only Desktop Commander `pair`, rebuilds ARM recovery and requalifies strict 4-member image, **17/17 offline PASS**. C image SHA `0993c94c…cb63fafc`; v6I remains installed; no flash authorization.
