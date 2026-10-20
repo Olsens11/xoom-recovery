@@ -1,0 +1,28 @@
+# 2026-10-20 — v6R-B native dashboard and second-start cloud hardware QA
+
+**CURRENT STATUS: REAL V6R-B BOOTED; THEME SHA VERIFIED; SECOND USER START PASS through dependencies, agent, live local authorization-state dashboard update, and first-party cloud diagnostic. FIRST COLD START WIFI_TIMEOUT reproduced. Intermittent touchscreen nonresponse remains unproven.**
+
+The user had locally flashed the exact v6R-B image SHA-256 `d3f0232435fbba01bcdc376ac8cb36b565941e68868bfeaa42babe5907f7a989` and proved exact full p6 SHA `8bb3f153028187e0093fd3cf6672bab3ff38b042b36a97dd9332af17da39ac63`, after fresh v6Q full rollback on both Surface and microSD. Previous [readback QA](2026-10-20-V6R-B-PHYSICAL-FLASH-READBACK-VERIFIED-PREBOOT.md). The user subsequently rebooted into recovery and loaded Desktop Commander through **native Toolkit GUI**. A read-only physical `sha256sum /twres/landscape.xml` returned v6R-B exact theme SHA `5a0b0f6d36f9529870a4aa03ec4d99d37a7a2bbeff4661605023dea043b3fab3`. Actual boot and GUI rendering thus confirmed. Current unit is USB ADB serial `02804102421f7517`.
+
+## Native first Start
+
+User reported that **Load/Start buttons sometimes take repeated taps** before responding. Assistant did not touch controls, only remote screenshot capture using existing `xoom_remote.py capture` over Surface USB plus ADB read-only property/status inspections. The first user-native Start visibly registered in `v6rb-start-watch-01.png`: `STARTING DESKTOP CMD / Loading Wi-Fi` on Storage & Access package tab; `desktop-commander.state=STARTING_WIFI`, network property initially `QUEUED`. The footer advanced to `Waiting for Wi-Fi` (`v6rb-start-watch-02.png`), then state `WIFI_TIMEOUT` before `WIFI_READY` was observed. Agent remained `LOADED` and `init.svc.xoomdcagent` not running. Wi-Fi readiness ultimately completed AFTER timeout. User independently estimated about **20 seconds from timeout to eventual Wi-Fi ready** this time. This repeats prior physical v6Q cold-start timeout; 90s bounded wait is a candidate improvement, not implemented or tested in v6R-B.
+
+## Native second Start and v6R-B UI acceptance
+
+User pressed Start again after Wi-Fi ready. First screenshot `v6rb-second-start-01.png` showed `STARTING DESKTOP CMD / Loading Time Sync`. Read-only dependency phase `SYNCHRONIZING_TIME`, then `READY`, followed by native screenshot `v6rb-second-start-02.png` showing `Preparing runtime`; read-only phase subsequently `STARTING_AGENT`, and `init.svc.xoomdcagent=running`. `/sbin/xoom-toolkit-manager status desktop-commander` returned `RUNNING`.
+
+Hardware screen capture `v6rb-second-start-03.png` then showed the actual v6R-B two-column dashboard without visible clipping or text collisions, with left title `CONNECTION OVERVIEW`, state `Waiting for authorization`, agent `running`, Wi-Fi runtime `running`, Time Sync package `loaded`, and conditional buttons **Stop Agent** plus **View Pairing QR**. It also showed right-hand reserved Agent Console/Permissions/Connection Health sections (not functional yet). This confirms the zero-size native QR variable updater and initial conditional navigation render at screen resolution 1280×800, but does NOT test every pairing state or Connection Details navigation.
+
+A later read-only inspect of private RAM `/tmp/xoom-dc-pairing/state.txt` first two lines returned **v1 / AUTHORIZED** (no credentials logged). A later screenshot `v6rb-second-start-authorized.png` showed live dashboard state **Authorized** and automatic button change to **Connection Details**, while the agent and Wi-Fi remained `running`. The exact user/browser authorization action was not directly witnessed in this read-only monitoring session, so do not claim QR-to-phone scan acceptance specifically on v6R-B without additional observation.
+
+A refreshed first-party Desktop Commander device listing confirmed a **new Online** `xoom-recovery-87d89c` session ID `4abd0d2a-5fb0-4263-81dd-71784a14ee53` (distinct from older Offline same-name sessions). On that live first-party session, approved fixed `diag identity` submitted with PID `20490` returned exit code 0 and `uid=0(root) gid=0(root) groups=3003(inet)`. Thus provider cloud-to-Xoom command dispatch is real, not only a local AUTHORIZED indicator.
+
+## Remaining tests / priorities
+
+1. Inspect native **Connection Details** page and Back navigation by physical user tap or previously approved calibrated GUI touch. Verify waiting/pending and previously authorized displays; do not invoke QR re-generation or agent Stop without approval.
+2. Revisit intermittent GUI button reception: record location, whether action dispatch is blocked by Toolkit busy flag, whether touch release registers, and latency; do not assume touchscreen hardware fault.
+3. Separate bounded cold-Wi-Fi wait adjustment (proposed 90 seconds and early exit when READY) as independently tested functional update, not silently coupled to v6R-B UI.
+4. Session persistence, full terminal observer/workspace and root controls remain deferred. Current launcher uses `--no-persist-session`; no re-pair button added. Package, native QR renderer, trust verifier, dependents remain byte-identical to v6Q.
+
+**No package Start/Stop via ADB, no reflash, no destructive operations** in this monitoring session. All native package actions were performed by user.
