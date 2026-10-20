@@ -1,0 +1,42 @@
+[Reading 38 lines from start (total: 38 lines, 0 remaining)]
+
+<page name="xt_details_desktop_commander">
+<template name="page"/>
+<xoomqr><placement x="0" y="0" w="0" h="0"/></xoomqr>
+<text><placement x="%col1_x_header%" y="%row3_header_y%"/><font resource="font_l" color="%text_color%"/><text>Desktop Commander</text></text>
+<text><placement x="1370" y="137"/><font resource="font_s" color="#c5d9e8"/><text>v0.16.4</text></text>
+<button><placement x="1630" y="84" w="204" h="70"/><fill color="#264e7c"/><font resource="font_s" color="#ffffff"/><text>Help</text><action function="page">xt_help_desktop_commander</action></button>
+<fill color="#19293A"><placement x="80" y="290" w="820" h="735"/></fill>
+<fill color="#19293A"><placement x="925" y="290" w="915" h="735"/></fill>
+<text><placement x="114" y="350"/><font resource="font_s" color="#54afe0"/><text>CONNECTION OVERVIEW</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="AUTHORIZED"/><placement x="114" y="430"/><font resource="font_l" color="#68d3a3"/><text>Authorized</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="WAITING_FOR_BROWSER"/><placement x="114" y="430"/><font resource="font_l" color="#ffffff"/><text>Waiting for authorization</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="AGENT_STOPPED"/><placement x="114" y="430"/><font resource="font_l" color="#ffffff"/><text>Agent stopped</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="NOT_PAIRED"/><placement x="114" y="430"/><font resource="font_l" color="#ffffff"/><text>Not paired</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="CODE_EXPIRED"/><placement x="114" y="430"/><font resource="font_l" color="#ffffff"/><text>Pairing code expired</text></text>
+<text><condition var1="xt_dc_pairing_status" var2="QR_UNAVAILABLE"/><placement x="114" y="430"/><font resource="font_l" color="#ffffff"/><text>Pairing QR unavailable</text></text>
+<text><placement x="114" y="492"/><font resource="font_s" color="#b7c9d8"/><text>Authorization is not proof of cloud reachability.</text></text>
+<fill color="#344A5E"><placement x="112" y="531" w="753" h="2"/></fill>
+<text><placement x="114" y="596"/><font resource="font_s" color="#ffffff"/><text>Agent: %xt_pkg_desktop_commander_state%</text></text>
+<text><placement x="114" y="661"/><font resource="font_s" color="#ffffff"/><text>Wi-Fi runtime: %xt_pkg_wifi_runtime_state%</text></text>
+<text><placement x="114" y="726"/><font resource="font_s" color="#ffffff"/><text>Time Sync package: %xt_pkg_time_sync_state%</text></text>
+<button><condition var1="xt_pkg_desktop_commander_state" var2="loaded"/><placement x="115" y="793" w="345" h="87"/><fill color="#2676a4"/><font resource="font_s" color="#ffffff"/><text>Start Agent</text><action function="xoomtoolkitexec">start:desktop-commander</action></button>
+<button><condition var1="xt_pkg_desktop_commander_state" var2="running"/><placement x="115" y="793" w="345" h="87"/><fill color="#70434d"/><font resource="font_s" color="#ffffff"/><text>Stop Agent</text><action function="xoomtoolkitexec">stop:desktop-commander</action></button>
+<button><placement x="484" y="793" w="380" h="87"/><fill color="#264e7c"/><font resource="font_s" color="#ffffff"/><text>Connection Details</text><action function="page">xt_dc_connection_details</action></button>
+<text><placement x="114" y="946"/><font resource="font_s" color="#b7c9d8"/><text>Load or unload packages from Toolkit Manager.</text></text>
+<text><placement x="960" y="350"/><font resource="font_s" color="#54afe0"/><text>ACTIVITY AND TOOLS</text></text>
+<text><placement x="960" y="430"/><font resource="font_l" color="#ffffff"/><text>Agent Console</text></text>
+<text><placement x="960" y="493"/><font resource="font_s" color="#b7c9d8"/><text>Agent viewer and My Terminal: next phase.</text></text>
+<text><placement x="960" y="546"/><font resource="font_s" color="#b7c9d8"/><text>Full-screen workspace with independent tabs.</text></text>
+<fill color="#344A5E"><placement x="960" y="593" w="840" h="2"/></fill>
+<text><placement x="960" y="658"/><font resource="font_s" color="#54afe0"/><text>PERMISSIONS</text></text>
+<text><placement x="960" y="713"/><font resource="font_s" color="#ffffff"/><text>Agent root control: reserved for later.</text></text>
+<text><placement x="960" y="766"/><font resource="font_s" color="#b7c9d8"/><text>Existing agent permissions remain unchanged.</text></text>
+<fill color="#344A5E"><placement x="960" y="806" w="840" h="2"/></fill>
+<text><placement x="960" y="878"/><font resource="font_s" color="#54afe0"/><text>CONNECTION HEALTH</text></text>
+<text><placement x="960" y="936"/><font resource="font_s" color="#b7c9d8"/><text>Local connection diagnostics: planned.</text></text>
+<action><touch key="home"/><action function="page">main</action></action>
+<action><touch key="back"/><action function="page">xoom_toolkit_more</action></action>
+</page>
+
+[executed on device: ps-to-vnc-dev (4d7ecdd9-abb8-43fd-bb56-738a1edb45b8)]
