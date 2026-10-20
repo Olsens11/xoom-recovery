@@ -1,5 +1,3 @@
-[Reading 38 lines from start (total: 38 lines, 0 remaining)]
-
 <page name="xt_details_desktop_commander">
 <template name="page"/>
 <xoomqr><placement x="0" y="0" w="0" h="0"/></xoomqr>
@@ -38,5 +36,3 @@
 <action><touch key="home"/><action function="page">main</action></action>
 <action><touch key="back"/><action function="page">xoom_toolkit_more</action></action>
 </page>
-
-[executed on device: ps-to-vnc-dev (4d7ecdd9-abb8-43fd-bb56-738a1edb45b8)]
