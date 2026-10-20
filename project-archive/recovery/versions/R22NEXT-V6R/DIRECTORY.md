@@ -1,5 +1,11 @@
 # R22NEXT v6R — initial Desktop Commander dashboard UI pass
 
+## Current revised candidate — v6R-B (2026-10-19)
+
+**OFFLINE ONLY. Do not flash without explicit approval.** Revised UI source: [Dashboard v6R-B](dashboard-page-v6r-b.xml), [Connection Details v6R-B](connection-details-page-v6r-b.xml). [Independent 28/28 QA and exact scope](../../2026-10-19-V6R-B-CONTEXT-ACTIONS-OFFLINE-QA.md). Candidate file privately held on Pi: `R22NEXT-V6R-B-CONTEXT-ACTIONS-OFFLINE-DO-NOT-FLASH.img` (9,641,984 bytes), SHA-256 `d3f0232435fbba01bcdc376ac8cb36b565941e68868bfeaa42babe5907f7a989`.
+
+Supersedes the original v6R first-pass candidate **for future UI testing**, while preserving it as an immutable audit baseline. **Only** `twres/landscape.xml` changes versus physically proven v6Q; native QR, authorization return, agent, installer, dependency behavior and kernel are byte-identical. Main connection button adapts to six local pairing states; already authorized → Connection Details, not paired → Set Up Pairing, pending → existing QR, expired → existing pairing options. No routine re-pair button and no implemented root/terminal/persistence features. A new code still requires using **Generate New Code** on the existing QR page when needed. Current Xoom remains v6Q.
+
 [Recovery version parent](../DIRECTORY.md) · [comprehensive first-pass architecture and QA](../../2026-10-19-V6R-DESKTOP-COMMANDER-DASHBOARD-UI-FIRST-PASS.md)
 
 **Candidate status: OFFLINE ONLY, NOT FLASHED, native/hardware QA pending.** Current physically running recovery remains proven v6Q; v6R changes **only** the TWRP UI theme.
